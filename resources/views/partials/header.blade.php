@@ -30,8 +30,8 @@
                             <li class="dropdown">
                                 <a href="#" class="language dropdown-toggle" data-toggle="dropdown"><img src="source/images/flag-us.png" alt=""> English</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#"><img src="source/images/flag-us.png" alt=""> &nbsp;English</a></li>
-                                    <li><a href="#"><img src="source/images/flag-spain.png" alt=""> &nbsp;Spanish</a></li>
+                                    <li><a href="#"><img src="images/flag-us.png" alt=""> &nbsp;English</a></li>
+                                    <li><a href="#"><img src="images/flag-spain.png" alt=""> &nbsp;Spanish</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -130,58 +130,13 @@
                                     <div class="mega-menu-title"><h3>Danh mục sản phẩm</h3></div>
                                     <div class="mega-menu-category">
                                         <ul class="nav">
-                                            <li>
-                                                <a href="#">Guitar</a>
-                                                <div class="wrap-popup column1">
-                                                    <div class="popup">
-                                                        <div class="row">
-                                                            <div class="col-md-3">
-                                                                <h3>Guitars</h3>
-                                                                <ul class="nav">
-                                                                    <li><a href="#">Ukulele</a></li>
-                                                                    <li><a href="#">clasic giutars</a></li>
-                                                                    <li><a href="#">Acountic guitars</a></li>
-                                                                    <li><a href="#">electric guitars</a></li>
-                                                                    <li><a href="#">guitar elec...</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">Bass</a>
-                                                <div class="wrap-popup column1">
-                                                    <div class="popup">
-                                                        <div class="row">
-                                                            <div class="col-md-3">
-                                                                <h3>Bass</h3>
-                                                                <ul class="nav">
-                                                                    <li><a href="#">Acoutis Bass</a></li>
-                                                                    <li><a href="#">Electric Bass</a></li>
-                                                                    <li><a href="#">Bass Accessries</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">Amp/effect</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Drum/perc</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Keyboard/Piano</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Accessories</a>
-                                            </li>
-                                            <li class="nosub"><a href="#">Stylish</a></li>
-                                            <li class="nosub"><a href="#">Kis Intl</a></li>
-                                            <li class="nosub"><a href="#">Harp pipe</a></li>
-                                            <li class="more-menu"><a href="#">Recording</a></li>
+                                            <li><a href="#">Acoustic Guitar </a></li>
+                                            <li><a href="#">Electric Guitar </a></li>
+                                            <li><a href="#">Bass</a></li>
+                                            <li><a href="#">Amp/effect</a></li>
+                                            <li><a href="#">Drum/perc</a></li>
+                                            <li><a href="#">Keyboard/Piano</a></li>
+                                            <li><a href="#">Accessories</a></li>
                                         </ul>
                                     </div>
                                 </div>

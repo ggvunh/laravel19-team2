@@ -19,10 +19,10 @@ class CreateProductTable extends Migration
             $table->string('description');
             $table->enum('hot',['1','0']);
             $table->enum('new',['1','0']);
-            $table->enum('ud',['1','0']);
+            $table->enum('deals',['1','0']);
             $table->integer('quantity');
-            $table->float('unit_price');
-            $table->float('promotion_price');
+            $table->double('unit_price');
+            $table->double('promotion_price');
             $table->string('image');
             $table->string('unit');
             $table->timestamps();
