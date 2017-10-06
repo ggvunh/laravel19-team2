@@ -16,10 +16,16 @@
     <link href="css/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link href="css/cloud-zoom.css" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -27,17 +33,23 @@
   </head>
   <body>
 
-        @include('page.header')
+        @include('partials.header')
 
         @yield('content')
 
-        @include('page.footer')
+        @include('partials.footer')
 
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.nivo.slider.pack.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.bxslider.min.js"></script>
+        <script src="js/cloud-zoom.js"></script>
+
+
+
         <script type="text/javascript">
             /* Main Slideshow */
             $(window).load(function() {
@@ -216,6 +228,127 @@
             var iid3 = "countbox_3";
             CountBack_slider(gsecs3,"countbox_3", 3);
         </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                /* special-offer slider */
+                $("#special-offer .owl").owlCarousel({
+                    autoPlay : false,
+                    items : 1,
+                    itemsDesktop : [1199,1],
+                    itemsDesktopSmall : [991,1],
+                    itemsTablet: [767,2],
+                    itemsMobile : [480,1],
+                    slideSpeed : 3000,
+                    paginationSpeed : 3000,
+                    rewindSpeed : 3000,
+                    navigation : true,
+                    stopOnHover : true,
+                    pagination : false,
+                    scrollPerPage:true,
+                });
+
+                /* slider price */
+                var currencies = "$";
+                var toolbar_status = "1";
+                var rate = "1";
+                var min = "99"
+                    min = Number(min);
+                var max = "999"
+                    max = Number(max);
+                var currentMinPrice = "99"
+                    currentMinPrice = Number(currentMinPrice);
+                var currentMaxPrice = "999"
+                //alert('min: '+min+'--max: '+ max+ 'currentMin: '+currentMinPrice);
+                currentMaxPrice = Number(currentMaxPrice);
+                var params = "";
+                params = $.trim(params);
+                //slider
+                $( "#slider-range" ).slider({
+                    range: true,
+                    min: min,
+                    max: max,
+                    values: [ currentMinPrice, currentMaxPrice ],
+                    slide: function( event, ui ) {
+                        $( "#amount" ).val( currencies + ui.values[ 0 ] + " - "+ currencies + ui.values[ 1 ] );
+                        $('input[name="first_price"]').val(ui.values[0]);
+                        $('input[name="last_price"]').val(ui.values[1]);
+                    },
+                    stop: function( event, ui ) {
+                    }
+                });
+
+                $( "#amount" ).val( currencies + $( "#slider-range" ).slider( "values", 0 ) +
+                    " - "+currencies + $( "#slider-range" ).slider( "values", 1 ) );
+                $('input[name="first_price"]').val($( "#slider-range" ).slider( "values", 0 ));
+                $('input[name="last_price"]').val($( "#slider-range" ).slider( "values", 1 ));
+
+                //search price from input box
+                $('#search_price').each(function(){
+                    $(this).live('click',function(){
+                        return false;
+                    })
+                });
+                $('#slider-range a:first').addClass('first_item');
+                $('#slider-range a:last').addClass('last_item');
+
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                /* special-offer slider */
+                $("#special-offer .owl").owlCarousel({
+                    autoPlay : false,
+                    items : 1,
+                    itemsDesktop : [1199,1],
+                    itemsDesktopSmall : [991,1],
+                    itemsTablet: [767,2],
+                    itemsMobile : [480,1],
+                    slideSpeed : 3000,
+                    paginationSpeed : 3000,
+                    rewindSpeed : 3000,
+                    navigation : true,
+                    stopOnHover : true,
+                    pagination : false,
+                    scrollPerPage:true,
+                });
+                /* featured-products slider */
+                $("#featured-products .owl").owlCarousel({
+                    autoPlay : false,
+                    items : 4,
+                    itemsDesktop : [1199,3],
+                    itemsDesktopSmall : [991,2],
+                    itemsTablet: [767,2],
+                    itemsMobile : [480,1],
+                    slideSpeed : 3000,
+                    paginationSpeed : 3000,
+                    rewindSpeed : 3000,
+                    navigation : true,
+                    stopOnHover : true,
+                    pagination : false,
+                    scrollPerPage:true,
+                });
+                /* .thumbnail-container product image slider */
+                $('.thumbnail-container .bxslider').bxSlider({
+                    slideWidth: 94,
+                    slideMargin: 5,
+                    minSlides: 4,
+                    maxSlides: 4,
+                    pager: false,
+                    speed: 500,
+                    pause: 3000
+                });
+            });
+        </script>
+
+        <script src="../../../../../code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+
+
+
+
   </body>
 </html>
 

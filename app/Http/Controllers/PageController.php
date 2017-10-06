@@ -10,12 +10,16 @@ class PageController extends Controller
     {
       return view('page.trangchu');
     }
-    public function list()
+    public function getSanPham()
     {
-      return view('page.list');
+      return view('page.sanpham');
     }
-    public function cart()
+    public function getChiTiet()
     {
-      return view('page.cart');
+      return view('page.chitietsp');
+    }
+    public function getGioHang()
+    {
+      return view('page.giohang');
     }
 }
