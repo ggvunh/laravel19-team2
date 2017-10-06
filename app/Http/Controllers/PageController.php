@@ -22,4 +22,9 @@ class PageController extends Controller
     {
       return view('page.giohang');
     }
+    public function login()
+    {
+      return 12345;
+    }
+
 }
