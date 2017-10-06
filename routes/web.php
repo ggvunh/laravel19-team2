@@ -18,4 +18,8 @@ Route::get('index', 'PageController@getIndex');
 Route::get('san-pham', 'PageController@getSanPham');
 Route::get('chi-tiet-sp', 'PageController@getChiTiet');
 Route::get('gio-hang', 'PageController@getGioHang');
-Route::get('login', 'PageController@login');
+// Route::get('login', 'PageController@login');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
