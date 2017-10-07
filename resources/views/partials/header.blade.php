@@ -161,12 +161,12 @@
                         </div>
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
-                                <li><a href="{{url('/')}}">Trang chủ</a></li>
-                                <li><a href="list.html">giới thiệu</a></li>
-                                <li><a href="grid.html">Sản Phẩm</a></li>
-                                <li><a href="detail.html">Chia sẻ</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-detail.html">Liên Hệ</a></li>
+                                <li><a href="{{url('/index')}}">Trang chủ</a></li>
+                                <li><a href="#">giới thiệu</a></li>
+                                <li><a href="{{url('/san-pham')}}">Sản Phẩm</a></li>
+                                <li><a href="#">Chia sẻ</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Liên Hệ</a></li>
                             </ul>
                         </div>
                     </div>
