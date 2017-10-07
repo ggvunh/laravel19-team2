@@ -130,7 +130,24 @@
                                     <div class="mega-menu-title"><h3>Danh mục sản phẩm</h3></div>
                                     <div class="mega-menu-category">
                                         <ul class="nav">
-                                            <li><a href="#">Acoustic Guitar </a></li>
+                                            <li><a href="#">Acoustic Guitar </a>
+                                                <div class="wrap-popup column1">
+                                                    <div class="popup">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <h3>Guitars</h3>
+                                                                <ul class="nav">
+                                                                    <li><a href="#">Ukulele</a></li>
+                                                                    <li><a href="#">clasic giutars</a></li>
+                                                                    <li><a href="#">Acountic guitars</a></li>
+                                                                    <li><a href="#">electric guitars</a></li>
+                                                                    <li><a href="#">guitar elec...</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                             <li><a href="#">Electric Guitar </a></li>
                                             <li><a href="#">Bass</a></li>
                                             <li><a href="#">Amp/effect</a></li>
