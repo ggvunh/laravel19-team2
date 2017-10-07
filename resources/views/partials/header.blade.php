@@ -20,20 +20,6 @@
                                     <li><a title="Testimonial" href="testimonial.html">Testimonial</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="currency dropdown-toggle" data-toggle="dropdown">USD</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#">Euro</a></li>
-                                    <li><a href="#">US Dollar</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="language dropdown-toggle" data-toggle="dropdown"><img src="source/images/flag-us.png" alt=""> English</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#"><img src="images/flag-us.png" alt=""> &nbsp;English</a></li>
-                                    <li><a href="#"><img src="images/flag-spain.png" alt=""> &nbsp;Spanish</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div><!-- /.container -->
@@ -42,7 +28,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="{{url('index')}}" class="logo"><img src="images/logo.png" alt=""></a>
+                            <a href="{{url('/')}}" class="logo"><img src="images/logo.png" alt=""></a>
                         </div>
                         <div class="col-md-9">
                             <div class="support-client">
@@ -88,23 +74,14 @@
                             </form>
                             <div class="mini-cart">
                                 <div class="top-cart-title">
-                                    <a href="cart.html" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng
                                         <span class="price">$45.00</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
                                             <div class="media">
-                                                <div class="media-left"><a href="#"><img src="images/products/11.jpg" alt="" class="img-responsive"></a></div>
-                                                <div class="media-body">
-                                                    <button type="button" class="remove-cart-item" >&times;</button>
-                                                    <h4>Accumsan elit</h4>
-                                                    <div class="mini-cart-qty">Qty:2</div>
-                                                    <div class="mini-cart-price">$ 64.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left"><a href="#"><img src="source/images/products/13.jpg" class="img-responsive" alt=""></a></div>
+                                                <div class="media-left"><a href="{{ url('gio-hang') }}"><img src="images/products/11.jpg" alt="" class="img-responsive"></a></div>
                                                 <div class="media-body">
                                                     <button type="button" class="remove-cart-item" >&times;</button>
                                                     <h4>Accumsan elit</h4>
@@ -162,11 +139,11 @@
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
                                 <li><a href="{{url('/')}}">Trang chủ</a></li>
-                                <li><a href="list.html">giới thiệu</a></li>
-                                <li><a href="grid.html">Sản Phẩm</a></li>
-                                <li><a href="detail.html">Chia sẻ</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-detail.html">Liên Hệ</a></li>
+                                <li><a href="#">giới thiệu</a></li>
+                                <li><a href="{{ url('san-pham') }}">Sản Phẩm</a></li>
+                                <li><a href="#">Chia sẻ</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Liên Hệ</a></li>
                             </ul>
                         </div>
                     </div>

@@ -13,7 +13,10 @@ class PageController extends Controller
         $menus=Menu::all();
         // var_dump($menus);
         $hot_products = product::where('hot', 1)->get();
-        return view('page.trangchu', compact('hot_products'));
+        $new_products = product::where('new', 1)->get();
+        $deal_products = product::where('deals', 1)->get();
+        $products = product::all();
+        return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products', 'products'));
         return view('partials.header', compact('$menus'));
     }
     public function getSanPham()
