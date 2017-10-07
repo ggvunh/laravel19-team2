@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index', 'PageController@getIndex');
+Route::get('/', 'PageController@getIndex');
 Route::get('san-pham', 'PageController@getSanPham');
 Route::get('chi-tiet-sp', 'PageController@getChiTiet');
 Route::get('gio-hang', 'PageController@getGioHang');

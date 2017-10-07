@@ -9,8 +9,12 @@ class PageController extends Controller
 {
     public function getIndex()
     {
+        $menus=Menu::all();
         $hot_products = product::where('hot', 1)->get();
-        return view('page.trangchu', compact('hot_products'));
+        $new_products = product::where('new', 1)->get();
+        $deal_products = product::where('deals', 1)->get();
+        $products = product::all();
+        return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products', 'products'));
     }
     public function getSanPham()
     {
