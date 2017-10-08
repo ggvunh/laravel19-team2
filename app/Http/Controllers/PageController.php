@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Menu;
+use App\Category;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\addProductRequest;
+use App\Http\Requests\addCategoryRequest;
+use App\Http\Requests\editProductRequest;
 class PageController extends Controller
 {
     public function getIndex()
@@ -36,5 +40,81 @@ class PageController extends Controller
     {
       return 12345;
     }
+    // function Add Product-Category by Duong Dong Hung
+    public function listProduct()
+    {
+        $data=Product::paginate(10);
+        return view('admin.product.list-all-products')->with(['data'=>$data]);
+    }
+    public function getaddCategory()
+    {
+        return view('admin.product.add-categoryProduct');
+    }
 
-}
+    public function postaddCategory(Request $rq,addCategoryRequest $request)
+    {
+          $addCategory=new Category;
+          $addCategory->name=$rq->input('cateproduct-name');
+          $addCategory->save();
+          return redirect('admin/product/addcategory')->with('infor','Add successful Category Product');
+    }
+
+    public function getaddProduct()
+    { 
+          $data=Category::all();
+          return view('admin.product.add-product')->with(['data'=>$data]);
+    }
+
+    public function postaddProduct(Request $rq,addProductRequest $request)
+    {
+          $addProduct=new Product;
+          $addProduct->name=$rq->input('product-name');
+          $addProduct->category_id=$rq->input('product-cate');
+          $addProduct->description=$rq->input('description');
+          $addProduct->quantity=$rq->input('quantity');
+          $addProduct->unit_price=$rq->input('unitprice'); 
+          $addProduct->promotion_price=$rq->input('promotion-price');
+          $addProduct->image=$rq->input('product-image');
+          $addProduct->new=$rq->input('version');
+          $addProduct->hot=$rq->input('status');
+          $addProduct->deals=$rq->input('deals');
+          $addProduct->unit=$rq->input('unit');
+          $addProduct->save();
+          return redirect('admin/product/addproduct')->with('infor','Add successful product');
+           
+    }
+
+    public function geteditProduct($id)
+    {
+          $data=Product::find($id);
+          $data1=Category::all();
+          return view('admin.product.edit-product')->with(['data'=>$data,'data1'=>$data1]);
+    }
+
+    public function posteditProduct($id ,Request $rq, editProductRequest $request )
+    {
+          $editProduct=Product::find($id);
+          $editProduct->name=$rq->input('product-name');
+          $editProduct->category_id=$rq->input('product-cate');
+          $editProduct->description=$rq->input('description');
+          $editProduct->quantity=$rq->input('quantity');
+          $editProduct->unit_price=$rq->input('unitprice'); 
+          $editProduct->promotion_price=$rq->input('promotion-price');
+          $editProduct->image=$rq->input('product-image');
+          $editProduct->new=$rq->input('version');
+          $editProduct->hot=$rq->input('status');
+          $editProduct->deals=$rq->input('deals');
+          $editProduct->unit=$rq->input('unit');
+          $editProduct->save();
+          return redirect('admin/product/editproduct/'.$id)->with('infor','Edit successful product');
+    }
+
+    public function deleteProduct($id)
+    {
+          $deleteProduct=Product::find($id);
+          $deleteProduct->delete();
+          return redirect('admin/product/listproduct')->with('infor','Delete successful');
+    }
+} 
+
+
