@@ -23,3 +23,22 @@ Route::get('gio-hang', 'PageController@getGioHang');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Nhom Route cho trang admin/product- by Duong Dong Hung
+Route::group(['prefix'=>'admin'],function(){
+	Route::group(['prefix'=>'product'],function(){
+		Route::get('listproduct','PageController@listProduct');
+
+		Route::get('addcategory','PageController@getaddCategory');
+        Route::post('addcategory','PageController@postaddCategory');
+
+		Route::get('addproduct','PageController@getaddProduct');
+        Route::post('addproduct','PageController@postaddProduct');
+
+        Route::get('editproduct/{id}','PageController@geteditProduct');
+        Route::post('editproduct/{id}','PageController@posteditProduct');
+        
+        Route::get('deleteproduct/{id}','PageController@deleteProduct');
+       
+
+	});
+});
