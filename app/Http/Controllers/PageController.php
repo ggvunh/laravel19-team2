@@ -43,7 +43,7 @@ class PageController extends Controller
     // function Add Product-Category by Duong Dong Hung
     public function listProduct()
     {
-        $data=Product::paginate(10);
+        $data=Product::orderBy('id','desc')->paginate(10);
         return view('admin.product.list-all-products')->with(['data'=>$data]);
     }
     public function getaddCategory()
@@ -56,13 +56,13 @@ class PageController extends Controller
           $addCategory=new Category;
           $addCategory->name=$rq->input('cateproduct-name');
           $addCategory->save();
-          return redirect('admin/product/addcategory')->with('infor','Add successful Category Product');
+          return redirect('admin/product/addcategory')->with('infor','Thêm sản phẩm thành công');
     }
 
     public function getaddProduct()
     { 
-          $data=Category::all();
-          return view('admin.product.add-product')->with(['data'=>$data]);
+          $category=Category::all();
+          return view('admin.product.add-product')->with(['category'=>$category]);
     }
 
     public function postaddProduct(Request $rq,addProductRequest $request)
@@ -80,15 +80,15 @@ class PageController extends Controller
           $addProduct->deals=$rq->input('deals');
           $addProduct->unit=$rq->input('unit');
           $addProduct->save();
-          return redirect('admin/product/addproduct')->with('infor','Add successful product');
+          return redirect('admin/product/listproduct')->with('infor','Thêm sản phẩm thành công');
            
     }
 
     public function geteditProduct($id)
     {
-          $data=Product::find($id);
-          $data1=Category::all();
-          return view('admin.product.edit-product')->with(['data'=>$data,'data1'=>$data1]);
+          $product=Product::find($id);
+          $category=Category::all();
+          return view('admin.product.edit-product')->with(['product'=>$product,'category'=>$category]);
     }
 
     public function posteditProduct($id ,Request $rq, editProductRequest $request )
@@ -106,14 +106,14 @@ class PageController extends Controller
           $editProduct->deals=$rq->input('deals');
           $editProduct->unit=$rq->input('unit');
           $editProduct->save();
-          return redirect('admin/product/editproduct/'.$id)->with('infor','Edit successful product');
+          return redirect('admin/product/editproduct/'.$id)->with('infor','Sửa sản phẩm thành công');
     }
 
     public function deleteProduct($id)
     {
           $deleteProduct=Product::find($id);
           $deleteProduct->delete();
-          return redirect('admin/product/listproduct')->with('infor','Delete successful');
+          return redirect('admin/product/listproduct')->with('infor','Xóa sản phẩm thành công');
     }
 } 
 
