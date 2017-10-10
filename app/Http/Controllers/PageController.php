@@ -49,8 +49,10 @@ class PageController extends Controller
     {
         $products = Product::where('name','like','%'.$req->key.'%')
                             ->orwhere('unit_price',$req->key)
-                            ->orwhere('promotion_price',$req->key)->paginate();
-        return view('page.sanpham', compact('products'));
+                            ->orwhere('promotion_price',$req->key)->paginate(6);
+            var_dump($products);
+            //return view('page.searchsp', compact('products'));
+
     }
     public function view_chitiet($id)
     {

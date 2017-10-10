@@ -78,8 +78,7 @@
                                     </div>
                                 </div>
                             </div><!-- /.support-client -->
-                            <form class="form-search" method="POST" action="searchsp">
-                                {{csrf_field()}}
+                            <form class="form-search" method="GET" action="searchsp">
                                 <input type="text" class="input-text" name="key" id="search" placeholder="Tìm kiếm theo tên hoặc giá...">
                                 <button type="submit" class="btn btn-danger"><span class="fa fa-search"></span></button>
                             </form>
