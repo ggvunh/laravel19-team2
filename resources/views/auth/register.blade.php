@@ -6,7 +6,7 @@
 
         </div>
         <div class="col-sm-9">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-8 col-md-offset-2 registerpak">
               <div class="panel panel-default">
                   <div class="panel-heading"><h3>Đăng ký</h3></div>
 
@@ -109,8 +109,8 @@
 
                           <div class="form-group">
                               <div class="col-md-6 col-md-offset-4">
-                                  <button type="submit" class="btn btn-primary">
-                                      Register
+                                  <button type="submit" class="btn btn-danger">
+                                      Đăng ký
                                   </button>
                               </div>
                           </div>

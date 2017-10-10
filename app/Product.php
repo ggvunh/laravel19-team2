@@ -16,4 +16,9 @@ class Product extends Model
         {
         	return $this->hasMany('App\BillDetail','product_id','id');
         }
+
+    public function Brand()
+        {
+        	return $this->belongsTo('App\Brand','brand_id','id');
+        }
 }

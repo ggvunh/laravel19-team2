@@ -3331,3 +3331,21 @@ label {
     font-weight: 700;
     color: #474747;
 }
+
+.panel {
+    margin-top: 50px;
+}
+.loginpak {
+    width: 100%;
+    margin: auto!important;
+}
+.registerpak{
+    width: 100%;
+    margin: auto!important;
+}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #D8373E;
+    border-color: #ddd;
+}

@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \Schema::defaultStringLength(191);
         if (\Schema::hasTable('menus')) {
-           $menus=Menu::all();
+           $menus = Menu::all();
            View::share('menus', $menus);
        }
     }

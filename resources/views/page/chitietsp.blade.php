@@ -2,10 +2,7 @@
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
-
   <body>
-
-
         <div class="breadcrumbs">
             <div class="container">
                 <ul class="breadcrumb">
@@ -15,7 +12,6 @@
                 </ul>
             </div>
         </div><!-- /.breadcrumbs -->
-
         <div class="main">
             <div class="container">
                 <div class="row">
