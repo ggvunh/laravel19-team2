@@ -18,21 +18,24 @@ class PageController extends Controller
         $products = Product::all();
         return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products', 'products'));
     }
+
     public function getSanPham()
     {
         $products = Product::orderBy('id','desc')->paginate(6);
         return view('page.sanpham', compact('products'));
     }
+
     public function viewsp_category($id)
     {
         $products = Product::where('category_id',$id)->paginate(6);
         return view('page.sanpham', compact('products'));
     }
+
     public function getChiTiet()
     {
-      return view('page.chitietsp');
       return view('page.detail');
     }
+
     public function getGioHang()
     {
       return view('page.giohang');
@@ -42,24 +45,25 @@ class PageController extends Controller
     {
         $products = Product::where('name','like','%'.$req->key.'%')
                             ->orwhere('unit_price',$req->key)
-                            ->orwhere('promotion_price',$req->key)->paginate();
-        return view('page.sanpham', compact('products'));
+                            ->orwhere('promotion_price',$req->key)->paginate(6);
+
+        return view('page.searchsp', compact('products'));
+
     }
+
     public function view_chitiet($id)
     {
         $product=Product::where('id',$id)->get();
         return view('page.view_chitiet',compact('product'));
     }
-    public function login()
-    {
-      return 12345;
-    }
+
     // function Add Product-Category by Duong Dong Hung
     public function listProduct()
     {
         $data=Product::orderBy('id','desc')->paginate(10);
         return view('admin.product.list-all-products')->with(['data'=>$data]);
     }
+    
     public function getaddCategory()
     {
         return view('admin.product.add-categoryProduct');
