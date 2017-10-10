@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
-
 class PageController extends Controller
 {
     public function getIndex()
@@ -32,23 +31,13 @@ class PageController extends Controller
         return view('page.sanpham', compact('products'));
     }
 
-    public function getChiTiet()
-    {
-        return view('page.chitietsp');
-        return view('page.detail');
-    }
-
-    public function getGioHang()
-    {
-        return view('page.giohang');
-    }
-
     public function searchsp(Request $req)
     {
         $products = Product::where('name','like','%'.$req->key.'%')
-                            ->orwhere('unit_price',$req->key)
-                            ->orwhere('promotion_price',$req->key)->paginate(6);
-        return view('page.sanpham', compact('products'));
+            ->orwhere('unit_price',$req->key)
+            ->orwhere('promotion_price',$req->key)->paginate(6);
+
+        return view('page.searchsp', compact('products'));
     }
 
     public function view_chitiet($id)

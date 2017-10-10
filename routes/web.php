@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -11,22 +12,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/', 'PageController@getIndex');
 Route::get('san-pham', 'PageController@getSanPham');
 Route::get('chi-tiet-sp', 'PageController@getChiTiet');
 Route::get('gio-hang', 'PageController@getGioHang');
-Route::post('searchsp', 'PageController@searchsp');
+Route::get('searchsp', 'PageController@searchsp');
 Route::get('view_chitiet/{id}', 'PageController@view_chitiet');
 Route::get('sanpham/{id}', 'PageController@viewsp_category');
-
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('admin', 'PageController@getAdmin')->name('admin');
-
 // Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'product'],function(){

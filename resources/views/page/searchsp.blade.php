@@ -7,7 +7,7 @@
             <div class="col-sm-9 col-right">
                 <div class="page-title">
                     <h1>TÌM KIẾM SẢN PHẨM</h1>
-                    <h4>Tìm thấy: {{count($products)}} sản phẩm</h4>
+                    <h4>Tìm thấy: sản phẩm</h4>
                 </div>
                 <div class="toolbar">
                     <div class="pager">
