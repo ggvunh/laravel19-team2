@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -39,6 +39,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+  
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -47,10 +49,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return Validator::make($data,
+        [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string|min:6',
+            'password_confirmation' => 'required|same:password',
+            'phone' => 'required',
+            'address' => 'required'
+        ],
+        [
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Không đúng định dạng email',
+            'email.unique' => 'Email đã có người sử dụng',
+            'name.required' => 'Vui lòng nhập tên',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password_confirmation.required' => 'Vui lòng nhập mật khẩu xác nhận',
+            'password_confirmation.same' => 'Mật khẩu không giống nhau',
+            'password.min' => 'Mật khẩu có ít nhất 6 kí tự'
         ]);
     }
 
@@ -66,6 +84,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'phone_number' => $data['phone'],
+            'gender' => $data['gender'],
+            'address' => $data['address']
         ]);
     }
+
+
 }

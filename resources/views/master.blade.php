@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="#">
 
     <title>Ph19 - mua bán nhạc cụ</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="css/nivo-slider.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/owl.carousel.css" rel="stylesheet">
@@ -19,8 +19,6 @@
     <link href="css/jquery-ui.css" rel="stylesheet">
     <link href="css/jquery.bxslider.css" rel="stylesheet">
     <link href="css/cloud-zoom.css" rel="stylesheet">
-
-
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
@@ -341,14 +339,6 @@
                 });
             });
         </script>
-
-        <script src="../../../../../code.jquery.com/jquery-1.11.0.min.js"></script>
-
-
-
-
-
-
   </body>
 </html>
 

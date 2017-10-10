@@ -28,6 +28,8 @@ class CreateProductTable extends Migration
             $table->timestamps();
             $table->integer('category_id')->unsigned()->nullable(); //unsigned:Không âm; nullable:ko rỗng;
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('brand_id')->unsigned()->nullable();
+            $table->foreign('brand_id')->references('id')->on('brands');
         });
     }
 
