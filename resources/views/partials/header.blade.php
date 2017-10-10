@@ -3,24 +3,43 @@
                 <div class="container">
                     <div class="topbar-left">
                         <ul class="topbar-nav clearfix">
-                            <li><span class="phone">016789 08 679</span></li>
-                            <li><span class="email">nguyenxuanphuong1211@gmail.com</span></li>
+                            @if (Auth::user())
+                            <li><span class="phone">{{ Auth::user()->phone_number }}</span></li>
+                            <li><span class="email">{{ Auth::user()->email }}</span></li>
+                            @endif
                         </ul>
                     </div>
                     <div class="topbar-right">
-                        <ul class="topbar-nav clearfix">
-                            <li><a href="{{url('/login')}}" class="login">Login</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="account dropdown-toggle" data-toggle="dropdown">My Account</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a title="My Account" href="account.html">My Account</a></li>
-                                    <li><a title="My Wishlist" href="wishlist.html">My Wishlist</a></li>
-                                    <li><a title="My Cart" href="cart.html">My Cart</a></li>
-                                    <li><a title="Checkout" href="checkout.html">Checkout</a></li>
-                                    <li><a title="Testimonial" href="testimonial.html">Testimonial</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                      <div class="topbar-right">
+                          <ul class="topbar-nav clearfix">
+                              @if (Auth::guest())
+                                  <li><a href="{{url('/login')}}" class="login">Đăng nhập</a></li>
+                                  <li><a href="{{url('/register')}}" class="login">Đăng ký</a></li>
+                              @else
+                                  <li class="dropdown">
+                                      <a href="#" class="account dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                      <ul class="dropdown-menu dropdown-menu-right">
+                                          <li><a title="My Account" href="account.html">My Account</a></li>
+                                          <li><a title="My Wishlist" href="wishlist.html">My Wishlist</a></li>
+                                          <li><a title="My Cart" href="cart.html">My Cart</a></li>
+                                          <li><a title="Checkout" href="checkout.html">Checkout</a></li>
+                                          <li><a title="Testimonial" href="testimonial.html">Testimonial</a></li>
+                                          <li>
+                                              <a href="{{ route('logout') }}"
+                                                  onclick="event.preventDefault();
+                                                           document.getElementById('logout-form').submit();">
+                                                  Đăng xuất
+                                              </a>
+
+                                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                  {{ csrf_field() }}
+                                              </form>
+                                          </li>
+                                      </ul>
+                                  </li>
+                              @endif
+                          </ul>
+                      </div>
                     </div>
                 </div><!-- /.container -->
             </div><!-- /.topbar -->

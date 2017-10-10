@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -38,9 +39,6 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::get('editproduct/{id}','PageController@geteditProduct');
         Route::post('editproduct/{id}','PageController@posteditProduct');
-
         Route::get('deleteproduct/{id}','PageController@deleteProduct');
-
-
 	});
 });

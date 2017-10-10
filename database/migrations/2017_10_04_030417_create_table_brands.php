@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableBranchs extends Migration
+class CreateTableBrands extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableBranchs extends Migration
      */
     public function up()
     {
-        Schema::create('branchs', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
           $table->string('logo');
@@ -28,6 +28,6 @@ class CreateTableBranchs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branchs');
+        Schema::dropIfExists('brands');
     }
 }
