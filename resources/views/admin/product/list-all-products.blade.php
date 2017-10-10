@@ -4,13 +4,13 @@
    	<!-- Content Header (Page header) -->
        <section class="content-header">
 	      <h1>
-	        Product
-	        <small>List All Products</small>
+	        Sản phẩm
+	        <small>Danh sách sản phẩm</small>
 	      </h1>
 	      <ol class="breadcrumb">
-	        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	        <li><a href="#">Product</a></li>
-	        <li class="active"><a href="{{url('admin/product/listproduct')}}"> List All products<a></li>
+	        <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+	        <li><a href="#">Sản phẩm</a></li>
+	        <li class="active"><a href="{{url('admin/product/listproduct')}}">Danh sách sản phẩm<a></li>
 	      </ol>
        </section>
        <section class="content">
@@ -20,7 +20,7 @@
 	          <!-- general form elements -->
 	               <div class="box box-primary">
 	                    <div class="box-header with-border">
-	                        <h3 class="box-title">LIST ALL PRODUCTS</h3>
+	                        <h3 class="box-title">DANH SÁCH SẢN PHẨM</h3>
 	                    </div>
 	                    @if(session('infor'))    <!-- display infor -->
 			               <div class="alert alert-success">
@@ -29,16 +29,16 @@
                         @endif
 	                    <table class="table table-bordered" id="mytable" border="1">
 						    <tr>
-							    <th>Product Code</th>
-							    <th>Product Image</th>
-							    <th>Product Name</th>
-							    <th>Product Category</th>
-							    <th>Quantity</th>
-							    <th>Unit</th>
-							    <th>Unit-Price</th>
-							    <th>Promotion-Price</th>
-							    <th>Edit</th>
-							    <th>Delete</th>
+							    <th>Mã sản phẩm</th>
+							    <th>Hình ảnh sản phẩm</th>
+							    <th>Tên sản phẩm</th>
+							    <th>Loại sản phẩm</th>
+							    <th>Số lượng</th>
+							    <th>Đơn vị</th>
+							    <th>Đơn giá sản phẩm</th>
+							    <th>Giá ưu đãi</th>
+							    <th>Sửa</th>
+							    <th>Xóa</th>
 						    </tr>
 						    @foreach($data as $dt)
 						    <tr>
@@ -50,8 +50,8 @@
 						        <td>{{$dt->unit}}</td>
 						        <td>{{$dt->unit_price}}</td>
 						        <td>{{$dt->promotion_price}}</td>
-						        <td><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}">Edit</a></td>
-						        <td><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}">Delete</a></td>
+						        <td><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}">Sửa</a></td>
+						        <td><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}">Xóa</a></td>
 						    </tr>  
 						    @endforeach  
                             {{$data->links()}}

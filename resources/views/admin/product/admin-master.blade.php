@@ -321,15 +321,15 @@
         <li class="header">MAIN NAVIGATION</li> 
         <li class="treeview active">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Product</span>
+            <i class="fa fa-edit"></i> <span>Sản phẩm</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-circle-o"></i>List All Product</a></li>
-            <li><a href="{{url('admin/product/addcategory')}}"><i class="fa fa-circle-o"></i> Add Category Product</a></li>
-            <li><a href="{{url('admin/product/addproduct')}}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+            <li class="active"><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+            <li><a href="{{url('admin/product/addcategory')}}"><i class="fa fa-circle-o"></i>Thêm loại sản phẩm</a></li>
+            <li><a href="{{url('admin/product/addproduct')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
           </ul>
         </li>
       </ul>

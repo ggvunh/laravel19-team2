@@ -5,13 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product
-        <small>Edit Product</small>
+        Sản phẩm
+        <small>Sửa sản phẩm</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Product</a></li>
-        <li class="active"><a href="{{url('admin/product/editproduct')}}">Edit product<a></li>
+        <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li class="active"><a href="{{url('admin/product/editproduct')}}">Sửa sản phẩm<a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -22,7 +22,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">EDIT PRODUCT</h3>
+              <h3 class="box-title">SỬA SẢN PHẨM</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,70 +32,70 @@
                    <p>{{ session('infor') }}</p>
                </div>
             @endif
-            <form role="form" action="{{url('admin/product/editproduct')}}/{{$data->id}}" method="post">
+            <form role="form" action="{{url('admin/product/editproduct')}}/{{$product->id}}" method="post">
                {!!csrf_field()!!}
               <div class="box-body">
                 <div class="form-group">
-                  <label for="product-name">Product name</label>
-                  <input type="text" name="product-name" class="form-control" id="product-name" placeholder="{{$data->name}}">
+                  <label for="product-name">Tên sản phẩm</label>
+                  <input type="text" name="product-name" class="form-control" id="product-name" placeholder="{{$product->name}}">
                 </div>
                 <div class="form-group">
-                  <label for="product-cate">Product Category</label>
+                  <label for="product-cate">Loại sản phẩm</label>
                   <select class="form-control" name="product-cate">               
-                    @foreach($data1 as $dt1)
-                    <option value="{{$dt1->id}}">{{$dt1->name}}</option>
+                    @foreach($category as $ct)
+                    <option value="{{$ct->id}}">{{$ct->name}}</option>
                     @endforeach
                   </select>  
                 </div>
             </select>  
                 <div class="form-group">
-                  <label for="description">Descriptions</label>
-                  <textarea name="description" id="description"  class="form-control" cols="30" rows="5" placeholder="{{$data->description}}"></textarea>
+                  <label for="description">Mô tả sản phẩm</label>
+                  <textarea name="description" id="description"  class="form-control" cols="30" rows="5" placeholder="{{$product->description}}"></textarea>
                 <div class="form-group">
-                  <label for="quantity">Quantities</label>
-                  <input type="number" name="quantity" class="form-control" id="quantity" min="1" placeholder="{{$data->quantity}}">
+                  <label for="quantity">Số lượng sản phẩm</label>
+                  <input type="number" name="quantity" class="form-control" id="quantity" min="1" placeholder="{{$product->quantity}}">
                 </div>
                 <div class="form-group">
-                  <label for="unitprice">Unit-Price</label>
-                  <input type="number" name="unitprice" class="form-control" id="unitprice" min="1" placeholder="{{$data->unit_price}}">
+                  <label for="unitprice">Đơn giá sản phẩm</label>
+                  <input type="number" name="unitprice" class="form-control" id="unitprice" min="1" placeholder="{{$product->unit_price}}">
                 </div>
                 <div class="form-group">
-                  <label for="promotion-price">Promotion Price</label>
-                  <input type="number" name="promotion-price" class="form-control" id="promotion-price" min="1" placeholder="{{$data->promotion_price}}">
+                  <label for="promotion-price">Giá ưu đãi</label>
+                  <input type="number" name="promotion-price" class="form-control" id="promotion-price" min="1" placeholder="{{$product->promotion_price}}">
                 </div>
                 <div class="form-group">
-                  <label for="unit">Unit</label>
-                  <input type="text" name="unit" class="form-control" id="unit" placeholder="{{$data->unit}}">
+                  <label for="unit">Đơn vị sản phẩm</label>
+                  <input type="text" name="unit" class="form-control" id="unit" placeholder="{{$product->unit}}">
                 </div>
                 <div class="form-group">
-                  <label for="status">Status</label>
+                  <label for="status">Sản phẩm hot</label>
                   <select name="status" id="status" class="form-control">
-                    <option value="1">Hot</option>
-                    <option value="0">Normal</option>
+                    <option value="1">Có</option>
+                    <option value="0">Không</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="version">Version</label>
+                  <label for="version">Sản phẩm mới</label>
                   <select name="version" id="version" class="form-control">
-                    <option value="0">Old</option>
-                    <option value="1">New</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="deals">Deals</label>
+                  <label for="deals">Ưu đãi</label>
                   <select name="deals" id="deals" class="form-control">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option value="1">Có</option>
+                    <option value="0">Không</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="product-image">Product-Image</label>
+                  <label for="product-image">Hình ảnh sản phẩm</label>
                   <input type="file" id="product-image" name="product-image">
                 </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" name="add" class="btn btn-primary">Edit</button>
+                <button type="submit" name="add" class="btn btn-primary">SỬA</button>
               </div>
             </form>
           </div>   
