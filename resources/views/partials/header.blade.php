@@ -59,17 +59,9 @@
                                     </div>
                                 </div>
                             </div><!-- /.support-client -->
-                            <form class="form-search">
-                                <input type="text" class="input-text" name="q" id="search" placeholder="Tìm kiếm sản phẩm...">
-                                <div class="dropdown">
-                                    <button type="button" class="btn" data-toggle="dropdown">Tất cả danh mục <span class="fa fa-angle-down"></span></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#">Guitars</a></li>
-                                        <li><a href="#">Bass</a></li>
-                                        <li><a href="#">Guitars</a></li>
-                                        <li><a href="#">Guitars</a></li>
-                                    </ul>
-                                </div>
+                            <form class="form-search" method="POST" action="searchsp">
+                                {{csrf_field()}}
+                                <input type="text" class="input-text" name="key" id="search" placeholder="Tìm kiếm theo tên hoặc giá...">
                                 <button type="submit" class="btn btn-danger"><span class="fa fa-search"></span></button>
                             </form>
                             <div class="mini-cart">
@@ -81,7 +73,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
                                             <div class="media">
-                                                <div class="media-left"><a href="{{ url('gio-hang') }}"><img src="images/products/11.jpg" alt="" class="img-responsive"></a></div>
+                                                <div class="media-left"><a href="{{ url('gio-hang') }}"><img src="images/products/0-2a.jpg" alt="" class="img-responsive"></a></div>
                                                 <div class="media-body">
                                                     <button type="button" class="remove-cart-item" >&times;</button>
                                                     <h4>Accumsan elit</h4>
@@ -101,41 +93,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="mega-container visible-lg visible-md">
-                                <div class="navleft-container">
-                                    <div class="mega-menu-title"><h3>Danh mục sản phẩm</h3></div>
-                                    <div class="mega-menu-category">
-                                        <ul class="nav">
-                                            <li><a href="#">Acoustic Guitar </a>
-                                                <div class="wrap-popup column1">
-                                                    <div class="popup">
-                                                        <div class="row">
-                                                            <div class="col-md-3">
-                                                                <h3>Guitars</h3>
-                                                                <ul class="nav">
-                                                                    <li><a href="#">Ukulele</a></li>
-                                                                    <li><a href="#">clasic giutars</a></li>
-                                                                    <li><a href="#">Acountic guitars</a></li>
-                                                                    <li><a href="#">electric guitars</a></li>
-                                                                    <li><a href="#">guitar elec...</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li><a href="#">Electric Guitar </a></li>
-                                            <li><a href="#">Bass</a></li>
-                                            <li><a href="#">Amp/effect</a></li>
-                                            <li><a href="#">Drum/perc</a></li>
-                                            <li><a href="#">Keyboard/Piano</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('page.menu')
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
                                 <li><a href="{{url('/')}}">Trang chủ</a></li>
