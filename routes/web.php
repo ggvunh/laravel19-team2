@@ -19,7 +19,7 @@ Route::get('san-pham', 'PageController@getSanPham');
 Route::get('chi-tiet-sp', 'PageController@getChiTiet');
 Route::get('gio-hang', 'PageController@getGioHang');
 // Route::get('login', 'PageController@login');
-Route::post('searchsp', 'PageController@searchsp');
+Route::get('searchsp', 'PageController@searchsp');
 Route::get('view_chitiet/{id}', 'PageController@view_chitiet');
 Route::get('sanpham/{id}', 'PageController@viewsp_category');
 Auth::routes();
@@ -38,9 +38,9 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::get('editproduct/{id}','PageController@geteditProduct');
         Route::post('editproduct/{id}','PageController@posteditProduct');
-        
+
         Route::get('deleteproduct/{id}','PageController@deleteProduct');
-       
+
 
 	});
 });
