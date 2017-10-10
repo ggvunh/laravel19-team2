@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Menu;
 use App\Product;
-use App\Menu;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\addProductRequest;
@@ -75,7 +74,7 @@ class PageController extends Controller
     }
 
     public function getaddProduct()
-    { 
+    {
           $category=Category::all();
           return view('admin.product.add-product')->with(['category'=>$category]);
     }
@@ -87,7 +86,7 @@ class PageController extends Controller
           $addProduct->category_id=$rq->input('product-cate');
           $addProduct->description=$rq->input('description');
           $addProduct->quantity=$rq->input('quantity');
-          $addProduct->unit_price=$rq->input('unitprice'); 
+          $addProduct->unit_price=$rq->input('unitprice');
           $addProduct->promotion_price=$rq->input('promotion-price');
           $addProduct->image=$rq->input('product-image');
           $addProduct->new=$rq->input('version');
@@ -96,7 +95,7 @@ class PageController extends Controller
           $addProduct->unit=$rq->input('unit');
           $addProduct->save();
           return redirect('admin/product/listproduct')->with('infor','Thêm sản phẩm thành công');
-           
+
     }
 
     public function geteditProduct($id)
@@ -113,7 +112,7 @@ class PageController extends Controller
           $editProduct->category_id=$rq->input('product-cate');
           $editProduct->description=$rq->input('description');
           $editProduct->quantity=$rq->input('quantity');
-          $editProduct->unit_price=$rq->input('unitprice'); 
+          $editProduct->unit_price=$rq->input('unitprice');
           $editProduct->promotion_price=$rq->input('promotion-price');
           $editProduct->image=$rq->input('product-image');
           $editProduct->new=$rq->input('version');
@@ -130,6 +129,4 @@ class PageController extends Controller
           $deleteProduct->delete();
           return redirect('admin/product/listproduct')->with('infor','Xóa sản phẩm thành công');
     }
-} 
-
-
+}
