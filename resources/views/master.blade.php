@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <base href="{{asset('')}}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,15 +11,15 @@
     <link rel="shortcut icon" href="#">
 
     <title>Ph19 - mua bán nhạc cụ</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/nivo-slider.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/jquery-ui.css" rel="stylesheet">
-    <link href="css/jquery.bxslider.css" rel="stylesheet">
-    <link href="css/cloud-zoom.css" rel="stylesheet">
+    <link href="{{('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{('css/nivo-slider.css')}}" rel="stylesheet">
+    <link href="{{('css/animate.css')}}" rel="stylesheet">
+    <link href="{{('css/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{('css/style.css')}}" rel="stylesheet">
+    <link href="{{('css/responsive.css')}}" rel="stylesheet">
+    <link href="{{('css/jquery-ui.css')}}" rel="stylesheet">
+    <link href="{{('css/jquery.bxslider.css')}}" rel="stylesheet">
+    <link href="{{('css/cloud-zoom.css')}}" rel="stylesheet">
 
 
 
@@ -40,16 +41,13 @@
         @include('partials.footer')
 
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.nivo.slider.pack.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.bxslider.min.js"></script>
-        <script src="js/cloud-zoom.js"></script>
-
-
-
+        <script src="{{('js/bootstrap.min.js')}}"></script>
+        <script src="{{('js/jquery.nivo.slider.pack.js')}}"></script>
+        <script src="{{('js/owl.carousel.min.js')}}"></script>
+        <script src="{{('js/main.js')}}"></script>
+        <script src="{{('js/jquery-ui.min.js')}}"></script>
+        <script src="{{('js/jquery.bxslider.min.js')}}"></script>
+        <script src="{{('js/cloud-zoom.js')}}"></script>
         <script type="text/javascript">
             /* Main Slideshow */
             $(window).load(function() {
@@ -314,9 +312,10 @@
                     scrollPerPage:true,
                 });
                 /* featured-products slider */
+                
                 $("#featured-products .owl").owlCarousel({
                     autoPlay : false,
-                    items : 4,
+                    items : 2,
                     itemsDesktop : [1199,3],
                     itemsDesktopSmall : [991,2],
                     itemsTablet: [767,2],
@@ -333,8 +332,8 @@
                 $('.thumbnail-container .bxslider').bxSlider({
                     slideWidth: 94,
                     slideMargin: 5,
-                    minSlides: 4,
-                    maxSlides: 4,
+                    minSlides: 3,
+                    maxSlides: 3,
                     pager: false,
                     speed: 500,
                     pause: 3000
@@ -342,7 +341,6 @@
             });
         </script>
 
-        <script src="../../../../../code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
 

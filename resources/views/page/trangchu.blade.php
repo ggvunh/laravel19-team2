@@ -128,8 +128,9 @@
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{ url('chi-tiet-sp') }}" class="link-quickview">Quick View</a></li>
-                                                <li><a href="{{ url('gio-hang') }}" class="link-cart">Add to Cart</a></li>
+                                                <li><a href="{{url('view_chitiet/'.$hot->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="#" class="link-compare">So Sánh</a></li>
+                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -176,8 +177,9 @@
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{ url('chi-tiet-sp') }}" class="link-quickview">Quick View</a></li>
-                                                <li><a href="{{ url('gio-hang') }}" class="link-cart">Add to Cart</a></li>
+                                                <li><a href="{{url('view_chitiet/'.$new->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="#" class="link-compare">So Sánh</a></li>
+                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -223,8 +225,9 @@
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{ url('chi-tiet-sp') }}" class="link-quickview">Quick View</a></li>
-                                                <li><a href="{{ url('gio-hang') }}" class="link-cart">Add to Cart</a></li>
+                                                <li><a href="{{url('view_chitiet/'.$deal->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="#" class="link-compare">So Sánh</a></li>
+                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

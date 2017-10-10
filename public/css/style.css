@@ -2345,6 +2345,7 @@ a:focus {
     text-transform: uppercase;
     background: #d8373e;
     border-radius: 100%;
+    margin-left: 210px;
 }
 .box-hover .add-to-links {
     margin: 0;
@@ -3315,4 +3316,18 @@ label {
 }
 .btn-login:before {
     content: "\f007";
+}
+.nxpcenter{
+    text-align: center;
+}
+.nxpimg{
+    max-width: 100%;
+}
+.nxp_promotion_price{
+    color: red;
+}
+.nxp_namesp{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #474747;
 }

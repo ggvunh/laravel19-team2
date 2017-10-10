@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->timestamps();
             $table->integer('menu_id')->unsigned()->nullable(); //unsigned:Không âm; nullable:ko rỗng;
-            $table->foreign('menu_id')->references('id')->on('menu');
+            $table->foreign('menu_id')->references('id')->on('menus');
         });
     }
 
