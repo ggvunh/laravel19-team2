@@ -31,24 +31,13 @@ class PageController extends Controller
         return view('page.sanpham', compact('products'));
     }
 
-    public function getChiTiet()
-    {
-      return view('page.detail');
-    }
-
-    public function getGioHang()
-    {
-      return view('page.giohang');
-
-    }
     public function searchsp(Request $req)
     {
         $products = Product::where('name','like','%'.$req->key.'%')
-                            ->orwhere('unit_price',$req->key)
-                            ->orwhere('promotion_price',$req->key)->paginate(6);
+            ->orwhere('unit_price',$req->key)
+            ->orwhere('promotion_price',$req->key)->paginate(6);
 
         return view('page.searchsp', compact('products'));
-
     }
 
     public function view_chitiet($id)
@@ -57,13 +46,18 @@ class PageController extends Controller
         return view('page.view_chitiet',compact('product'));
     }
 
+    public function getAdmin()
+    {
+        return view('admin.product.admin-master');
+    }
+
     // function Add Product-Category by Duong Dong Hung
     public function listProduct()
     {
         $data=Product::orderBy('id','desc')->paginate(10);
         return view('admin.product.list-all-products')->with(['data'=>$data]);
     }
-    
+
     public function getaddCategory()
     {
         return view('admin.product.add-categoryProduct');
