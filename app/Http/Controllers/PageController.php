@@ -3,24 +3,28 @@
 namespace App\Http\Controllers;
 use App\Menu;
 use App\Product;
-use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
+
 class PageController extends Controller
 {
     public function getIndex()
     {
+
+
         $hot_products = Product::where('hot', 1)->get();
         $new_products = Product::where('new', 1)->get();
         $deal_products = Product::where('deals', 1)->get();
+        $new_products = Product::where('new', 1)->get();
+
         $products = Product::all();
         return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products', 'products'));
     }
     public function getSanPham()
     {
-        $products = Product::orderBy('id','desc')->paginate(6);
+      
         return view('page.sanpham', compact('products'));
     }
     public function viewsp_category($id)
@@ -30,14 +34,17 @@ class PageController extends Controller
     }
     public function getChiTiet()
     {
-      return view('page.chitietsp');
+     
+        return view('page.chitietsp');
       return view('page.detail');
     }
     public function getGioHang()
     {
-      return view('page.giohang');
+
+        return view('page.giohang');
 
     }
+
     public function searchsp(Request $req)
     {
         $products = Product::where('name','like','%'.$req->key.'%')
@@ -67,6 +74,8 @@ class PageController extends Controller
         return view('admin.product.add-categoryProduct');
     }
 
+
+}
     public function postaddCategory(Request $rq,addCategoryRequest $request)
     {
           $addCategory=new Category;
