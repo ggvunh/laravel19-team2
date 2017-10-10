@@ -12,13 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call(TableMenuSeeder::class);
+        $this->call(TableMenusSeeder::class);
         $this->call(TableCategoriesSeeder::class);
         $this->call(Table_Products_Seeder::class);
     }
 }
 
-class TableMenuSeeder extends Seeder
+class TableMenusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -27,7 +27,7 @@ class TableMenuSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('menu')->insert([
+      DB::table('menus')->insert([
         ['id' =>1, 'name' => 'Guitar'],
         ['id' =>2, 'name' => 'Bass'],
         ['id' =>3, 'name' => 'Amp/effect'],
@@ -68,7 +68,7 @@ class Table_Products_Seeder extends Seeder
      */
     public function run()
     {
-      DB::table('Products')->insert([
+      DB::table('products')->insert([
          ['name' => 'GRASSROOTS LP Ebony', 'description' => 'abc',
           'hot' => '1', 'new' => '0', 'deals' => '0', 'quantity' => '5',
           'unit_price' => '14000000', 'promotion_price' => '12000000',

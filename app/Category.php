@@ -10,7 +10,7 @@ class Category extends Model
 
     public function menu()
     {
-    	return $this->belongsTo('App\Menu','menu_id','id');
+    	return $this->belongsTo(Menu::class,'menu_id','id');
     }
 
     public function product()
