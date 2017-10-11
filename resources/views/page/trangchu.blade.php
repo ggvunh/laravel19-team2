@@ -17,46 +17,9 @@
         </div>
         <div class="row">
             <div class="col-sm-3 col-left">
-                <div class="timely">
-                    <div class="title-group"><h2>Liên hệ QC</h2></div>
-                    <div id="timely-owl" class="owl-container">
-                        <div class="owl">
-                          @foreach($products as $product)
-                            <div class='timer-item item'>
-                                <div class="item-inner">
-                                    <div class="images-container">
-                                        <a href="#" title="Fusce aliquam" class="product-image"><img src="images/products/{{ $product->image }}" alt="Fusce aliquam" /></a>
-                                        <div class="box-timer">
-                                            <div class="countbox_1 timer-grid"></div>
-                                        </div>
-                                    </div>
-                                    <div class="content-box">
-                                        <h2 class="product-name"><a href="#" title="Fusce aliquam">{{ $product->name }}</a></h2>
-                                        <div class="price-box">
-                                            <p class="special-price">
-                                                <span class="price-label">Special Price</span>
-                                                <span class="price">{{ number_format($product->promotion_price) }}đ</span>
-                                            </p>
-                                            <p class="old-price">
-                                                <span class="price-label">Regular Price: </span>
-                                                <span class="price">{{ number_format($product->unit_price) }}đ</span>
-                                            </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating" style="width:67%"></div>
-                                            </div>
-                                            <!-- <span class="amount"><a href="#">1 Review(s)</a></span> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          @endforeach
-                        </div>
-                    </div>
-                </div><!-- /.timely -->
+                
                 <div class="block">
-                    <div class="title-group"><h2>ý kiến khách hàng</h2></div>
+                    <div class="title-group"><h2>Nhận xét</h2></div>
                     <div id="clients-say" class="owl-container">
                         <div class="owl">
                             <div class='testimonial-list'>
@@ -121,14 +84,21 @@
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            <div class='new-icon'><span>new</span></div>
+                                            @if(($hot->new)==1)
+                                                <div class='new-icon'><span>new</span></div>
+                                            @endif
+                                        </div>
+                                        <div class="product_icon">
+                                            @if(($hot->deals)==1)
+                                                <div class='sale-icon'><span>sale</span></div>
+                                            @endif
                                         </div>
                                         <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $hot->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{url('view_chitiet/'.$hot->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="{{url('xem_chitiet/'.$hot->id.'&'.$hot->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
                                                 <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
@@ -169,15 +139,21 @@
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            <div class='new-icon'><span>new</span></div>
-                                            <div class="sale-icon"><span>sale</span></div>
+                                            @if(($new->new)==1)
+                                                <div class='new-icon'><span>new</span></div>
+                                            @endif
+                                        </div>
+                                        <div class="product_icon">
+                                            @if(($new->deals)==1)
+                                                <div class='sale-icon'><span>sale</span></div>
+                                            @endif
                                         </div>
                                         <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $new->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{url('view_chitiet/'.$new->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="{{url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
                                                 <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
@@ -217,15 +193,21 @@
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            <div class='new-icon'><span>new</span></div>
-                                            <div class="sale-icon"><span>sale</span></div>
+                                            @if(($deal->new)==1)
+                                                <div class='new-icon'><span>new</span></div>
+                                            @endif
+                                        </div>
+                                        <div class="product_icon">
+                                            @if(($deal->deals)==1)
+                                                <div class='sale-icon'><span>sale</span></div>
+                                            @endif
                                         </div>
                                         <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $deal->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{url('view_chitiet/'.$deal->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="{{url('xem_chitiet/'.$deal->id.'&'.$deal->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
                                                 <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>

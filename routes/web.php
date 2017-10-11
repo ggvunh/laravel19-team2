@@ -14,9 +14,10 @@
 
 Route::get('/', 'PageController@getIndex');
 Route::get('san-pham', 'PageController@getSanPham');
-Route::get('searchsp', 'PageController@searchsp');
-Route::get('view_chitiet/{id}', 'PageController@view_chitiet');
-Route::get('sanpham/{id}', 'PageController@viewsp_category');
+Route::get('timkiem-sp', 'PageController@searchsp');
+Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
+
+Route::get('category_id/{category_id}', 'PageController@viewis_category');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
