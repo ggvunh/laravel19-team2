@@ -1,0 +1,49 @@
+.table-bordered
+{
+	border: 2px solid #397888;
+}
+.mytr
+{
+	border-bottom:2px solid #397888;
+	color: black;
+}
+.mytd
+{
+	color: red;
+}
+.table-bordered>tbody>tr>th
+{
+	border: 1px solid #8c6060;
+}
+.table-bordered>tbody>tr>td
+{
+	border: 1px solid #8c6060;
+}
+p
+{
+	color: #6b5959 !important;
+    font-size: 40px !important;
+}
+.navbar-form .form-control
+{
+	width: 370px;
+}
+.mybtn
+{
+	margin-left: 125px;
+	color: black;
+}
+.btn-info
+{
+	color: black;
+}
+.help-block
+{
+	color: #de3434;
+	font-weight: normal;
+}
+
+
+ 
+
+
