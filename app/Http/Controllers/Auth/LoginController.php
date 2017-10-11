@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Toastr;
 
 class LoginController extends Controller
 {
@@ -28,6 +29,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+
     /**
      * Create a new controller instance.
      *
@@ -40,10 +42,13 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+
         if(!session()->has('url.intended'))
         {
+
             session(['url.intended' => url()->previous()]);
         }
+
         return view('auth.login');
     }
 
@@ -51,9 +56,11 @@ class LoginController extends Controller
     {
 
         if ( $user->roles==1 ) {// do your margic here
+            Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
             return redirect()->route('admin');
         }
-
-         return redirect('/');
+            Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
+            return redirect('/');
     }
+
 }
