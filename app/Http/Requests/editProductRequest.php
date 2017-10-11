@@ -28,8 +28,7 @@ class editProductRequest extends FormRequest
             'description' =>'required',
             'quantity'    =>'required',
             'unit'        =>'required',
-            'unitprice'   =>'required',
-            'product-image'=>'required'  
+            'unitprice'   =>'required'  
         ];
     }
 
@@ -40,8 +39,7 @@ class editProductRequest extends FormRequest
             'description.required'  => 'Product description is required',
             'quantity.required'     => 'Quantity of product is required',
             'unit.required'         => 'Unit of product is required',
-            'unitprice.required'    => 'Unit-price is required',
-            'product-image.required'=> 'Product image is required'
+            'unitprice.required'    => 'Unit-price is required'
         ];
     }
 }

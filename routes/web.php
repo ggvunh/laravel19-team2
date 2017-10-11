@@ -27,13 +27,13 @@ Route::get('admin', 'PageController@getAdmin')->name('admin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('listproduct','PageController@listProduct');
-		Route::get('addcategory','PageController@getaddCategory');
-    Route::post('addcategory','PageController@postaddCategory');
-		Route::get('addproduct','PageController@getaddProduct');
-    Route::post('addproduct','PageController@postaddProduct');
-    Route::get('editproduct/{id}','PageController@geteditProduct');
-    Route::post('editproduct/{id}','PageController@posteditProduct');
-    Route::get('deleteproduct/{id}','PageController@deleteProduct');
+		Route::get('listproduct','ProductController@listProduct');
+		Route::get('addcategory','ProductController@getaddCategory');
+        Route::post('addcategory','ProductController@postaddCategory');
+		Route::get('addproduct','ProductController@getaddProduct');
+        Route::post('addproduct','ProductController@postaddProduct');
+        Route::get('editproduct/{id}','ProductController@geteditProduct');
+        Route::post('editproduct/{id}','ProductController@posteditProduct');
+        Route::get('deleteproduct/{id}','ProductController@deleteProduct');
 	});
 });
