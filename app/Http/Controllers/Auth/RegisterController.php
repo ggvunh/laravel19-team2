@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Toastr;
 
 class RegisterController extends Controller
 {
@@ -39,7 +40,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-  
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -80,6 +81,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Toastr::success('Bạn đã đăng ký thành công', $title = null, $options = []);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
