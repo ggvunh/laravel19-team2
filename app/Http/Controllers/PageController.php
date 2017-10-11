@@ -15,8 +15,7 @@ class PageController extends Controller
         $hot_products = Product::where('hot', 1)->get();
         $new_products = Product::where('new', 1)->get();
         $deal_products = Product::where('deals', 1)->get();
-        $products = Product::all();
-        return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products', 'products'));
+        return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products'));
     }
 
     public function getSanPham()
@@ -24,10 +23,10 @@ class PageController extends Controller
         $products = Product::orderBy('id','desc')->paginate(6);
         return view('page.sanpham', compact('products'));
     }
-
-    public function viewsp_category($id)
+    
+    public function viewis_category($category_id)
     {
-        $products = Product::where('category_id',$id)->paginate(6);
+        $products = Product::where('category_id',$category_id)->paginate(6);
         return view('page.sanpham', compact('products'));
     }
 
@@ -40,10 +39,11 @@ class PageController extends Controller
         return view('page.searchsp', compact('products'));
     }
 
-    public function view_chitiet($id)
+    public function xem_chitiet($id,$category_id)
     {
         $product=Product::where('id',$id)->get();
-        return view('page.view_chitiet',compact('product'));
+        $products=Product::where('category_id',$category_id)->paginate(3);
+        return view('page.view_chitiet', compact('product'), compact('products'));
     }
 
     public function getAdmin()
@@ -51,5 +51,5 @@ class PageController extends Controller
         return view('admin.product.admin-master');
     }
 
-    
+
 }

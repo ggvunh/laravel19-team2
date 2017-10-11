@@ -23,38 +23,42 @@
                     </div><!--- /.pager -->
                 </div><!-- /.toolbar -->
                 <div class="row products">
-                    @foreach($products as $a)
+                    @foreach($products as $product)
                         <div class="col-md-4 col-sm-6">
                             <div class='productslider-item item'>
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            <div class='new-icon'><span>new</span></div>
+                                            @if(($product->new)==1)
+                                                <div class='new-icon'><span>new</span></div>
+                                            @endif
                                         </div>
                                         <div class="product_icon">
-                                            <div class='sale-icon'><span>sale</span></div>
+                                            @if(($product->deals)==1)
+                                                <div class='sale-icon'><span>sale</span></div>
+                                            @endif
                                         </div>
                                         <a href="#" title="Nunc facilisis" class="product-image">
-                                            <img src="images/products/{{ $a->image }}" alt="Nunc facilisis" />
+                                            <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
-                                                <li><a href="{{url('view_chitiet/'.$a->id)}}" class="link-quickview">Xem chi tiết</a></li>
+                                                <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
                                                 <li><a href="#" class="link-cart">Thêm vào giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="des-container">
-                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$a->name}}</a></h2>
+                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$product->name}}</a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
                                                 <span class="price-label">gia khuyenmai</span>
-                                                <span class="price">{{number_format($a->promotion_price)}}</span>
+                                                <span class="price">{{number_format($product->promotion_price)}}</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">gia goc: </span>
-                                                <span class="price">{{number_format($a->unit_price)}}</span>
+                                                <span class="price">{{number_format($product->unit_price)}}</span>
                                             </p>
                                         </div>
                                         <div class="ratings">
