@@ -12,15 +12,15 @@ use App\Http\Requests\editProductRequest;
 use Toastr;
 
 class ProductController extends Controller
-{   
+{
 	public function listProduct()
     {
         $product=Product::orderBy('id','desc')->paginate(10);
         return view('admin.product.list-all-products')->with(['product'=>$product]);
     }
-    
+
     public function getaddProduct ()
-    { 
+    {
         $category = Category::all();
         return view('admin.product.add-product')->with(['category'=>$category]);
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
         $addProduct->category_id=$rq->input('product-cate');
         $addProduct->description=$rq->input('description');
         $addProduct->quantity=$rq->input('quantity');
-        $addProduct->unit_price=$rq->input('unitprice'); 
+        $addProduct->unit_price=$rq->input('unitprice');
         $addProduct->promotion_price=$rq->input('promotion-price');
         $addProduct->image=$rq->input('product-image');
         $addProduct->new=$rq->input('version');
@@ -41,7 +41,7 @@ class ProductController extends Controller
         $addProduct->unit=$rq->input('unit');
         $addProduct->save();
         Toastr::success('Add successful product', $title = null, $options = []);
-        return redirect('admin/product/listproduct');      
+        return redirect('admin/product/listproduct');
     }
 
     public function geteditProduct ($id)
@@ -52,16 +52,16 @@ class ProductController extends Controller
     }
 
     public function posteditProduct ($id ,Request $rq, editProductRequest $request )
-    {   
+    {
         $editProduct=Product::find($id);
         $name=$rq->input('product-name');
             if($name!= null) $editProduct->name=$name;
         $editProduct->category_id=$rq->input('product-cate');
         $description=$rq->input('description');
-            if($description!=null) $editProduct->description=$description; 
+            if($description!=null) $editProduct->description=$description;
         $quantity=$rq->input('quantity');
             if($quantity!=null) $editProduct->quantity=$quantity;
-        $unit_price=$rq->input('unitprice'); 
+        $unit_price=$rq->input('unitprice');
             if($unit_price=!null) $editProduct->unit_price=$unit_price;
         $promotion_price=$rq->input('promotion-price');
             if($promotion_price!=null) $editProduct->promotion_price=$promotion_price;
