@@ -1,4 +1,4 @@
-@extends('admin.product.admin-master')
+@extends('admin.admin-master')
  @section('content')
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->

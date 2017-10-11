@@ -1,4 +1,4 @@
- @extends('admin.product.admin-master')
+ @extends('admin.admin-master')
  @section('content')
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
