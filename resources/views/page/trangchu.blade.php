@@ -3,21 +3,33 @@
   <div class="main">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-3">
-                <div class="flexslider ma-nivoslider">
-                    <div class="ma-loading"></div>
-                    <div id="ma-inivoslider-banner7" class="slides">
-                        <img src="images/slider/slider-01.png" class="dn" alt="" title="#banner7-caption1"  />
-                        <img src="images/slider/slider-02.png" class="dn" alt="" title="#banner7-caption2"  />
-                        <img src="images/slider/slider-03.png" class="dn" alt="" title="#banner7-caption3"  />
-                    </div>
+            <div class="col-sm-3 col-left">
+                <img src="images/lienhe.gif" alt="lien he qc" style="max-width:100%; margin-top: 20px; min-width:100%">
+            </div>
+            <div class="col-sm-9 col-right">
+                <div class="">
+                    <div class="flexslider ma-nivoslider">
+                        <div class="ma-loading"></div>
+                        <div id="ma-inivoslider-banner7" class="slides">
+                            <img src="images/slider/slider-01.png" class="dn" alt="" title="#banner7-caption1"  />
+                            <img src="images/slider/slider-02.png" class="dn" alt="" title="#banner7-caption2"  />
+                            <img src="images/slider/slider-03.png" class="dn" alt="" title="#banner7-caption3"  />
+                        </div>
 
-                </div><!-- /.flexslider -->
+                    </div><!-- /.flexslider -->
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3 col-left">
-                
+                <div class="banner-left"><a href="#"><img src="images/products/0.png" alt="hinh anh"></a>
+                    <div class="banner-content">
+                        <h1>Khuyễn mãi</h1>
+                        <h2>20%</h2>
+                        <p></p>
+                        <a href="#">mua ngay</a>
+                    </div>
+                </div>
                 <div class="block">
                     <div class="title-group"><h2>Nhận xét</h2></div>
                     <div id="clients-say" class="owl-container">

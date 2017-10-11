@@ -23,7 +23,7 @@ class PageController extends Controller
         $products = Product::orderBy('id','desc')->paginate(6);
         return view('page.sanpham', compact('products'));
     }
-    
+
     public function viewis_category($category_id)
     {
         $products = Product::where('category_id',$category_id)->paginate(6);
@@ -48,7 +48,7 @@ class PageController extends Controller
 
     public function getAdmin()
     {
-        return view('admin.product.admin-master');
+        return view('admin.admin-master');
     }
 
 
