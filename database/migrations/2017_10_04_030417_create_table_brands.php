@@ -17,7 +17,7 @@ class CreateTableBrands extends Migration
           $table->increments('id');
           $table->string('name');
           $table->string('logo');
-          $table->timestamps();
+          $table->timestamps();      
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\addBrandRequest;
 use App\Http\Requests\editBrandRequest;
@@ -61,40 +62,16 @@ class brandController extends Controller
              $images = time() . "_" . $filename;
              $destinationPath = public_path('/images/brand');
              $file->move($destinationPath, $images);
-             $data1['logo'] = $images;
+             $data['logo'] = $images;
          }
          else
          {
-          $data1['logo'] = '';
-
+          $data['logo'] = '';
          }
-         //dd($data);
-         $data->logo=$logo;
-         $data->name=$name;
          $data->save();
          Toastr::success('Add successful brand', $title = null, $options = []);
          return redirect('admin/product/listbrands');
-        //      if ($name != null) $data ->name=$name;
-        //  $logo=$rq->input('brand-image');
-        //          if($image=!null) $data->logo=$logo;
-        //  if($request->hasFile('brand-image'))
-        //  {
-        //      $file = $request->file('brand-image');
-        //      $filename = $file->getClientOriginalName('brand-image');
-        //      $images = time() . "_" . $filename;
-        //      $destinationPath = public_path('/images/brand');
-        //      $file->move($destinationPath, $images);
-        //      $data['logo'] = $images;
-        //  }
-        //  else
-        //  {
-        //   $data['logo'] = '';
-        //  }
-        //  $data->save();
-        //  Toastr::success('Edit successful brand', $title = null, $options = []);
-        //  return redirect('admin/product/listbrands');
      }
-
      public function deleteBrands ($id)
      {
          $data = Brand::find($id);

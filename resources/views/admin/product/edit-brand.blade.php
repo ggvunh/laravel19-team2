@@ -38,7 +38,7 @@
            @endif
            <div class="box">
                <div class="box-body">
-                   <form role="form" action="{{url('admin/product/editbrands')}}/{{$brand->id}}" method="post" id="form">
+                   <form role="form" action="{{url('admin/product/editbrands')}}/{{$brand->id}}" method="post" id="form" enctype="multipart/form-data">
                       {!!csrf_field()!!}
                        <div class="form-group">
                           <label for="brand-name">Brand name</label>
@@ -51,7 +51,7 @@
                         @endif
                         <div class="form-group">
                              <label for="brand-image">Brand image</label>
-                             <input type="file" id="brand-image" name="brand-image" value="{{$brand->logo}} " enctype="multipart/form-data">
+                             <input type="file" id="brand-image" name="brand-image" value="{{$brand->logo}} " >
                         </div>
                          @if ($errors->has('brand-image'))
                               <span class="help-block">

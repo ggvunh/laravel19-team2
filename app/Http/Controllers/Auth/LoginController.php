@@ -56,11 +56,11 @@ class LoginController extends Controller
     {
 
         if ( $user->roles==1 ) {// do your margic here
-            Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
             return redirect()->route('admin');
-        }
             Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
+        }
             return redirect('/');
+            Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
     }
 
 }
