@@ -22,7 +22,7 @@ Route::get('search-is-price', 'PageController@search_is_price');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'product'],function(){
 		Route::get('listproduct','ProductController@listProduct')->name('admin');
 		Route::get('addproduct','ProductController@getaddProduct');
