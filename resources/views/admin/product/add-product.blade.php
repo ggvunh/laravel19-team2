@@ -28,10 +28,10 @@
                               <a class="navbar-brand" class="mytile"><p>ADD PRODUCTS</p></a>
                            </div>
                        </div>
-                    </nav> 
-              </div>       
-             <!-- @include('admin.product.errors') --> <!-- display errors -->
-            @if(session('infor'))    <!-- display infor -->
+                    </nav>
+              </div>
+
+            @if(session('infor')) 
                <div class="alert alert-success">
                    <p>{{ session('infor') }}</p>
                </div>
@@ -51,12 +51,12 @@
                          @endif
                         <div class="form-group">
                            <label for="product-cate">Product Category</label>
-                           <select class="form-control" name="product-cate">               
+                           <select class="form-control" name="product-cate">
                               @foreach($category as $ct)
                               <option value="{{$ct->id}}">{{$ct->name}}</option>
                               @endforeach
-                           </select>  
-                        </div> 
+                           </select>
+                        </div>
                         <div class="form-group">
                            <label for="description">Product description</label>
                            <textarea name="description" id="description"  class="form-control" cols="30" rows="5"></textarea>
@@ -132,7 +132,7 @@
                         </div>
                     </form>
                 </div>
-            </div>   
+            </div>
     </section>
     <!-- /.content -->
   </div>
