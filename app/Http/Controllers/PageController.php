@@ -35,7 +35,7 @@ class PageController extends Controller
         $key=$req->key;
         $products = Product::where('name','like','%'.$req->key.'%')
             ->orwhere('unit_price',$req->key)
-            ->orwhere('promotion_price',$req->key)->paginate(2);
+            ->orwhere('promotion_price',$req->key)->paginate(6);
         return view('page.searchsp', compact('products'), compact('key'));
     }
 
