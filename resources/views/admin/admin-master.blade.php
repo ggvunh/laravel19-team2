@@ -62,7 +62,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="treeview">
-          <a href="{{url('maneger-menu')}}">
+          <a href="{{url('admin/product/manager-menu')}}">
             <i class="fa fa-edit"></i> <span>Menu</span>
             <span class="pull-right-container">
             </span>
