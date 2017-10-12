@@ -33,7 +33,7 @@
                       <a href="{{url('admin/product/addproduct')}}"><button type="button" class="btn btn-info mybtn">Add Product</button></a>
                     </form>
                   </div>
-                           </nav> 
+                           </nav>
                       </div>
                       @if(session('infor'))    <!-- display infor -->
                      <div class="alert alert-success">
@@ -58,7 +58,7 @@
                     </tr>
                     @foreach($product as $dt)
                     <tr>
-                        <td >{{$dt->id}}</td> 
+                        <td >{{$dt->id}}</td>
                         <td >{{$dt->image}}</td>
                         <td >{{$dt->name}}</td>
                         <td >{{$dt->Category->name}}</td>
@@ -69,14 +69,14 @@
                         <td >{{$dt->promotion_price}}</td>
                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}" style="color:red">Edit</a></td>
                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}" style="color:red" class="delete">Delete</a></td>
-                    </tr>  
-                    @endforeach       
-                            </table> 
+                    </tr>
+                    @endforeach
+                            </table>
                             </div>
                       </div>
                       {{$product->links()}}
-                 </div>       
-            </div>   
+                 </div>
+            </div>
          </div>
         </section>
    </div>

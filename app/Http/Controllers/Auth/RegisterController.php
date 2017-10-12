@@ -81,7 +81,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Toastr::success('Bạn đã đăng ký thành công', $title = null, $options = []);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -90,6 +90,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'address' => $data['address']
         ]);
+        Toastr::success('Bạn đã đăng ký thành công', $title = null, $options = []);    
     }
 
 

@@ -38,7 +38,7 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="{{ url('admin/product/listproduct')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b></b></span>
       <!-- logo for regular state and mobile devices -->
@@ -76,7 +76,21 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="{{ url('admin/product/listcategories') }}">
+            <i class="fa fa-edit"></i> <span>Category</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="{{ url('admin/product/listbrands') }}">
+            <i class="fa fa-edit"></i> <span>Brand</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="{{ url('admin/product/listusers') }}">
             <i class="fa fa-edit"></i> <span>User</span>
             <span class="pull-right-container">
             </span>

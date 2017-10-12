@@ -11,7 +11,7 @@
       <ol class="breadcrumb">
         <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Sản phẩm</a></li>
-        <li class="active"><a href="{{url('admin/product/addcategory')}}">Thêm loại sản phẩm<a></li>
+        <li class="active"><a href="{{url('admin/product/addcategories')}}">Thêm loại sản phẩm<a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -26,13 +26,13 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @include('admin.product.errors') <!-- display errors -->
+
             @if(session('infor'))    <!-- display infor -->
                <div class="alert alert-success">
                    <p>{{ session('infor') }}</p>
                </div>
             @endif
-            <form role="form" action="{{url('admin/product/addcategory')}}" method="post">
+            <form role="form" action="{{url('admin/product/addcategories')}}" method="post">
                {!!csrf_field()!!}
               <div class="box-body">
                 <div class="form-group">
@@ -44,7 +44,7 @@
                 <button type="submit" name="add" class="btn btn-primary">THÊM</button>
               </div>
             </form>
-          </div>   
+          </div>
     </section>
     <!-- /.content -->
   </div>

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(TableMenusSeeder::class);
         $this->call(TableCategoriesSeeder::class);
+        $this->call(TableBrandsSeeder::class);
         $this->call(Table_Products_Seeder::class);
     }
 }
@@ -58,6 +59,25 @@ class TableCategoriesSeeder extends Seeder
       ]);
     }
 }
+
+class TableBrandsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+      DB::table('brands')->insert([
+        ['id' =>1, 'name' => 'Logo_brand1', 'logo' => 'Logo_brand1.png'],
+        ['id' =>2, 'name' => 'Logo_brand2', 'logo' => 'Logo_brand2.png'],
+        ['id' =>3, 'name' => 'Logo_brand3', 'logo' => 'Logo_brand3.png'],
+        ['id' =>4, 'name' => 'Logo_brand4', 'logo' => 'Logo_brand4.png'],
+      ]);
+    }
+}
+
 
 class Table_Products_Seeder extends Seeder
 {
