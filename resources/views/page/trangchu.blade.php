@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="" alt="test" />
+                                            <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">Mr rooney</span>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="" alt="test" />
+                                            <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">Robert Carlo</span>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="" alt="test" />
+                                            <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">mr Lee</span>

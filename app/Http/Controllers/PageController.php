@@ -32,10 +32,11 @@ class PageController extends Controller
 
     public function searchsp(Request $req)
     {
+        $key=$req->key;
         $products = Product::where('name','like','%'.$req->key.'%')
             ->orwhere('unit_price',$req->key)
-            ->orwhere('promotion_price',$req->key)->paginate(6);
-        return view('page.searchsp', compact('products'));
+            ->orwhere('promotion_price',$req->key)->paginate(2);
+        return view('page.searchsp', compact('products'), compact('key'));
     }
 
     public function search_is_price(Request $req)
