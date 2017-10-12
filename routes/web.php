@@ -51,7 +51,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('deleteusers/{id}', 'UserController@deleteUsers');
 
 		//Route Menu
-		Route::GET('maneger-menu','menuController@listMenu')->name('listmenu');
+		Route::GET('manager-menu','menuController@listMenu')->name('listmenu');
 		Route::GET('add-menu','menuController@createMenu');
 		Route::POST('createMenu','menuController@saveMenu');
 		Route::GET('edit-menu/{id}','menuController@editMenu');
