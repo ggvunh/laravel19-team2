@@ -489,6 +489,7 @@ a:focus {
 .mega-menu-category {
     border: 1px solid #d9d9d9;
     border-top: 0;
+    display: none;
 }
 .mega-menu-category > .nav > li > a {
     border-bottom: 2px solid #f1f1f1;
@@ -741,11 +742,11 @@ a:focus {
 }
 .flexslider .flex-next:hover,
 .nivo-directionNav a.nivo-nextNav:hover {
-    background: #404048;
+    background: #C9302C;
 }
 .flexslider .flex-prev:hover,
 .nivo-directionNav a.nivo-prevNav:hover {
-    background: #404048;
+    background: #C9302C;
 }
 .flex-direction-nav .flex-disabled {
     opacity: .3!important;
@@ -2289,6 +2290,7 @@ a:focus {
 }
 .product-tab {
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 .tab-custom li > a {
     border-radius: 0;
@@ -2345,7 +2347,7 @@ a:focus {
     text-transform: uppercase;
     background: #d8373e;
     border-radius: 100%;
-    margin-left: 210px;
+    margin-left: 135px;
 }
 .box-hover .add-to-links {
     margin: 0;
@@ -3348,4 +3350,45 @@ label {
     color: #fff;
     background-color: #D8373E;
     border-color: #ddd;
+}
+
+.ngp-grup{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    padding-top: 7px;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 100px;
+    right: 160px;
+    float: right;
+}
+p {
+    margin: 10px 0 10px;
+}
+
+.form-search-nxp h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding: 8px;
+}
+.form-nxp{
+    background-color: #D8373E;
+}
+.form-search-nxp input[type="text"] {
+    width: 70%;
+}
+.nxp-111{
+    width: 28%;
+    margin-bottom: 10px;
+}
+.form-search-nxp .center{
+    text-align: center;
 }

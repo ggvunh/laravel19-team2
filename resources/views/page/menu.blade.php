@@ -13,7 +13,7 @@
                                             <div class="col-md-3">
                                                 <ul class="nav">
                                                     @foreach($menus->categories as $categories)
-                                                        <li><a href="{{url('sanpham/'.$categories->id)}}">{{$categories->name}}</a></li>
+                                                        <li><a href="{{url('category_id/'.$categories->id)}}">{{$categories->name}}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
