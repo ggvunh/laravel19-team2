@@ -5,6 +5,18 @@
         <div class="row">
             <div class="col-sm-3 col-left">
                 <img src="images/lienhe.gif" alt="lien he qc" style="max-width:100%; margin-top: 20px; min-width:100%">
+                <form class="form-search-nxp" method="GET" action="search-is-price">
+                    <div class="form-nxp">
+                        <h3>Tìm theo giá</h3>
+                    </div>
+                    <label class="nxp-111"><b>Từ</b></label>
+                    <input type="text" name="min" value="" placeholder="5.000.000"><br>
+                    <label class="nxp-111"><b>Đến</b></label>
+                    <input type="text" name="max" value="" placeholder="10.000.000"><br>
+                    <div class="center">
+                        <button class="btn-danger" type="submit" name="button">Tìm kiếm</button>
+                    </div>
+                </form>
             </div>
             <div class="col-sm-9 col-right">
                 <div class="">
@@ -41,7 +53,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="images/avatar/avatar-01.jpg" alt="test" />
+                                            <img src="" alt="test" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">Mr rooney</span>
@@ -57,7 +69,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="images/avatar/avatar-02.jpg" alt="test" />
+                                            <img src="" alt="test" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">Robert Carlo</span>
@@ -73,7 +85,7 @@
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
-                                            <img src="images/avatar/avatar-03.jpg" alt="test" />
+                                            <img src="" alt="test" />
                                         </div>
                                         <div class="box-author">
                                             <span class="testimonial-author">mr Lee</span>
@@ -132,7 +144,7 @@
                                             <div class="rating-box">
                                                 <div class="rating" style="width:67%"></div>
                                             </div>
-                                            <!-- <span class="amount"><a href="#">3 Review(s)</a></span> -->
+                                            <!-- <span class="amount"><a href="#">3 Bình luận</a></span> -->
                                         </div>
                                     </div>
                                 </div>

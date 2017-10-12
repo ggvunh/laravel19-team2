@@ -3371,3 +3371,24 @@ label {
 p {
     margin: 10px 0 10px;
 }
+
+.form-search-nxp h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding: 8px;
+}
+.form-nxp{
+    background-color: #D8373E;
+}
+.form-search-nxp input[type="text"] {
+    width: 70%;
+}
+.nxp-111{
+    width: 28%;
+    margin-bottom: 10px;
+}
+.form-search-nxp .center{
+    text-align: center;
+}
