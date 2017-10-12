@@ -35,7 +35,13 @@ class PageController extends Controller
         $products = Product::where('name','like','%'.$req->key.'%')
             ->orwhere('unit_price',$req->key)
             ->orwhere('promotion_price',$req->key)->paginate(6);
+        return view('page.searchsp', compact('products'));
+    }
 
+    public function search_is_price(Request $req)
+    {
+        $products = Product::where([ ['promotion_price','>',$req->min],['promotion_price','<',$req->max] ])
+            ->orwhere([ ['unit_price','>',$req->min],['unit_price','<',$req->max] ])->paginate(6);
         return view('page.searchsp', compact('products'));
     }
 
@@ -50,6 +56,4 @@ class PageController extends Controller
     {
         return view('admin.admin-master');
     }
-
-
 }
