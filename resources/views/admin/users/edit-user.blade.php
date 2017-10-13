@@ -38,15 +38,15 @@
            @endif
            <div class="box">
                <div class="box-body">
-                   <form role="form" action="{{url('admin/product/editusers')}}/{{$user->id}}" method="post" id="form">
+                   <form role="form" action="{{url('admin/user/editusers')}}/{{$user->id}}" method="post" id="form">
                       {!!csrf_field()!!}
                        <div class="form-group">
                           <label for="user-name">User name</label>
                           <input type="text" name="user-name" class="form-control" id="user-name" value="{{$user->name}}">
                        </div>
-                        @if ($errors->has('product-name'))
+                        @if ($errors->has('user-name'))
                              <span class="help-block">
-                                 <strong>{{ $errors->first('product-name') }}</strong>
+                                 <strong>{{ $errors->first('user-name') }}</strong>
                              </span>
                         @endif
                         <div class="form-group">
@@ -69,9 +69,9 @@
                           <label for="email">Email</label>
                           <input type="email" name="email" class="form-control" id="email" value="{{$user->email}}">
                        </div>
-                        @if ($errors->has('product-name'))
+                        @if ($errors->has('email'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('product-name') }}</strong>
+                                <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
 
@@ -79,9 +79,9 @@
                           <label for="text">Address</label>
                           <input type="address" name="address" class="form-control" id="address" value="{{$user->address}}">
                         </div>
-                        @if ($errors->has('product-name'))
+                        @if ($errors->has('address'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('product-name') }}</strong>
+                                <strong>{{ $errors->first('address') }}</strong>
                             </span>
                         @endif
 
@@ -89,9 +89,9 @@
                           <label for="text">Phone number</label>
                           <input type="number" name="phone_number" class="form-control" id="phone_number" value="{{$user->phone_number}}">
                         </div>
-                        @if ($errors->has('product-name'))
+                        @if ($errors->has('phone_number'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('product-name') }}</strong>
+                                <strong>{{ $errors->first('phone_number') }}</strong>
                             </span>
                         @endif
 

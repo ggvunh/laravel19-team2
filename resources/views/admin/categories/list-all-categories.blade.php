@@ -10,7 +10,7 @@
         <ol class="breadcrumb">
           <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#">Category</a></li>
-          <li class="active"><a href="{{url('admin/product/listcategories')}}">List of Categories<a></li>
+          <li class="active"><a href="{{url('admin/category/listcategories')}}">List of Categories<a></li>
         </ol>
        </section>
        <section class="content">
@@ -30,7 +30,7 @@
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
                       <button type="submit" class="btn btn-info">Search</button>
-                      <a href="{{url('admin/product/addcategories')}}"><button type="button" class="btn btn-info mybtn">Add Category</button></a>
+                      <a href="{{url('admin/category/addcategories')}}"><button type="button" class="btn btn-info mybtn">Add Category</button></a>
                     </form>
                   </div>
                            </nav>
@@ -53,8 +53,8 @@
                     <tr>
                         <td >{{$category->id}}</td>
                         <td >{{$category->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editcategories')}}/{{$category->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deletecategories')}}/{{$category->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/category/editcategories')}}/{{$category->id}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/category/deletecategories')}}/{{$category->id}}" style="color:red" class="delete">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>

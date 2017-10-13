@@ -29,8 +29,8 @@ class addCategoryRequest extends FormRequest
     }
     public function messages()
     {
-        return [ 
-            'cateproduct-name.required'=>'Category Product Name is required'
+        return [
+            'cateproduct-name.required'=>'Category Name is required'
         ];
     }
 }

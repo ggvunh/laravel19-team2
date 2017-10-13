@@ -10,7 +10,7 @@
         <ol class="breadcrumb">
           <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#">Category</a></li>
-          <li class="active"><a href="{{url('admin/product/listuser')}}">List of Users<a></li>
+          <li class="active"><a href="{{url('admin/user/listuser')}}">List of Users<a></li>
         </ol>
        </section>
        <section class="content">
@@ -62,8 +62,8 @@
                         <td >{{$user->email}}</td>
                         <td >{{$user->address}}</td>
                         <td >{{$user->phone_number}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editusers')}}/{{$user->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteusers')}}/{{$user->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="delete">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>
