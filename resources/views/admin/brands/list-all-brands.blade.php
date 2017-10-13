@@ -4,9 +4,14 @@
     <!-- Content Header (Page header) -->
        <section class="content-header">
         <h1>
-          Menu manage
-          <small>List of Menus</small>
+          Brand
+          <small>List of Brands</small>
         </h1>
+        <ol class="breadcrumb">
+          <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#">Category</a></li>
+          <li class="active"><a href="{{url('admin/brand/listbrands')}}">List of Brands<a></li>
+        </ol>
        </section>
        <section class="content">
           <div class="row">
@@ -18,14 +23,14 @@
                          <nav class="navbar">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF MENU</p></a>
+                      <a class="navbar-brand" class="mytile"><p>LIST OF BRANDS</p></a>
                     </div>
                     <form class="navbar-form navbar-left">
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
-                      <button type="submit" class="btn btn-success">Search</button>
-                      <a href="{{url('admin/menu/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>
+                      <button type="submit" class="btn btn-info">Search</button>
+                      <a href="{{url('admin/brand/addbrands')}}"><button type="button" class="btn btn-info mybtn">Add Brand</button></a>
                     </form>
                   </div>
                            </nav>
@@ -38,23 +43,26 @@
                         <div class="box">
                           <div class="box-body">
                           <table class="table table-bordered" id="mytable" border="0">
-                    <tr class="mytr">
-                      <th class="myth">Menu Id</th>
-                      <th class="myth">Menu name</th>
+                    <tr class="mytr" >
+                      <th class="myth">Brand code</th>
+                      <th class="myth">Brand name</th>
+                      <th class="myth">Brand image</th>
                       <th class="myth">Edit</th>
                       <th class="myth">Delete</th>
                     </tr>
-                    @foreach($menus as $menu)
+                    @foreach($brands as $brand)
                     <tr>
-                        <td >{{$menu->id}}</td>
-                        <td >{{$menu->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/menu/edit-menu/'.$menu->id)}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/menu/delete-menu/'.$menu->id)}}" style="color:red" class="delete">Delete</a></td>
+                        <td >{{$brand->id}}</td>
+                        <td >{{$brand->name}}</td>
+                        <td >{{$brand->logo}}</td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/brand/editbrands')}}/{{$brand->id}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/brand/deletebrands')}}/{{$brand->id}}" style="color:red" class="delete">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>
                             </div>
                       </div>
+
                  </div>
             </div>
          </div>

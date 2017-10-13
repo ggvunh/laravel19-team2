@@ -6,12 +6,12 @@
    <section class="content-header">
      <h1>
        Product
-       <small>Edit category</small>
+       <small>Edit brand</small>
      </h1>
      <ol class="breadcrumb">
        <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-       <li><a href="#">category</a></li>
-       <li class="active"><a href="">Edit category<a></li>
+       <li><a href="#">brand</a></li>
+       <li class="active"><a href="">Edit brand<a></li>
      </ol>
    </section>
    <!-- Main content -->
@@ -25,7 +25,7 @@
                    <nav class="navbar">
                       <div class="container-fluid">
                           <div class="navbar-header">
-                             <a class="navbar-brand" class="mytile"><p>EDIT CATEGORY</p></a>
+                             <a class="navbar-brand" class="mytile"><p>EDIT BRAND</p></a>
                           </div>
                       </div>
                    </nav>
@@ -38,17 +38,26 @@
            @endif
            <div class="box">
                <div class="box-body">
-                   <form role="form" action="{{url('admin/product/editcategories')}}/{{$category->id}}" method="post" id="form">
+                   <form role="form" action="{{url('admin/brand/editbrands')}}/{{$brand->id}}" method="post" id="form" enctype="multipart/form-data">
                       {!!csrf_field()!!}
                        <div class="form-group">
-                          <label for="category-name">Category name</label>
-                          <input type="text" name="category-name" class="form-control" id="category-name" value="{{$category->name}}">
+                          <label for="brand-name">Brand name</label>
+                          <input type="text" name="brand-name" class="form-control" id="brand-name" value="{{$brand->name}}">
                        </div>
-                        @if ($errors->has('category-name'))
+                        @if ($errors->has('brand-name'))
                              <span class="help-block">
-                                 <strong>{{ $errors->first('category-name') }}</strong>
+                                 <strong>{{ $errors->first('brand-name') }}</strong>
                              </span>
                         @endif
+                        <div class="form-group">
+                             <label for="brand-image">Brand image</label>
+                             <input type="file" id="brand-image" name="brand-image" value="{{$brand->logo}} " >
+                        </div>
+                         @if ($errors->has('brand-image'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('brand-image') }}</strong>
+                              </span>
+                         @endif
                        <div class="box-footer">
                            <button type="submit" name="add" class="btn btn-primary">EDIT</button>
                        </div>

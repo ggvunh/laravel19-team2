@@ -24,7 +24,13 @@ class editCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'cateproduct-name'=>'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'cateproduct-name.required'=>'Category Name is required'
         ];
     }
 }

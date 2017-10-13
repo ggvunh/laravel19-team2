@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\loginRequest;
 use Toastr;
 
 class LoginController extends Controller
@@ -62,5 +63,7 @@ class LoginController extends Controller
             Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
             return redirect('/');
     }
+
+
 
 }

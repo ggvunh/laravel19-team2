@@ -4,13 +4,13 @@
     <!-- Content Header (Page header) -->
        <section class="content-header">
         <h1>
-          Brand
-          <small>List of Brands</small>
+          User
+          <small>List of User</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Category</a></li>
-          <li class="active"><a href="{{url('admin/product/listbrands')}}">List of Brands<a></li>
+          <li><a href="#">User</a></li>
+          <li class="active"><a href="{{url('admin/user/listuser')}}">List of Users<a></li>
         </ol>
        </section>
        <section class="content">
@@ -23,14 +23,13 @@
                          <nav class="navbar">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF BRANDS</p></a>
+                      <a class="navbar-brand" class="mytile"><p>LIST OF USERS</p></a>
                     </div>
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" method="get" action="{{ url('admin/user/searchusers') }}">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search_user" class="form-control" placeholder="Search">
                       </div>
                       <button type="submit" class="btn btn-info">Search</button>
-                      <a href="{{url('admin/product/addbrands')}}"><button type="button" class="btn btn-info mybtn">Add Brand</button></a>
                     </form>
                   </div>
                            </nav>
@@ -44,19 +43,27 @@
                           <div class="box-body">
                           <table class="table table-bordered" id="mytable" border="0">
                     <tr class="mytr" >
-                      <th class="myth">Brand code</th>
-                      <th class="myth">Brand name</th>
-                      <th class="myth">Brand image</th>
+                      <th class="myth">User code</th>
+                      <th class="myth">User name</th>
+                      <th class="myth">Gender</th>
+                      <th class="myth">Roles</th>
+                      <th class="myth">Email</th>
+                      <th class="myth">Address</th>
+                      <th class="myth">Phone Number</th>
                       <th class="myth">Edit</th>
                       <th class="myth">Delete</th>
                     </tr>
-                    @foreach($brands as $brand)
+                    @foreach($users as $user)
                     <tr>
-                        <td >{{$brand->id}}</td>
-                        <td >{{$brand->name}}</td>
-                        <td >{{$brand->logo}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editbrands')}}/{{$brand->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deletebrands')}}/{{$brand->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td >{{$user->id}}</td>
+                        <td >{{$user->name}}</td>
+                        <td >{{$user->gender}}</td>
+                        <td >{{$user->roles}}</td>
+                        <td >{{$user->email}}</td>
+                        <td >{{$user->address}}</td>
+                        <td >{{$user->phone_number}}</td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="delete">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>

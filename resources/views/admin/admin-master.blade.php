@@ -62,7 +62,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="treeview">
-          <a href="{{url('admin/product/manager-menu')}}">
+          <a href="{{url('admin/menu/manager-menu')}}">
             <i class="fa fa-edit"></i> <span>Menu</span>
             <span class="pull-right-container">
             </span>
@@ -76,21 +76,21 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listcategories') }}">
+          <a href="{{ url('admin/category/listcategories') }}">
             <i class="fa fa-edit"></i> <span>Category</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listbrands') }}">
+          <a href="{{ url('admin/brand/listbrands') }}">
             <i class="fa fa-edit"></i> <span>Brand</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listusers') }}">
+          <a href="{{ url('admin/user/listusers') }}">
             <i class="fa fa-edit"></i> <span>User</span>
             <span class="pull-right-container">
             </span>
