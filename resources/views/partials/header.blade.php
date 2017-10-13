@@ -19,11 +19,13 @@
                                   <li class="dropdown">
                                       <a href="#" class="account dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                                       <ul class="dropdown-menu dropdown-menu-right">
-                                          <li><a title="My Account" href="account.html">My Account</a></li>
-                                          <li><a title="My Wishlist" href="wishlist.html">My Wishlist</a></li>
-                                          <li><a title="My Cart" href="cart.html">My Cart</a></li>
-                                          <li><a title="Checkout" href="checkout.html">Checkout</a></li>
-                                          <li><a title="Testimonial" href="testimonial.html">Testimonial</a></li>
+                                          <li><a title="My Account" href="#">Tài khoản của tôi</a></li>
+                                          <li><a title="My info" href="#">Thông tin cá nhân</a></li>
+                                          <li><a title="My Cart" href="#">Giỏ hàng của tôi</a></li>
+                                          <li><a title="Checkout" href="#">Checkout</a></li>
+                                          @if (Auth::user()->roles==1)
+                                          <li><a title="Admin" href="{{ url('admin/product/listproduct') }}">Trang quản trị</a></li>
+                                          @endif
                                           <li>
                                               <a href="{{ route('logout') }}"
                                                   onclick="event.preventDefault();
