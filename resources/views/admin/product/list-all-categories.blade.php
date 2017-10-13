@@ -2,15 +2,16 @@
  @section('content')
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+     <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
        <section class="content-header">
         <h1>
           Category
           <small>List of Categories</small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Category</a></li>
-          <li class="active"><a href="{{url('admin/product/listcategories')}}">List of Categories<a></li>
+          <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="{{url('admin/product/listcategories')}}" class="click">Category</a></li>
+          <li class="active"><a href="#">List of Categories<a></li>
         </ol>
        </section>
        <section class="content">
@@ -21,19 +22,18 @@
                  <div class="box box-primary">
                       <div class="box-header with-border">
                          <nav class="navbar">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF CATEGORIES</p></a>
-                    </div>
-                    <form class="navbar-form navbar-left">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                      </div>
-                      <button type="submit" class="btn btn-info">Search</button>
-                      <a href="{{url('admin/product/addcategories')}}"><button type="button" class="btn btn-info mybtn">Add Category</button></a>
-                    </form>
-                  </div>
-                           </nav>
+                              <div class="container-fluid">
+                                    <div class="navbar-header">
+                                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF CATEGORY</p></a>
+                                    </div>
+                                    <form class="navbar-form navbar-left" action="" method="GET">
+                                          <div class="form-group">
+                                              <input type="text" class="form-control" placeholder="Search" id="search" >
+                                          </div>
+                                           <button type="submit" class="btn btn-info click"  id="search">Search</button> 
+                                          <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Category</button></a> 
+                                    </form>
+                          </nav>
                       </div>
                       @if(session('infor'))    <!-- display infor -->
                      <div class="alert alert-success">
@@ -53,8 +53,8 @@
                     <tr>
                         <td >{{$category->id}}</td>
                         <td >{{$category->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editcategories')}}/{{$category->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deletecategories')}}/{{$category->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>

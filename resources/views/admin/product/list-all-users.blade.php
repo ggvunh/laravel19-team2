@@ -2,15 +2,16 @@
  @section('content')
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
         <h1>
-          Category
+          User
           <small>List of User</small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Category</a></li>
-          <li class="active"><a href="{{url('admin/product/listuser')}}">List of Users<a></li>
+          <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="{{url('admin/product/listusers')}}" class="click">User</a></li>
+          <li class="active"><a href="#">List of Users<a></li>
         </ol>
        </section>
        <section class="content">
@@ -23,13 +24,13 @@
                          <nav class="navbar">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF USERS</p></a>
+                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF USERS</p></a>
                     </div>
                     <form class="navbar-form navbar-left">
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
-                      <button type="submit" class="btn btn-info">Search</button>
+                      <button type="submit" class="btn btn-info  click">Search</button>
                     </form>
                   </div>
                            </nav>
@@ -62,8 +63,8 @@
                         <td >{{$user->email}}</td>
                         <td >{{$user->address}}</td>
                         <td >{{$user->phone_number}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editusers')}}/{{$user->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteusers')}}/{{$user->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editusers')}}/{{$user->id}}" style="color:red" class="click">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteusers')}}/{{$user->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>

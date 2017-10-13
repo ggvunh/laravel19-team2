@@ -3,14 +3,15 @@
 <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
    <!-- Content Header (Page header) -->
+   <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
    <section class="content-header">
      <h1>
        Product
        <small>Edit category</small>
      </h1>
      <ol class="breadcrumb">
-       <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-       <li><a href="#">category</a></li>
+       <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
+       <li><a href="{{url('admin/product/listcategories')}}" class="click">Category</a></li>
        <li class="active"><a href="">Edit category<a></li>
      </ol>
    </section>
@@ -25,7 +26,7 @@
                    <nav class="navbar">
                       <div class="container-fluid">
                           <div class="navbar-header">
-                             <a class="navbar-brand" class="mytile"><p>EDIT CATEGORY</p></a>
+                             <a class="navbar-brand" class="mytile"><p class="myp">EDIT CATEGORY</p></a>
                           </div>
                       </div>
                    </nav>
@@ -50,7 +51,7 @@
                              </span>
                         @endif
                        <div class="box-footer">
-                           <button type="submit" name="add" class="btn btn-primary">EDIT</button>
+                           <button type="submit" name="add" class="btn btn-primary click">EDIT</button>
                        </div>
                    </form>
                </div>

@@ -9,9 +9,9 @@
        <small>Add Brand</small>
      </h1>
      <ol class="breadcrumb">
-       <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-       <li><a href="#">Brand</a></li>
-       <li class="active"><a href="{{url('admin/product/addbrands')}}">Add brand<a></li>
+       <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+       <li><a href="{{url('admin/product/addbrands')}}">Brand</a></li>
+       <li class="active"><a href="#">Add brand<a></li>
      </ol>
    </section>
    <!-- Main content -->
@@ -46,7 +46,7 @@
                </div>
              <!-- /.box-body -->
              <div class="box-footer">
-               <button type="submit" name="add" class="btn btn-primary">ADD</button>
+               <button type="submit" name="add" class="btn btn-primary click">ADD</button>
              </div>
            </form>
          </div>
