@@ -55,6 +55,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('editusers/{id}', 'UserController@getEditUsers');
 		Route::post('editusers/{id}', 'UserController@postEditUsers');
 		Route::get('deleteusers/{id}', 'UserController@deleteUsers');
+		Route::get('searchusers', 'UserController@searchUser');
 	});
 		//Route Menu
 	Route::group(['prefix'=>'menu'],function(){

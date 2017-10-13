@@ -46,4 +46,11 @@ class userController extends Controller
         return redirect('admin/user/listusers');
     }
 
+    public function searchUser(Request $req)
+    {
+        $search_users = User::where('name', 'like', '%'.$req ->search_user.'%')
+                    ->orWhere('address', 'like', '%'.$req->search_user.'%')
+                    ->get();
+        return view('admin.users.searchusers', compact('search_users'));
+    }    
 }

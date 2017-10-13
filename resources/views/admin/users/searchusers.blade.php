@@ -5,12 +5,12 @@
        <section class="content-header">
         <h1>
           User
-          <small>List of User</small>
+          <small>Search User</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{url('admin/product/listcategory')}}"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#">User</a></li>
-          <li class="active"><a href="{{url('admin/user/listuser')}}">List of Users<a></li>
+          <li class="active"><a href="{{url('admin/user/listuser')}}">Search Users<a></li>
         </ol>
        </section>
        <section class="content">
@@ -23,7 +23,7 @@
                          <nav class="navbar">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF USERS</p></a>
+                      <a class="navbar-brand" class="mytile"><p>SEARCH USERS</p></a>
                     </div>
                     <form class="navbar-form navbar-left" method="get" action="{{ url('admin/user/searchusers') }}">
                       <div class="form-group">
@@ -53,17 +53,17 @@
                       <th class="myth">Edit</th>
                       <th class="myth">Delete</th>
                     </tr>
-                    @foreach($users as $user)
+                    @foreach($search_users as $search_user)
                     <tr>
-                        <td >{{$user->id}}</td>
-                        <td >{{$user->name}}</td>
-                        <td >{{$user->gender}}</td>
-                        <td >{{$user->roles}}</td>
-                        <td >{{$user->email}}</td>
-                        <td >{{$user->address}}</td>
-                        <td >{{$user->phone_number}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="delete">Delete</a></td>
+                        <td >{{$search_user->id}}</td>
+                        <td >{{$search_user->name}}</td>
+                        <td >{{$search_user->gender}}</td>
+                        <td >{{$search_user->roles}}</td>
+                        <td >{{$search_user->email}}</td>
+                        <td >{{$search_user->address}}</td>
+                        <td >{{$search_user->phone_number}}</td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$search_user->id}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$search_user->id}}" style="color:red" class="delete">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>
