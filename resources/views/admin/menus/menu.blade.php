@@ -25,7 +25,9 @@
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
                       <button type="submit" class="btn btn-success">Search</button>
-                      <a href="{{url('admin/menu/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>
+
+                      <a href="{{url('admin/product/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>=======
+            
                     </form>
                   </div>
                            </nav>
@@ -48,8 +50,9 @@
                     <tr>
                         <td >{{$menu->id}}</td>
                         <td >{{$menu->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/menu/edit-menu/'.$menu->id)}}" style="color:red">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/menu/delete-menu/'.$menu->id)}}" style="color:red" class="delete">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/edit-menu/'.$menu->id)}}" style="color:red">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/delete-menu/'.$menu->id)}}" style="color:red" class="delete">Delete</a></td>
+
                     </tr>
                     @endforeach
                             </table>
