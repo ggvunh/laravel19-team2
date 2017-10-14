@@ -1,41 +1,21 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>LARAVEL19-nhom2</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/font-awesome/css/font-awesome.min.css')}}">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/Ionicons/css/ionicons.min.css')}}">
-  <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('adlibrary/dist/css/AdminLTE.min.css')}}">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{asset('adlibrary/dist/css/skins/skin-blue.min.css')}}">
   <link rel="stylesheet" href="{{asset('/css/admincss/mycss.css')}}">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -60,10 +40,8 @@ desired effect
 <body class="hold-transition skin-blue sidebar-mini">
    {!! Toastr::render() !!}
 <div class="wrapper">
-
   <!-- Main Header -->
   <header class="main-header">
-
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -71,7 +49,6 @@ desired effect
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Admin</b></span>
     </a>
-
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
@@ -97,7 +74,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -190,11 +167,11 @@ desired effect
               <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="{{asset('adlibrary/dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
-
                 <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
+                <h4> Member since Oct. 2017</h4>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
@@ -217,7 +194,14 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                      Sign out
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
                 </div>
               </li>
             </ul>
@@ -270,7 +254,7 @@ desired effect
             </a>
           </li>
         <li class="treeview">
-          <a href="{{url('admin/product/manager-menu')}}">
+          <a href="{{url('admin/menu/manager-menu')}}">
             <i class="fa fa-edit"></i> <span>Menu</span>
             <span class="pull-right-container">
             </span>
@@ -284,21 +268,21 @@ desired effect
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listcategories') }}">
+          <a href="{{ url('admin/category/listcategories') }}">
             <i class="fa fa-edit"></i> <span>Category</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listbrands') }}">
+          <a href="{{ url('admin/brand/listbrands') }}">
             <i class="fa fa-edit"></i> <span>Brand</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ url('admin/product/listusers') }}">
+          <a href="{{ url('admin/user/listusers') }}">
             <i class="fa fa-edit"></i> <span>User</span>
             <span class="pull-right-container">
             </span>
@@ -319,7 +303,6 @@ desired effect
     <!-- Default to the left -->
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -430,9 +413,5 @@ desired effect
       }, 2000);
     });
 </script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 </body>
 </html>
