@@ -21,18 +21,25 @@ Route::get('search-is-price', 'PageController@search_is_price');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin',function(){
+	return view('admin-home');
+});
+// Nhom Route cho trang admin/product- by Duong Dong Hung
 		// Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('listproduct','ProductController@listProduct')->name('admin');
-		Route::get('addproduct','ProductController@getaddProduct');
+		Route::get('listproduct','ProductController@listProduct');
+        Route::get('addcategory','ProductController@getaddCategory');
+        Route::post('addcategory','ProductController@postaddCategory');
+        Route::get('addproduct','ProductController@getaddProduct');
         Route::post('addproduct','ProductController@postaddProduct');
         Route::get('editproduct/{id}','ProductController@geteditProduct');
         Route::post('editproduct/{id}','ProductController@posteditProduct');
         Route::get('deleteproduct/{id}','ProductController@deleteProduct');
+        Route::get('searchproduct','ProductController@searchProduct');
 	});
 		//CRUD category by Phan Anh Khoa
-	Route::group(['prefix'=>'category'],function(){
+		Route::group(['prefix'=>'category'],function(){
 		Route::get('listcategories', 'CategoryController@listCategories');
 		Route::get('addcategories','CategoryController@getAddCategories');
         Route::post('addcategories','CategoryController@postAddCategories');

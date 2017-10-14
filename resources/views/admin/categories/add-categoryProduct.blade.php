@@ -3,15 +3,16 @@
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
     <section class="content-header">
       <h1>
         Category
-        <small>Add category</small>
+        <small>Add product category</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{url('admin/product/listproduct')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">category</a></li>
-        <li class="active"><a href="{{url('admin/category/addcategories')}}">Add category<a></li>
+        <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{url('admin/category/listcategories')}}" class="click">Category</a></li>
+        <li class="active"><a href="#">Add category<a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -27,11 +28,7 @@
             <!-- /.box-header -->
             <!-- form start -->
 
-            @if(session('infor'))    <!-- display infor -->
-               <div class="alert alert-success">
-                   <p>{{ session('infor') }}</p>
-               </div>
-            @endif
+           
             <form role="form" action="{{url('admin/category/addcategories')}}" method="post">
                {!!csrf_field()!!}
               <div class="box-body">
@@ -45,7 +42,7 @@
                      </span>
                 @endif
               <div class="box-footer">
-                <button type="submit" name="add" class="btn btn-primary">ADD</button>
+                <button type="submit" name="add" class="btn btn-primary click">ADD</button>
               </div>
             </form>
           </div>
