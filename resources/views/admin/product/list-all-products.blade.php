@@ -55,10 +55,18 @@
                       <th class="myth">Promotion-Price</th>
                       <th class="myth">Edit</th>
                       <th class="myth">Delete</th>
+
                     </tr>
                     @foreach($product as $dt)
                     <tr>
-                        <td >{{$dt->id}}</td>
+                        <td >
+                            <?php
+                                for ($i=1; $i <=count($product) ; $i++)
+                                    {
+                                        echo $i;
+                                    }
+                            ?>
+                        </td>
                         <td >{{$dt->image}}</td>
                         <td >{{$dt->name}}</td>
                         <td >{{$dt->Category->name}}</td>
