@@ -24,7 +24,15 @@ class editBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'brand-name'=>'required',
+            'brand-image'=>'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'brand-name.required'=>'Brand name is required',
+            'brand-image.required'=>'Brand image is required'
         ];
     }
 }

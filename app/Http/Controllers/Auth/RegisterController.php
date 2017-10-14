@@ -90,7 +90,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'address' => $data['address']
         ]);
-        Toastr::success('Bạn đã đăng ký thành công', $title = null, $options = []);    
+        Toastr::success('Bạn đã đăng ký thành công', $title = null, $options = []);
     }
 
 

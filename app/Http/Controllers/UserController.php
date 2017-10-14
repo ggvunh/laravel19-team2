@@ -13,13 +13,13 @@ class userController extends Controller
     public function listUsers()
     {
         $users = User::All();
-        return view('admin.product.list-all-users', compact('users'));
+        return view('admin.users.list-all-users', compact('users'));
     }
 
     public function getEditUsers($id)
     {
         $user = User::find($id);
-        return view('admin.product.edit-user', compact('user'));
+        return view('admin.users.edit-user', compact('user'));
     }
 
     public function postEditUsers($id ,Request $rq, editUserRequest $request )
@@ -35,7 +35,7 @@ class userController extends Controller
             if ($phone_number != null) $data ->phone_number=$phone_number;
         $data->save();
         Toastr::success('Edit successful user', $title = null, $options = []);
-        return redirect('admin/product/listusers');
+        return redirect('admin/user/listusers');
     }
 
     public function deleteUsers($id)
@@ -43,7 +43,14 @@ class userController extends Controller
         $data = User::find($id);
         $data->delete();
         Toastr::success('Delete successful user', $title = null, $options = []);
-        return redirect('admin/product/listusers');
+        return redirect('admin/user/listusers');
     }
 
+    public function searchUser(Request $req)
+    {
+        $search_users = User::where('name', 'like', '%'.$req ->search_user.'%')
+                    ->orWhere('address', 'like', '%'.$req->search_user.'%')
+                    ->get();
+        return view('admin.users.searchusers', compact('search_users'));
+    }    
 }
