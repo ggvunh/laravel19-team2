@@ -1,8 +1,8 @@
 @extends('admin.admin-master')
 @section('content')
-     <div class="content-wrapper" style=" height: 1138px"> 
+     <div class="content-wrapper nxp-admin"> 
     <!-- Content Header (Page header) -->
-       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
             <h1>
               Order
@@ -27,7 +27,7 @@
                                       <a class="navbar-brand" class="mytile"><p class="myp">DETAIL OF ORDERS</p></a>
                                     </div>
                               </div>
-                         </nav> 
+                         </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
@@ -50,19 +50,19 @@
                                         <td class="myth">
                                             @if(($dt->status) == 0)
                                                  Undelivery
-                                            @else 
-                                                 Delivery     
+                                            @else
+                                                 Delivery
                                             @endif
                                         </td>
                                     </tr>
                                     @endforeach
-                                </table> 
+                                </table>
                           </div>
                       </div>
-                     
-                 </div>       
-            </div>   
-         </div>                  
+
+                 </div>
+            </div>
+         </div>
        </section>
     </div>s
 @stop
