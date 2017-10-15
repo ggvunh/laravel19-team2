@@ -41,6 +41,10 @@ class PageController extends Controller
 
     public function search_is_price(Request $req)
     {
+        $this->validate($req,[
+            'min' => 'required',
+            'max' => 'required',
+        ]);
         $products = Product::where([ ['promotion_price','>',$req->min],['promotion_price','<',$req->max] ])
             ->orwhere([ ['unit_price','>',$req->min],['unit_price','<',$req->max] ])->paginate(6);
         return view('page.searchsp', compact('products'));
@@ -55,6 +59,6 @@ class PageController extends Controller
 
     public function getAdmin()
     {
-        return view('admin.product.list-all-products');
+        return view('admin.admin-home');
     }
 }

@@ -54,6 +54,7 @@ class brandController extends Controller
      {
          $data = Brand::find($id);
          $name = $rq->input('brand-name');
+            if($name != null) $data->name = $name;
          $logo=$rq->input('brand-image');
          if($request->hasFile('brand-image'))
          {

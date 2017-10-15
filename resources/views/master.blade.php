@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="#">
+    <link rel="icon" href="{{('images/ico.ico')}}" type="image/x-icon">
 
     <title>Ph19 - mua bán nhạc cụ</title>
     <link href="{{('css/bootstrap.min.css')}}" rel="stylesheet">

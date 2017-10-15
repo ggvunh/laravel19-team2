@@ -21,7 +21,7 @@
                 <div class="page-title">
                     <h1>TÌM KIẾM SẢN PHẨM</h1>
                     <h4>Từ khóa tìm kiếm: <b></b></h4>
-                    <h4>Tìm thấy: <b>{{count($products)}}</b> sản phẩm</h4>
+                    <h4>Tìm thấy: <b>12</b> sản phẩm</h4>
                 </div>
                 <div class="toolbar">
                     <div class="pager">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     @endforeach
-                {{$products->links()}}
+                {{$products->appends(['sort' => 'votes'])->links()}}
                 </div><!-- /.product -->
                 <div class="toolbar">
                     <div class="pager">

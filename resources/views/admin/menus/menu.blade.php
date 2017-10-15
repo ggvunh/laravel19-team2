@@ -16,18 +16,18 @@
                  <div class="box box-primary">
                       <div class="box-header with-border">
                          <nav class="navbar">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p>LIST OF MENU</p></a>
-                    </div>
-                    <form class="navbar-form navbar-left">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                      </div>
-                      <button type="submit" class="btn btn-success">Search</button>
-                      <a href="{{url('admin/menu/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>
-                    </form>
-                  </div>
+                             <div class="container-fluid">
+                                <div class="navbar-header">
+                                  <a class="navbar-brand" class="mytile"><p>LIST OF MENU</p></a>
+                                </div>
+                                <form class="navbar-form navbar-left">
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                  </div>
+                                  <button type="submit" class="btn btn-success">Search</button>
+                                  <a href="{{url('admin/menu/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>
+                                </form>
+                              </div>
                            </nav>
                       </div>
                       @if(session('infor'))    <!-- display infor -->
@@ -50,6 +50,7 @@
                         <td >{{$menu->name}}</td>
                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/menu/edit-menu/'.$menu->id)}}" style="color:red">Edit</a></td>
                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/menu/delete-menu/'.$menu->id)}}" style="color:red" class="delete">Delete</a></td>
+
                     </tr>
                     @endforeach
                             </table>
