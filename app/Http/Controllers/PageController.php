@@ -56,6 +56,6 @@ class PageController extends Controller
 
     public function getAdmin()
     {
-        return view('admin.product.list-all-products');
+        return view('admin.admin-home');
     }
 }

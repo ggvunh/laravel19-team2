@@ -6,11 +6,11 @@
 {
 	border-bottom:2px solid #397888;
 	color: black;
-}
+} 
 .mytd
 {
 	color: red;
-}
+} 
 .table-bordered>tbody>tr>th
 {
 	border: 1px solid #8c6060;
@@ -18,8 +18,9 @@
 .table-bordered>tbody>tr>td
 {
 	border: 1px solid #8c6060;
-}
-p
+	text-align: center;
+} 
+ p.myp
 {
 	color: #6b5959 !important;
     font-size: 40px !important;
@@ -42,7 +43,25 @@ p
 	color: #de3434;
 	font-weight: normal;
 }
-
+.ajax-load-qa {
+	background: url("http://i.imgur.com/Tn4nzow.gif") no-repeat center center black;
+	position: fixed;
+	z-index: 100;
+	opacity: 0.7;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none; 
+}
+.loading
+{
+	color: white;
+}
+.myh3
+{
+	color: #3c8dbc;
+}
 
  
 

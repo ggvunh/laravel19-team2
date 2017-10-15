@@ -14,12 +14,12 @@ class brandController extends Controller
     public function listBrands()
     {
         $brands = Brand::All();
-        return view('admin.product.list-all-brands', compact('brands'));
+        return view('admin.brands.list-all-brands', compact('brands'));
     }
 
     public function getAddBrand()
     {
-        return view('admin.product.add-brand');
+        return view('admin.brands.add-brand');
     }
      public function postAddBrand(Request $rq, addBrandRequest $request)
      {
@@ -41,19 +41,20 @@ class brandController extends Controller
          }
          $data->save();
          Toastr::success('Add successful brand', $title = null, $options = []);
-         return redirect('admin/product/listbrands');
+         return redirect('admin/brand/listbrands');
      }
 
      public function getEditBrands($id)
      {
          $brand = Brand::find($id);
-         return view('admin.product.edit-brand', compact('brand'));
+         return view('admin.brands.edit-brand', compact('brand'));
      }
 
      public function postEditBrands($id ,Request $rq, editBrandRequest $request )
      {
          $data = Brand::find($id);
          $name = $rq->input('brand-name');
+            if($name != null) $data->name = $name;
          $logo=$rq->input('brand-image');
          if($request->hasFile('brand-image'))
          {
@@ -70,7 +71,7 @@ class brandController extends Controller
          }
          $data->save();
          Toastr::success('Add successful brand', $title = null, $options = []);
-         return redirect('admin/product/listbrands');
+         return redirect('admin/brand/listbrands');
      }
      public function deleteBrands ($id)
      {
@@ -78,6 +79,6 @@ class brandController extends Controller
          $data ->product()->delete();
          $data->delete();
          Toastr::success('Delete successful brand', $title = null, $options = []);
-         return redirect('admin/product/listbrands');
+         return redirect('admin/brand/listbrands');
      }
 }

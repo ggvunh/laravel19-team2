@@ -15,12 +15,12 @@ class categoryController extends Controller
     public function listCategories()
     {
         $categories = Category::All();
-        return view('admin.product.list-all-categories', compact('categories'));
+        return view('admin.categories.list-all-categories', compact('categories'));
     }
 
     public function getAddCategories()
     {
-        return view('admin.product.add-categoryProduct');
+        return view('admin.categories.add-categoryProduct');
     }
 
     public function postAddCategories(Request $rq, addCategoryRequest $request)
@@ -29,23 +29,23 @@ class categoryController extends Controller
         $data->name=$rq->input('cateproduct-name');
         $data->save();
         Toastr::success('Add successful category', $title = null, $options = []);
-        return redirect('admin/product/listcategories');
+        return redirect('admin/category/listcategories');
     }
 
     public function getEditCategories($id)
     {
         $category = Category::find($id);
-        return view('admin.product.edit-category', compact('category'));
+        return view('admin.categories.edit-category', compact('category'));
     }
 
-    public function postEditCategories($id ,Request $rq, editCategoryRequest $request )
+    public function postEditCategories($id ,Request $rq, editCategoryRequest $request)
     {
         $data = Category::find($id);
         $name = $rq->input('category-name');
             if ($name != null) $data ->name=$name;
         $data->save();
         Toastr::success('Edit successful category', $title = null, $options = []);
-        return redirect('admin/product/listcategories');
+        return redirect('admin/category/listcategories');
     }
 
     public function deleteCategories ($id)
@@ -54,6 +54,6 @@ class categoryController extends Controller
         $data ->product()->delete();
         $data->delete();
         Toastr::success('Delete successful category', $title = null, $options = []);
-        return redirect('admin/product/listproduct');
+        return redirect('admin/category/listcategories');
     }
 }
