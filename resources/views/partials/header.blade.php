@@ -24,7 +24,7 @@
                                           <li><a title="My Cart" href="#">Giỏ hàng của tôi</a></li>
                                           <li><a title="Checkout" href="#">Checkout</a></li>
                                           @if (Auth::user()->roles==1)
-                                          <li><a title="Admin" href="{{ url('admin/product/listproduct') }}">Trang quản trị</a></li>
+                                          <li><a title="Admin" href="{{ url('admin') }}">Trang quản trị</a></li>
                                           @endif
                                           <li>
                                               <a href="{{ route('logout') }}"

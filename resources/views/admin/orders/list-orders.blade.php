@@ -1,8 +1,8 @@
 @extends('admin.admin-master')
 @section('content')
-     <div class="content-wrapper" style="height: 1138px"> 
+     <div class="content-wrapper nxp-admin"> 
     <!-- Content Header (Page header) -->
-       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
             <h1>
               Order
@@ -35,7 +35,7 @@
                                           <a href="{{url('admin/order/undilevery')}}" class="click"><button type="button" class="btn btn-info mybtn1 ">Undelivered</button></a> 
                                     </form>
                               </div>
-                         </nav> 
+                         </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
@@ -59,20 +59,20 @@
                                         <td class="myth">
                                         	@if(($bill->status) == 0)
                                                  Undelivered
-                                            @else 
-                                                 Delivered     
+                                            @else
+                                                 Delivery
                                         	@endif
                                         </td>
                                         <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$bill->id}}" style="color:red" class="click">Detail</a></td>
                                     </tr>
                                     @endforeach
-                                </table> 
+                                </table>
                           </div>
                       </div>
-                     
-                 </div>       
-            </div>   
-         </div>                  
+
+                 </div>
+            </div>
+         </div>
        </section>
     </div>
 @stop

@@ -1,7 +1,7 @@
  @extends('admin.admin-master')
  @section('content')
  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 1138px">
+  <div class="content-wrapper nxp-admin">
     <!-- Content Header (Page header) -->
     <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
     <section class="content-header">
@@ -17,7 +17,7 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="row"> 
+        <div class="row">
         <!-- left column -->
             <div class="col-md-12">
           <!-- general form elements -->
@@ -36,8 +36,8 @@
                                       <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn">Add Product</button></a>
                                  </form>
                             </div>
-                        </nav> 
-                   </div>       
+                        </nav>
+                   </div>
                    <div class="box">
                         <div class="box-body">
                             <form action="{{url('admin/product/addproduct')}}" method="post" id="form"  enctype="multipart/form-data">
@@ -53,20 +53,20 @@
                                          @endif
                                         <div class="form-group">
                                              <label for="product-cate">Product Category</label>
-                                             <select class="form-control" name="product-cate">            
+                                             <select class="form-control" name="product-cate">
                                                @foreach($category as $ct)
                                                 <option value="{{$ct->id}}">{{$ct->name}}</option>
                                                 @endforeach
-                                             </select>  
-                                        </div> 
+                                             </select>
+                                        </div>
                                         <div class="form-group">
                                              <label for="product-brand">Product Brand</label>
-                                             <select class="form-control" name="product-brand">            
+                                             <select class="form-control" name="product-brand">
                                                @foreach($brand as $br)
                                                 <option value="{{$br->id}}">{{$br->name}}</option>
                                                 @endforeach
-                                             </select>  
-                                        </div> 
+                                             </select>
+                                        </div>
                                         <div class="form-group">
                                                <label for="description">Product description</label>
                                                <textarea name="description" id="description"  class="form-control" cols="30" rows="5">{{old('description')}}</textarea>
@@ -147,9 +147,9 @@
                                   </div>
                             </form>
                         </div>
-                   </div> 
-                </div> 
-            </div> 
+                   </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- /.content -->
