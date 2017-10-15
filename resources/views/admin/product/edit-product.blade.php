@@ -30,7 +30,7 @@
                        </div>
                     </nav>
               </div>
-            
+
             @if(session('infor'))    <!-- display infor -->
                <div class="alert alert-success">
                    <p>{{ session('infor') }}</p>
