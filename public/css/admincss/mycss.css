@@ -14,6 +14,7 @@
 .table-bordered>tbody>tr>th
 {
 	border: 1px solid #8c6060;
+	text-align: center;
 }
 .table-bordered>tbody>tr>td
 {
@@ -33,6 +34,10 @@
 {
 	margin-left: 125px;
 	color: black;
+}
+.mybtn1
+{
+	margin-left: 40px;
 }
 .btn-info
 {

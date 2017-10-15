@@ -21,24 +21,6 @@
         <!-- left column -->
             <div class="col-md-12 col-xs-12">
           <!-- general form elements -->
-<<<<<<< HEAD
-          <div class="box box-primary">
-              <div class="box-header with-border">
-                    <nav class="navbar">
-                       <div class="container-fluid">
-                           <div class="navbar-header">
-                              <a class="navbar-brand" class="mytile"><p>EDIT PRODUCTS</p></a>
-                           </div>
-                       </div>
-                    </nav>
-              </div>
-
-            @if(session('infor'))    <!-- display infor -->
-               <div class="alert alert-success">
-                   <p>{{ session('infor') }}</p>
-               </div>
-            @endif
-=======
                  <div class="box box-primary">
                       <div class="box-header with-border">
                           <nav class="navbar">
@@ -56,7 +38,6 @@
                                </div>
                          </nav> 
                       </div>       
->>>>>>> a4ef8bb1a5ea80e2abe5ba4ea231bb21780349dc
             <div class="box">
                 <div class="box-body">
                     <form action="{{url('admin/product/editproduct')}}/{{$product->id}}" method="post" id="form" enctype="multipart/form-data">
