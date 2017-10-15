@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
  @section('content')
-   <div class="content-wrapper">
+   <div class="content-wrapper" style=" height: 1138px">
     <!-- Content Header (Page header) -->
        <section class="content-header">
         <h1>
@@ -16,18 +16,20 @@
                  <div class="box box-primary">
                       <div class="box-header with-border">
                          <nav class="navbar">
-                             <div class="container-fluid">
-                                <div class="navbar-header">
-                                  <a class="navbar-brand" class="mytile"><p>LIST OF MENU</p></a>
-                                </div>
-                                <form class="navbar-form navbar-left">
-                                  <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                  </div>
-                                  <button type="submit" class="btn btn-success">Search</button>
-                                  <a href="{{url('admin/menu/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>
-                                </form>
-                              </div>
+                  <div class="container-fluid">
+                     <div class="navbar-header">
+                           <a class="navbar-brand" class="mytile"><p class="myp">LIST OF MENUS</p></a>
+                     </div>
+                    <form class="navbar-form navbar-left">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-success">Search</button>
+
+                      <a href="{{url('admin/product/add-menu')}}"><button type="button" class="btn btn-success mybtn">Add Menu</button></a>=======
+            
+                    </form>
+                  </div>
                            </nav>
                       </div>
                       @if(session('infor'))    <!-- display infor -->
