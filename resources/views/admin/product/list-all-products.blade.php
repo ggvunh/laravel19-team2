@@ -2,7 +2,7 @@
  @section('content')
    <div class="content-wrapper"> 
     <!-- Content Header (Page header) -->
-       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+       <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
             <h1>
               Product
@@ -30,14 +30,14 @@
                                           <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Search" id="search" name="search">
                                           </div>
-                                           <button type="submit" class="btn btn-info click"  id="search">Search</button> 
-                                          <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Product</button></a> 
+                                           <button type="submit" class="btn btn-info click"  id="search">Search</button>
+                                          <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Product</button></a>
                                     </form>
                               </div>
-                         </nav> 
+                         </nav>
                       </div>
                       <div class="box">
-                          <div class="box-body">
+
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr">
                                         <th class="myth">Product code</th>
@@ -54,7 +54,7 @@
                                     </tr>
                                     @foreach($product as $dt)
                                     <tr>
-                                        <td >{{$dt->id}}</td> 
+                                        <td >{{$dt->id}}</td>
                                         <td ><img src="{{asset('images/products/'.$dt->image)}}" alt="" style="width: 50px; height: 50px;"> </td>
                                         <td >{{$dt->name}}</td>
                                         <td >{{$dt->Category->name}}</td>
@@ -65,15 +65,15 @@
                                         <td >{{$dt->promotion_price}}</td>
                                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}" style="color:red" class="click">Edit</a></td>
                                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
-                                    </tr> 
-                                    @endforeach       
-                                </table> 
+                                    </tr>
+                                    @endforeach
+                                </table>
                           </div>
                       </div>
                       {{$product->links()}}
-                 </div>       
-            </div>   
-         </div>                  
+                 </div>
+            </div>
+         </div>
        </section>
     </div>
  @stop

@@ -38,7 +38,7 @@ class categoryController extends Controller
         return view('admin.categories.edit-category', compact('category'));
     }
 
-    public function postEditCategories($id ,Request $rq, editCategoryRequest $request )
+    public function postEditCategories($id ,Request $rq, editCategoryRequest $request)
     {
         $data = Category::find($id);
         $name = $rq->input('category-name');
@@ -54,6 +54,6 @@ class categoryController extends Controller
         $data ->product()->delete();
         $data->delete();
         Toastr::success('Delete successful category', $title = null, $options = []);
-        return redirect('admin/product/listcategories');
+        return redirect('admin/category/listcategories');
     }
 }

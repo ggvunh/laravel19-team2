@@ -2,7 +2,7 @@
  @section('content')
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-     <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+     <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
         <h1>
           Category
@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="{{url('admin/product/listcategories')}}" class="click">Category</a></li>
+          <li><a href="{{url('admin/category/listcategories')}}" class="click">Category</a></li>
           <li class="active"><a href="#">List of Categories<a></li>
         </ol>
        </section>
@@ -30,8 +30,8 @@
                                           <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Search" id="search" >
                                           </div>
-                                           <button type="submit" class="btn btn-info click"  id="search">Search</button> 
-                                          <a href="{{url('admin/category/addcategories')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Category</button></a> 
+                                           <button type="submit" class="btn btn-info click"  id="search">Search</button>
+                                          <a href="{{url('admin/category/addcategories')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Category</button></a>
                                     </form>
                           </nav>
                       </div>                      @if(session('infor'))    <!-- display infor -->
@@ -52,8 +52,8 @@
                     <tr>
                         <td >{{$category->id}}</td>
                         <td >{{$category->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
+                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/category/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
+                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/category/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                     </tr>
                     @endforeach
                             </table>

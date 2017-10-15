@@ -21,9 +21,7 @@ Route::get('search-is-price', 'PageController@search_is_price');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin',function(){
-	return view('admin-home');
-});
+Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
 		// Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
