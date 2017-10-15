@@ -7,7 +7,6 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\addCategoryRequest;
-use App\Http\Requests\editCategoryRequest;
 use Toastr;
 
 class categoryController extends Controller
@@ -38,7 +37,7 @@ class categoryController extends Controller
         return view('admin.categories.edit-category', compact('category'));
     }
 
-    public function postEditCategories($id ,Request $rq, editCategoryRequest $request)
+    public function postEditCategories($id ,Request $rq)
     {
         $data = Category::find($id);
         $name = $rq->input('category-name');
