@@ -73,4 +73,14 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
 		Route::GET('delete-menu/{id}','menuController@deleteMenu');
 	});
+      // Route Order by Duong Dong Hung
+	Route::group(['prefix'=>'order'],function(){
+		Route::GET('listorders','OrderController@listOrders');
+		Route::get('detailorder/{id}','OrderController@detailOrder');
+		Route::GET('add-menu','menuController@createMenu');
+		Route::POST('createMenu','menuController@saveMenu');
+		Route::GET('edit-menu/{id}','menuController@editMenu');
+		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
+		Route::GET('delete-menu/{id}','menuController@deleteMenu');
+	});
 });

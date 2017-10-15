@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
  @section('content')
-   <div class="content-wrapper"> 
+   <div class="content-wrapper" style=" height: 1138px"> 
     <!-- Content Header (Page header) -->
        <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
        <section class="content-header">
@@ -10,7 +10,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="{{url('admin/product/listproduct')}}">Product</a></li>
+                <li><a href="{{url('admin/product/listproduct')}}" class="click">Product</a></li>
                 <li class="active"><a href="#">List of Products<a></li>
             </ol>
        </section>

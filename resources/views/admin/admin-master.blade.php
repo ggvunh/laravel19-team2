@@ -37,9 +37,9 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue ">
    {!! Toastr::render() !!}
-<div class="wrapper">
+      <div  class= "wrapper">
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
@@ -159,14 +159,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{asset('adlibrary/dist/img/avatar5.png')}}'" class="user-image" alt="">
+              <img src="{{asset('dist/img/avatar5.png')}}" class="user-image" alt="uuu">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{asset('adlibrary/dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
                 <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
@@ -223,7 +223,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('adlibrary/dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
+          <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -277,6 +277,13 @@ desired effect
         <li class="treeview">
           <a href="{{ url('admin/brand/listbrands') }}">
             <i class="fa fa-edit"></i> <span>Brand</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="{{url('admin/order/listorders')}}">
+            <i class="fa fa-edit"></i> <span>Orders</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -379,7 +386,7 @@ desired effect
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-</div>
+      </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -393,11 +400,11 @@ desired effect
 <script src="{{asset('adlibrary/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
 <script src="{{asset('adlibrary/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
 <script src="{{asset('adlibrary/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<script src="{{asset('adlibrary/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- <script src="{{asset('adlibrary/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script> -->
 <!-- ChartJS -->
 <script src="{{asset('adlibrary/bower_components/Chart.js/Chart.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script>
+<!-- <script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adlibrary/dist/js/demo.js')}}"></script>
 <script src="{{asset('adlibrary/dist/js/adminlte.min.js')}}"></script>

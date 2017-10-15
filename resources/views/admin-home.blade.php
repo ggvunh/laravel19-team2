@@ -1,13 +1,14 @@
 @extends('admin.admin-master')
  @section('content')
   <div class="content-wrapper">
-  	    <section class="content-header">
+    <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+  	  <section class="content-header">
       <h1>Home Page</h1>
       <ol class="breadcrumb">
-        <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard" ></i> Home</a></li>
       </ol>
         </section>
-         <section class="content">
+     <section class="content">
       <!-- Info boxes -->
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
