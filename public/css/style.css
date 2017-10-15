@@ -3392,3 +3392,13 @@ p {
 .form-search-nxp .center{
     text-align: center;
 }
+.btn-nxp {
+    background-color: #d8373e;
+    width: 150px;
+    height: 35px;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+}
