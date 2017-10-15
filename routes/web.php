@@ -37,7 +37,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
         Route::get('searchproduct','ProductController@searchProduct');
 	});
 		//CRUD category by Phan Anh Khoa
-		Route::group(['prefix'=>'category'],function(){
+	Route::group(['prefix'=>'category'],function(){
 		Route::get('listcategories', 'CategoryController@listCategories');
 		Route::get('addcategories','CategoryController@getAddCategories');
         Route::post('addcategories','CategoryController@postAddCategories');
@@ -73,10 +73,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	});
       // Route Order by Duong Dong Hung
 	Route::group(['prefix'=>'order'],function(){
-		Route::GET('listorders','OrderController@listOrders');
+		Route::get('listorders','OrderController@listOrders');
 		Route::get('detailorder/{id}','OrderController@detailOrder');
-		Route::GET('add-menu','menuController@createMenu');
-		Route::POST('createMenu','menuController@saveMenu');
+		Route::get('undilevery','OrderController@undileveryOrder');
+		Route::get('dilevery','OrderController@dileveryOrder');
 		Route::GET('edit-menu/{id}','menuController@editMenu');
 		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
 		Route::GET('delete-menu/{id}','menuController@deleteMenu');

@@ -30,9 +30,9 @@
                                           <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Search" id="search" name="search">
                                           </div>
-                                           <button type="submit" class="btn btn-info click"  id="search">Search</button>
-                                          <a href="" class="click"><button type="button" class="btn btn-info mybtn1 ">Delivered</button></a>
-                                          <a href="" class="click"><button type="button" class="btn btn-info mybtn1 ">Undelivered</button></a>
+                                           <button type="submit" class="btn btn-info click"  id="search">Search</button> 
+                                          <a href="{{url('admin/order/dilevery')}}" class="click"><button type="button" class="btn btn-info mybtn1 ">Delivered</button></a> 
+                                          <a href="{{url('admin/order/undilevery')}}" class="click"><button type="button" class="btn btn-info mybtn1 ">Undelivered</button></a> 
                                     </form>
                               </div>
                          </nav>
@@ -40,7 +40,7 @@
                       <div class="box">
                           <div class="box-body">
                                 <table class="table table-bordered" id="mytable" border="0">
-                                    <tr class="mytr">
+                                    <tr class="mytr" >
                                         <th class="myth">Order code</th>
                                         <th class="myth">Total money</th>
                                         <th class="myth">Address</th>
@@ -50,7 +50,7 @@
                                         <th class="myth">Detail</th>
                                     </tr>
                                     @foreach($bills as $bill)
-                                    <tr class="mytr">
+                                    <tr>
                                         <td class="myth">{{$bill->id}}</td>
                                         <td class="myth">{{$bill->total}}</td>
                                         <td class="myth">{{$bill->order_address}}</td>
@@ -58,7 +58,7 @@
                                         <td class="myth">{{$bill->date_order}}</td>
                                         <td class="myth">
                                         	@if(($bill->status) == 0)
-                                                 Undelivery
+                                                 Undelivered
                                             @else
                                                  Delivery
                                         	@endif
