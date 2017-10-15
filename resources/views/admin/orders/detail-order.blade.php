@@ -49,9 +49,9 @@
                                         <td class="myth">{{($dt->quantity)*($dt->product->promotion_price)}}</td>
                                         <td class="myth">
                                             @if(($dt->status) == 0)
-                                                 Undelivery
+                                                 Undelivered
                                             @else 
-                                                 Delivery     
+                                                 Delivered     
                                             @endif
                                         </td>
                                     </tr>
