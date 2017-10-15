@@ -401,7 +401,7 @@ desired effect
 <!-- ChartJS -->
 <script src="{{asset('adlibrary/bower_components/Chart.js/Chart.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script> 
+<!-- <script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script>  -->
 <!-- AdminLTE for demo purposes --> 
 <script src="{{asset('adlibrary/dist/js/demo.js')}}"></script>
 <script src="{{asset('adlibrary/dist/js/adminlte.min.js')}}"></script>
