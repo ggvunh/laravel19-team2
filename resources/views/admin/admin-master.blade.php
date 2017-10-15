@@ -43,7 +43,7 @@ desired effect
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{route('admin')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
       <!-- logo for regular state and mobile devices -->
@@ -167,10 +167,6 @@ desired effect
               <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
                 <h4> Member since Oct. 2017</h4>
               </li>
               <!-- Menu Body -->
@@ -250,7 +246,7 @@ desired effect
             <a href="{{url('admin')}}">
             <i class="fa fa-dashboard"></i> <span>Home</span>
             <span class="pull-right-container">
-            </span>   
+            </span>
             </a>
           </li>
         <li class="treeview">

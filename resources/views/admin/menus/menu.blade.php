@@ -53,6 +53,7 @@
                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/edit-menu/'.$menu->id)}}" style="color:red">Edit</a></td>
                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/delete-menu/'.$menu->id)}}" style="color:red" class="delete">Delete</a></td>
 
+
                     </tr>
                     @endforeach
                             </table>

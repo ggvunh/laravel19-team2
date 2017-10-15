@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
+use App\Http\Requests\SearchIsPrice;
 class PageController extends Controller
 {
     public function getIndex()
@@ -39,12 +40,8 @@ class PageController extends Controller
         return view('page.searchsp', compact('products'), compact('key'));
     }
 
-    public function search_is_price(Request $req)
+    public function search_is_price(Request $req, SearchIsPrice $request)
     {
-        $this->validate($req,[
-            'min' => 'required',
-            'max' => 'required',
-        ]);
         $products = Product::where([ ['promotion_price','>',$req->min],['promotion_price','<',$req->max] ])
             ->orwhere([ ['unit_price','>',$req->min],['unit_price','<',$req->max] ])->paginate(6);
         return view('page.searchsp', compact('products'));
@@ -59,6 +56,6 @@ class PageController extends Controller
 
     public function getAdmin()
     {
-        return view('admin.product.list-all-products');
+        return view('admin.admin-home');
     }
 }
