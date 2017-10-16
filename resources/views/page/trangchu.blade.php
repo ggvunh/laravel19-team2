@@ -10,7 +10,7 @@
                         <h3>Tìm theo giá</h3>
                     </div>
                     <label class="nxp-111"><b>Từ(*)</b></label>
-                    <input type="text" name="min" vvalue="{{ old('min') }}" placeholder="5.000.000"><br>
+                    <input type="text" name="min" value="{{ old('min') }}" placeholder="5.000.000"><br>
                     @if ($errors->has('min'))
                          <span class="help-block">
                              <strong>{{ $errors->first('min') }}</strong>
@@ -134,7 +134,7 @@
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$hot->id.'&'.$hot->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('add-cart/'.$hot->id.'/'.$hot->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('add-cart/'.$new->id.'/'.$new->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$deal->id.'&'.$deal->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="#" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('add-cart/'.$deal->id.'/'.$deal->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

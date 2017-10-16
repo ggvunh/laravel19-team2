@@ -82,3 +82,5 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::GET('delete-menu/{id}','menuController@deleteMenu');
 	});
 });
+//Cart
+Route::GET('add-cart/{id}/{name}','CartController@addCart');
