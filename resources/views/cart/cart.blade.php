@@ -29,11 +29,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($content as $content)
+                                @foreach(\Cart::content() as $content)
                             	   <tr>
-                    					<td class="text-center"><a class="btn-remove" href="#"><span class="fa fa-trash-o"></span></a></td>
+                    					<td class="text-center"><a class="btn-remove" href="{{url('deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
                     					<td><a class="product-image" title="Primis in faucibus" href="#">
-                                        	<img alt="Primis in faucibus" src="{{asset('images/products/'.$content->img)}}">
+                                        	<img alt="Primis in faucibus" src="{{asset('images/products/'.$content->options->img)}}">
                                         </a></td>
                     					<td>
                                         	<a href="#">{{$content->name}}</a>
@@ -45,35 +45,35 @@
                                        		<input type="number" name="qty" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
                                 		<td class="subtotal">{{$content->price}}</td>
-                        				<td class="grandtotal">{{$content->price*2}}</td>
+                        				<td class="grandtotal">{{$content->price*$content->qty}}</td>
             					    </tr>
                                 @endforeach
                         	</tbody>
                         </table>
                         </div>
                         <div class="text-right">
-                        	<a href="#" class="btn btn-default btn-md">{{121212}}</a>
-                            <button type="submit" class="btn btn-danger btn-md">UPDATE SHOPPING CART</button>
+                        	<a href="#" class="btn btn-default btn-md">TIẾP TỤC MUA HÀNG</a>
+                            <button type="submit" class="btn btn-danger btn-md">MUA HÀNG</button>
                         </div>
                         <div class="line2"></div>
                         <div class="row">
                         	<div class="col-sm-4">
                             	<h4>ESTIMATE SHIPPING AND TAX</h4>
-                                <p class="text-muted">Enter your destination to get shipping &amp; tax</p>
+                                <p class="text-muted">Nhập thông tin ship hàng &amp; thuế</p>
                                 <div class="form-group">
-                                	<label class="control-label">Country <em>*</em></label>
+                                	<label class="control-label">Quốc gia <em>*</em></label>
                                     <select class="form-control">
                                     	<option>-- Select options  --</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                	<label class="control-label">State/Province <em>*</em></label>
+                                	<label class="control-label">Tỉnh/Thành phố <em>*</em></label>
                                     <select class="form-control">
                                     	<option>-- Select options  --</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                	<label class="control-label">Zip/Postal Code</label>
+                                	<label class="control-label">Mã Zip / Mã Bưu điện</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -94,12 +94,12 @@
                         	<div class="col-sm-4">
                             	<table class="table table-cart-total">
                                 	<tr>
-                                    	<td>Subtotal:</td>
-                                        <td class="text-right">$250.00</td>
+                                    	<td>Tổng Tiền:</td>
+                                        <td class="text-right">{{\Cart::total()}}</td>
                                     </tr>
                                 	<tr>
-                                    	<td>Grandtotal:</td>
-                                        <td class="text-right">$250.00</td>
+                                    	<td>Số Tiền Phải Thanh Toán:</td>
+                                        <td class="text-right">{{\Cart::total()}}</td>
                                     </tr>
                                 </table>
     							<div class="text-right">

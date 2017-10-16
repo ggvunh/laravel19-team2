@@ -11,13 +11,23 @@ class CartController extends Controller
     {
         $product_buy=Product::find($id);
         Cart::add(['id' => $id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        return redirect()->route('cart');
+        return redirect()->route('home');
     }
 
     public function cart()
     {
         $content = Cart::content();
-        var_dump($content);
-        // return view('cart.cart', compact('content'));
+        return redirect()->route('home');
+    }
+
+    public function delete($rowId)
+    {
+        Cart::remove($rowId);
+        return redirect()->route('home');
+    }
+
+    public function checkout()
+    {
+        return view('cart.cart');
     }
 }

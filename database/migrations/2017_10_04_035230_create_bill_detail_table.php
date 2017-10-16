@@ -17,7 +17,6 @@ class CreateBillDetailTable extends Migration
             $table->increments('id');
             $table->integer('quantity');
             $table->timestamps();
-            $table->enum('status',['0','1']);//trạng thái cancel product hay không?
             $table->integer('bill_id')->unsigned()->nullable(); //unsigned:Không âm; nullable:ko rỗng;
             $table->foreign('bill_id')->references('id')->on('bills');
             $table->integer('product_id')->unsigned()->nullable(); //unsigned:Không âm; nullable:ko rỗng;
