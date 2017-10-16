@@ -11,7 +11,13 @@ class CartController extends Controller
     {
         $product_buy=Product::find($id);
         Cart::add(['id' => $id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        $content=Cart::content();
-        print_r($content);
+        return redirect()->route('cart');
+    }
+
+    public function cart()
+    {
+        $content = Cart::content();
+        var_dump($content);
+        // return view('cart.cart', compact('content'));
     }
 }
