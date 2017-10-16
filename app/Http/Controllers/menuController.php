@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Menu;
+use App\Http\Requests\addMenu;
 use Toastr;
 class menuController extends Controller
 {
@@ -17,15 +18,8 @@ class menuController extends Controller
         return view('admin.menus.addMenu');
     }
 
-    public function saveMenu(Request $rq)
+    public function saveMenu(Request $rq, addMenu $request)
     {
-        $this->validate($rq, [
-            'menu' => 'required|unique:menus,name',
-        ],
-        [
-            'menu.required' =>'khong duoc de trong',
-            'menu.unique' => 'This Organisation menu already exists, please change Menu name',
-        ]);
         $menu = new Menu();
         $menu->name = $rq->input('menu');
         $menu->save();
