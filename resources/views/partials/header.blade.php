@@ -111,8 +111,7 @@
                                         <div class="mini-cart-subtotal">Shipping: <span class="price">50.000</span></div>
                                         <div class="mini-cart-subtotal">Total: <span class="price">{{\Cart::total()}}</span></div>
                                         <div class="checkout-btn">
-                                            <a href="{{url('checkout')}}" class="btn btn-default btn-md fwb">EDIT CART</a>
-                                            <a href="{{url('checkout')}}" class="btn btn-default btn-md fwb">CHECK OUT</a>
+                                            <a href="{{url('viewcheckout')}}" class="btn btn-default btn-md fwb">THANH TOÁN</a>
                                         </div>
                                     </div>
                                 </div>
