@@ -10,7 +10,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="{{url('admin/order/listorders')}}">Order</a></li>
+                <li><a href="{{url('admin/order/orders')}}">Order</a></li>
                 <li class="active"><a href="#">List of Orders<a></li>
             </ol>
        </section>
@@ -26,22 +26,29 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS</p></a>
                                     </div>
-                                          <form class="navbar-form navbar-left"> 
-                                          <a href="{{url('admin/order/searchdate')}}" class="click">
-                                          <button type="button" class="btn btn-info">Search by Date</button></a>      
-                                          <a href="{{url('admin/order/searchmonth')}}" class="click">
-                                          <button type="button" class="btn btn-info">Search by Month</button></a> 
-                                          <a href="{{url('admin/order/searchPrname')}}" class="click">
-                                          <button type="button" class="btn btn-info">Search by Product name</button></a>           
-                                          <a href="{{url('admin/order/dilevery')}}" class="click">
-                                          <button type="button" class="btn btn-info">Delivered</button></a>
-                                          <a href="{{url('admin/order/undilevery')}}" class="click"><button type="button" class="btn btn-info ">Undelivered</button></a> 
-                                          </form> 
+                                    <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
+                                      <div class="form-group">
+                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search Order by Date/by Month/by Product Name">
+                                      </div>
+                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
+                                    </form></a>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
+                              <div>
+                                 <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
+                                      @if(isset($count_search))
+                                        {{$count_search}}
+                                      @else
+                                          0
+                                      @endif
+                                    </span><span style="color: red;font-size:20px">Orders in table</span>
+                                    <a><button type="submit" class="btn btn-info click" style="margin-left: 600px;
+    margin-bottom: 5px;">Dilevery</button></a>
+                                    <a><button type="submit" class="btn btn-info click" style="margin-bottom: 5px;"> Undilevery</button></a>
+                              </div>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>
@@ -52,7 +59,8 @@
                                         <th class="myth">Status</th>
                                         <th class="myth">Detail</th>
                                     </tr>
-                                    @foreach($bills as $bill)
+                                    @if(isset($result_searchs))
+                                    @foreach($result_searchs as $bill)
                                     <tr>
                                         <td class="myth">{{$bill->id}}</td>
                                         <td class="myth">{{$bill->total}}</td>
@@ -69,11 +77,13 @@
                                         <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$bill->id}}" style="color:red" class="click">Detail</a></td>
                                     </tr>
                                     @endforeach
+                                    @endif
                                 </table>
                           </div>
-                          {{$bills->links()}}
+                        @if(isset($result_searchs))
+                        {{$result_searchs->links()}}
+                        @endif
                       </div>
-
                  </div>
             </div>
          </div>

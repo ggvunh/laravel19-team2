@@ -279,7 +279,7 @@ desired effect
           </a>
         </li>
         <li class="treeview">
-          <a href="{{url('admin/order/listorders')}}">
+          <a href="{{url('admin/order/orders')}}">
             <i class="fa fa-edit"></i> <span>Orders</span>
             <span class="pull-right-container">
             </span>

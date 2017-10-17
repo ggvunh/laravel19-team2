@@ -29,7 +29,7 @@
                                     <a><form class="navbar-form navbar-left" action="
                                     {{url('admin/order/srchdate')}}" method="get">
                                           <div class="form-group">
-                                              <input type="date" class="form-control" id="search" name="search">
+                                              <input type="date" class="form-control" id="search" name="search" value="{{old('search')}}">
                                           </div>
                                            <button type="submit" class="btn btn-info click"  id="search">Search</button> 
                                     </form></a>

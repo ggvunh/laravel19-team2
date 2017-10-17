@@ -6,12 +6,12 @@
        <section class="content-header">
             <h1>
               Order
-              <small>List of Orders</small>
+              <small>Search Orders by Date</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="{{url('admin/order/listorders')}}">Order</a></li>
-                <li class="active"><a href="#">List of Orders<a></li>
+                <li class="active"><a href="#">Search Orders by Date<a></li>
             </ol>
        </section>
        <section class="content">
@@ -24,15 +24,27 @@
                          <nav class="navbar">
                               <div class="container-fluid">
                                     <div class="navbar-header">
-                                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS <small style="color: red">Dilevered</small></p></a>
+                                      <a class="navbar-brand" class="mytile"><p class="myp">SEARCH ORDERS BY DATE</p></a>
                                     </div>
+                                    <a></a>
                               </div>
                          </nav> 
                       </div>
                       <div class="box">
                           <div class="box-body">
+                            <span style="color: red;font-size:20px">Found <span style="color: black">
+                                      @if(isset($result_search))
+                                        {{count($result_search)}}
+                                      @else
+                                          0
+                                      @endif
+                                    </span>Orders in date:<!--  <span style="color: black">
+                                      @if(isset($search_date))
+                                        {{date('d-m-Y',(strtotime($search_date)))}}
+                                      @endif
+                                      </span> --></span>
                                 <table class="table table-bordered" id="mytable" border="0">
-                                    <tr class="mytr">
+                                    <tr class="mytr" >
                                         <th class="myth">Order code</th>
                                         <th class="myth">Total money</th>
                                         <th class="myth">Address</th>
@@ -41,28 +53,31 @@
                                         <th class="myth">Status</th>
                                         <th class="myth">Detail</th>
                                     </tr>
-                                    @foreach($dileOrder as $dileOrder)
+                                    @if(isset($result_search))
+                                    @foreach($result_search as $rs)
                                     <tr>
-                                        <td class="myth">{{$dileOrder->id}}</td>
-                                        <td class="myth">{{$dileOrder->total}}</td>
-                                        <td class="myth">{{$dileOrder->order_address}}</td>
-                                        <td class="myth">{{$dileOrder->note}}</td>
-                                        <td class="myth">{{date('d-m-Y',strtotime($dileOrder->date_order))}}</td>
+                                        <td class="myth">{{$rs->id}}</td>
+                                        <td class="myth">{{$rs->total}}</td>
+                                        <td class="myth">{{$rs->order_address}}</td>
+                                        <td class="myth">{{$rs->note}}</td>
+                                        <td class="myth">{{date('d-m-Y',strtotime($rs->date_order))}}</td>
                                         <td class="myth">
-                                        	@if(($dileOrder->status) == 0)
+                                          @if(($rs->status) == 0)
                                                  Undelivered
                                             @else 
                                                  Delivered     
-                                        	@endif
+                                          @endif
                                         </td>
-                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$dileOrder->id}}" style="color:red" class="click">Detail</a></td>
+                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$rs->id}}" style="color:red" class="click">Detail</a></td>
                                     </tr>
                                     @endforeach
-                                </table> 
+                                    @endif
+                                </table>  
                           </div>
-                         {{$dileOrder->links() }}
-                      </div>
-                     
+                          @if(isset($result_search))
+                          {{$result_search->links()}} 
+                          @endif
+                      </div>   
                  </div>       
             </div>   
          </div>                  
