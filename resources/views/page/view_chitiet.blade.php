@@ -24,18 +24,17 @@
                     </p>
                     <p>Tình trạng: còn hàng</p>
                     <div class="form-group">
-                        <label class="ngp-grup">Số lượng:</label>
+                        <div class="">
+                            <label class="ngp-grup">Số lượng:</label>
+                        </div>
+
                         <div class="input-group qty">
-                            <span class="input-group-btn">
-                                <button class="btn" type="button">-</button>
-                            </span>
-                            <input type="text" class="form-control" value="2">
-                            <span class="input-group-btn">
-                                <button class="btn" type="button">+</button>
-                            </span>
+                            <input type="number" name="qty" value="1" style="text-align:center;">
                         </div><!-- /input-group -->
+                        <div class="">
+                            <a href="#"><button class="btn btn-danger btn-cart">Add to cart</button></a>
+                        </div>
                     </div>
-                    <a href="#"><button class="btn btn-danger btn-cart">Add to cart</button></a>
                 </div>
                 <div class="clearfix">
                 </div>
