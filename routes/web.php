@@ -84,3 +84,4 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 });
 //Cart
 Route::GET('add-cart/{id}/{name}','CartController@addCart');
+Route::get('dat-hang', 'PageOrderController@getOrder');
