@@ -96,10 +96,10 @@
                                             <div class="media">
 
                                                     <div class="media-left">
-                                                        <a href="{{ url('gio-hang') }}"><img src="{{asset('images/products/'.$content->options->img)}}" alt="" class="img-responsive"></a>
+                                                        <a href="{{ url('dat-hang/cart') }}"><img src="{{asset('images/products/'.$content->options->img)}}" alt="" class="img-responsive"></a>
                                                     </div>
                                                     <div class="media-body">
-                                                        <a href="{{url('deletecart/'.$content->rowId)}}"><button type="button" class="remove-cart-item" >&times;</button></a>
+                                                        <a href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><button type="button" class="remove-cart-item" >&times;</button></a>
                                                         <h4>{{$content->name}}</h4>
                                                         <div class="mini-cart-qty">số lượng: {{$content->qty}}</div>
                                                         <div class="mini-cart-price">{{$content->price*$content->qty}}</div>
@@ -111,7 +111,7 @@
                                         <div class="mini-cart-subtotal">Shipping: <span class="price">50.000</span></div>
                                         <div class="mini-cart-subtotal">Total: <span class="price">{{\Cart::total()}}</span></div>
                                         <div class="checkout-btn">
-                                            <a href="{{url('viewcheckout')}}" class="btn btn-default btn-md fwb">THANH TOÁN</a>
+                                            <a href="{{url('dat-hang/viewcheckout')}}" class="btn btn-default btn-md fwb">THANH TOÁN</a>
                                         </div>
                                     </div>
                                 </div>
