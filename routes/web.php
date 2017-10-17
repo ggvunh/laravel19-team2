@@ -77,8 +77,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('detailorder/{id}','OrderController@detailOrder');
 		Route::get('undilevery','OrderController@undileveryOrder');
 		Route::get('dilevery','OrderController@dileveryOrder');
-		Route::GET('edit-menu/{id}','menuController@editMenu');
-		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
-		Route::GET('delete-menu/{id}','menuController@deleteMenu');
+		Route::get('searchdate','OrderController@dateSearch');
+		Route::post('srchdate','OrderController@postdateSearch');
+		Route::get('searchmonth','OrderController@monthSearch');
+		Route::post('srchmonth','OrderController@postmonthSearch');
+		Route::get('searchPrname','OrderController@PrnameSearch');
+		Route::post('srchPrname','OrderController@postPrnameSearch');
+		
 	});
 });

@@ -47,7 +47,7 @@
                                         <td class="myth">{{$dileOrder->total}}</td>
                                         <td class="myth">{{$dileOrder->order_address}}</td>
                                         <td class="myth">{{$dileOrder->note}}</td>
-                                        <td class="myth">{{$dileOrder->date_order}}</td>
+                                        <td class="myth">{{date('d-m-Y',strtotime($dileOrder->date_order))}}</td>
                                         <td class="myth">
                                         	@if(($dileOrder->status) == 0)
                                                  Undelivered

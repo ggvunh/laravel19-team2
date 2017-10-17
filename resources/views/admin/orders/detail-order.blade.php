@@ -35,25 +35,19 @@
                                     <tr class="mytr">
                                         <th class="myth">Order code</th>
                                         <th class="myth">Product name</th>
+                                        <th class="myth">Product image</th>
                                         <th class="myth">Quantity</th>
                                         <th class="myth">Unit price</th>
                                         <th class="myth">Total money</th>
-                                        <th class="myth">Status</th>
                                     </tr>
                                     @foreach($dt_bill as $dt)
                                     <tr class="mytr">
                                         <td class="myth">{{$dt->id}}</td>
                                         <td class="myth">{{$dt->product->name}}</td>
+                                        <td ><img src="{{asset('images/products/'.$dt->product->image)}}" alt="" style="width: 50px; height: 50px;"> </td>
                                         <td class="myth">{{$dt->quantity}}</td>
                                         <td class="myth">{{$dt->product->promotion_price}}</td>
                                         <td class="myth">{{($dt->quantity)*($dt->product->promotion_price)}}</td>
-                                        <td class="myth">
-                                            @if(($dt->status) == 0)
-                                                 Undelivered
-                                            @else 
-                                                 Delivered     
-                                            @endif
-                                        </td>
                                     </tr>
                                     @endforeach
                                 </table> 
@@ -64,5 +58,5 @@
             </div>   
          </div>                  
        </section>
-    </div>s
+    </div>
 @stop

@@ -47,7 +47,7 @@
                                         <td class="myth">{{$unOrder->total}}</td>
                                         <td class="myth">{{$unOrder->order_address}}</td>
                                         <td class="myth">{{$unOrder->note}}</td>
-                                        <td class="myth">{{$unOrder->date_order}}</td>
+                                        <td class="myth">{{date('d-m-Y',strtotime($unOrder->date_order))}}</td>
                                         <td class="myth">
                                         	@if(($unOrder->status) == 0)
                                                  Undelivered
