@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Bill;
 use App\BillDetail;
 use App\Product;
-use DB;
 use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class OrderController extends Controller
 {
     public function listOrders ()
     {
-        $bills = Bill::all();
+        $bills = Bill::orderBy('id','desc')->paginate(25);
     	return view('admin.orders.list-orders')->with(['bills'=>$bills]);
     }
 
@@ -43,7 +43,7 @@ class OrderController extends Controller
     public function postdateSearch (Request $rq)
     {
         $date_search = $rq->input('search');
-        $result_search = Bill::where('created_at',$date_search)->get();
+        $result_search = Bill::where('created_at',$date_search)->paginate(5);
         return view('admin.orders.search-date')->with(['result_search'=>$result_search,'date_search'=>$date_search]);
     }
 
@@ -64,10 +64,9 @@ class OrderController extends Controller
                 array_push($result_month,$result_all[$i]);
             }
         }
-        
-        return view('admin.orders.search-month')->with(['result_month'=>$result_month,'month_search'=>$month_search]);
+        return view('admin.orders.search-month')->with(['result_month'=> $result_month,'month_search'=>$month_search]);
     }
-
+    
     public function PrnameSearch ()
     {   
         return view('admin.orders.nameProduct-search');

@@ -26,14 +26,13 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">SEARCH ORDERS BY DATE</p></a>
                                     </div>
-                                    <form class="navbar-form navbar-left" action="
-                                    {{url('admin/order/srchdate')}}" method="post">
-                                         {!!csrf_field()!!}
+                                    <a><form class="navbar-form navbar-left" action="
+                                    {{url('admin/order/srchdate')}}" method="get">
                                           <div class="form-group">
                                               <input type="date" class="form-control" id="search" name="search">
                                           </div>
                                            <button type="submit" class="btn btn-info click"  id="search">Search</button> 
-                                    </form>
+                                    </form></a>
                               </div>
                          </nav> 
                       </div>
@@ -79,10 +78,12 @@
                                     </tr>
                                     @endforeach
                                     @endif
-                                </table> 
+                                </table>  
                           </div>
-                      </div>
-                     
+                          @if(isset($result_search))
+                          {{$result_search->links()}} 
+                          @endif
+                      </div>   
                  </div>       
             </div>   
          </div>                  

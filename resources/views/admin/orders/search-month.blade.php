@@ -26,9 +26,8 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">SEARCH ORDERS BY MONTH</p></a>
                                     </div>
-                                    <form class="navbar-form navbar-left" action="
-                                    {{url('admin/order/srchmonth')}}" method="post">
-                                         {!!csrf_field()!!}
+                                    <a><form class="navbar-form navbar-left" action="
+                                    {{url('admin/order/srchmonth')}}" method="get">
                                           <div class="form-group">
                                               <select name="search" class="form-control">
                                                  <option value="1">January</option>
@@ -46,7 +45,7 @@
                                               </select>
                                           </div>
                                            <button type="submit" class="btn btn-info click"  id="search">Search</button> 
-                                    </form>
+                                    </form></a>
                               </div>
                          </nav> 
                       </div>
@@ -74,7 +73,7 @@
                                         <th class="myth">Detail</th>
                                     </tr>
                                     @if(isset($result_month))
-                                        @foreach($result_month as $rs)
+                                        @foreach( $result_month as $rs)
                                         <tr>
                                             <td class="myth">{{$rs->id}}</td>
                                             <td class="myth">{{$rs->total}}</td>
@@ -94,6 +93,7 @@
                                     @endif
                                 </table> 
                           </div>
+                         <!--  -->
                       </div>
                      
                  </div>       

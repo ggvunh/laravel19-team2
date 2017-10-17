@@ -71,6 +71,7 @@
                                     @endforeach
                                 </table>
                           </div>
+                          {{$bills->links()}}
                       </div>
 
                  </div>
