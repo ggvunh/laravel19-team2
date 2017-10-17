@@ -59,14 +59,13 @@
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="#" title="Nunc facilisis" class="product-image">
+                                        <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="{{url('add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Thêm vào giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Thêm vào giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

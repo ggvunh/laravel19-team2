@@ -127,14 +127,13 @@
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
+                                        <a href="{{ url('xem_chitiet/'.$hot->id.'&'.$hot->category_id) }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $hot->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$hot->id.'&'.$hot->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="{{url('add-cart/'.$hot->id.'/'.$hot->name)}}" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$hot->id.'/'.$hot->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -182,14 +181,13 @@
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
+                                        <a href="{{ url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $new->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="{{url('add-cart/'.$new->id.'/'.$new->name)}}" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$new->id.'/'.$new->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -236,14 +234,13 @@
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('chi-tiet-sp') }}" title="Nunc facilisis" class="product-image">
+                                        <a href="{{ url('dat-hang/add-cart/'.$deal->id.'/'.$deal->name)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $deal->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$deal->id.'&'.$deal->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="{{url('add-cart/'.$deal->id.'/'.$deal->name)}}" class="link-cart">Add giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$deal->id.'/'.$deal->name)}}" class="link-cart">Add giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
