@@ -81,8 +81,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	});
 });
 //Cart
-Route::GET('add-cart/{id}/{name}','CartController@addCart');
-Route::GET('cart','CartController@cart')->name('cart');
-Route::GET('deletecart/{rowId}', 'CartController@delete');
-Route::GET('viewcheckout', 'CartController@getcheckout');
-Route::GET('checkout', 'CartController@checkout');
+	Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
+		Route::GET('add-cart/{id}/{name}','CartController@addCart');
+		Route::GET('cart','CartController@cart')->name('cart');
+		Route::GET('deletecart/{rowId}', 'CartController@delete');
+		Route::GET('viewcheckout', 'CartController@getcheckout');
+		Route::GET('checkout', 'CartController@checkout');
+	});

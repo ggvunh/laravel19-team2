@@ -30,7 +30,7 @@
                             <tbody>
                                 @foreach(\Cart::content() as $content)
                             	   <tr>
-                    					<td class="text-center"><a class="btn-remove" href="{{url('deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
+                    					<td class="text-center"><a class="btn-remove" href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
                     					<td><a class="product-image" title="Primis in faucibus" href="#">
                                         	<img alt="Primis in faucibus" src="{{asset('images/products/'.$content->options->img)}}">
                                         </a></td>
@@ -75,7 +75,7 @@
                                     <input class="form-control" type="text" name="" value="{{Auth::user()->phone_number}}" disabled>
                                 </div>
                             </div>
-                            <form  action="checkout" method="GET">
+                            <form  action="{{url('dat-hang/checkout')}}" method="GET">
                             	<div class="col-sm-4">
                                     <h4>THÔNG TIN NHẬN HÀNG</h4>
                                     <p class="text-muted">Nhập thông tin nhận hàng.</p>
@@ -100,7 +100,7 @@
                                         </tr>
                                     </table>
         							<div class="text-right">
-                                    	<p><button type="submit" class="btn btn-default btn-md fwb">THANH TOÁN</button></p>
+                                    	   <p><button type="submit" class="btn btn-default btn-md fwb">THANH TOÁN</button></p>
                                     </div>
                                 </div>
                             </form>
