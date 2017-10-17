@@ -59,7 +59,7 @@
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
                                                 <li><a href="#" class="link-compare">So Sánh</a></li>
-                                                <li><a href="#" class="link-cart">Thêm vào giỏ hàng</a></li>
+                                                <li><a href="{{url('add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Thêm vào giỏ hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

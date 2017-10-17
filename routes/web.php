@@ -12,7 +12,7 @@
 |
 */
 
-Route::get('/', 'PageController@getIndex');
+Route::get('/', 'PageController@getIndex')->name('home');
 Route::get('san-pham', 'PageController@getSanPham');
 Route::get('timkiem-sp', 'PageController@searchsp');
 Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
@@ -20,7 +20,7 @@ Route::get('category_id/{category_id}', 'PageController@viewis_category');
 Route::get('search-is-price', 'PageController@search_is_price');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
 		// Nhom Route cho trang admin/product- by Duong Dong Hung
@@ -86,3 +86,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		
 	});
 });
+//Cart
+Route::GET('add-cart/{id}/{name}','CartController@addCart');
+Route::GET('cart','CartController@cart')->name('cart');
+Route::GET('deletecart/{rowId}', 'CartController@delete');
+Route::GET('checkout', 'CartController@checkout');

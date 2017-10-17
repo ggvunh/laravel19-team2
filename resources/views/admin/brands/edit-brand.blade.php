@@ -1,9 +1,9 @@
 @extends('admin.admin-master')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper" style=" height: 1138px">
+ <div class="content-wrapper nxp-admin">
    <!-- Content Header (Page header) -->
-   <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div> 
+   <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
    <section class="content-header">
      <h1>
        Product

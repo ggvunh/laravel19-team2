@@ -29,7 +29,7 @@ class addProductRequest extends FormRequest
             'quantity'    =>'required',
             'unit'        =>'required',
             'unitprice'   =>'required',
-            'product-image'=>'required'   
+            'product-image'=>'required'
         ];
     }
     public function messages()
