@@ -88,3 +88,4 @@ Route::GET('cart','CartController@cart')->name('cart');
 Route::GET('deletecart/{rowId}', 'CartController@delete');
 Route::GET('viewcheckout', 'CartController@getcheckout');
 Route::GET('checkout', 'CartController@checkout');
+Route::get('hoa-don', 'PageOrderController@getOrder');
