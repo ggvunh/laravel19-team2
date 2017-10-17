@@ -10,11 +10,10 @@
                    	</ul>
                 </div>
             </div>
-
             <div class="main">
             	<div class="container">
                     <div class="cart">
-                    	<form>
+                        <h2>CHI TIẾT GIỎ HÀNG</h2>
                         <div class="table-responsive">
                     	<table class="table custom-table">
                             <thead>
@@ -52,63 +51,60 @@
                         </table>
                         </div>
                         <div class="text-right">
-                        	<a href="#" class="btn btn-default btn-md">TIẾP TỤC MUA HÀNG</a>
-                            <button type="submit" class="btn btn-danger btn-md">MUA HÀNG</button>
+                        	<a href="{{url('/')}}" class="btn btn-default btn-md">TIẾP TỤC MUA HÀNG</a>
                         </div>
                         <div class="line2"></div>
                         <div class="row">
-                        	<div class="col-sm-4">
-                            	<h4>ESTIMATE SHIPPING AND TAX</h4>
-                                <p class="text-muted">Nhập thông tin ship hàng &amp; thuế</p>
+                            <div class="col-sm-4">
+                            	<h4>THÔNG TIN KHÁCH HÀNG</h4>
+                                <p class="text-muted">Nhập thông tin nhận hàng.</p>
                                 <div class="form-group">
-                                	<label class="control-label">Quốc gia <em>*</em></label>
-                                    <select class="form-control">
-                                    	<option>-- Select options  --</option>
-                                    </select>
+                                	<label class="control-label">Tên Khách Hàng <em>*</em></label>
+                                    <input class="form-control" type="text" name="" value="{{Auth::user()->name}}" disabled >
                                 </div>
                                 <div class="form-group">
-                                	<label class="control-label">Tỉnh/Thành phố <em>*</em></label>
-                                    <select class="form-control">
-                                    	<option>-- Select options  --</option>
-                                    </select>
+                                	<label class="control-label">Địa chỉ <em>*</em></label>
+                                    <input class="form-control" type="text" name="" value="{{Auth::user()->address}}" disabled>
                                 </div>
                                 <div class="form-group">
-                                	<label class="control-label">Mã Zip / Mã Bưu điện</label>
-                                    <input type="text" class="form-control">
+                                	<label class="control-label">Email <em>*</em></label>
+                                    <input class="form-control" type="text" name="" value="{{Auth::user()->email}}" disabled>
                                 </div>
                                 <div class="form-group">
-                                	<button type="button" class="btn btn-default btn-md">GET A QUOTE</button>
+                                	<label class="control-label">Số Điện Thoại <em>*</em></label>
+                                    <input class="form-control" type="text" name="" value="{{Auth::user()->phone_number}}" disabled>
                                 </div>
                             </div>
-                        	<div class="col-sm-4">
-                            	<h4>DISCOUNT CODE</h4>
-                            	<p class="text-muted">Enter your coupon code if you have one</p>
-                                <div class="form-group">
-                                	<label class="control-label">&nbsp;</label>
-                                	<input type="text" class="form-control">
+                            <form  action="checkout" method="GET">
+                            	<div class="col-sm-4">
+                                    <h4>THÔNG TIN NHẬN HÀNG</h4>
+                                    <p class="text-muted">Nhập thông tin nhận hàng.</p>
+                                    <div class="form-group">
+                                    	<label class="control-label">Địa chỉ nhận hàng <em>*</em></label>
+                                        <input class="form-control" type="text" name="address" value="{{Auth::user()->address}}" >
+                                    </div>
+                                    <div class="form-group">
+                                    	<label class="control-label">Ghi Chú </label>
+                                        <input class="form-control" type="text" name="note" value="{{'tên:' .Auth::user()->name.' số ĐT:'.Auth::user()->phone_number}}"  >
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                	<button type="button" class="btn btn-default btn-md">APPLY COUPON</button>
+                            	<div class="col-sm-4">
+                                	<table class="table table-cart-total">
+                                    	<tr>
+                                        	<td>Tổng Tiền:</td>
+                                            <td class="text-right">{{\Cart::total()}}</td>
+                                        </tr>
+                                    	<tr>
+                                        	<td>Số Tiền Phải Thanh Toán:</td>
+                                            <td class="text-right">{{\Cart::total()}}</td>
+                                        </tr>
+                                    </table>
+        							<div class="text-right">
+                                    	<p><button type="submit" class="btn btn-default btn-md fwb">THANH TOÁN</button></p>
+                                    </div>
                                 </div>
-                            </div>
-                        	<div class="col-sm-4">
-                            	<table class="table table-cart-total">
-                                	<tr>
-                                    	<td>Tổng Tiền:</td>
-                                        <td class="text-right">{{\Cart::total()}}</td>
-                                    </tr>
-                                	<tr>
-                                    	<td>Số Tiền Phải Thanh Toán:</td>
-                                        <td class="text-right">{{\Cart::total()}}</td>
-                                    </tr>
-                                </table>
-    							<div class="text-right">
-                                	<p><button type="button" class="btn btn-default btn-md fwb">PROCCED TO CHECKOUT</button></p>
-                                    <p><a href="#" class="text-muted">Checkout with multiples address</a></p>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div><!-- /.main -->

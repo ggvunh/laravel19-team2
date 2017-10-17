@@ -3403,3 +3403,6 @@ p {
     border: none;
     color: #fff;
 }
+.top-cart-title:hover {
+    background-color: #C9302C;
+}
