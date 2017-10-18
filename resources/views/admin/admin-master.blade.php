@@ -161,7 +161,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="{{asset('dist/img/avatar5.png')}}" class="user-image" alt="uuu">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->

@@ -156,7 +156,7 @@
                 /* featured-products slider */
                 $("#featured-products .owl").owlCarousel({
                     autoPlay : false,
-                    items : 4,
+                    items : 3,
                     itemsDesktop : [1199,3],
                     itemsDesktopSmall : [991,2],
                     itemsTablet: [767,2],
@@ -172,7 +172,7 @@
                 /* new-products slider */
                 $("#new-products .owl").owlCarousel({
                     autoPlay : false,
-                    items : 4,
+                    items : 3,
                     itemsDesktop : [1199,3],
                     itemsDesktopSmall : [991,2],
                     itemsTablet: [767,2],
