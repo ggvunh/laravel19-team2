@@ -26,17 +26,19 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF PRODUCTS</p></a>
                                     </div>
-                                    <form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
+                                    <a><form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
                                           <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Search" id="search" name="search">
                                           </div>
                                            <button type="submit" class="btn btn-info click"  id="search">Search</button>
                                           <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Product</button></a>
-                                    </form>
+                                    </form></a>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
+                          <div class="box-body">
+                              <span style="color: red;font-size:20px">Have <span style="color: black">{{count($product)}}</span> products in the table</span>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr">
                                         <th class="myth">Product code</th>
@@ -67,9 +69,10 @@
                                     </tr>
                                     @endforeach
                                 </table>
+                          </div>
                       </div>
-                 </div>
                       {{$product->links()}}
+                 </div>     
             </div>
           </div>
         </section>

@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Collection;
 
 class ProductController extends Controller
 {
     public function listProduct ()
     {
-        $product = Product::orderBy('id','desc')->paginate(10);
+        $product = Product::orderBy('id','desc')->paginate(25);
         return view('admin.product.list-all-products')->with(['product'=>$product]);
     }
 
@@ -111,12 +114,18 @@ class ProductController extends Controller
         {
             $products = Product::where('name','like','%'.$rq->input('search').'%')
                 ->orwhere('unit_price',$rq->input('search'))
-                ->orwhere('promotion_price',$rq->input('search'))->get();       
-        }
+                ->orwhere('promotion_price',$rq->input('search'))->get();           
+        }       
         else {
             $products = [];
         }
-        return view('admin.product.search')->with(['products'=>$products]);
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $col = new Collection($products);
+        $perPage = 15;
+        $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $result_search = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
+
+        return view('admin.product.search')->with(['result_search'=>$result_search->appends(Input::except('page')),'products'=>$products]);
     }
 
 }

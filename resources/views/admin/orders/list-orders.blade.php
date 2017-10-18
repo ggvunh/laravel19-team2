@@ -28,7 +28,9 @@
                                     </div>
                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search Order by Date/by Month/by Product Name">
+                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search by Date/by Month/by Product Name" @if(isset($search_input))
+                                                       value="{{$search_input}}"
+                                                   @endif>
                                       </div>
                                       <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
                                     </form></a>
@@ -45,9 +47,14 @@
                                           0
                                       @endif
                                     </span><span style="color: red;font-size:20px">Orders in table</span>
-                                    <a><button type="submit" class="btn btn-info click" style="margin-left: 600px;
-    margin-bottom: 5px;">Dilevery</button></a>
-                                    <a><button type="submit" class="btn btn-info click" style="margin-bottom: 5px;"> Undilevery</button></a>
+                                    <span style="font-size: 20px">&nbsp&nbsp/&nbsp&nbsp</span><span style="color: blue;font-size:20px">Total money:</span>
+                                    <span style="color: black;font-size: 25px" >
+                                       @if(isset($count_money))
+                                        {{number_format($count_money)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span>
+                                      @else
+                                          0<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span>
+                                      @endif
+                                    </span>
                               </div>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
@@ -67,7 +74,7 @@
                                         <td class="myth">{{$bill->order_address}}</td>
                                         <td class="myth">{{$bill->note}}</td>
                                         <td class="myth">{{date('d-m-Y',strtotime($bill->date_order))}}</td>
-                                        <td class="myth">
+                                        <td class="bamtd">
                                         	@if(($bill->status) == 0)
                                                  Undelivered
                                             @else

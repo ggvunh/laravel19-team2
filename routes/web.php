@@ -74,10 +74,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
       // Route Order by Duong Dong Hung
 	Route::group(['prefix'=>'order'],function(){
 		Route::get('orders','OrderController@listOrders');
-		Route::get('detailorder/{id}','OrderController@detailOrder');
 		Route::get('search','OrderController@searchOrder');
-		
-		
+		Route::get('detailorder/{id}','OrderController@detailOrder');
 	});
 });
 //Cart

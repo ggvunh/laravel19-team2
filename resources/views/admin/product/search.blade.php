@@ -54,7 +54,7 @@
                                         <th class="myth">Edit</th>
                                         <th class="myth">Delete</th>
                                     </tr>
-                                    @foreach($products as $dt)
+                                    @foreach($result_search as $dt)
                                     <tr>
                                           <td >{{$dt->id}}</td>
                                           <td ><img src="{{asset('images/products/'.$dt->image)}}" alt="" style="width: 50px; height: 50px;"> </td>
@@ -71,6 +71,7 @@
                                     @endforeach
                                 </table>
                           </div>
+                          {{$result_search->links()}}
                       </div>
                  </div>
             </div>

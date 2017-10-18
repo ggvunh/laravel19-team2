@@ -14,13 +14,15 @@ class OrderController extends Controller
 {
     public function searchOrder(Request $rq)
     {   
-        $search_input = $rq->search;
+         $search_input = $rq->search;
         if($search_input != null)
         {
 
             $search = str_replace('/','-', $search_input);
             $Search = date('Y-m-d',(strtotime($search)));
-            $result_search_date = Bill::where('created_at', $Search)->orderBy('id','desc')->paginate(25);
+            $Search_up = $Search.' '.'23'.':'.'59'.':'.'59';
+            $Search_down = $Search.' '.'00'.':'.'00'.':'.'00';
+            $result_search_date = Bill::whereBetween('created_at',[$Search_down, $Search_up])->orderBy('id','desc')->paginate(25);
             
             $curent_date = getdate(strtotime(date('Y-m-d')));
             $time_up = $curent_date['year'].'-'.$search_input.'-'.'31';
@@ -55,29 +57,72 @@ class OrderController extends Controller
             if(count( $result_search_date)>0)
             {
                 $result_search = $result_search_date ;
-                $count_search = count(Bill::where('created_at', $Search)->get());
+                $x = Bill::whereBetween('created_at',[$Search_down, $Search_up])->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
             }
             if(count( $result_search_month)>0)
             {
                 $result_search = $result_search_month;
-                $count_search = count(Bill::whereBetween('created_at',[$time_down, $time_up])->get());
+                $x = Bill::whereBetween('created_at',[$time_down, $time_up])->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
             }
             if(count( $result_search_proname)>0)
             {
                 $result_search = $result_search_proname ;
-                $count_search  = count($result_search_name);
+                $x = $result_search_name;
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
             }
 
+            if((count( $result_search_date)==0) and(count( $result_search_month)==0) and(count( $result_search_proname)==0))
+            {   
+                $result_search_tam = [];
+                $x = $result_search_tam;
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
+                $currentPage = LengthAwarePaginator::resolveCurrentPage();
+                $col = new Collection($result_search_tam);
+                $perPage = 25;
+                $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+                $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
+                $result_search =   $result_search_pro; 
+            }
         }else{
             $result_search = Bill::orderBy('id','desc')->paginate(25);
-            $count_search  = count(Bill:: all());
+            $x =  Bill::orderBy('id','desc')->get();
+            $count_search = count($x);
+            $count_money = 0;
+            for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+            }
         }
-        return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search]);
+       
+        return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input'=>$search_input,'count_money'=>$count_money]);
     }
-
+        
     public function listOrders ()
     {
         return view('admin.orders.list-orders');
+    }
+
+    public function detailOrder ($id)
+    {
+        $dt_bills = BillDetail::where('bill_id',$id)->get();
+        return view('admin.orders.detail-order')->with(['dt_bills'=>$dt_bills]);
     }
 
 }
