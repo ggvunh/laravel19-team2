@@ -28,7 +28,7 @@
                                     </div>
                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <input type="text" class="form-control " style="width: 560px" name="search" placeholder="Search Order by Date/by Month/by Product Name">
+                                           <input type="text" class="form-control " style="width: 560px" name="search" placeholder="Search Order by Date/by Month/by Product Name/by Customer Email">
                                       </div>
                                       <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
                                     </form></a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Menu;
+use App\BillDetail;
 use App\Brand;
 use App\Category;
 use Toastr;
@@ -101,10 +102,16 @@ class ProductController extends Controller
     public function deleteProduct ($id)
     {
         $deleteProduct = Product::find($id);
-        $oldfile = $deleteProduct->image;
-        Storage::delete($oldfile);
-        $deleteProduct->delete();
-        Toastr::success('Delete successful product', $title = null, $options = []);
+        $check_bill = BillDetail::where('product_id',$id)->get();
+        if(count($check_bill)==0)
+        {
+            $oldfile = $deleteProduct->image;
+            Storage::delete($oldfile);
+            $deleteProduct->delete();
+            Toastr::success('Delete successful product', $title = null, $options = []);
+        }else{
+            Toastr::success('You can not delete this product', $title = null, $options = []);
+        }
         return redirect('admin/product/listproduct');
     }
 

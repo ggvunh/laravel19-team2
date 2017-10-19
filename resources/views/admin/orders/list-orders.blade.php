@@ -28,7 +28,7 @@
                                     </div>
                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search by Date/by Month/by Product Name" @if(isset($search_input))
+                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
                                                        value="{{$search_input}}"
                                                    @endif>
                                       </div>
