@@ -58,10 +58,9 @@ class CartController extends Controller
             $billdetail->unit_price = $content->price;
             $billdetail->save();
         }
+        $carts = Cart::content();
         Session::forget('cart');
-        return redirect()->route('home');
-    }
-
+        return view('cart.hoadon', compact('bill', 'carts'));
     public function sendmail()
     {
         $data=['hoten' => 'Phuong nguyen'];

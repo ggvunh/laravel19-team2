@@ -98,7 +98,7 @@
                                         </tr>
                                     </table>
         							<div class="text-right">
-                                    	   <p><button type="submit" class="btn btn-default btn-md fwb">THANH TOÁN</button></p>
+                                    	   <p><button type="submit" class="btn btn-default btn-md fwb" >THANH TOÁN</button></p>
                                     </div>
                                 </div>
                             </form>
