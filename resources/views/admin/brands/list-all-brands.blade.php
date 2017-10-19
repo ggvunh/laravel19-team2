@@ -26,13 +26,6 @@
                     <div class="navbar-header">
                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF BRANDS</p></a>
                     </div>
-                    <form class="navbar-form navbar-left">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                      </div>
-                      <button type="submit" class="btn btn-info  click">Search</button>
-                      <a href="{{url('admin/brand/addbrands')}}" class="click"><button type="button" class="btn btn-info mybtn">Add Brand</button></a>
-                    </form>
                   </div>
                            </nav>
                       </div>
@@ -55,7 +48,7 @@
                     <tr>
                         <td >{{$brand->id}}</td>
                         <td >{{$brand->name}}</td>
-                        <td >{{$brand->logo}}</td>
+                        <td ><img src="{{asset('images/brand/'.$brand->logo)}}" alt="" style="width: 100px; height: 50px;"></td>
                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/brand/editbrands')}}/{{$brand->id}}" style="color:red" class="click">Edit</a></td>
                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/brand/deletebrands')}}/{{$brand->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                     </tr>
