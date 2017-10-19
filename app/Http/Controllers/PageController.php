@@ -9,6 +9,7 @@ use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
 use App\Http\Requests\SearchIsPrice;
+use Illuminate\Support\Facades\Input;
 class PageController extends Controller
 {
     public function getIndex()
@@ -34,10 +35,13 @@ class PageController extends Controller
     public function searchsp(Request $req)
     {
         $key=$req->key;
+        $total_search = count(Product::where('name','like','%'.$req->key.'%')
+            ->orwhere('unit_price',$req->key)
+            ->orwhere('promotion_price',$req->key)->get());
         $products = Product::where('name','like','%'.$req->key.'%')
             ->orwhere('unit_price',$req->key)
             ->orwhere('promotion_price',$req->key)->paginate(6);
-        return view('page.searchsp', compact('products'), compact('key'));
+        return view('page.searchsp', compact('products','key', 'total_search'));
     }
 
     public function search_is_price(Request $req, SearchIsPrice $request)

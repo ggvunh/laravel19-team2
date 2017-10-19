@@ -21,8 +21,8 @@ class CreateProductTable extends Migration
             $table->enum('new',['1','0']);
             $table->enum('deals',['1','0']);
             $table->integer('quantity');
-            $table->float('unit_price',30,2);
-            $table->float('promotion_price',30,2);
+            $table->float('unit_price',30);
+            $table->float('promotion_price',30);
             $table->string('image');
             $table->string('unit');
             $table->timestamps();
