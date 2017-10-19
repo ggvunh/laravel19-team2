@@ -61,6 +61,7 @@ class CartController extends Controller
         $carts = Cart::content();
         Session::forget('cart');
         return view('cart.hoadon', compact('bill', 'carts'));
+    }
     public function sendmail()
     {
         $data=['hoten' => 'Phuong nguyen'];
