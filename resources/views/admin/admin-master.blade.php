@@ -161,7 +161,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="{{asset('dist/img/avatar5.png')}}" class="user-image" alt="uuu">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{Auth::user()->name}}</span>
+              <span class="hidden-xs"><strong>{{Auth::user()->name}}</strong></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -223,7 +223,7 @@ desired effect
           <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><strong>{{Auth::user()->name}}</strong></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>

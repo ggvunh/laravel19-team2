@@ -26,13 +26,6 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF CATEGORY</p></a>
                                     </div>
-                                    <form class="navbar-form navbar-left" action="" method="GET">
-                                          <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Search" id="search" >
-                                          </div>
-                                           <button type="submit" class="btn btn-info click"  id="search">Search</button>
-                                          <a href="{{url('admin/category/addcategories')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Category</button></a>
-                                    </form>
                           </nav>
                       </div>                      @if(session('infor'))    <!-- display infor -->
                      <div class="alert alert-success">
