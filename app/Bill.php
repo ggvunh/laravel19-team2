@@ -9,7 +9,7 @@ class Bill extends Model
     protected $table = 'bills';
     public function bill_detail()
         {
-            return $this->hasMany('App\BillDetail','category_id','id');
+            return $this->hasMany('App\BillDetail','bill_id','id');
         }
     public function user()
         {

@@ -57,7 +57,7 @@
 					@foreach($users as $user)
 					<tr>
 						<td >{{$user->id}}</td>
-						<td >{{$user->name}}</td>
+						<td ><a href="{{ url('admin/user/orderlists/'.$user->id) }}">{{$user->name}}</a></td>
 						<td >{{$user->gender}}</td>
 						<td >{{$user->roles}}</td>
 						<td >{{$user->email}}</td>
