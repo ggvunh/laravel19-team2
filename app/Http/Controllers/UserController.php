@@ -58,7 +58,7 @@ class userController extends Controller
 
     public function getOrderlists($id)
     {
-        $orderlists = Bill::where('user_id', $id);
+        $orderlists = Bill::Where('user_id', $id)->get();
         return view('admin.users.list-order', compact('orderlists'));
     }
 }
