@@ -62,7 +62,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('deleteusers/{id}', 'UserController@deleteUsers');
 		Route::get('searchusers', 'UserController@searchUser');
 		Route::get('orderlists/{id}', 'UserController@getOrderlists');
-		Route::get('orderdetail/{name}/{id}', 'UserController@getOrderdetail');
 	});
 		//Route Menu
 	Route::group(['prefix'=>'menu'],function(){
