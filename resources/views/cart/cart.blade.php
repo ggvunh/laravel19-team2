@@ -21,7 +21,6 @@
                                     <th>Xóa</th>
                                     <th>Hình ảnh</th>
                                     <th>Tên Sản phẩm</th>
-                                    <th>Sửa</th>
                                     <th>Số lượng</th>
                                     <th>Đơn giá</th>
                                     <th>Thành tiền</th>
@@ -39,7 +38,6 @@
                                             <div class="text-muted">Size: 42<br>
                                             Color: Red</div>
                                         </td>
-                    					<td class="text-center"><a href="#">Edit</a></td>
                                 		<td class="qty">
                                        		<input type="number" name="qty" value="{{$content->qty}}" style="text-align:center">
                                     	</td>

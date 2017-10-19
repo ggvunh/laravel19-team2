@@ -90,3 +90,4 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::GET('viewcheckout', 'CartController@getcheckout');
 		Route::GET('checkout', 'CartController@checkout');
 	});
+	Route::GET('sendmail','CartController@sendmail');
