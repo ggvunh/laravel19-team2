@@ -86,7 +86,7 @@
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng
-                                        <span class="price">{{\Cart::total()}}</span>
+                                        <span class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
