@@ -60,17 +60,20 @@
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>
                                         <th class="myth">Total money</th>
+                                        <th class="myth">Customer Email</th>
                                         <th class="myth">Address</th>
                                         <th class="myth">Note</th>
                                         <th class="myth">Delivery day</th>
                                         <th class="myth">Status</th>
                                         <th class="myth">Detail</th>
+                                        <th class="myth">Check</th>
                                     </tr>
                                     @if(isset($result_searchs))
                                     @foreach($result_searchs as $bill)
                                     <tr>
                                         <td class="myth">{{$bill->id}}</td>
                                         <td class="myth">{{$bill->total}}</td>
+                                        <td class="myth">{{$bill->user->email}}</td>
                                         <td class="myth">{{$bill->order_address}}</td>
                                         <td class="myth">{{$bill->note}}</td>
                                         <td class="myth">{{date('d-m-Y',strtotime($bill->date_order))}}</td>
@@ -82,6 +85,7 @@
                                         	@endif
                                         </td>
                                         <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$bill->id}}" style="color:red" class="click">Detail</a></td>
+                                        <td class="myth"><a href="{{url('admin/order/check')}}/{{$bill->id}}"><button class="btn btn-info">Check</button></a></td>
                                     </tr>
                                     @endforeach
                                     @endif

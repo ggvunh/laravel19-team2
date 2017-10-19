@@ -62,8 +62,8 @@
                                         <td >{{$dt->description}}</td>
                                         <td >{{$dt->quantity}}</td>
                                         <td >{{$dt->unit}}</td>
-                                        <td >{{$dt->unit_price}}</td>
-                                        <td >{{$dt->promotion_price}}</td>
+                                        <td >{{number_format($dt->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
+                                        <td >{{number_format($dt->promotion_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
                                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}" style="color:red" class="click">Edit</a></td>
                                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                                     </tr>

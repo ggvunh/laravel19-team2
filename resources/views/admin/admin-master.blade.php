@@ -400,6 +400,7 @@ desired effect
 <script src="{{asset('adlibrary/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('adlibrary/bower_components/Chart.js/Chart.js')}}"></script>
+<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script> 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adlibrary/dist/js/demo.js')}}"></script>

@@ -41,7 +41,7 @@
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>
                                         <th class="myth">Product name</th>
-                                        <th class="myth">Product image</th>
+                                        <th class="myth">Product code</th>
                                         <th class="myth">Quantity</th>
                                         <th class="myth">Unit price</th>
                                         <th class="myth">Total money</th>
@@ -51,10 +51,10 @@
                                     <tr>
                                         <td class="myth">{{$bill->bill_id}}</td>
                                         <td class="myth">{{$bill->product->name}}</td>
-                                        <td class="myth"><img src="{{asset('images/products/'.$bill->product->image)}}" alt="no image" style="width: 50px; height: 50px;"> </td>
+                                        <td class="myth">{{$bill->product->id}}</td>
                                         <td class="myth">{{$bill->quantity}}</td>
-                                        <td class="myth">{{number_format($bill->product->promotion_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
-                                        <td class="myth">{{number_format(($bill->quantity)*($bill->product->promotion_price))}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
+                                        <td class="myth">{{number_format($bill->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
+                                        <td class="myth">{{number_format(($bill->quantity)*($bill->unit_price))}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
                                     </tr>
                                     @endforeach
                                     @endif

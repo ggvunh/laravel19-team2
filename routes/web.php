@@ -76,6 +76,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('orders','OrderController@listOrders');
 		Route::get('search','OrderController@searchOrder');
 		Route::get('detailorder/{id}','OrderController@detailOrder');
+		Route::get('check/{id}','OrderController@checkOrder');
 	});
 });
 //Cart

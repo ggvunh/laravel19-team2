@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Bill;
 use App\BillDetail;
 use App\Product;
+use App\User;
+use Toastr;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Input;
@@ -54,7 +56,32 @@ class OrderController extends Controller
             $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
             $result_search_proname = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
 
-            if(count( $result_search_date)>0)
+            $m=[];
+            $user = User::where('email',$search_input)->get();
+                for($i=0;$i<count($bills);$i=$i+1){
+                    for($j=0;$j<count($user);$j=$j+1){
+                        if(($bills[$i]->user_id) ==($user[$j]->id)){
+                           array_push($m,$bills[$i]);
+                        }
+                    }
+                }
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            $col = new Collection($m);
+            $perPage = 25;
+            $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+            $result_search_email = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );    
+            
+           if(count($result_search_email)>0)
+            {
+                $result_search = $result_search_email ;
+                $x = $m;
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
+            }
+           if(count( $result_search_date)>0)
             {
                 $result_search = $result_search_date ;
                 $x = Bill::whereBetween('created_at',[$Search_down, $Search_up])->get();
@@ -64,50 +91,50 @@ class OrderController extends Controller
                     $count_money=($count_money+($x[$i]->total));
                 }
             }
-            if(count( $result_search_month)>0)
+           if(count( $result_search_month)>0)
             {
                 $result_search = $result_search_month;
                 $x = Bill::whereBetween('created_at',[$time_down, $time_up])->get();
                 $count_search = count($x);
                 $count_money = 0;
                 for($i=0;$i< $count_search;$i=$i+1){
-                    $count_money=($count_money+($x[$i]->total));
+                     $count_money=($count_money+($x[$i]->total));
                 }
             }
-            if(count( $result_search_proname)>0)
+           if(count( $result_search_proname)>0)
             {
                 $result_search = $result_search_proname ;
                 $x = $result_search_name;
                 $count_search = count($x);
                 $count_money = 0;
                 for($i=0;$i< $count_search;$i=$i+1){
-                    $count_money=($count_money+($x[$i]->total));
+                     $count_money=($count_money+($x[$i]->total));
                 }
             }
 
-            if((count( $result_search_date)==0) and(count( $result_search_month)==0) and(count( $result_search_proname)==0))
+           if((count( $result_search_date)==0) and(count( $result_search_month)==0) and(count( $result_search_proname)==0)and(count($result_search_email)==0))
             {   
-                $result_search_tam = [];
-                $x = $result_search_tam;
-                $count_search = count($x);
-                $count_money = 0;
-                for($i=0;$i< $count_search;$i=$i+1){
-                    $count_money=($count_money+($x[$i]->total));
-                }
-                $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                $col = new Collection($result_search_tam);
-                $perPage = 25;
-                $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
-                $result_search =   $result_search_pro; 
+                 $result_search_tam = [];
+                 $x = $result_search_tam;
+                 $count_search = count($x);
+                 $count_money = 0;
+                 for($i=0;$i< $count_search;$i=$i+1){
+                     $count_money=($count_money+($x[$i]->total));
+                 }
+                 $currentPage = LengthAwarePaginator::resolveCurrentPage();
+                 $col = new Collection($result_search_tam);
+                 $perPage = 25;
+                 $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+                 $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
+                 $result_search =   $result_search_pro; 
             }
-        }else{
+         }else{
             $result_search = Bill::orderBy('id','desc')->paginate(25);
             $x =  Bill::orderBy('id','desc')->get();
             $count_search = count($x);
             $count_money = 0;
             for($i=0;$i< $count_search;$i=$i+1){
-                    $count_money=($count_money+($x[$i]->total));
+                     $count_money=($count_money+($x[$i]->total));
             }
         }
        
@@ -123,6 +150,15 @@ class OrderController extends Controller
     {
         $dt_bills = BillDetail::where('bill_id',$id)->get();
         return view('admin.orders.detail-order')->with(['dt_bills'=>$dt_bills]);
+    }
+
+     public function checkOrder ($id)
+    {
+        $check = Bill:: find($id);
+        $check->status = '1';
+        $check->save();
+        Toastr::success('Check successful Order', $title = null, $options = []);
+        return view('admin.orders.list-orders');
     }
 
 }
