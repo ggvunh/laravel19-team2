@@ -96,3 +96,4 @@ Route::group(['prefix'=>'account'], function(){
 	Route::get('orderdetail/{id}', 'AccountController@getBillDetail');
 	Route::get('orderlists/{id}/delete', 'AccountController@cancelBills');
 	});
+	Route::GET('sendmail','CartController@sendmail');
