@@ -17,10 +17,10 @@
                                   <li><a href="{{url('/register')}}" class="login">Đăng ký</a></li>
                               @else
                                   <li class="dropdown">
-                                      <a href="#" class="account dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                      <a href="#" class="account dropdown-toggle" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                                       <ul class="dropdown-menu dropdown-menu-right">
                                           <li><a title="My info" href="#">Thông tin cá nhân</a></li>
-                                          <li><a title="My Cart" href="{{ url('account/orderlists') }}">Giỏ hàng của tôi</a></li>
+                                          <li><a title="My Cart" href="{{ url('account/orderlists') }}">Lịch sử mua hàng</a></li>
                                           @if (Auth::user()->roles==1)
                                           <li><a title="Admin" href="{{ url('admin') }}">Trang quản trị</a></li>
                                           @endif

@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
 @section('content')
-     <div class="content-wrapper" style="height: 1138px">
+     <div class="content-wrapper nxp-admin">
     <!-- Content Header (Page header) -->
        <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
@@ -24,15 +24,23 @@
                          <nav class="navbar">
                               <div class="container-fluid">
                                     <div class="navbar-header">
-                                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS <small style="color: red">Dilevered</small></p></a>
+                                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS</p></a>
                                     </div>
+                                    <form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
+                                          <div class="form-group">
+                                              <input type="text" class="form-control" placeholder="Search" id="search" name="search">
+                                          </div>
+                                           <button type="submit" class="btn btn-info click"  id="search">Search</button>
+                                          <a href="{{url('admin/order/dilevery')}}" class="click"><button type="button" class="btn btn-info mybtn1 ">Delivered</button></a>
+                                          <a href="{{url('admin/order/undilevery')}}" class="click"><button type="button" class="btn btn-info mybtn1 ">Undelivered</button></a>
+                                    </form>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
                                 <table class="table table-bordered" id="mytable" border="0">
-                                    <tr class="mytr">
+                                    <tr class="mytr" >
                                         <th class="myth">Order code</th>
                                         <th class="myth">Total money</th>
                                         <th class="myth">Address</th>
@@ -41,21 +49,21 @@
                                         <th class="myth">Status</th>
                                         <th class="myth">Detail</th>
                                     </tr>
-                                    @foreach($dileOrder as $dileOrder)
+                                    @foreach($orderlists as $orderlist)
                                     <tr>
-                                        <td class="myth">{{$dileOrder->id}}</td>
-                                        <td class="myth">{{$dileOrder->total}}</td>
-                                        <td class="myth">{{$dileOrder->order_address}}</td>
-                                        <td class="myth">{{$dileOrder->note}}</td>
-                                        <td class="myth">{{$dileOrder->date_order}}</td>
+                                        <td class="myth">{{$orderlist->id}}</td>
+                                        <td class="myth">{{$orderlist->total}}</td>
+                                        <td class="myth">{{$orderlist->order_address}}</td>
+                                        <td class="myth">{{$orderlist->note}}</td>
+                                        <td class="myth">{{$orderlist->date_order}}</td>
                                         <td class="myth">
-                                        	@if(($dileOrder->status) == 0)
+                                        	@if(($orderlist->status) == 0)
                                                  Undelivered
                                             @else
-                                                 Delivered
+                                                 Delivery
                                         	@endif
                                         </td>
-                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$dileOrder->id}}" style="color:red" class="click">Detail</a></td>
+                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$orderlist->id}}" style="color:red" class="click">Detail</a></td>
                                     </tr>
                                     @endforeach
                                 </table>
