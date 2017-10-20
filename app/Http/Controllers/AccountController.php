@@ -8,6 +8,8 @@ use App\BillDetail;
 use Auth;
 use Cart;
 use App\User;
+use App\Http\Requests\editInformationRequest;
+
 class AccountController extends Controller
 {
         public function getBills()
@@ -22,11 +24,31 @@ class AccountController extends Controller
             $billdetails = BillDetail::where('bill_id', $id)->get();
             return view('account.list-billdetail', compact('billdetails', 'id'));
         }
+
         public function cancelBills($id)
         {
             $data = Bill::find($id);
             $data ->bill_detail()->delete();
             $data->delete();
             return redirect('account/orderlists');
+        }
+
+        public function getInfo()
+        {
+            $info = Auth::user();
+            return view('account.info', compact('info', 'pass'));
+        }
+
+        public function postInfo(request $rq, editInformationRequest $request)
+        {
+            $edituser = Auth::user();
+            $edituser->name = $rq->input('name');
+            $edituser->email = $rq->input('email');
+            $edituser->password = encrypt($rq->input('password'));
+            $edituser->address = $rq->input('address');
+            $edituser->phone_number = $rq->input('phone');
+            $edituser->gender = $rq->input('gender');
+            $edituser->save();
+            return redirect()->back();
         }
 }
