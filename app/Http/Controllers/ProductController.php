@@ -110,7 +110,7 @@ class ProductController extends Controller
             $deleteProduct->delete();
             Toastr::success('Delete successful product', $title = null, $options = []);
         }else{
-            Toastr::success('You can not delete this product', $title = null, $options = []);
+            Toastr::warning('You can not delete this product', $title = null, $options = []);
         }
         return redirect('admin/product/listproduct');
     }
