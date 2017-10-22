@@ -97,5 +97,7 @@ Route::group(['prefix'=>'account'], function(){
 	Route::get('orderlists/{id}/delete', 'AccountController@cancelBills');
 	Route::get('information', 'AccountController@getInfo');
 	Route::post('information', 'AccountController@postInfo');
+	Route::get('change-password', 'AccountController@getPass');
+	Route::post('change-password', 'AccountController@postPass');
 	});
 	Route::GET('sendmail','CartController@sendmail');
