@@ -17,12 +17,10 @@
                                   <li><a href="{{url('/register')}}" class="login">Đăng ký</a></li>
                               @else
                                   <li class="dropdown">
-                                      <a href="#" class="account dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                      <a href="#" class="account dropdown-toggle" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                                       <ul class="dropdown-menu dropdown-menu-right">
-                                          <li><a title="My Account" href="#">Tài khoản của tôi</a></li>
                                           <li><a title="My info" href="#">Thông tin cá nhân</a></li>
-                                          <li><a title="My Cart" href="#">Giỏ hàng của tôi</a></li>
-                                          <li><a title="Checkout" href="#">Checkout</a></li>
+                                          <li><a title="My Cart" href="{{ url('account/orderlists') }}">Lịch sử mua hàng</a></li>
                                           @if (Auth::user()->roles==1)
                                           <li><a title="Admin" href="{{ url('admin') }}">Trang quản trị</a></li>
                                           @endif
@@ -88,7 +86,7 @@
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng
-                                        <span class="price">{{\Cart::total()}}</span>
+                                        <span class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
@@ -111,7 +109,9 @@
                                         <div class="mini-cart-subtotal">Shipping: <span class="price">50.000</span></div>
                                         <div class="mini-cart-subtotal">Total: <span class="price">{{\Cart::total()}}</span></div>
                                         <div class="checkout-btn">
-                                            <a href="{{url('dat-hang/viewcheckout')}}" class="btn btn-default btn-md fwb">CHECK OUT</a>
+                                            @if(Cart::total() != 0)
+                                                <a href="{{url('dat-hang/viewcheckout')}}" class="btn btn-default btn-md fwb">CHECK OUT</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

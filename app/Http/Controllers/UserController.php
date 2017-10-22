@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\editUserRequest;
 use Illuminate\Support\Facades\Input;
+use App\Bill;
+use App\BillDetail;
 use Toastr;
 
 class userController extends Controller
@@ -52,5 +54,11 @@ class userController extends Controller
                     ->orWhere('address', 'like', '%'.$req->search_user.'%')
                     ->get();
         return view('admin.users.searchusers', compact('search_users'));
-    }    
+    }
+
+    public function getOrderlists($id)
+    {
+        $orderlists = Bill::Where('user_id', $id)->get();
+        return view('admin.users.list-order', compact('orderlists'));
+    }
 }

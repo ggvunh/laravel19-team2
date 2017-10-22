@@ -23,7 +23,6 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
-		// Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'product'],function(){
 		Route::get('listproduct','ProductController@listProduct');
@@ -61,6 +60,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::post('editusers/{id}', 'UserController@postEditUsers');
 		Route::get('deleteusers/{id}', 'UserController@deleteUsers');
 		Route::get('searchusers', 'UserController@searchUser');
+		Route::get('orderlists/{id}', 'UserController@getOrderlists');
 	});
 		//Route Menu
 	Route::group(['prefix'=>'menu'],function(){
@@ -77,13 +77,22 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('search','OrderController@searchOrder');
 		Route::get('detailorder/{id}','OrderController@detailOrder');
 		Route::get('check/{id}','OrderController@checkOrder');
+		Route::get('dilevery/{status}','OrderController@dileveryOrder');
+		Route::get('calendar','OrderController@Calendar');
+		Route::get('calendar_detail/{date}','OrderController@Calendar_detal');
 	});
 });
 //Cart
-	Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
-		Route::GET('add-cart/{id}/{name}','CartController@addCart');
-		Route::GET('cart','CartController@cart')->name('cart');
-		Route::GET('deletecart/{rowId}', 'CartController@delete');
-		Route::GET('viewcheckout', 'CartController@getcheckout');
-		Route::GET('checkout', 'CartController@checkout');
+Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
+	Route::GET('add-cart/{id}/{name}','CartController@addCart');
+	Route::GET('cart','CartController@cart')->name('cart');
+	Route::GET('deletecart/{rowId}', 'CartController@delete');
+	Route::GET('viewcheckout', 'CartController@getcheckout');
+	Route::GET('checkout', 'CartController@checkout');
 	});
+Route::group(['prefix'=>'account'], function(){
+	Route::get('orderlists', 'AccountController@getBills');
+	Route::get('orderdetail/{id}', 'AccountController@getBillDetail');
+	Route::get('orderlists/{id}/delete', 'AccountController@cancelBills');
+	});
+	Route::GET('sendmail','CartController@sendmail');

@@ -65,7 +65,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Thêm vào giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

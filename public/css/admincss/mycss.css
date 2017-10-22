@@ -82,3 +82,11 @@
 {
 	width: 560px;
 }
+.active
+{
+    background-color: #4a5056;
+}
+.fc-day fc-widget-content fc-sat fc-today
+{
+	background: red;
+}

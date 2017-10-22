@@ -21,7 +21,7 @@
                 <div class="page-title">
                     <h1>TÌM KIẾM SẢN PHẨM</h1>
                     <h4>Từ khóa tìm kiếm: <b></b></h4>
-                    <h4>Tìm thấy: <b>12</b> sản phẩm</h4>
+                    <h4>Tìm thấy: <b>{{ $total_search }}</b> sản phẩm</h4>
                 </div>
                 <div class="toolbar">
                     <div class="pager">
@@ -58,7 +58,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Thêm vào giỏ hàng</a></li>
+                                                <li><a href="{{url('dat-hang/add-cart/'.$product->id.'/'.$product->name)}}" class="link-cart">Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -11,7 +11,7 @@
             <ol class="breadcrumb">
                 <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="{{url('admin/order/orders')}}">Order</a></li>
-                <li class="active"><a href="#">List of Orders<a></li>
+                <li><a href="#">List of Orders<a></li>
             </ol>
        </section>
        <section class="content">
@@ -28,7 +28,12 @@
                                     </div>
                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <input type="text" class="form-control " style="width: 620px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
+                                           <select name="status" class="form-control" style=" width:80px"">
+                                              <option value="0">Both</option>
+                                              <option value="1">Undilevery</option>
+                                              <option value="2">Dilevery</option>
+                                           </select>
+                                           <input type="text" class="form-control " style="width: 500px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
                                                        value="{{$search_input}}"
                                                    @endif>
                                       </div>
@@ -72,7 +77,7 @@
                                     @foreach($result_searchs as $bill)
                                     <tr>
                                         <td class="myth">{{$bill->id}}</td>
-                                        <td class="myth">{{$bill->total}}</td>
+                                        <td class="myth">{{number_format($bill->total)}}</td>
                                         <td class="myth">{{$bill->user->email}}</td>
                                         <td class="myth">{{$bill->order_address}}</td>
                                         <td class="myth">{{$bill->note}}</td>
