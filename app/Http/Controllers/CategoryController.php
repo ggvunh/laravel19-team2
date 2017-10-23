@@ -55,4 +55,5 @@ class categoryController extends Controller
         Toastr::success('Delete successful category', $title = null, $options = []);
         return redirect('admin/category/listcategories');
     }
+    
 }

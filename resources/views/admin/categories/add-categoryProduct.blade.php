@@ -12,7 +12,7 @@
       <ol class="breadcrumb">
         <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{url('admin/category/listcategories')}}" class="click">Category</a></li>
-        <li class="active"><a href="#">Add category<a></li>
+        <li><a href="#">Add category<a></li>
       </ol>
     </section>
     <!-- Main content -->

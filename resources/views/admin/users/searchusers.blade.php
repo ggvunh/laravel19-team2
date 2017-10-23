@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
           <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="{{url('admin/user/listusers')}}"">User</a></li>
-          <li class="active"><a href="">Search Users<a></li>
+          <li><a href="">Search Users<a></li>
         </ol>
        </section>
        <section class="content">
