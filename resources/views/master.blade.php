@@ -21,6 +21,7 @@
     <link href="{{('css/jquery-ui.css')}}" rel="stylesheet">
     <link href="{{('css/jquery.bxslider.css')}}" rel="stylesheet">
     <link href="{{('css/cloud-zoom.css')}}" rel="stylesheet">
+    <link href="{{('css/info.css')}}" rel="stylesheet">
 
 
 
