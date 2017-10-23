@@ -6,21 +6,21 @@
             </div>
             <div class="col-sm-9 col-right">
                 <h2>Chi tiết sản phẩm</h2>
-                @foreach($product as $a)
+                @foreach($product as $product)
                 <div class="col-sm-7">
-                    <img class="nxpimg" src="images/products/{{ $a->image }}" alt="">
+                    <img class="nxpimg" src="images/products/{{ $product->image }}" alt="">
                 </div>
                 <div class="col-sm-5">
                     <p class="product-name">
-                        <span class="nxp_namesp">{{ $a->name }}</span>
+                        <span class="nxp_namesp">{{ $product->name }}</span>
                     </p>
                     <p class="nxp_promotion_price">
                         Giá Ưu đãi:
-                        <span class="price">{{number_format($a->promotion_price)}}</span>
+                        <span class="price">{{number_format($product->promotion_price)}}</span>
                     </p>
                     <p class="old-price">
                         Giá Gốc:
-                        <span class="price">{{number_format($a->unit_price)}}</span>
+                        <span class="price">{{number_format($product->unit_price)}}</span>
                     </p>
                     <p>Tình trạng: còn hàng</p>
                     <div class="form-group">
@@ -32,7 +32,7 @@
                             <input type="number" name="qty" value="1" style="text-align:center;">
                         </div><!-- /input-group -->
                         <div class="">
-                            <a href="#"><button class="btn btn-danger btn-cart">Add to cart</button></a>
+                            <a href="{{url('dat-hang/add-cartviewdetail/'.$product->id.'/'.$product->name)}}"><button class="btn btn-danger btn-cart">Add to cart</button></a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,6 @@
                                             <div class="box-hover">
                                                 <ul class="add-to-links">
                                                     <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                    <li><a href="#" class="link-compare">So Sánh</a></li>
                                                     <li><a href="#" class="link-cart">Mua hàng</a></li>
                                                 </ul>
                                             </div>
@@ -98,7 +97,7 @@
                             {{$products->links()}}
                         </div>
                         <div class="tab-pane" id="product-review">
-                            {{$a->description}}
+                            {{$product->description}}
                         </div>
                     </div>
                 </div><!-- /.product-tab -->

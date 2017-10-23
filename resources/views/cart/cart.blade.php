@@ -2,6 +2,8 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <form  action="{{url('dat-hang/checkout')}}" method="GET">
+                <meta name="token" content="{{ csrf_token() }}">
             <div class="breadcrumbs">
                 <div class="container">
                     <ul class="breadcrumb">
@@ -38,11 +40,11 @@
                                             <div class="text-muted">Size: 42<br>
                                             Color: Red</div>
                                         </td>
-                                		<td class="qty">
-                                       		<input type="number" name="qty" value="{{$content->qty}}" style="text-align:center">
+                                		<td class="qty" id="{{$content->rowId}}">
+                                       		<input type="number" class="qty1" name="qty" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
                                 		<td class="subtotal">{{$content->price}}</td>
-                        				<td class="grandtotal">{{$content->price*$content->qty}}</td>
+                        				<td id="price_pro" class="grandtotal">{{$content->price*$content->qty}}</td>
             					    </tr>
                                 @endforeach
                         	</tbody>
@@ -73,7 +75,7 @@
                                     <input class="form-control" type="text" name="" value="{{Auth::user()->phone_number}}" disabled>
                                 </div>
                             </div>
-                            <form  action="{{url('dat-hang/checkout')}}" method="GET">
+
                             	<div class="col-sm-4">
                                     <h4>THÔNG TIN NHẬN HÀNG</h4>
                                     <p class="text-muted">Nhập thông tin nhận hàng.</p>
@@ -90,22 +92,51 @@
                                 	<table class="table table-cart-total">
                                     	<tr>
                                         	<td>Tổng Tiền:</td>
-                                            <td class="text-right">{{\Cart::total()}}</td>
+                                            <td id="total" class="text-right">{{\Cart::total()}}</td>
                                         </tr>
                                     	<tr>
                                         	<td>Số Tiền Phải Thanh Toán:</td>
-                                            <td class="text-right">{{\Cart::total()}}</td>
+                                            <td id="total" class="text-right">{{\Cart::total()}}</td>
                                         </tr>
                                     </table>
         							<div class="text-right">
                                     	   <p><button type="submit" class="btn btn-default btn-md fwb" >THANH TOÁN</button></p>
                                     </div>
                                 </div>
-                            </form>
+
                         </div>
                     </div>
                 </div>
             </div><!-- /.main -->
+            </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $(".qty").click( function(){
+                var rowid = $(this).attr('id');
+                var qty = $(this).find(".qty1").val();
+                var token = $("input[name = 'token']").val();
+                if(qty<=0){
+                    alert('số lượng lớn hơn 0');
+                }else {
+                    $.ajaxSetup({
+                      headers: {
+                        'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
+                      }
+                    });
+                        $.ajax({
+                            type: "GET",
+                            url: 'dat-hang/update_qty_cart/'+rowid+'/'+qty,
+                            data: {"token":token, "id":rowid, "qty":qty },
+                            success:function(data){
+                                alert(data);
+                            },error:function(){
+                                alert("error!!!!");
+                            }
+                        });
+                    }
+            });
+        });
+    </script>
 @stop

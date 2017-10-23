@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LARAVEL19-nhom2</title>
+  <title>Guitar Shop PKH</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/font-awesome/css/font-awesome.min.css')}}">
@@ -246,50 +246,57 @@ desired effect
       <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
           <li class="treeview">
+            <a href="{{url('/')}}">
+            <i class="fa fa-home" aria-hidden="true"></i> <span>Home page</span>
+            <span class="pull-right-container">
+            </span>
+            </a>
+          </li>
+          <li class="treeview">
             <a href="{{url('admin')}}">
-            <i class="fa fa-dashboard"></i> <span>Home</span>
+            <i class="fa fa-dashboard"></i> <span>Admin</span>
             <span class="pull-right-container">
             </span>
             </a>
           </li>
         <li class="treeview">
           <a href="{{url('admin/menu/manager-menu')}}">
-            <i class="fa fa-edit"></i> <span>Menu</span>
+            <i class="fa fa-bars" aria-hidden="true"></i> <span>Menu</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{url('admin/product/listproduct')}}">
-            <i class="fa fa-edit"></i> <span>Product</span>
+            <i class="fa fa-deaf" aria-hidden="true"></i> <span>Product</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{ url('admin/category/listcategories') }}">
-            <i class="fa fa-edit"></i> <span>Category</span>
+            <i class="fa fa-server" aria-hidden="true"></i> <span>Category</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{ url('admin/brand/listbrands') }}">
-            <i class="fa fa-edit"></i> <span>Brand</span>
+            <i class="fa fa-empire" aria-hidden="true"></i> <span>Brand</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{url('admin/order/orders')}}">
-            <i class="fa fa-edit"></i> <span>Orders</span>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Orders</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{ url('admin/user/listusers') }}">
-            <i class="fa fa-edit"></i> <span>User</span>
+            <i class="fa fa-users" aria-hidden="true"></i> <span>User</span>
             <span class="pull-right-container">
             </span>
           </a>
