@@ -13,8 +13,8 @@
 */
 
 Route::get('/', 'PageController@getIndex')->name('home');
-Route::get('san-pham', 'PageController@getSanPham');
-Route::get('timkiem-sp', 'PageController@searchsp');
+Route::get('san-pham', 'PageController@getSanPham')->name('homeproduct');
+Route::get('timkiem-sp', 'PageController@searchsp')->name('homesearch');
 Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
 Route::get('category_id/{category_id}', 'PageController@viewis_category');
 Route::get('search-is-price', 'PageController@search_is_price');
@@ -86,11 +86,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 //Cart
 Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
 	Route::GET('add-cart/{id}/{name}','CartController@addCart');
-	Route::GET('cart','CartController@cart')->name('cart');
+	Route::GET('cart','CartController@cart');
 	Route::GET('deletecart/{rowId}', 'CartController@delete');
-	Route::GET('viewcheckout', 'CartController@getcheckout');
+	Route::GET('viewcheckout', 'CartController@getcheckout')->name('cart');
 	Route::GET('checkout', 'CartController@checkout');
-	Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
+	Route::GET('add-cartproduct/{id}/{name}','CartController@addCartProduct');
+	Route::GET('add-cartsearch/{id}/{name}','CartController@addCartSearch');
+	Route::GET('add-cartviewdetail/{id}/{name}','CartController@addCartviewdetail1');
 	});
 Route::group(['prefix'=>'account'], function(){
 	Route::get('orderlists', 'AccountController@getBills');

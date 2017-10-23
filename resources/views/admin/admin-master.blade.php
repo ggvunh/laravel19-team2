@@ -244,8 +244,15 @@ desired effect
       <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
           <li class="treeview">
+            <a href="{{url('/')}}">
+            <i class="fa fa-home" aria-hidden="true"></i> <span>Home page</span>
+            <span class="pull-right-container">
+            </span>
+            </a>
+          </li>
+          <li class="treeview">
             <a href="{{url('admin')}}">
-            <i class="fa fa-dashboard"></i> <span>Home</span>
+            <i class="fa fa-dashboard"></i> <span>Admin</span>
             <span class="pull-right-container">
             </span>
             </a>
