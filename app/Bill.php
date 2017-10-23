@@ -15,4 +15,9 @@ class Bill extends Model
         {
             return $this->belongsTo('App\User','user_id','id');
         }
+
+    public function product()
+        {
+            return $this->belongstoMany('App\Product','bill_detail');
+        }
 }

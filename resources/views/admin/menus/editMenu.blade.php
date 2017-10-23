@@ -12,7 +12,7 @@
         <ol class="breadcrumb">
             <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{url('admin/menu/manager-menu')}}" class="click">Menu</a></li>
-            <li class="active"><a href="">Edit Menu<a></li>
+            <li><a href="">Edit Menu<a></li>
         </ol>
    </section>
    <!-- Main content -->

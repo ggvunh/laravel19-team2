@@ -7,10 +7,12 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adlibrary/bower_components/fullcalendar/dist/fullcalendar.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adlibrary/bower_components/fullcalendar/dist/fullcalendar.print.min.css')}}" media="print">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/Ionicons/css/ionicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('adlibrary/dist/css/AdminLTE.min.css')}}">
   <link rel="stylesheet" href="{{asset('adlibrary/dist/css/skins/skin-blue.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/css/admincss/mycss.css')}}">
+  <link rel="stylesheet" href="{{asset('css/admincss/mycss.css')}}">
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
@@ -286,7 +288,7 @@ desired effect
           </a>
         </li>
         <li class="treeview">
-          <a href="{{url('admin/order/listorders')}}">
+          <a href="{{url('admin/order/orders')}}">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Orders</span>
             <span class="pull-right-container">
             </span>
@@ -295,6 +297,13 @@ desired effect
         <li class="treeview">
           <a href="{{ url('admin/user/listusers') }}">
             <i class="fa fa-users" aria-hidden="true"></i> <span>User</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+        </li>
+        <li class="treeview calendar">
+          <a href="{{ url('admin/order/calendar') }}">
+            <i class="fa fa-edit"></i> <span>Calendar</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -402,13 +411,16 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{asset('adlibrary/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <script src="{{asset('adlibrary/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('adlibrary/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{asset('adlibrary/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
 <script src="{{asset('adlibrary/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 <script src="{{asset('adlibrary/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{asset('adlibrary/bower_components/moment/moment.js')}}"></script>
+<script src="{{asset('adlibrary/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('adlibrary/bower_components/Chart.js/Chart.js')}}"></script>
+<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script> 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adlibrary/dist/js/demo.js')}}"></script>
 <script src="{{asset('adlibrary/dist/js/adminlte.min.js')}}"></script>
@@ -424,5 +436,19 @@ desired effect
       }, 2000);
     });
 </script>
+<script>
+    $(function(){
+          // this will get the full URL at the address bar
+        var url = window.location.href; 
+          // passes on every "a" tag 
+        $(".treeview a").each(function() {
+            // checks if its the same on the address bar
+            if(url == (this.href)) { 
+                $(this).closest("a").addClass("active");
+              }
+        });
+    });
+</script>
+  @yield('script')
 </body>
 </html>

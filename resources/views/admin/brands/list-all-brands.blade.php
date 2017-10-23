@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
           <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="{{url('admin/brand/listbrands')}}" class="click">Brand</a></li>
-          <li class="active"><a href="#">List of Brands<a></li>
+          <li><a href="#">List of Brands<a></li>
         </ol>
        </section>
        <section class="content">

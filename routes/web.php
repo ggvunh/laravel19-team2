@@ -23,7 +23,6 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
-		// Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'product'],function(){
 		Route::get('listproduct','ProductController@listProduct');
@@ -74,13 +73,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 	});
       // Route Order by Duong Dong Hung
 	Route::group(['prefix'=>'order'],function(){
-		Route::get('listorders','OrderController@listOrders');
+		Route::get('orders','OrderController@listOrders');
+		Route::get('search','OrderController@searchOrder');
 		Route::get('detailorder/{id}','OrderController@detailOrder');
-		Route::get('undilevery','OrderController@undileveryOrder');
-		Route::get('dilevery','OrderController@dileveryOrder');
-		Route::GET('edit-menu/{id}','menuController@editMenu');
-		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
-		Route::GET('delete-menu/{id}','menuController@deleteMenu');
+		Route::get('check/{id}','OrderController@checkOrder');
+		Route::get('dilevery/{status}','OrderController@dileveryOrder');
+		Route::get('calendar','OrderController@Calendar');
+		Route::get('calendar_detail/{date}','OrderController@Calendar_detal');
 	});
 });
 //Cart
