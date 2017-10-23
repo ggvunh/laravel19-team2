@@ -20,6 +20,27 @@ class CartController extends Controller
         return redirect()->route('home');
     }
 
+    public function addCartSearch($id)
+    {
+        $product_buy = Product::find($id);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        return redirect()->route('homesearch');
+    }
+
+    public function addCartProduct($id)
+    {
+        $product_buy = Product::find($id);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        return redirect()->route('homeproduct');
+    }
+    public function addCartviewdetail1($id)
+    {
+        $qtyup = 0;
+        $product_buy = Product::find($id);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        return redirect()->route('cart');
+    }
+
     public function cart()
     {
         $content = Cart::content();
