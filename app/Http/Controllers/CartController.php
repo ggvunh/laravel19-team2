@@ -98,10 +98,11 @@ class CartController extends Controller
         });
     }
 
-    public function update_qty_cart()
+    public function update_qty_cart(Request $rq)
     {
         if(Request::ajax()){
-            echo "oke";
+            $x=$rq->qty;
+            dd($x);
         }
     }
 }
