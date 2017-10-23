@@ -24,11 +24,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa ion-person"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">User</span>
+              <span class="info-box-number">{{$user}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -41,11 +41,24 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-music-note"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Sales</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Products</span>
+              <span class="info-box-number">{{$product}}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green-nxp"><i class="ion ion-android-textsms"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Comment</span>
+              <span class="info-box-number">2,000</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -54,11 +67,49 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <span class="info-box-icon bg-total-nxp"><i class="ion ion-ios-cart-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">New Members</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Total Order</span>
+              <span class="info-box-number">{{$order}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-load-a"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Ordering</span>
+              <span class="info-box-number">{{$order - $ordered}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-odered-nxp"><i class="ion ion-checkmark-round"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Ordered</span>
+              <span class="info-box-number">{{$ordered}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-nuclear"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Brands</span>
+              <span class="info-box-number">{{$brand}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -67,7 +118,64 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+      <div class="clearfix"></div>
+      <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{ url('admin/user/listusers') }}">
+                  <img class="mn_user" src="images/admin/user_mn.png" alt="user">
+                  <div class="info-back">
+                      <h3>USERS</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{ url('admin/brand/listbrands') }}">
+                  <img class="mn_user" src="images/admin/brand.jpg" alt="user">
+                  <div class="info-back">
+                      <h3>BRANDS</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{url('admin/menu/manager-menu')}}">
+                  <img class="mn_user" src="images/admin/menu.png" alt="user">
+                  <div class="info-back">
+                      <h3>MENUS</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{url('admin/order/listorders')}}">
+                  <img class="mn_user" src="images/admin/oder.png" alt="user">
+                  <div class="info-back">
+                      <h3>ORDERS</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp"href="{{url('admin/product/listproduct')}}">
+                  <img class="mn_user" src="images/admin/product.jpg" alt="user">
+                  <div class="info-back">
+                      <h3>PRODUCTS</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{ url('admin/category/listcategories') }}">
+                  <img class="mn_user" src="images/admin/Category_Icon.png" alt="user">
+                  <div class="info-back">
+                      <h3>CATEGORIES</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
 
+      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="box">

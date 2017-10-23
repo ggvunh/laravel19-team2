@@ -7,7 +7,7 @@
 	border-bottom:2px solid #397888;
 	color: black;
 	background: #91aecc;
-} 
+}
 .mytd
 {
 	color: red;
@@ -73,4 +73,47 @@
 }
 .mar-top-nxp{
     margin-top: 30px !important;
+}
+.bg-green-nxp{
+	color:#fff;
+	background-color: #1aa600 !important;
+}
+.bg-total-nxp{
+	color:#fff;
+	background-color: #1223f3 !important;
+}
+.bg-odered-nxp{
+	color:#fff;
+	background-color: red !important;
+}
+.mn_user{
+	position: relative;
+	width: 100%;
+    height: 250px;
+    border: 2px solid chartreuse;
+	border-radius: 50%;
+	transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+.bg-nxp{
+	background-color: #fff;
+}
+.top-nxp{
+	margin-top: 20px;
+}
+.info-back{
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	opacity: 0;
+	transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+.bg-nxp:hover .info-back{
+	opacity: 1;
+}
+.bg-nxp:hover .mn_user{
+    filter: blur(2px);
 }
