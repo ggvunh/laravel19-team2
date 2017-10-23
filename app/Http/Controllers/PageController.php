@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Menu;
 use App\Product;
+use App\User;
 use App\Category;
+use App\Bill;
+use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addCategoryRequest;
@@ -60,6 +63,11 @@ class PageController extends Controller
 
     public function getAdmin()
     {
-        return view('admin.admin-home');
+        $user = count(User::all());
+        $product = count(Product::all());
+        $order = count(Bill::all());
+        $ordered = count(Bill::where('status','1')->get());
+        $brand = count(Brand::all());
+        return view('admin.admin-home', compact('user','product','order','ordered','brand'));
     }
 }

@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="#">
     <link rel="icon" href="{{('images/ico.ico')}}" type="image/x-icon">
 
-    <title>Ph19 - mua bán nhạc cụ</title>
+    <title>Guitar Shop PKH</title>
     <link href="{{('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{('css/nivo-slider.css')}}" rel="stylesheet">
     <link href="{{('css/animate.css')}}" rel="stylesheet">
@@ -347,12 +347,6 @@
                 });
             });
         </script>
-
-
-
-
-
-
 
   </body>
 </html>

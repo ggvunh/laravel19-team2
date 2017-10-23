@@ -90,6 +90,7 @@ Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
 	Route::GET('deletecart/{rowId}', 'CartController@delete');
 	Route::GET('viewcheckout', 'CartController@getcheckout');
 	Route::GET('checkout', 'CartController@checkout');
+	Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
 	});
 Route::group(['prefix'=>'account'], function(){
 	Route::get('orderlists', 'AccountController@getBills');

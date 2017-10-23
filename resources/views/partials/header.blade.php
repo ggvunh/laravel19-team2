@@ -85,7 +85,7 @@
                             <div class="mini-cart">
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
-                                        Giỏ hàng
+                                        Giỏ hàng: <b>{{Cart::count()}}</b> sản phẩm
                                         <span class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -100,14 +100,14 @@
                                                         <a href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><button type="button" class="remove-cart-item" >&times;</button></a>
                                                         <h4>{{$content->name}}</h4>
                                                         <div class="mini-cart-qty">số lượng: {{$content->qty}}</div>
-                                                        <div class="mini-cart-price">{{$content->price*$content->qty}}</div>
+                                                        <div class="mini-cart-price">{{number_format($content->price*$content->qty)}} VNĐ</div>
                                                     </div>
 
                                             </div>
                                             @endforeach
                                         </div><!-- /.cart-listing -->
-                                        <div class="mini-cart-subtotal">Shipping: <span class="price">50.000</span></div>
-                                        <div class="mini-cart-subtotal">Total: <span class="price">{{\Cart::total()}}</span></div>
+                                        <div class="mini-cart-subtotal">Phí ship hàng: <span class="price">0 VNĐ</span></div>
+                                        <div class="mini-cart-subtotal">Tổng cộng: <span class="price">{{number_format(Cart::total())}} VNĐ</span></div>
                                         <div class="checkout-btn">
                                             @if(Cart::total() != 0)
                                                 <a href="{{url('dat-hang/viewcheckout')}}" class="btn btn-default btn-md fwb">CHECK OUT</a>
