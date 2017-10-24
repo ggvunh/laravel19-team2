@@ -130,7 +130,7 @@
             });
         });
     </script>
-    <!-- <script>
+    <! <script>
         $(document).ready(function(){
             $(".qty").click( function(){
                 var rowid = $(this).attr('id');
