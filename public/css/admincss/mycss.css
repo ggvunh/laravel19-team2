@@ -7,7 +7,7 @@
 	border-bottom:2px solid #397888;
 	color: black;
 	background: #91aecc;
-} 
+}
 .mytd
 {
 	color: red;
@@ -25,7 +25,7 @@
  p.myp
 {
 	color: #6b5959 !important;
-    font-size: 40px !important;
+    font-size: 40px ;
 }
 .navbar-form .form-control
 {
@@ -73,4 +73,73 @@
 }
 .mar-top-nxp{
     margin-top: 30px !important;
+}
+.pagination
+{
+	margin-left: 10px;
+}
+.myform01
+{
+	width: 560px;
+}
+.active
+{
+    background-color: #4a5056;
+}
+.fc-day fc-widget-content fc-sat fc-today
+{
+	background: red;
+}
+.bg-green-nxp{
+	color:#fff;
+	background-color: #1aa600 !important;
+}
+.bg-total-nxp{
+	color:#fff;
+	background-color: #1223f3 !important;
+}
+.bg-odered-nxp{
+	color:#fff;
+	background-color: red !important;
+}
+.mn_user{
+	position: relative;
+	width: 100%;
+    height: 250px;
+    border: 2px solid chartreuse;
+	border-radius: 50%;
+	transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+.bg-nxp{
+	background-color: #fff;
+}
+.top-nxp{
+	margin-top: 20px;
+}
+.info-back{
+	position: absolute;
+	top: 30%;
+	left: 21%;
+	opacity: 0;
+	transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+.bg-nxp:hover .info-back{
+	opacity: 1;
+}
+.bg-nxp:hover .mn_user{
+    filter: blur(2px);
+}
+.h3-nxp{
+	font-size: 37px;
+	font-weight: bold;;
+	color: blue;
+}
+.p-nxp{
+	font-size: 19px;
+	font-weight: bold;
+	color: black;
 }

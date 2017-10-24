@@ -18,17 +18,10 @@
             @foreach($users as $user)
             <tr class="mytr">
                 <td class="myth">{{$user->name}}</td>
-                <td class="myth">
-                                @if(($user->gender) ==1)
-                                    Male
-                                 @else
-                                    Female
-                                 @endif
-                </td>
+                <td class="myth">{{$user->gender}}</td>
                 <td class="myth">{{$user->email}}</td>
                 <td class="myth">{{$user->phone_number}}</td>
                 <td class="myth">{{$user->address}}</td>
-
             </tr>
             @endforeach
         </table>

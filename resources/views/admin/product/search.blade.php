@@ -12,7 +12,7 @@
           <ol class="breadcrumb">
               <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
               <li><a href="{{url('admin/product/listproduct')}}">Product</a></li>
-              <li class="active"><a href="#">List of Products<a></li>
+              <li><a href="#">List of Products<a></li>
           </ol>
     </section>
     <section class="content">
@@ -54,7 +54,7 @@
                                         <th class="myth">Edit</th>
                                         <th class="myth">Delete</th>
                                     </tr>
-                                    @foreach($products as $dt)
+                                    @foreach($result_search as $dt)
                                     <tr>
                                           <td >{{$dt->id}}</td>
                                           <td ><img src="{{asset('images/products/'.$dt->image)}}" alt="" style="width: 50px; height: 50px;"> </td>
@@ -63,14 +63,15 @@
                                           <td >{{$dt->description}}</td>
                                           <td >{{$dt->quantity}}</td>
                                           <td >{{$dt->unit}}</td>
-                                          <td >{{$dt->unit_price}}</td>
-                                          <td >{{$dt->promotion_price}}</td>
+                                          <td >{{number_format($dt->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
+                                          <td >{{number_format($dt->promotion_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
                                           <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}" style="color:red" class="click">Edit</a></td>
                                           <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                                     </tr>
                                     @endforeach
                                 </table>
                           </div>
+                          {{$result_search->links()}}
                       </div>
                  </div>
             </div>

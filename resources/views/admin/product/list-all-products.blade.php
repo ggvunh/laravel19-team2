@@ -11,7 +11,7 @@
             <ol class="breadcrumb">
                 <li><a href="{{url('admin')}}" class="click"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="{{url('admin/product/listproduct')}}" class="click">Product</a></li>
-                <li class="active"><a href="#">List of Products<a></li>
+                <li><a href="#">List of Products<a></li>
             </ol>
        </section>
        <section class="content">
@@ -26,18 +26,19 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF PRODUCTS</p></a>
                                     </div>
-                                    <form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
+                                    <a><form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
                                           <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Search" id="search" name="search">
                                           </div>
                                            <button type="submit" class="btn btn-info click"  id="search">Search</button>
                                           <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Product</button></a>
-                                    </form>
+                                    </form></a>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
-
+                          <div class="box-body">
+                              <span style="color: red;font-size:20px">Have <span style="color: black">{{count($product)}}</span> products in the table</span>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr">
                                         <th class="myth">Product code</th>
@@ -61,8 +62,8 @@
                                         <td >{{$dt->description}}</td>
                                         <td >{{$dt->quantity}}</td>
                                         <td >{{$dt->unit}}</td>
-                                        <td >{{$dt->unit_price}}</td>
-                                        <td >{{$dt->promotion_price}}</td>
+                                        <td >{{number_format($dt->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
+                                        <td >{{number_format($dt->promotion_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
                                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/product/editproduct')}}/{{$dt->id}}" style="color:red" class="click">Edit</a></td>
                                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/product/deleteproduct')}}/{{$dt->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                                     </tr>
@@ -71,9 +72,9 @@
                           </div>
                       </div>
                       {{$product->links()}}
-                 </div>
+                 </div>     
             </div>
-         </div>
-       </section>
-    </div>
+          </div>
+        </section>
+   </div>
  @stop

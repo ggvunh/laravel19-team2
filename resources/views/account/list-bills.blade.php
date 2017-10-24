@@ -59,7 +59,11 @@
                             đã giao hàng
                             @endif
                          </td>
-                         <td class="myth"><span class="glyphicon glyphicon-trash"></span><a href="{{ url('account/orderlists/'.$bill->id.'/delete') }}" style="color:red" class="click">Cancel</a></td>
+                         @if($bill ->status==0)
+                            <td class="myth"><span class="glyphicon glyphicon-trash"></span><a href="{{ url('account/orderlists/'.$bill->id.'/delete') }}" style="color:red" class="click"> Cancel</a></td>
+                         @else
+                            <td class="myth"><span class="glyphicon glyphicon-lock"></span> not cancel</td>
+                         @endif
                     </tr>
                     @endforeach
                 </table>

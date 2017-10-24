@@ -18,13 +18,13 @@ $(function(){
 		if($('.mega-menu-category .nav > li.more-menu').is(':visible')){
 			$('.mega-menu-category .nav > li.more-menu').stop().slideUp();
 			$(this).find('a').text('More category');
-		} else { 
+		} else {
 			$('.mega-menu-category .nav > li.more-menu').stop().slideDown();
 			$(this).find('a').text('Close menu');
 		}
 		e.preventDefault();
 	})
-	
+
 	/* Brands Slider */
 	$("#brands .owl").owlCarousel({
 		autoPlay : false,
@@ -80,7 +80,7 @@ function CountBack_slider(secs,iid,j_timer) {
 	DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
 	DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
 	DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
-	
+
 	var elems = document.getElementsByTagName('*'), i;
 	for (i in elems) {
 		if((' ' + elems[i].className + ' ').indexOf(' ' + iid + ' ')
@@ -88,7 +88,7 @@ function CountBack_slider(secs,iid,j_timer) {
 			elems[i].innerHTML = DisplayStr;
 		}
 	}
-	
+
 	$('.'+iid).innerHTML = DisplayStr;
 	  if (CountActive)
 		setTimeout(function(){CountBack_slider((secs+CountStepper),iid,j_timer)}, SetTimeOutPeriod);
