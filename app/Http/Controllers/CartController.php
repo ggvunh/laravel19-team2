@@ -63,8 +63,9 @@ class CartController extends Controller
         {
             $order_address = $req->input('address');
             $note = $req->input('note');
+            $date_order = $req->input('date_oder');
             $bill = new Bill();
-            $bill->date_order = date('Y-m-d');
+            $bill->date_order = $date_order;
             $bill->total = Cart::total();
             $bill->order_address = $order_address;
             $bill->note = $note;
