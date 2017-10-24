@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="{{asset('images/ico.ico')}}" type="image/x-icon">
   <title>Guitar Shop PKH</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('adlibrary/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">

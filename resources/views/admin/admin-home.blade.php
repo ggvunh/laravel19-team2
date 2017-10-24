@@ -148,7 +148,7 @@
               </a>
           </div>
           <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
-              <a class="bg-nxp" href="{{url('admin/order/listorders')}}">
+              <a class="bg-nxp" href="{{url('admin/order/orders')}}">
                   <img class="mn_user" src="images/admin/oder.png" alt="user">
                   <div class="info-back">
                       <h3>ORDERS</h3>
@@ -157,7 +157,7 @@
               </a>
           </div>
           <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
-              <a class="bg-nxp"href="{{url('admin/product/listproduct')}}">
+              <a class="bg-nxp" href="{{url('admin/product/listproduct')}}">
                   <img class="mn_user" src="images/admin/product.jpg" alt="user">
                   <div class="info-back">
                       <h3>PRODUCTS</h3>
@@ -170,6 +170,15 @@
                   <img class="mn_user" src="images/admin/Category_Icon.png" alt="user">
                   <div class="info-back">
                       <h3>CATEGORIES</h3>
+                      <p>manager</p>
+                  </div>
+              </a>
+          </div>
+           <div class="col-md-3 col-sm-6 col-xs-12 top-nxp">
+              <a class="bg-nxp" href="{{ url('admin/order/calendar')}}">
+                  <img class="mn_user" src="images/admin/icon_calendar.jpg" alt="user">
+                  <div class="info-back">
+                      <h3>CALENDAR</h3>
                       <p>manager</p>
                   </div>
               </a>

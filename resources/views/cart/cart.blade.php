@@ -3,7 +3,6 @@
     <div class="container">
         <div class="row">
             <form  action="{{url('dat-hang/checkout')}}" method="GET">
-                <meta name="token" content="{{ csrf_token() }}">
             <div class="breadcrumbs">
                 <div class="container">
                     <ul class="breadcrumb">
@@ -41,7 +40,7 @@
                                             Color: Red</div>
                                         </td>
                                 		<td class="qty" id="{{$content->rowId}}">
-                                       		<input type="number" class="qty1" name="qty" value="{{$content->qty}}" style="text-align:center">
+                                       		<input type="number" class="qty1" name="qty" style="text-align:center" cc="{{$content->rowId}}" value="{{$content->qty}}">
                                     	</td>
                                 		<td class="subtotal">{{$content->price}}</td>
                         				<td id="price_pro" class="grandtotal">{{$content->price*$content->qty}}</td>
@@ -111,7 +110,7 @@
             </form>
         </div>
     </div>
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $(".qty").click( function(){
                 var rowid = $(this).attr('id');
@@ -138,5 +137,5 @@
                     }
             });
         });
-    </script>
+    </script>  -->
 @stop

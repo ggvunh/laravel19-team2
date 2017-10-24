@@ -97,11 +97,4 @@ class CartController extends Controller
             $message->to('nguyenxuanphuong1211@gmail.com','Nguyen xuan Phuong')->subject('Mail Guitarshop');
         });
     }
-
-    public function update_qty_cart()
-    {
-        if(Request::ajax()){
-            echo "oke";
-        }
-    }
 }

@@ -33,7 +33,7 @@
                                               <option value="1">Undilevery</option>
                                               <option value="2">Dilevery</option>
                                            </select>
-                                           <input type="text" class="form-control " style="width: 500px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
+                                           <input type="text" class="form-control " style="width: 500px" name="search" placeholder="Search by Date/by Month/by Customer Email" @if(isset($search_input))
                                                        value="{{$search_input}}"
                                                    @endif>
                                       </div>
