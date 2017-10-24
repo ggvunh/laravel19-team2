@@ -124,8 +124,8 @@
               <a class="bg-nxp" href="{{ url('admin/user/listusers') }}">
                   <img class="mn_user" src="images/admin/user_mn.png" alt="user">
                   <div class="info-back">
-                      <h3>USERS</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">USERS</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
@@ -133,8 +133,8 @@
               <a class="bg-nxp" href="{{ url('admin/brand/listbrands') }}">
                   <img class="mn_user" src="images/admin/brand.jpg" alt="user">
                   <div class="info-back">
-                      <h3>BRANDS</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">BRANDS</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
@@ -142,8 +142,8 @@
               <a class="bg-nxp" href="{{url('admin/menu/manager-menu')}}">
                   <img class="mn_user" src="images/admin/menu.png" alt="user">
                   <div class="info-back">
-                      <h3>MENUS</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">MENUS</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
@@ -151,8 +151,8 @@
               <a class="bg-nxp" href="{{url('admin/order/listorders')}}">
                   <img class="mn_user" src="images/admin/oder.png" alt="user">
                   <div class="info-back">
-                      <h3>ORDERS</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">ORDERS</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
@@ -160,8 +160,8 @@
               <a class="bg-nxp"href="{{url('admin/product/listproduct')}}">
                   <img class="mn_user" src="images/admin/product.jpg" alt="user">
                   <div class="info-back">
-                      <h3>PRODUCTS</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">PRODUCTS</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
@@ -169,8 +169,8 @@
               <a class="bg-nxp" href="{{ url('admin/category/listcategories') }}">
                   <img class="mn_user" src="images/admin/Category_Icon.png" alt="user">
                   <div class="info-back">
-                      <h3>CATEGORIES</h3>
-                      <p>manager</p>
+                      <h3 class="h3-nxp">CATEGORIES</h3>
+                      <p class="p-nxp">manager</p>
                   </div>
               </a>
           </div>
