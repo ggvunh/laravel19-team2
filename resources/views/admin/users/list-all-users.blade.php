@@ -41,33 +41,34 @@
 					 </div>
 						@endif
 						<div class="box">
-						  <div class="box-body">
-						  <table class="table table-bordered" id="mytable" border="0">
-					<tr class="mytr" >
-					  <th class="myth">User code</th>
-					  <th class="myth">User name</th>
-					  <th class="myth">Gender</th>
-					  <th class="myth">Roles</th>
-					  <th class="myth">Email</th>
-					  <th class="myth">Address</th>
-					  <th class="myth">Phone Number</th>
-					  <th class="myth">Edit</th>
-					  <th class="myth">Delete</th>
-					</tr>
-					@foreach($users as $user)
-					<tr>
-						<td >{{$user->id}}</td>
-						<td ><a href="{{ url('admin/user/orderlists/'.$user->id) }}">{{$user->name}}</a></td>
-						<td >{{$user->gender}}</td>
-						<td >{{$user->roles}}</td>
-						<td >{{$user->email}}</td>
-						<td >{{$user->address}}</td>
-						<td >{{$user->phone_number}}</td>
-						<td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red" class="click">Edit</a></td>
-						<td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
-					</tr>
-					@endforeach
-							</table>
+						    <div class="box-body">
+                                <p>Export user: <a href="{{ route('export-user') }}"><span class="glyphicon glyphicon-export"></span></a> </p> 
+    		                    <table class="table table-bordered" id="mytable" border="0">
+                					<tr class="mytr" >
+                					  <th class="myth">User code</th>
+                					  <th class="myth">User name</th>
+                					  <th class="myth">Gender</th>
+                					  <th class="myth">Roles</th>
+                					  <th class="myth">Email</th>
+                					  <th class="myth">Address</th>
+                					  <th class="myth">Phone Number</th>
+                					  <th class="myth">Edit</th>
+                					  <th class="myth">Delete</th>
+                					</tr>
+                					@foreach($users as $user)
+                					<tr>
+                						<td >{{$user->id}}</td>
+                						<td ><a href="{{ url('admin/user/orderlists/'.$user->id) }}">{{$user->name}}</a></td>
+                						<td >{{$user->gender}}</td>
+                						<td >{{$user->roles}}</td>
+                						<td >{{$user->email}}</td>
+                						<td >{{$user->address}}</td>
+                						<td >{{$user->phone_number}}</td>
+                						<td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red" class="click">Edit</a></td>
+                						<td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
+                					</tr>
+                					@endforeach
+    						    </table>
 							</div>
 					  </div>
 

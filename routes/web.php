@@ -62,6 +62,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::get('deleteusers/{id}', 'UserController@deleteUsers');
 		Route::get('searchusers', 'UserController@searchUser');
 		Route::get('orderlists/{id}', 'UserController@getOrderlists');
+		Route::get('export-user', 'ExcelController@ExportExcel')->name('export-user');
 	});
 		//Route Menu
 	Route::group(['prefix'=>'menu'],function(){
@@ -81,6 +82,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
 		Route::GET('edit-menu/{id}','menuController@editMenu');
 		Route::POST('edit-menu/updateMenu','menuController@updateMenu');
 		Route::GET('delete-menu/{id}','menuController@deleteMenu');
+		Route::get('export-orderdetail', 'PDFController@getPDF')->name('export-orderdetail');
 	});
 });
 //Cart

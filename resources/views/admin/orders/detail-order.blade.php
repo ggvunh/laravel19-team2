@@ -31,6 +31,7 @@
                       </div>
                       <div class="box">
                           <div class="box-body">
+                                <p>Export : <a href="{{ route('export-orderdetail') }}"><span class="glyphicon glyphicon-export"></span></a> </p>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr">
                                         <th class="myth">Order code</th>
