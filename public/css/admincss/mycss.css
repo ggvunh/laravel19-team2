@@ -121,7 +121,7 @@
 .info-back{
 	position: absolute;
 	top: 30%;
-	left: 35%;
+	left: 21%;
 	opacity: 0;
 	transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
@@ -132,4 +132,14 @@
 }
 .bg-nxp:hover .mn_user{
     filter: blur(2px);
+}
+.h3-nxp{
+	font-size: 37px;
+	font-weight: bold;;
+	color: blue;
+}
+.p-nxp{
+	font-size: 19px;
+	font-weight: bold;
+	color: black;
 }

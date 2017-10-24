@@ -87,6 +87,10 @@
                                     	<label class="control-label">Ghi Chú </label>
                                         <input class="form-control" type="text" name="note" value="{{'tên:' .Auth::user()->name.' số ĐT:'.Auth::user()->phone_number}}"  >
                                     </div>
+                                    <div class="form-group">
+                                    	<label class="control-label">Ngày order </label><br>
+                                        <input class="form-control" name="date_oder" type="date" id="date" value="<?php echo date('Y-m-d'); ?>">
+                                    </div>
                                 </div>
                             	<div class="col-sm-4">
                                 	<table class="table table-cart-total">
@@ -113,6 +117,22 @@
     </div>
     <script>
         $(document).ready(function(){
+            $(".qty1").click(function(){
+                $qty = $(this).val();
+                $rowid = $(this).attr('id');
+                $.ajax({
+                        type: "GET",
+                        url: 'dat-hang/update_qty_cart/'+$rowid+'/'+$qty,
+                        data: {"id":$rowid, "qty":$qty },
+                        success:function(data){
+                           $('#price_pro').text(data);
+                        }
+                    });
+            });
+        });
+    </script>
+    <!-- <script>
+        $(document).ready(function(){
             $(".qty").click( function(){
                 var rowid = $(this).attr('id');
                 var qty = $(this).find(".qty1").val();
@@ -138,5 +158,5 @@
                     }
             });
         });
-    </script>
+    </script> -->
 @stop

@@ -63,8 +63,9 @@ class CartController extends Controller
         {
             $order_address = $req->input('address');
             $note = $req->input('note');
+            $date_order = $req->input('date_oder');
             $bill = new Bill();
-            $bill->date_order = date('Y-m-d');
+            $bill->date_order = $date_order;
             $bill->total = Cart::total();
             $bill->order_address = $order_address;
             $bill->note = $note;
@@ -98,11 +99,20 @@ class CartController extends Controller
         });
     }
 
-    public function update_qty_cart(Request $rq)
+    public function Update_qty(Request $rq)
     {
-        if(Request::ajax()){
-            $x=$rq->qty;
-            dd($x);
+        if($rq->ajax()){
+            $qty = $rq->qty;
+            $rowId = $rq->id;
+            Cart::update($rowId, $qty);
+            foreach (Cart::content() as $value) {
+                $y =$value->price;
+                $x = $value->qty;
+                $z = $x*$y;
+            }
         }
+        $ddd=[$z,$y];
+        dd($ddd);
+       //return Response($ddd);
     }
 }

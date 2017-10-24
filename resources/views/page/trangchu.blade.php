@@ -16,8 +16,8 @@
                              <strong>{{ $errors->first('min') }}</strong>
                          </span>
                     @endif
-                    <label class="nxp-111"><b>Đến(*)</b></label>
-                    <input type="text" name="max" value="{{ old('max') }}" placeholder="10.000.000"><br>
+                        <label class="nxp-111"><b>Đến(*)</b></label>
+                        <input type="text" name="max" value="{{ old('max') }}" placeholder="10.000.000"><br>
                     @if ($errors->has('max'))
                          <span class="help-block">
                              <strong>{{ $errors->first('max') }}</strong>
