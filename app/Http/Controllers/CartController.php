@@ -11,6 +11,8 @@ use App\BillDetail;
 use Session;
 use Auth;
 use Mail;
+use Twilio;
+use App\Mail\OrderShipped;
 class CartController extends Controller
 {
     public function addCart($id)
@@ -83,20 +85,24 @@ class CartController extends Controller
                 $billdetail->save();
             }
             $carts = Cart::content();
+            $code = $bill->id;
+            $phone = Auth::user()->phone_number;
+            $phonetrim = substr(trim($phone),1,strlen($phone)-1);
+            $phone_send = '+84'.$phonetrim;
+            Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
+            Mail::to(Auth::user()->email)->send(new OrderShipped());
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));
         } else{
             return redirect('/');
         }
+
     }
 
-    public function sendmail()
+    public function xemdonhang()
     {
-        $data=['hoten' => 'Phuong nguyen'];
-        Mail::send('mail.mail', $data, function($message){
-            $message->from('mail.guitarshoppkh@gmail.com','Guitarshop PKH');
-            $message->to('nguyenxuanphuong1211@gmail.com','Nguyen xuan Phuong')->subject('Mail Guitarshop');
-        });
+        $content = Cart::content();
+        return view('mail.mail', compact('content'));
     }
 
     public function Update_qty(Request $rq)
