@@ -55,9 +55,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'guitarshoppkh@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Guitar shop'),
-    ],
+        'address' => 'guitarshoppkh@gmail.com', 'name' => 'Guitar shop'],
 
     /*
     |--------------------------------------------------------------------------
@@ -83,9 +81,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'guitarshoppkh@gmail.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'pkh123456789',
 
     /*
     |--------------------------------------------------------------------------
