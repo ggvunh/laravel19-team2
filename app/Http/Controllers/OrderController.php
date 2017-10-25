@@ -16,246 +16,57 @@ class OrderController extends Controller
 {
     public function searchOrder(Request $rq)
     {   
-         $search_input = $rq->search;
-         $status_input = $rq->status;
-        if($search_input != null)
+         $search_input1 = $rq->search1;
+         $search_input2 = $rq->search2;
+         $status        = $rq->status;
+        if(($search_input1 != null)and($search_input2 != null))
         {
-            if($status_input==0)
+            if($status==0)
             {
-                $search = str_replace('/','-', $search_input);
-                $Search = date('Y-m-d',(strtotime($search)));
-                $Search_up = $Search.' '.'23'.':'.'59'.':'.'59';
-                $Search_down = $Search.' '.'00'.':'.'00'.':'.'00';
-                $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->orderBy('id','desc')->paginate(25);
-                $curent_date = getdate(strtotime(date('Y-m-d')));
-                $time_up = $curent_date['year'].'-'.$search_input.'-'.'31';
-                $time_down = $curent_date['year'].'-'.$search_input.'-'.'1';
-                $result_search_month = Bill::whereBetween('created_at',[$time_down, $time_up])->orderBy('id','desc')->paginate(25);
-
-                $bills = Bill::all();
-                $m=[];
-                $user = User::where('email',$search_input)->get();
-                    for($i=0;$i<count($bills);$i=$i+1){
-                        for($j=0;$j<count($user);$j=$j+1){
-                            if(($bills[$i]->user_id) ==($user[$j]->id)){
-                               array_push($m,$bills[$i]);
-                            }
-                        }
-                    }
-                $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                $col = new Collection($m);
-                $perPage = 25;
-                $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                $result_search_email = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );    
-                
-               if(count($result_search_email)>0)
-                {
-                    $result_search = $result_search_email ;
-                    $x = $m;
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if(count( $result_search_date)>0)
-                {
-                    $result_search = $result_search_date ;
-                    $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if(count( $result_search_month)>0)
-                {
-                    $result_search = $result_search_month;
-                    $x = Bill::whereBetween('created_at',[$time_down, $time_up])->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if((count( $result_search_date)==0) and(count( $result_search_month)==0)and(count($result_search_email)==0))
-                {   
-                     $result_search_tam = [];
-                     $x = $result_search_tam;
-                     $count_search = count($x);
-                     $count_money = 0;
-                     for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                     }
-                     $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                     $col = new Collection($result_search_tam);
-                     $perPage = 25;
-                     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                     $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
-                     $result_search =   $result_search_pro; 
-                }
-
-            }elseif ($status_input==1) {
-                $search = str_replace('/','-', $search_input);
-                $Search = date('Y-m-d',(strtotime($search)));
-                $Search_up = $Search.' '.'23'.':'.'59'.':'.'59';
-                $Search_down = $Search.' '.'00'.':'.'00'.':'.'00';
-                $result_search_date = Bill::whereBetween('created_at',[$Search_down, $Search_up])
-                        ->where('status','0')
-                        ->orderBy('id','desc')->paginate(25);
-                $curent_date = getdate(strtotime(date('Y-m-d')));
-                $time_up = $curent_date['year'].'-'.$search_input.'-'.'31';
-                $time_down = $curent_date['year'].'-'.$search_input.'-'.'1';
-                $result_search_month = Bill::whereBetween('created_at',[$time_down, $time_up])
-                        ->where('status','0')
-                        ->orderBy('id','desc')->paginate(25); 
-
-                $bills = Bill::where('status','0')->get();
-                $m=[];
-                $user = User::where('email',$search_input)->get();
-                    for($i=0;$i<count($bills);$i=$i+1){
-                        for($j=0;$j<count($user);$j=$j+1){
-                            if(($bills[$i]->user_id) ==($user[$j]->id)){
-                               array_push($m,$bills[$i]);
-                            }
-                        }
-                    }
-                $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                $col = new Collection($m);
-                $perPage = 25;
-                $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                $result_search_email = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );    
-               if(count($result_search_email)>0)
-                {
-                    $result_search = $result_search_email ;
-                    $x = $m;
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if(count( $result_search_date)>0)
-                {
-                    $result_search = $result_search_date ;
-                    $x = Bill::whereBetween('created_at',[$Search_down, $Search_up])
-                               ->where('status','0')->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if(count( $result_search_month)>0)
-                {
-                    $result_search = $result_search_month;
-                    $x = Bill::whereBetween('created_at',[$time_down, $time_up])
-                              ->where('status','0')->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if((count( $result_search_date)==0) and(count( $result_search_month)==0)and(count($result_search_email)==0))
-                {   
-                     $result_search_tam = [];
-                     $x = $result_search_tam;
-                     $count_search = count($x);
-                     $count_money = 0;
-                     for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                     }
-                     $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                     $col = new Collection($result_search_tam);
-                     $perPage = 25;
-                     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                     $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
-                     $result_search =   $result_search_pro; 
-                }           
-            }else{
+                $Search_up = date('Y-m-d',(strtotime($search_input2))).' '.'23'.':'.'59'.':'.'59';
+                $Search_down = date('Y-m-d',(strtotime($search_input1))).' '.'00'.':'.'00'.':'.'00';
+                $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->orderBy('id','desc')->paginate(25); 
                  
-                $search = str_replace('/','-', $search_input);
-                $Search = date('Y-m-d',(strtotime($search)));
-                $Search_up = $Search.' '.'23'.':'.'59'.':'.'59';
-                $Search_down = $Search.' '.'00'.':'.'00'.':'.'00';
-                $result_search_date = Bill::whereBetween('created_at',[$Search_down ,$Search_up])
-                        ->where('status','1')
-                        ->orderBy('id','desc')->paginate(25);
-                $curent_date = getdate(strtotime(date('Y-m-d')));
-                $time_up = $curent_date['year'].'-'.$search_input.'-'.'31';
-                $time_down = $curent_date['year'].'-'.$search_input.'-'.'1';
-                $result_search_month = Bill::whereBetween('created_at',[$time_down, $time_up])
-                        ->where('status','1')
-                        ->orderBy('id','desc')->paginate(25); 
-
-                $bills = Bill::where('status','1')->get();
-                $m=[];
-                $user = User::where('email',$search_input)->get();
-                    for($i=0;$i<count($bills);$i=$i+1){
-                        for($j=0;$j<count($user);$j=$j+1){
-                            if(($bills[$i]->user_id) ==($user[$j]->id)){
-                               array_push($m,$bills[$i]);
-                            }
-                        }
-                    }
-                $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                $col = new Collection($m);
-                $perPage = 25;
-                $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                $result_search_email = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );    
-                  
-               if(count($result_search_email)>0)
-                {
-                    $result_search = $result_search_email ;
-                    $x = $m;
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
+                $result_search = $result_search_date ;
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
                 }
-               if(count( $result_search_date)>0)
-                {
-                    $result_search = $result_search_date ;
-                    $x = Bill::whereBetween('created_at',[$Search_down ,$Search_up])
-                              ->where('status','1')->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                        $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if(count( $result_search_month)>0)
-                {
-                    $result_search = $result_search_month;
-                    $x = Bill::whereBetween('created_at',[$time_down, $time_up])
-                              ->where('status','1')->get();
-                    $count_search = count($x);
-                    $count_money = 0;
-                    for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                    }
-                }
-               if((count( $result_search_date)==0) and(count( $result_search_month)==0)and(count($result_search_email)==0))
-                {   
-                     $result_search_tam = [];
-                     $x = $result_search_tam;
-                     $count_search = count($x);
-                     $count_money = 0;
-                     for($i=0;$i< $count_search;$i=$i+1){
-                         $count_money=($count_money+($x[$i]->total));
-                     }
-                     $currentPage = LengthAwarePaginator::resolveCurrentPage();
-                     $col = new Collection($result_search_tam);
-                     $perPage = 25;
-                     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-                     $result_search_pro = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
-                     $result_search =   $result_search_pro; 
-                }           
+                
+            }elseif ($status ==1){
+                $Search_up = date('Y-m-d',(strtotime($search_input2))).' '.'23'.':'.'59'.':'.'59';
+                $Search_down = date('Y-m-d',(strtotime($search_input1))).' '.'00'.':'.'00'.':'.'00';
+                $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','0')
+                                      ->orderBy('id','desc')->paginate(25); 
+                 
+                $result_search = $result_search_date ;
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }   
+               
+            }else{
+                $Search_up = date('Y-m-d',(strtotime($search_input2))).' '.'23'.':'.'59'.':'.'59';
+                $Search_down = date('Y-m-d',(strtotime($search_input1))).' '.'00'.':'.'00'.':'.'00';
+                $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','1')
+                                      ->orderBy('id','desc')->paginate(25); 
+                 
+                $result_search = $result_search_date ;
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }               
             }
             }else{
-                if($status_input==0)
+                if($status==0)
                 {
                     $result_search = Bill::orderBy('id','desc')->paginate(25);
                     $x =  Bill::orderBy('id','desc')->get();
@@ -264,7 +75,7 @@ class OrderController extends Controller
                     for($i=0;$i< $count_search;$i=$i+1){
                              $count_money=($count_money+($x[$i]->total));
                     }
-                }elseif($status_input==1)
+                }elseif($status==1)
                 {
                     $result_search = Bill::where('status','0')->paginate(25);
                     $x = Bill::where('status','0')->get();
@@ -284,7 +95,7 @@ class OrderController extends Controller
                     }
                 }
         }
-        return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input'=>$search_input,'count_money'=>$count_money]);
+        return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input2'=>$search_input2,'search_input1'=>$search_input1,'count_money'=>$count_money]);
     }
         
     public function listOrders ()
@@ -301,21 +112,27 @@ class OrderController extends Controller
     public function checkOrder ($id)
     {
         $check = Bill:: find($id);
-        $check->status = '1';
+            if($check->status ==0){
+                $check->status = '1';
+            }else{
+                $check->status = '0'; 
+            }
         $check->save();
-        Toastr::success('Check successful Order', $title = null, $options = []);
-        return view('admin.orders.list-orders');
+        Toastr::success('Change Order status successful', $title = null, $options = []);
+        return redirect()->back();
     }
 
     public function Calendar()
     {   
-        $result_calendar = [0];
+        $result_calendar =[0];
         $dilevery_order = Bill::all();
-        for($i=0;$i<count( $dilevery_order);$i=$i+1){
-             $x = $dilevery_order[$i]->date_order;
-             $t = getdate(strtotime($x));
-             $u = $t['mday'];
-             array_push( $result_calendar,$u);
+        foreach($dilevery_order as $x){
+             $u =$x->created_at;
+             $t = getdate(strtotime($u));
+             $day = $t['mday'];
+             $mail = $x->user->email; 
+             $phone = $x->user->phone_number; 
+             array_push( $result_calendar,$day);
         }
         return view('admin.calendar.calendar')->with(['result_calendar'=>$result_calendar]);
     }
@@ -325,11 +142,35 @@ class OrderController extends Controller
         $count =0;
         $curent_date = getdate(strtotime(date('Y-m-d')));
         $time = $curent_date['year'].'-'.$curent_date['mon'].'-'.$date;
-        $calendar_detal_result = Bill::where('date_order',$time)->get();
+        $time_up =$time.' '.'23'.':'.'59'.':'.'59';
+        $time_down =$time.' '.'00'.':'.'00'.':'.'00';
+        $calendar_detal_result = Bill::whereBetween('created_at',[$time_down, $time_up])->get();
         for($i=0;$i<count($calendar_detal_result);$i=$i+1){
             $count = $count + $calendar_detal_result[$i]->total;
         }
-        return view('admin.calendar.calendar_detail')->with(['calendar_detal_result'=> $calendar_detal_result,'count'=> $count]);
+        return view('admin.calendar.calendar_detail')->with(['calendar_detal_result'=> $calendar_detal_result,'count'=> $count,'time'=>$time]);
     }
+    
+    public function Chart ()
+    {
+        $result1 =[0];
+        $result2 =[0];
+        for($i=1;$i<=12;$i++){
+            $curent_date = getdate(strtotime(date('Y-m-d')));
+            $time1 = $curent_date['year'].'-'.$i.'-'.'1';
+            $time2 = $curent_date['year'].'-'.$i.'-'.'31';
+            $time_up =$time2.' '.'23'.':'.'59'.':'.'59';
+            $time_down =$time1.' '.'00'.':'.'00'.':'.'00';
+            $chart1 = Bill::whereBetween('created_at',[$time_down, $time_up])
+                  ->where('status','0')->get();
+            $chart2 = Bill::whereBetween('created_at',[$time_down, $time_up])
+                      ->where('status','1')->get();
+            $slg1 =count($chart1);
+            $slg2 =count($chart2);
+            array_push( $result1, $slg1);
+            array_push( $result2, $slg2);
 
+        }
+        return view('admin.calendar.chart')->with(['result1'=>$result1,'result2'=>$result2]);
+    }
 }

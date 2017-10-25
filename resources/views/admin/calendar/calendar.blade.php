@@ -5,7 +5,7 @@
 	    <section class="content-header">
 	      <h1>
 	        Calendar
-	        <small>Control panel</small>
+	        <small>Order on Day</small>
 	      </h1>
 	      <ol class="breadcrumb">
 	        <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -38,8 +38,8 @@
 	    var date = new Date()
 	    var d    = date.getDate(),
 	        m    = date.getMonth(),
-	        y    = date.getFullYear(),
-	        i    =0
+	        y    = date.getFullYear()
+	      
 	    $('#calendar').fullCalendar({
 	      header    : {
 	        left  : 'prev,next today',
@@ -55,7 +55,7 @@
 	      //Random default events
 	      events    : [
 	      <?php
-	      if(isset($result_calendar)){
+	      if(count($result_calendar)>0){
 		      for($i=1;$i<count($result_calendar);$i=$i+1){
 		      	if($result_calendar[$i] != $result_calendar[$i-1]){
 		        echo("{
@@ -66,9 +66,9 @@
 		          backgroundColor: '#f56954', //red
 		          borderColor    : '#f56954' //red
 		        },");
-		        } 
-		    }
-	        }
+		        }
+	          }
+	      }
 	        ?>        
 	      ]   
     })
