@@ -43,7 +43,9 @@ class OrderController extends Controller
                                       ->orderBy('id','desc')->paginate(25); 
                  
                 $result_search = $result_search_date ;
-                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','0')
+                                      ->orderBy('id','desc')->get();
                 $count_search = count($x);
                 $count_money = 0;
                 for($i=0;$i< $count_search;$i=$i+1){
@@ -58,14 +60,16 @@ class OrderController extends Controller
                                       ->orderBy('id','desc')->paginate(25); 
                  
                 $result_search = $result_search_date ;
-                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])->get();
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','1')
+                                      ->orderBy('id','desc')->get();
                 $count_search = count($x);
                 $count_money = 0;
                 for($i=0;$i< $count_search;$i=$i+1){
                     $count_money=($count_money+($x[$i]->total));
                 }               
             }
-            }else{
+            }elseif(($search_input1 == null)and($search_input2 == null)){
                 if($status==0)
                 {
                     $result_search = Bill::orderBy('id','desc')->paginate(25);
@@ -94,7 +98,11 @@ class OrderController extends Controller
                              $count_money=($count_money+($x[$i]->total));
                     }
                 }
-        }
+            }else{
+                Toastr::warning('Incorrect search data entry', $title = null, $options = []);
+        
+                return view('admin.orders.list-orders');
+            }
         return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input2'=>$search_input2,'search_input1'=>$search_input1,'count_money'=>$count_money]);
     }
         
