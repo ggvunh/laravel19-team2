@@ -26,16 +26,19 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS</p></a>
                                     </div>
-                                    <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
+                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <select name="status" class="form-control" style=" width:80px"">
+                                           <span style="color: black;font-weight: bold">Status</span><select name="status" class="form-control" style=" width:100px">
                                               <option value="0">Both</option>
                                               <option value="1">Undilevery</option>
                                               <option value="2">Dilevery</option>
                                            </select>
-                                           <input type="text" class="form-control " style="width: 500px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
-                                                       value="{{$search_input}}"
-                                                   @endif>
+                                            <span style="color: black; font-weight: bold">Start</span><input type="date" class="form-control " style="width:155px" name="search1" @if(isset($search_input1))
+                                               value="{{$search_input1}}"
+                                           @endif>
+                                            <span style="color: black;font-weight: bold">Finish</span><input type="date" class="form-control " style="width:155px" name="search2" @if(isset($search_input2))
+                                               value="{{$search_input2}}"
+                                           @endif>
                                       </div>
                                       <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
                                     </form></a>
@@ -51,7 +54,7 @@
                                       @else
                                           0
                                       @endif
-                                    </span><span style="color: red;font-size:20px">Orders in table</span>
+                                    </span><span style="color: red;font-size:20px">Orders on </span><span style="color: black;font-size: 25px">{{date('d-m-Y',strtotime($time))}}</span>
                                     <span style="font-size: 20px">&nbsp&nbsp/&nbsp&nbsp</span><span style="color: blue;font-size:20px">Total money:</span>
                                     <span style="color: black;font-size: 25px" >
                                        @if(isset($count))

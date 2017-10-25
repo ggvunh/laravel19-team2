@@ -14,7 +14,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "~5.0",
         "maatwebsite/excel": "~2.1.0",
-        "oriceon/toastr-5-laravel": "dev-master"
+        "oriceon/toastr-5-laravel": "dev-master",
+        "doctrine/orm": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
