@@ -138,8 +138,6 @@ class OrderController extends Controller
              $u =$x->created_at;
              $t = getdate(strtotime($u));
              $day = $t['mday'];
-             $mail = $x->user->email; 
-             $phone = $x->user->phone_number; 
              array_push( $result_calendar,$day);
         }
         return view('admin.calendar.calendar')->with(['result_calendar'=>$result_calendar]);
