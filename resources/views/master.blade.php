@@ -356,10 +356,10 @@
                         var rowid  = $('#rowid<?php echo $i;?>').val();  
                         $.ajax({
                         type: "GET",
-                        url: 'dat-hang/update_qty_cart/'+rowid,
+                        url: <?php echo('dat-hang/update_qty_cart/')?>+rowid,
                         data: {"id":rowid, "qty":newqty },
                         success:function(data){
-                            $('#data').html(data);
+                            console.log(data);
                     
                         }
                         });  
