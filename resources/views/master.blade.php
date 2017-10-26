@@ -353,7 +353,7 @@
                 <?php for($i=1;$i<10;$i++){?>
                     $('#qty<?php echo $i;?>').on('change',function(){
                         var newqty = $('#qty<?php echo $i;?>').val();
-                        var rowid  = $('#rowid<?php echo $i;?>').val();  
+                        var rowid  = $('#rowid<?php echo $i;?>').val();
                         $.ajax({
                         type: "GET",
                         url: 'dat-hang/update_qty_cart/'+rowid,
@@ -362,8 +362,8 @@
                             $('#pricetotal<?php echo $i;?>').html(data[0]);
                             $('#total').html(data[1]);
                         }
-                        });  
-                    }); 
+                        });
+                    });
                 <?php }?>
             });
         </script>
