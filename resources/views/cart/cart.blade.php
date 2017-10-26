@@ -28,7 +28,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{$count=1}}
                                 @foreach(\Cart::content() as $content)
                             	   <tr>
                     					<td class="text-center"><a class="btn-remove" href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
@@ -41,13 +40,12 @@
                                             Color: Red</div>
                                         </td>
                                 		<td class="qty" id="{{$content->rowId}}">
-                                            <input type="hidden" id ="rowid{{$count}}" name="qty" style="text-align:center"  value="{{$content->rowId}}">
+                                            <input type="hidden"  name="qty" style="text-align:center"  value="{{$content->rowId}}">
                                        		<input type="number" class="qty1"  id ="qty{{$count}}" name="qty" style="text-align:center"  value="{{$content->qty}}">
                                     	</td>
                                 		<td class="subtotal">{{$content->price}}</td>
-                        				<td id="pricetotal{{$count}}" class="grandtotal">{{$content->price*$content->qty}}</td>
+                        				<td id="pricetotal" class="grandtotal">{{$content->price*$content->qty}}</td>
             					    </tr>
-                               {{$count++}}
                                 @endforeach
                         	</tbody>
                         </table>
