@@ -89,14 +89,13 @@ class CartController extends Controller
             $phone = Auth::user()->phone_number;
             $phonetrim = substr(trim($phone),1,strlen($phone)-1);
             $phone_send = '+84'.$phonetrim;
-            // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
+            // Twilio::message($phone_send, 'Guitarshop: bạn đã đặt hàng thành công! mã order: #'.$code);
             // Mail::to(Auth::user()->email)->send(new OrderShipped());
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));
         } else{
             return redirect('/');
         }
-
     }
 
     public function xemdonhang()
@@ -114,6 +113,6 @@ class CartController extends Controller
             $cart = Cart::get($rowId);
             $price = $cart->price * $cart->qty;
         }
-       return Response([number_format($price),number_format(Cart::total())]);
+       return Response([number_format($price),number_format(Cart::total()), Cart::count()]);
     }
 }
