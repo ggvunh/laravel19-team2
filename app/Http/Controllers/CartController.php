@@ -110,9 +110,12 @@ class CartController extends Controller
         if($rq->ajax()){
             $qty = $rq->qty;
             $rowId = $rq->id;
-            Cart::update($rowId, $qty);  
-            $carts = Cart::content();
-            return view('cart.updatecart')->with(['carts'=>$carts]);
+             Cart::update($rowId, $qty);  
+             $u = Cart::content()->price;
+             $y = Cart::content()->quantity;
+            $n =$u*$y;
+            return response($n);
         }  
+        
     }
 }
