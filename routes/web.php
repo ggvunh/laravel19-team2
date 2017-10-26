@@ -107,3 +107,5 @@ Route::group(['prefix'=>'account'], function(){
     Route::post('change-password', 'AccountController@postPass');
     });
     Route::GET('sendmail','CartController@sendmail');
+Route::GET('pusher','PageController@pusher');
+Route::GET('test_pusher','CartController@testpusher');
