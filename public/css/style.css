@@ -3406,3 +3406,14 @@ p {
 .top-cart-title:hover {
     background-color: #C9302C;
 }
+.fix-box-nxp{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+.header-bottom{
+    z-index: 10000;
+    opacity: 1;
+    background-color: #fff;
+}

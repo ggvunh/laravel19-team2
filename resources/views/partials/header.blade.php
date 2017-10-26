@@ -87,7 +87,7 @@
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng: <b>{{Cart::count()}}</b> sản phẩm
-                                        <span class="price">{{number_format(\Cart::total())}} VNĐ</span>
+                                        <span id="total_cart" class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
@@ -189,3 +189,15 @@
                 </nav>
             </div><!-- /.header-bottom -->
         </div><!-- /.header -->
+    <script>
+        $(document).ready(function () {
+            $(window).bind("scroll", function(e) {
+                var top = $(window).scrollTop();
+              if (top> 270) { //Khoảng cách đã đo được
+                $(".header-bottom").addClass("fix-box-nxp");
+              } else {
+                $(".header-bottom").removeClass("fix-box-nxp");
+              }
+            });
+        });
+    </script>

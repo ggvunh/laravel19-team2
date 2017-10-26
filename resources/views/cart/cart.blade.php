@@ -3,6 +3,7 @@
     <div class="container" id="data">
         <div class="row">
             <form  action="{{url('dat-hang/checkout')}}" method="GET">
+                <input type="hidden" name="token" value="{{ csrf_token() }}">
             <div class="breadcrumbs">
                 <div class="container">
                     <ul class="breadcrumb">
@@ -41,11 +42,10 @@
                                             Color: Red</div>
                                         </td>
                                 		<td class="qty" id="{{$content->rowId}}">
-                                            <input type="hidden" id ="rowid{{$count}}" name="qty" style="text-align:center"  value="{{$content->rowId}}">
-                                       		<input type="number" class="qty1"  id ="qty{{$count}}" name="qty" style="text-align:center"  value="{{$content->qty}}">
+                                       		<input type="number" min="1" max= "10" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
-                                		<td class="subtotal">{{$content->price}}</td>
-                        				<td id="pricetotal{{$count}}" class="grandtotal">{{$content->price*$content->qty}}</td>
+                                		<td class="subtotal">{{number_format($content->price)}}</td>
+                        				<td id="price_pro{{$content->rowId}}" class="grandtotal">{{number_format($content->price*$content->qty)}}</td>
             					    </tr>
                                {{$count++}}
                                 @endforeach
@@ -90,7 +90,7 @@
                                         <input class="form-control" type="text" name="note" value="{{'tên:' .Auth::user()->name.' số ĐT:'.Auth::user()->phone_number}}"  >
                                     </div>
                                     <div class="form-group">
-                                    	<label class="control-label">Ngày order </label><br>
+                                    	<label class="control-label">Ngày ship hàng </label><br>
                                         <input class="form-control" name="date_oder" type="date" id="date" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
                                 </div>
@@ -98,11 +98,11 @@
                                 	<table class="table table-cart-total">
                                     	<tr>
                                         	<td>Tổng Tiền:</td>
-                                            <td id="total" class="text-right">{{\Cart::total()}}</td>
+                                            <td id="total" class="text-right">{{number_format(Cart::total())}}</td>
                                         </tr>
                                     	<tr>
                                         	<td>Số Tiền Phải Thanh Toán:</td>
-                                            <td  id="total"  class="text-right">{{\Cart::total()}}</td>
+                                            <td id="total1" class="text-right">{{number_format(Cart::total())}}</td>
                                         </tr>
                                     </table>
         							<div class="text-right">
@@ -119,46 +119,21 @@
     </div>
     <!-- <script>
         $(document).ready(function(){
-            $(".qty1").click(function(){
-                $qty = $(this).val();
+            $(".qty").change(function(){
+                $qty = $(this).find(".qty1").val();
                 $rowid = $(this).attr('id');
                 $.ajax({
-                        type: "GET",
-                        url: 'dat-hang/update_qty_cart/'+$rowid+'/'+$qty,
-                        data: {"id":$rowid, "qty":$qty },
-                        success:function(data){
-                           $('#price_pro').text(data);
-                        }
-                    });
+                    type: "GET",
+                    url: 'dat-hang/update_qty_cart/'+$rowid+'/'+$qty,
+                    data: {"id":$rowid, "qty":$qty},
+                    success:function(data){
+                       $('#price_pro'+$rowid).text(data[0]);
+                       $('#total').text(data[1]);
+                       $('#total1').text(data[1]);
+                       $('#total_cart').text(data[1]);
+                    }
+                });
             });
         });
     </script>
-    <! <script>
-        $(document).ready(function(){
-            $(".qty").click( function(){
-                var rowid = $(this).attr('id');
-                var qty = $(this).find(".qty1").val();
-                var token = $("input[name = 'token']").val();
-                if(qty<=0){
-                    alert('số lượng lớn hơn 0');
-                }else {
-                    $.ajaxSetup({
-                      headers: {
-                        'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
-                      }
-                    });
-                        $.ajax({
-                            type: "GET",
-                            url: 'dat-hang/update_qty_cart/'+rowid+'/'+qty,
-                            data: {"token":token, "id":rowid, "qty":qty },
-                            success:function(data){
-                                alert(data);
-                            },error:function(){
-                                alert("error!!!!");
-                            }
-                        });
-                    }
-            });
-        });
-    </script>  -->
 @stop
