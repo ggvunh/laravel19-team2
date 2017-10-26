@@ -348,7 +348,25 @@
                 });
             });
         </script>
-
+        <script>
+            $(document).ready(function(){
+                <?php for($i=1;$i<10;$i++){?>
+                    $('#qty<?php echo $i;?>').click(function(){
+                        var newqty = $('#qty<?php echo $i;?>').val();
+                        var rowid  = $('#rowid<?php echo $i;?>').val();  
+                        $.ajax({
+                        type: "GET",
+                        url: 'dat-hang/update_qty_cart/'+rowid,
+                        data: {"id":rowid, "qty":newqty },
+                        success:function(data){
+                            $('#data').html(data);
+                    
+                        }
+                        });  
+                    }); 
+                <?php }?>
+            });
+        </script>
 
   </body>
 </html>
