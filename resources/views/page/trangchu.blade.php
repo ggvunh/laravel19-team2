@@ -274,6 +274,4 @@
         </div>
     </div>
 </div><!-- /.main -->
-
-
 @stop

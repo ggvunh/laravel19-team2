@@ -86,7 +86,7 @@
                             <div class="mini-cart">
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
-                                        Giỏ hàng: <b>{{Cart::count()}}</b> sản phẩm
+                                        Giỏ hàng: <b id="qtyspcart">{{Cart::count()}}</b> sản phẩm
                                         <span id="total_cart" class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">

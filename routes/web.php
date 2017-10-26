@@ -13,7 +13,6 @@
 */
 
 Route::get('/', 'PageController@getIndex')->name('home');
-
 Route::get('san-pham', 'PageController@getSanPham')->name('homeproduct');
 Route::get('timkiem-sp', 'PageController@searchsp')->name('homesearch');
 Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
