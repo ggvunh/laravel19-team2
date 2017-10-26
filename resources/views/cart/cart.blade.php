@@ -43,7 +43,8 @@
                                 		<td class="qty" id="{{$content->rowId}}">
                                        		<input type="number" min="1" max= "10" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
-                        				<td id="pricetotal{{$count}}" class="grandtotal">{{$content->price*$content->qty}}</td>            					    </tr>
+                        				<td id="pricetotal" class="grandtotal">{{$content->price*$content->qty}}</td>            					    
+                                    </tr>
                                 @endforeach
                         	</tbody>
                         </table>
