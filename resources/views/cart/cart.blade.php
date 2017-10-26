@@ -102,7 +102,7 @@
                                         </tr>
                                     	<tr>
                                         	<td>Số Tiền Phải Thanh Toán:</td>
-                                            <td id="total" class="text-right">{{\Cart::total()}}</td>
+                                            <td  id="total"  class="text-right">{{\Cart::total()}}</td>
                                         </tr>
                                     </table>
         							<div class="text-right">

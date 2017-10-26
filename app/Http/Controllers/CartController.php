@@ -105,17 +105,5 @@ class CartController extends Controller
         return view('mail.mail', compact('content'));
     }
 
-    public function Update_qty(Request $rq,$id)
-    {
-        if($rq->ajax()){
-            $qty = $rq->qty;
-            $rowId = $rq->id;
-             Cart::update($rowId, $qty);  
-             $u = Cart::content()->price;
-             $y = Cart::content()->quantity;
-            $n =$u*$y;
-            return response($n);
-        }  
-        
-    }
+   
 }
