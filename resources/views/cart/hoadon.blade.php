@@ -48,7 +48,7 @@
                     <tr>
                         <td>#{{$bill ->id}}</td>
                         <td>{{$bill ->date_order}}</td>
-                        <td>{{$bill ->total}}</td>
+                        <td>{{number_format($bill ->total)}}</td>
                         <td>{{$bill ->order_address}}</td>
                     </tr>
                 </table>
@@ -65,7 +65,7 @@
                      <tr>
                          <td>{{$cart ->name}}</td>
                          <td>{{$cart ->qty}}</td>
-                         <td>{{$cart ->price}}</td>
+                         <td>{{number_format($cart ->price)}}</td>
                      </tr>
                      @endforeach
 

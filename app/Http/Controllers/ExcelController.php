@@ -17,6 +17,6 @@ class ExcelController extends Controller
             {
                 $sheet->fromArray($export);
             });
-        })->export('xls');
+        })->export('xlsx');
     }
 }

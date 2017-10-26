@@ -89,8 +89,8 @@ class CartController extends Controller
             $phone = Auth::user()->phone_number;
             $phonetrim = substr(trim($phone),1,strlen($phone)-1);
             $phone_send = '+84'.$phonetrim;
-            Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
-            Mail::to(Auth::user()->email)->send(new OrderShipped());
+            // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
+            // Mail::to(Auth::user()->email)->send(new OrderShipped());
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));
         } else{
@@ -105,5 +105,15 @@ class CartController extends Controller
         return view('mail.mail', compact('content'));
     }
 
-   
+        public function update_qty_cart(Request $rq)
+    {
+        if($rq->ajax()){
+            $qty = $rq->qty;
+            $rowId = $rq->id;
+            Cart::update($rowId, $qty);
+            $cart = Cart::get($rowId);
+            $price = $cart->price * $cart->qty;
+        }
+       return Response([number_format($price),number_format(Cart::total())]);
+    }
 }
