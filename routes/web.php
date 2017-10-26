@@ -81,6 +81,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
         Route::get('check/{id}','OrderController@checkOrder');
         Route::get('dilevery/{status}','OrderController@dileveryOrder');
         Route::get('calendar','OrderController@Calendar');
+        Route::get('chart','OrderController@Chart');
         Route::get('calendar_detail/{date}','OrderController@Calendar_detal');
         Route::get('export-orderdetail', 'PDFController@getPDF')->name('export-orderdetail');
     });

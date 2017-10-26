@@ -28,14 +28,17 @@
                                     </div>
                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
                                       <div class="form-group">
-                                           <select name="status" class="form-control" style=" width:80px"">
+                                           <span style="color: black;font-weight: bold">Status</span><select name="status" class="form-control" style=" width:100px">
                                               <option value="0">Both</option>
                                               <option value="1">Undilevery</option>
                                               <option value="2">Dilevery</option>
                                            </select>
-                                           <input type="text" class="form-control " style="width: 500px" name="search" placeholder="Search by Date/by Month/by Product Name/by Customer Email" @if(isset($search_input))
-                                                       value="{{$search_input}}"
-                                                   @endif>
+                                            <span style="color: black; font-weight: bold">Start</span><input type="date" class="form-control " style="width:155px" name="search1" @if(isset($search_input1))
+                                               value="{{$search_input1}}"
+                                           @endif>
+                                            <span style="color: black;font-weight: bold">Finish</span><input type="date" class="form-control " style="width:155px" name="search2" @if(isset($search_input2))
+                                               value="{{$search_input2}}"
+                                           @endif>
                                       </div>
                                       <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
                                     </form></a>
@@ -71,7 +74,7 @@
                                         <th class="myth">Delivery day</th>
                                         <th class="myth">Status</th>
                                         <th class="myth">Detail</th>
-                                        <th class="myth">Check</th>
+                                        <th class="myth">Change status</th>
                                     </tr>
                                     @if(isset($result_searchs))
                                     @foreach($result_searchs as $bill)
@@ -82,7 +85,7 @@
                                         <td class="myth">{{$bill->order_address}}</td>
                                         <td class="myth">{{$bill->note}}</td>
                                         <td class="myth">{{date('d-m-Y',strtotime($bill->date_order))}}</td>
-                                        <td class="bamtd">
+                                        <td class="bamtd" style=" color:darkblue;font-weight: bold;">
                                         	@if(($bill->status) == 0)
                                                  Undelivered
                                             @else
@@ -90,7 +93,7 @@
                                         	@endif
                                         </td>
                                         <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$bill->id}}" style="color:red" class="click">Detail</a></td>
-                                        <td class="myth"><a href="{{url('admin/order/check')}}/{{$bill->id}}"><button class="btn btn-info">Check</button></a></td>
+                                        <td class="myth change"><a href="{{url('admin/order/check')}}/{{$bill->id}}"><button class="btn btn-info">Change</button></a></td>
                                     </tr>
                                     @endforeach
                                     @endif
@@ -106,3 +109,4 @@
        </section>
     </div>
 @stop
+

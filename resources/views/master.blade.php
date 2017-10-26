@@ -348,6 +348,25 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function(){
+                <?php for($i=1;$i<10;$i++){?>
+                    $('#qty<?php echo $i;?>').on('change',function(){
+                        var newqty = $('#qty<?php echo $i;?>').val();
+                        var rowid  = $('#rowid<?php echo $i;?>').val();  
+                        $.ajax({
+                        type: "GET",
+                        url: 'dat-hang/update_qty_cart/'+rowid,
+                        data: {"id":rowid, "qty":newqty },
+                        success:function(data){
+                            $('#pricetotal<?php echo $i;?>').html(data[0]);
+                            $('#total').html(data[1]);
+                        }
+                        });  
+                    }); 
+                <?php }?>
+            });
+        </script>
 
   </body>
 </html>

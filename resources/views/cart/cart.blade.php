@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-    <div class="container">
+    <div class="container" id="data">
         <div class="row">
             <form  action="{{url('dat-hang/checkout')}}" method="GET">
                 <input type="hidden" name="token" value="{{ csrf_token() }}">
@@ -29,6 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{$count=1}}
                                 @foreach(\Cart::content() as $content)
                             	   <tr>
                     					<td class="text-center"><a class="btn-remove" href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
@@ -46,6 +47,7 @@
                                 		<td class="subtotal">{{number_format($content->price)}}</td>
                         				<td id="price_pro{{$content->rowId}}" class="grandtotal">{{number_format($content->price*$content->qty)}}</td>
             					    </tr>
+                               {{$count++}}
                                 @endforeach
                         	</tbody>
                         </table>
@@ -115,7 +117,7 @@
             </form>
         </div>
     </div>
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $(".qty").change(function(){
                 $qty = $(this).find(".qty1").val();
