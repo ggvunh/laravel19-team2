@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-    <div class="container">
+    <div class="container" id="data">
         <div class="row">
             <form  action="{{url('dat-hang/checkout')}}" method="GET">
             <div class="breadcrumbs">
@@ -29,7 +29,7 @@
                             </thead>
                             <tbody>
                                 {{$count=1}}
-                                @foreach(\Cart::content() as $content)
+                                @foreach($carts as $content)
                             	   <tr>
                     					<td class="text-center"><a class="btn-remove" href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><span class="fa fa-trash-o"></span></a></td>
                     					<td><a class="product-image" title="Primis in faucibus" href="#">
@@ -44,7 +44,7 @@
                                             <input type="hidden" id ="rowid{{$count}}" name="qty" style="text-align:center"  value="{{$content->rowId}}">
                                        		<input type="number" class="qty1"  id ="qty{{$count}}" name="qty" style="text-align:center"  value="{{$content->qty}}">
                                     	</td>
-                                		<td class="subtotal" id="price{{$count}}">{{$content->price}}</td>
+                                		<td class="subtotal">{{$content->price}}</td>
                         				<td id="pricetotal{{$count}}" class="grandtotal">{{$content->price*$content->qty}}</td>
             					    </tr>
                                {{$count++}}

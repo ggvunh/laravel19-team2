@@ -55,20 +55,20 @@
 	      //Random default events
 	      events    : [
 	      <?php
-	      if(count($result_calendar)>0){
-		      for($i=1;$i<count($result_calendar);$i=$i+1){
-		      	if($result_calendar[$i] != $result_calendar[$i-1]){
-		        echo("{
-		          title          : 'Order',
-		          start          : new Date(y, m, $result_calendar[$i]),
-		          allDay         : true,
-		          url            : 'calendar_detail/$result_calendar[$i]',
-		          backgroundColor: '#f56954', //red
-		          borderColor    : '#f56954' //red
-		        },");
-		        }
-	          }
-	      }
+	        if(count($result_calendar)>0){
+		        for($i=1;$i<count($result_calendar);$i=$i+1){
+			      	if($result_calendar[$i] != $result_calendar[$i-1]){
+			        echo("{
+			          title          : 'Order',
+			          start          : new Date(y, m, $result_calendar[$i]),
+			          allDay         : true,
+			          url            : 'calendar_detail/$result_calendar[$i]',
+			          backgroundColor: '#f56954', //red
+			          borderColor    : '#f56954' //red
+			        },");
+			        }
+	            }
+		    }
 	        ?>        
 	      ]   
     })
