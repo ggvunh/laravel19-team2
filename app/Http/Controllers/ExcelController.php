@@ -17,6 +17,6 @@ class ExcelController extends Controller
             {
                 $sheet ->setOrientation('landscape');
             });
-        })->export('xls');
+        })->export('xlsx');
     }
 }

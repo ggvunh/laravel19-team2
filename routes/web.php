@@ -95,7 +95,7 @@ Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
     Route::GET('add-cartproduct/{id}/{name}','CartController@addCartProduct');
     Route::GET('add-cartsearch/{id}/{name}','CartController@addCartSearch');
     Route::GET('add-cartviewdetail/{id}/{name}','CartController@addCartviewdetail1');
-    Route::GET('update_qty_cart/{id}/{name}','CartController@update_qty_cart');
+    Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
     });
 Route::group(['prefix'=>'account'], function(){
     Route::get('orderlists', 'AccountController@getBills');
