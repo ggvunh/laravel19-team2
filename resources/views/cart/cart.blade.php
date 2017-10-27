@@ -41,7 +41,7 @@
                                             Color: Red</div>
                                         </td>
                                 		<td class="qty" id="{{$content->rowId}}">
-                                       		<input type="number" min="1" max= "10" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
+                                       		<input type="number" min="1" max= "20" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
                                 		<td class="subtotal">{{number_format($content->price)}}</td>
                         				<td id="price_pro{{$content->rowId}}" class="grandtotal">{{number_format($content->price*$content->qty)}}</td>
