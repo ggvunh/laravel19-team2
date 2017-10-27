@@ -15,12 +15,25 @@ use Twilio;
 use App\Mail\OrderShipped;
 class CartController extends Controller
 {
-    public function addCart($id)
+    public function addCart(Request $rq)
     {
-        $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        return redirect()->route('home');
+        if($rq->ajax()){
+            $name = $rq->name;
+            $rowId = $rq->id;
+            $product_buy = Product::find($rowId);
+            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+            $total = Cart::total();
+            $count = Cart::count();
+        }
+       return Response([number_format($total),$count]);
     }
+
+    // public function addCart(Request $rq)
+    // {
+    //     $product_buy = Product::find($id);
+    //     Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+    //     return redirect()->route('home');
+    // }
 
     public function addCartSearch($id)
     {

@@ -65,7 +65,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cartproduct/'.$product->id.'/'.$product->name)}}" class="link-cart">Mua hàng</a></li>
+                                                <li><a class="add_to_card link-cart" id="{{$product->id}}" name="{{$product->name}}" >Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -100,4 +100,22 @@
         </div>
     </div>
 </div><!-- /.main -->
+<script>
+    $(document).ready(function(){
+        $(".add_to_card").click(function(){
+            //$qty = $(this).find(".qty1").val();
+            $rowid = $(this).attr('id');
+            $name = 'add_product';
+            $.ajax({
+                type: "GET",
+                url: 'dat-hang/add-cart/'+$rowid+'/'+$name,
+                data: {"id":$rowid, "name":$name},
+                success:function(data){
+                   $('#total_cart').text(data[0]);
+                   $('#qtyspcart').text(data[1]);
+                }
+            });
+        });
+    });
+</script>
 @stop
