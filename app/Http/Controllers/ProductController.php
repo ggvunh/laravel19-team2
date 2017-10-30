@@ -21,9 +21,10 @@ use Illuminate\Support\Collection;
 class ProductController extends Controller
 {
     public function listProduct ()
-    {
+    {   
         $product = Product::orderBy('id','desc')->paginate(25);
         return view('admin.product.list-all-products')->with(['product'=>$product]);
+        
     }
 
     public function getaddProduct ()
