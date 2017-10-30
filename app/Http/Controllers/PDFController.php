@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Billdetail;
 use PDF;
 
 class PDFController extends Controller
 {
-    public function getPDF()
+    public function getPDF($id)
     {
-        $users = User::All();
-        $pdf = PDF::loadView('pdf.order', compact('users'));
+        $exportdetails = BillDetail::where('bill_id', $id)->get();
+        $pdf = PDF::loadView('admin.pdf.order', compact('exportdetails', 'id'));
         return $pdf ->stream('order.pdf');
     }
 }

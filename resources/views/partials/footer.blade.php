@@ -8,36 +8,13 @@
       </div>
       <div id="brands" class="owl-container">
           <div class="owl">
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand5.png" alt="" /></a>
+              @foreach($brands as $brand)
+                  <div class='item'>
+                      <div class="item-innner">
+                          <a title=""><img src="images/brand/{{ $brand ->logo }}" alt="" /></a>
+                      </div>
                   </div>
-              </div>
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand4.png" alt="" /></a>
-                  </div>
-              </div>
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand3.png" alt="" /></a>
-                  </div>
-              </div>
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand2.png" alt="" /></a>
-                  </div>
-              </div>
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand1.png" alt="" /></a>
-                  </div>
-              </div>
-              <div class='item'>
-                  <div class="item-innner">
-                      <a href="#" title=""><img src="images/brand/logo_brand3.png" alt="" /></a>
-                  </div>
-              </div>
+              @endforeach
           </div>
       </div><!-- /#brands -->
   </div>

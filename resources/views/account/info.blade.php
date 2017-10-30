@@ -77,10 +77,9 @@
                                           </span>
                                       @endif
                                       <br><br>
-
                                       <label class="lb" for=""><b>Giới tính</b></label><span class="sp">*</span><br>
-                                      <input class="rd" type="radio" name="gender" value="male" checked> nam
-                                      <input class="rd" type="radio" name="gender" value="female"> nữ<br><br>
+                                      <input class="rd" type="radio" name="gender" value="male" <?php if(($info ->gender) == 'Male') echo 'checked'; ?> > nam
+                                      <input class="rd" type="radio" name="gender" value="female" <?php if(($info ->gender) == 'Female') echo 'checked'; ?> > nữ<br><br>
 
                                       <input class="btn bton" type="submit" value="Lưu" name="submit">
                                   </form>
