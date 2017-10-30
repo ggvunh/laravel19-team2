@@ -26,33 +26,29 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF CATEGORY</p></a>
                                     </div>
+                                </div>
                           </nav>
-                      </div>                      @if(session('infor'))    <!-- display infor -->
-                     <div class="alert alert-success">
-                         <p>{{ session('infor') }}</p>
-                     </div>
-                        @endif
+                          <a href="{{url('admin/category/addcategories/')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Brand</button></a>
                         <div class="box">
                           <div class="box-body">
-                          <table class="table table-bordered" id="mytable" border="0">
-                    <tr class="mytr" >
-                      <th class="myth">Category code</th>
-                      <th class="myth">Category name</th>
-                      <th class="myth">Edit</th>
-                      <th class="myth">Delete</th>
-                    </tr>
-                    @foreach($categories as $category)
-                    <tr>
-                        <td >{{$category->id}}</td>
-                        <td >{{$category->name}}</td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/category/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/category/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
-                    </tr>
-                    @endforeach
-                            </table>
+                              <table class="table table-bordered" id="mytable" border="0">
+                                    <tr class="mytr" >
+                                      <th class="myth">Category code</th>
+                                      <th class="myth">Category name</th>
+                                      <th class="myth">Edit</th>
+                                      <th class="myth">Delete</th>
+                                    </tr>
+                                    @foreach($categories as $category)
+                                    <tr>
+                                        <td >{{$category->id}}</td>
+                                        <td >{{$category->name}}</td>
+                                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/category/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
+                                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/category/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
+                                    </tr>
+                                    @endforeach
+                                </table>
                             </div>
                       </div>
-
                  </div>
             </div>
          </div>

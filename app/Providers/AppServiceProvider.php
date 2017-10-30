@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Menu;
 use Cart;
+use App\Brand;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
         {
            $menus = Menu::all();
            View::share('menus', $menus);
+       }
+       if(\Schema::hasTable('brands'))
+       {
+           $brands = Brand::all();
+           View::share('brands', $brands);
        }
        if(Session('cart'))
        {
