@@ -10,7 +10,7 @@
 
          <table class="table table-bordered" id="mytable" border="1" style="width: 90%; margin: auto;">
              <tr>
-                 <th class="myth" style=" width: 30%;">San pham</th>
+                 <th class="myth" style="text-align: center; width: 30%;">San pham</th>
                  <th class="myth" style="text-align: center; width: 30%;">So luong</th>
                  <th class="myth" style="text-align: center; width: 30%;">Thanh tien</th>
              </tr>

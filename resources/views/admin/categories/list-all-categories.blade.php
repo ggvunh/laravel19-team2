@@ -28,7 +28,8 @@
                                     </div>
                                 </div>
                           </nav>
-                          <a href="{{url('admin/category/addcategories/')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Brand</button></a>
+                        </div>
+                          <a href="{{url('admin/category/addcategories/')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Category</button></a>
                         <div class="box">
                           <div class="box-body">
                               <table class="table table-bordered" id="mytable" border="0">
