@@ -14,18 +14,19 @@ class userController extends Controller
 {
     public function listUsers()
     {
+        
         $users = User::All();
         return view('admin.users.list-all-users', compact('users'));
     }
 
     public function getEditUsers($id)
-    {
+    {   
         $user = User::find($id);
-        return view('admin.users.edit-user', compact('user'));
+        return view('admin.users.edit-user', compact('user')); 
     }
 
     public function postEditUsers($id ,Request $rq, editUserRequest $request )
-    {
+    {   
         $data = User::find($id);
         $name = $rq->input('user-name');
             if ($name != null) $data ->name=$name;
@@ -41,7 +42,7 @@ class userController extends Controller
     }
 
     public function deleteUsers($id)
-    {
+    {   
         $data = User::find($id);
         $data->delete();
         Toastr::success('Delete successful user', $title = null, $options = []);
@@ -49,7 +50,7 @@ class userController extends Controller
     }
 
     public function searchUser(Request $req)
-    {
+    {   
         $search_users = User::where('name', 'like', '%'.$req ->search_user.'%')
                     ->orWhere('address', 'like', '%'.$req->search_user.'%')
                     ->get();
@@ -57,7 +58,7 @@ class userController extends Controller
     }
 
     public function getOrderlists($id)
-    {
+    {   
         $orderlists = Bill::Where('user_id', $id)->get();
         return view('admin.users.list-order', compact('orderlists'));
     }
