@@ -65,7 +65,7 @@
                      <tr>
                          <td>{{$cart ->name}}</td>
                          <td>{{$cart ->qty}}</td>
-                         <td>{{number_format($cart ->price)}}</td>
+                         <td>{{number_format($cart ->price*$cart->qty)}}</td>
                      </tr>
                      @endforeach
 

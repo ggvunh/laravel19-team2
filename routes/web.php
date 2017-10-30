@@ -13,7 +13,6 @@
 */
 
 Route::get('/', 'PageController@getIndex')->name('home');
-
 Route::get('san-pham', 'PageController@getSanPham')->name('homeproduct');
 Route::get('timkiem-sp', 'PageController@searchsp')->name('homesearch');
 Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
@@ -108,3 +107,5 @@ Route::group(['prefix'=>'account'], function(){
     Route::post('change-password', 'AccountController@postPass');
     });
     Route::GET('sendmail','CartController@sendmail');
+Route::GET('pusher','PageController@pusher');
+Route::GET('test_pusher','CartController@testpusher');

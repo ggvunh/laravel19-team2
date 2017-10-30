@@ -197,14 +197,14 @@
       <div class="row">
         <div class="col-md-12">
           <div class="box">
-            
+
             <!-- /.box-header -->
             <div class="box-body">
-              
+
               <!-- /.row -->
             </div>
             <!-- ./box-body -->
-          
+
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
@@ -218,12 +218,12 @@
         <!-- Left col -->
         <div class="col-md-8">
           <!-- MAP & BOX PANE -->
-          
+
           <!-- /.box -->
           <div class="row">
             <div class="col-md-6">
               <!-- DIRECT CHAT -->
-             
+
               <!--/.direct-chat -->
             </div>
             <!-- /.col -->
@@ -517,7 +517,7 @@
           <!-- /.box -->
 
           <!-- PRODUCT LIST -->
-          
+
           <!-- /.box -->
         </div>
         <!-- /.col -->

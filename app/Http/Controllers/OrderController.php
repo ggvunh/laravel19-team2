@@ -133,12 +133,15 @@ class OrderController extends Controller
     public function Calendar()
     {
         $result_calendar =[0];
-        $dilevery_order = Bill::all();
+        $u = getdate(strtotime(date('Y-m-d')));
+        $time_up = $u['year'].'-'.$u['mon'].'-'.'31'.' '.'23'.':'.'59'.':'.'59';
+        $time_down = $u['year'].'-'.$u['mon'].'-'.'1'.' '.'00'.':'.'00'.':'.'00';
+        $dilevery_order = Bill::whereBetween('created_at',[$time_down, $time_up])->get();
         foreach($dilevery_order as $x){
              $u =$x->created_at;
              $t = getdate(strtotime($u));
              $day = $t['mday'];
-             array_push( $result_calendar,$day);
+             array_push($result_calendar,$day);
         }
         return view('admin.calendar.calendar')->with(['result_calendar'=>$result_calendar]);
     }

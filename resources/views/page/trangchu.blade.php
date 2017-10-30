@@ -133,7 +133,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$hot->id.'&'.$hot->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cart/'.$hot->id.'/'.$hot->name)}}" class="link-cart">Mua hàng</a></li>
+                                                <li><a class="add_to_card link-cart" id="{{$hot->id}}">Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cart/'.$new->id.'/'.$new->name)}}" class="link-cart">Mua hàng</a></li>
+                                                <li><a class="add_to_card link-cart" id="{{$new->id}}">Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -240,7 +240,7 @@
                                         <div class="box-hover">
                                             <ul class="add-to-links">
                                                 <li><a href="{{url('xem_chitiet/'.$deal->id.'&'.$deal->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a href="{{url('dat-hang/add-cart/'.$deal->id.'/'.$deal->name)}}" class="link-cart">Mua hàng</a></li>
+                                                <li><a class="add_to_card link-cart" id="{{$deal->id}}">Mua hàng</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -274,6 +274,22 @@
         </div>
     </div>
 </div><!-- /.main -->
-
-
+<script>
+    $(document).ready(function(){
+        $(".add_to_card").click(function(){
+            //$qty = $(this).find(".qty1").val();
+            $rowid = $(this).attr('id');
+            $name = 'add_product';
+            $.ajax({
+                type: "GET",
+                url: 'dat-hang/add-cart/'+$rowid+'/'+$name,
+                data: {"id":$rowid, "name":$name},
+                success:function(data){
+                   $('#total_cart').text(data[0]);
+                   $('#qtyspcart').text(data[1]);
+                }
+            });
+        });
+    });
+</script>
 @stop

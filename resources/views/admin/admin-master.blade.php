@@ -427,12 +427,13 @@ desired effect
 <script src="{{asset('adlibrary/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('adlibrary/bower_components/Chart.js/Chart.js')}}"></script>
-<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script> 
+<script src="{{asset('adlibrary/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adlibrary/dist/js/demo.js')}}"></script>
 <script src="{{asset('adlibrary/dist/js/adminlte.min.js')}}"></script>
 <script src="{{asset('js/adminjs/jquery.confirm.min.js')}}"></script>
+<script src="{{('js/remarkable-bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 <script>
     $(".simpleConfirm").confirm();
 </script>
@@ -447,16 +448,38 @@ desired effect
 <script>
     $(function(){
           // this will get the full URL at the address bar
-        var url = window.location.href; 
-          // passes on every "a" tag 
+        var url = window.location.href;
+          // passes on every "a" tag
         $(".treeview a").each(function() {
             // checks if its the same on the address bar
-            if(url == (this.href)) { 
+            if(url == (this.href)) {
                 $(this).closest("a").addClass("active");
               }
         });
     });
-</script>
+    </script>
+
+    <!-- //pusher -->
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script>
+
+      // Enable pusher logging - don't include this in production
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher('d39395df272cbcb9870d', {
+        cluster: 'ap1',
+        encrypted: true
+      });
+
+      var channel = pusher.subscribe('GuitarShop');
+      channel.bind('chekout', function(data) {
+          $.notify({
+              icon: 'glyphicon glyphicon-star',
+              message: "{{ Auth::user()->email }}! checkout"
+            });
+      });
+    </script>
+    <!-- //end pusher -->
   @yield('script')
 </body>
 </html>
