@@ -85,7 +85,7 @@
                                         <td class="myth">{{$bill->order_address}}</td>
                                         <td class="myth">{{$bill->note}}</td>
                                         <td class="myth">{{date('d-m-Y',strtotime($bill->date_order))}}</td>
-                                        <td class="bamtd">
+                                        <td class="bamtd" style="color:darkblue;font-weight: bold;">
                                         	@if(($bill->status) == 0)
                                                  Undelivered
                                             @else
