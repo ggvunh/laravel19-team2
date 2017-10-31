@@ -63,10 +63,17 @@ class AccountController extends Controller
         {
             $this->validate($rq,
             [
-                'oldpassword' => 'required'
+                'oldpassword' => 'required',
+                'repassword' => 'required|same:newpassword',
+                'newpassword' => 'required|string|min:6',
+                'repassword' => 'required|same:newpassword',
             ],
             [
-                'oldpassword.required' => 'Vui lòng nhập mật khẩu cũ'
+                'oldpassword.required' => 'Vui lòng nhập mật khẩu cũ',
+                'newpassword.min' => 'Mật khẩu có ít nhất 6 kí tự',
+                'newpassword.required' => 'Vui lòng nhập mật khẩu mới',
+                'repassword.required' => 'Vui lòng nhập mật khẩu xác nhận',
+                'repassword.same' => 'Mật khẩu không giống nhau',
             ]
         );
             $user = Auth::user();
@@ -82,19 +89,5 @@ class AccountController extends Controller
             }
             else
                 return back();
-
-                $this->validate($rq,
-                    [
-                        'newpassword' => 'required|string|min:6',
-                        'repassword' => 'required|same:newpassword',
-                        'oldpassword' => 'required'
-                    ],
-                    [
-                        'newpassword.required' => 'Vui lòng nhập mật khẩu mới',
-                        'repassword.required' => 'Vui lòng nhập mật khẩu xác nhận',
-                        'repassword.same' => 'Mật khẩu không giống nhau',
-                        'newpassword.min' => 'Mật khẩu có ít nhất 6 kí tự',
-
-                    ]);
         }
 }
