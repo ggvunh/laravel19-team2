@@ -67,6 +67,7 @@
                                     </tr>
                                     @endforeach
                                 </table>
+                                {{$orderlists->links()}}
                           </div>
                       </div>
 

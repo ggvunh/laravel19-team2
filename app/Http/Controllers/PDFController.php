@@ -12,6 +12,7 @@ class PDFController extends Controller
     {
         $exportdetails = BillDetail::where('bill_id', $id)->get();
         $pdf = PDF::loadView('admin.pdf.order', compact('exportdetails', 'id'));
-        return $pdf ->stream('order.pdf');
+        $filename = time(). "_orderdetail.pdf";
+        return $pdf ->stream("$filename");
     }
 }

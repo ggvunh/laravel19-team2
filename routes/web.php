@@ -19,6 +19,7 @@ Route::get('xem_chitiet/{id}&{category_id}', 'PageController@xem_chitiet');
 Route::get('category_id/{category_id}', 'PageController@viewis_category');
 Route::get('search-is-price', 'PageController@search_is_price');
 Route::get('xemdonhang','CartController@xemdonhang');
+Route::get('gioithieu', 'PageController@gioithieu');
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');

@@ -88,4 +88,9 @@ class PageController extends Controller
         $data['message'] = 'Guitarshop checkout';
         $pusher->trigger('GuitarShop', 'chekout', $data);
     }
+
+    public function gioithieu()
+    {
+        return view('page.gioithieu');
+    }
 }
