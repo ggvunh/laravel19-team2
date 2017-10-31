@@ -47,11 +47,20 @@
                                   <form name="xuly" action="{{ url('account/change-password') }}" method="post">
                                       {!!csrf_field()!!}
 
-                                      <label class="lb" for=""><b>Nhập mật khẩu mới</b></label><span class="sp">*</span><br>
-                                      <input class="ip form-control" type="password" name="password" autofocus>
-                                      @if ($errors->has('password'))
+                                      <label class="lb" for=""><b>Nhập mật khẩu cũ</b></label><span class="sp">*</span><br>
+                                      <input class="ip form-control" type="password" name="oldpassword" autofocus>
+                                      @if ($errors->has('oldpassword'))
                                           <span class="help-block" style="color: red;">
-                                              <strong>{{ $errors->first('password') }}</strong>
+                                              <strong>{{ $errors->first('oldpassword') }}</strong>
+                                          </span>
+                                      @endif
+                                      <br><br>
+
+                                      <label class="lb" for=""><b>Nhập mật khẩu mới</b></label><span class="sp">*</span><br>
+                                      <input class="ip form-control" type="password" name="newpassword">
+                                      @if ($errors->has('newpassword'))
+                                          <span class="help-block" style="color: red;">
+                                              <strong>{{ $errors->first('newpassword') }}</strong>
                                           </span>
                                       @endif
                                       <br><br>

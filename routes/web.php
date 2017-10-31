@@ -82,7 +82,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
         Route::get('calendar','OrderController@Calendar');
         Route::get('chart','OrderController@Chart');
         Route::get('calendar_detail/{date}','OrderController@Calendar_detal');
-        Route::get('export-orderdetail', 'PDFController@getPDF')->name('export-orderdetail');
+        Route::get('export-orderdetail/{id}', 'PDFController@getPDF');
     });
 });
 //Cart

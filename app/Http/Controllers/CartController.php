@@ -15,25 +15,12 @@ use Twilio;
 use App\Mail\OrderShipped;
 class CartController extends Controller
 {
-    public function addCart(Request $rq)
+    public function addCart($id)
     {
-        if($rq->ajax()){
-            $name = $rq->name;
-            $rowId = $rq->id;
-            $product_buy = Product::find($rowId);
-            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-            $total = Cart::total();
-            $count = Cart::count();
-        }
-       return Response([number_format($total),$count]);
+        $product_buy = Product::find($id);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        return redirect()->route('home');
     }
-
-    // public function addCart(Request $rq)
-    // {
-    //     $product_buy = Product::find($id);
-    //     Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-    //     return redirect()->route('home');
-    // }
 
     public function addCartSearch($id)
     {
@@ -102,27 +89,14 @@ class CartController extends Controller
             $phone = Auth::user()->phone_number;
             $phonetrim = substr(trim($phone),1,strlen($phone)-1);
             $phone_send = '+84'.$phonetrim;
-            // Twilio::message($phone_send, 'Guitarshop: bạn đã đặt hàng thành công! mã order: #'.$code);
+            // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
             // Mail::to(Auth::user()->email)->send(new OrderShipped());
-            $options = array(
-            'cluster' => 'ap1',
-            'encrypted' => true
-            );
-            $pusher = new \Pusher\Pusher(
-            'd39395df272cbcb9870d',
-            '6e5d669eed3c8e943940',
-            '421424',
-            $options
-            );
-            $data['message'] = 'Guitarshop checkout';
-            $pusher->trigger('GuitarShop', 'chekout', $data);
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));
-
-
         } else{
             return redirect('/');
         }
+
     }
 
     public function xemdonhang()
@@ -131,7 +105,7 @@ class CartController extends Controller
         return view('mail.mail', compact('content'));
     }
 
-    public function update_qty_cart(Request $rq)
+        public function update_qty_cart(Request $rq)
     {
         if($rq->ajax()){
             $qty = $rq->qty;
@@ -140,28 +114,6 @@ class CartController extends Controller
             $cart = Cart::get($rowId);
             $price = $cart->price * $cart->qty;
         }
-       return Response([number_format($price),number_format(Cart::total()), Cart::count()]);
-    }
-
-    public function pusher()
-    {
-        $options = array(
-        'cluster' => 'ap1',
-        'encrypted' => true
-        );
-        $pusher = new \Pusher\Pusher(
-        'd39395df272cbcb9870d',
-        '6e5d669eed3c8e943940',
-        '421424',
-        $options
-        );
-
-        $data['message'] = 'Guitarshop checkout';
-        $pusher->trigger('GuitarShop', 'chekout', $data);
-    }
-
-    public function testpusher()
-    {
-        return view('cart.pusher');
+       return Response([number_format($price),number_format(Cart::total())]);
     }
 }

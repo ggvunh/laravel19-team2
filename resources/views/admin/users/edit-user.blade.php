@@ -53,16 +53,16 @@
                         <div class="form-group">
                             <label for="gender">Gender</label>
                             <select name="gender" id="gender" class="form-control">
-                               <option value="Male">Male</option>
-                               <option value="Female">Female</option>
+                               <option @if(($user->gender)== 'Male') selected @endif>Male</option>
+                               <option @if(($user->gender)== 'Female') selected @endif>Female</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="Roles">Roles</label>
                             <select name="roles" id="roles" class="form-control">
-                               <option value="0">User</option>
-                               <option value="1">Admin</option>
+                               <option  @if(($user->roles)==0) selected @endif>User</option>
+                               <option  @if(($user->roles)==1) selected @endif>Admin</option>
                             </select>
                         </div>
 

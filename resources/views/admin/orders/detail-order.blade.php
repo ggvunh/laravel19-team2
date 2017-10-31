@@ -26,7 +26,7 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">DETAIL OF ORDERS</p></a>
                                     </div>
-                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
+                                     <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get">
                                       <div class="form-group">
                                            <span style="color: black;font-weight: bold">Status</span><select name="status" class="form-control" style=" width:100px">
                                               <option value="0">Both</option>
@@ -40,14 +40,14 @@
                                                value="{{$search_input2}}"
                                            @endif>
                                       </div>
-                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
+                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>
                                     </form></a>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
-                                <p>Export : <a href="{{ route('export-orderdetail') }}"><span class="glyphicon glyphicon-export"></span></a> </p>
+                                <p>Export : <a href="{{url('admin/order/export-orderdetail')}}/{{$id}}"><span class="glyphicon glyphicon-export"></span></a> </p>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>

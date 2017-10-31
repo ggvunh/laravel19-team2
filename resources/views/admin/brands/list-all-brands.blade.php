@@ -22,37 +22,33 @@
                  <div class="box box-primary">
                       <div class="box-header with-border">
                          <nav class="navbar">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" class="mytile"><p class="myp">LIST OF BRANDS</p></a>
-                    </div>
-                  </div>
+                              <div class="container-fluid">
+                                <div class="navbar-header">
+                                  <a class="navbar-brand" class="mytile"><p class="myp">LIST OF BRANDS</p></a>
+                                </div>
+                              </div>
                            </nav>
                       </div>
-                      @if(session('infor'))    <!-- display infor -->
-                     <div class="alert alert-success">
-                         <p>{{ session('infor') }}</p>
-                     </div>
-                        @endif
+                       <a href="{{url('admin/brand/addbrands')}}" class="click"><button type="button" class="btn btn-info mybtn ">Add Brand</button></a>
                         <div class="box">
                           <div class="box-body">
                           <table class="table table-bordered" id="mytable" border="0">
-                    <tr class="mytr" >
-                      <th class="myth">Brand code</th>
-                      <th class="myth">Brand name</th>
-                      <th class="myth">Brand image</th>
-                      <th class="myth">Edit</th>
-                      <th class="myth">Delete</th>
-                    </tr>
-                    @foreach($brands as $brand)
-                    <tr>
-                        <td >{{$brand->id}}</td>
-                        <td >{{$brand->name}}</td>
-                        <td ><img src="{{asset('images/brand/'.$brand->logo)}}" alt="" style="width: 100px; height: 50px;"></td>
-                        <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/brand/editbrands')}}/{{$brand->id}}" style="color:red" class="click">Edit</a></td>
-                        <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/brand/deletebrands')}}/{{$brand->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
-                    </tr>
-                    @endforeach
+                                <tr class="mytr" >
+                                  <th class="myth">Brand code</th>
+                                  <th class="myth">Brand name</th>
+                                  <th class="myth">Brand image</th>
+                                  <th class="myth">Edit</th>
+                                  <th class="myth">Delete</th>
+                                </tr>
+                                @foreach($brands as $brand)
+                                <tr>
+                                    <td >{{$brand->id}}</td>
+                                    <td >{{$brand->name}}</td>
+                                    <td ><img src="{{asset('images/brand/'.$brand->logo)}}" alt="" style="width: 100px; height: 45px;"></td>
+                                    <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/brand/editbrands')}}/{{$brand->id}}" style="color:red" class="click">Edit</a></td>
+                                    <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/brand/deletebrands')}}/{{$brand->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
+                                </tr>
+                                @endforeach
                             </table>
                             </div>
                       </div>
