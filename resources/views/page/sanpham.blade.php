@@ -63,9 +63,11 @@
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
                                         <div class="box-hover">
-                                            <ul class="add-to-links">
-                                                <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a class="add_to_card link-cart" id="{{$product->id}}" name="{{$product->name}}" >Mua hàng</a></li>
+                                            <ul class="">
+                                                <!-- <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li> -->
+                                                <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}"><button type="button" class="glyphicon glyphicon-zoom-in btn btn-danger"> Xem chi tiết</button></a></li>
+                                                <li><button type="button" id="{{$product->id}}" class="add_to_card glyphicon glyphicon-shopping-cart btn btn-danger"  name="{{$product->name}}"> Mua Hàng</button></li>
+                                                <!-- <li><a ><button class="add_to_card link-cart" id="{{$product->id}}" name="{{$product->name}}" >Mua hàng</button></a></li> -->
                                             </ul>
                                         </div>
                                     </div>
