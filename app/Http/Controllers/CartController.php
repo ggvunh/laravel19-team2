@@ -29,11 +29,15 @@ class CartController extends Controller
         return redirect()->route('homesearch');
     }
 
-    public function addCartProduct($id)
+    public function addCartProduct(Request $rq)
     {
-        $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        return redirect()->route('homeproduct');
+        if($rq->ajax()){
+            $id = $rq->id;
+            $product_buy = Product::find($id);
+            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        }
+        return Response([Cart::count(),number_format(Cart::total())]);
+        //return redirect()->route('homeproduct');
     }
     public function addCartviewdetail1($id)
     {
@@ -105,7 +109,7 @@ class CartController extends Controller
         return view('mail.mail', compact('content'));
     }
 
-        public function update_qty_cart(Request $rq)
+    public function update_qty_cart(Request $rq)
     {
         if($rq->ajax()){
             $qty = $rq->qty;
