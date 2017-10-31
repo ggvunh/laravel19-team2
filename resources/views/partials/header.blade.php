@@ -80,10 +80,11 @@
                                 </div>
                             </div><!-- /.support-client -->
                             <form class="form-search" method="GET" action="timkiem-sp">
-                                <input type="text" class="input-text" name="key" id="search" placeholder="Tìm kiếm sản phẩm...">
+                                <input type="text" class="input-text" name="key" id="search" value="{{ isset($_GET['key']) ? $_GET['key'] : ''}}" placeholder="Tìm kiếm sản phẩm...">
                                 <button type="submit" class="btn btn-danger"><span class="fa fa-search"></span></button>
                             </form>
-                            <div class="mini-cart">
+                            <div id="cart">
+                                <div class="mini-cart">
                                 <div class="top-cart-title">
                                     <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng: <b id="qtyspcart">{{Cart::count()}}</b> sản phẩm
@@ -116,6 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
