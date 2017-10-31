@@ -13,6 +13,7 @@ use Auth;
 use Mail;
 use Twilio;
 use App\Mail\OrderShipped;
+use Pusher;
 class CartController extends Controller
 {
     public function addCart($id)
@@ -94,7 +95,19 @@ class CartController extends Controller
             $phonetrim = substr(trim($phone),1,strlen($phone)-1);
             $phone_send = '+84'.$phonetrim;
             // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
-            // Mail::to(Auth::user()->email)->send(new OrderShipped());
+            //Mail::to(Auth::user()->email)->send(new OrderShipped());
+            $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+            );
+            $pusher = new \Pusher\Pusher(
+            'd39395df272cbcb9870d',
+            '6e5d669eed3c8e943940',
+            '421424',
+            $options
+            );
+            $data['message'] = 'Guitarshop checkout';
+            $pusher->trigger('GuitarShop', 'chekout', $data);
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));
         } else{
