@@ -143,7 +143,7 @@
                               </span>
                          @endif
                         <div class="box-footer">
-                            <button type="submit" name="add" class="btn btn-primary click">EDIT</button>
+                            <button type="submit" name="add" class="btn btn-primary click">SAVE</button>
                         </div>
                     </form>
                 </div>

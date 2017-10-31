@@ -103,12 +103,19 @@ class OrderController extends Controller
 
                 return view('admin.orders.list-orders');
             }
-        return view('admin.orders.list-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input2'=>$search_input2,'search_input1'=>$search_input1,'count_money'=>$count_money]);
+        return view('admin.orders.search-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input2'=>$search_input2,'search_input1'=>$search_input1,'count_money'=>$count_money]);
     }
 
     public function listOrders ()
-    {
-        return view('admin.orders.list-orders');
+    {   
+        $orders = Bill::orderBy('id','desc')->paginate(25);
+        $x = Bill::all();
+        $count_search = count($x);
+        $count_money = 0;
+            for($i=0;$i< $count_search;$i=$i+1){
+                $count_money=($count_money+($x[$i]->total));
+            }
+        return view('admin.orders.list-order')->with(['orders'=>$orders,'count_search'=>$count_search,'count_money'=>$count_money]);
     }
 
     public function detailOrder ($id)
