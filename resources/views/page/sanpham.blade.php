@@ -110,11 +110,12 @@
             $name = 'add_product';
             $.ajax({
                 type: "GET",
-                url: 'dat-hang/add-cart/'+$rowid+'/'+$name,
+                url: 'dat-hang/add-cartproduct/'+$rowid+'/'+$name,
                 data: {"id":$rowid, "name":$name},
                 success:function(data){
-                   $('#total_cart').text(data[0]);
-                   $('#qtyspcart').text(data[1]);
+                    $("#cart").load("views.partials.cart");
+                   $('#qtyspcart').text(data[0]);
+                   $('#total_cart').text(data[1]);
                 }
             });
         });

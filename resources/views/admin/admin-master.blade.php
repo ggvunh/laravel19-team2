@@ -475,7 +475,7 @@ desired effect
       channel.bind('chekout', function(data) {
           $.notify({
               icon: 'glyphicon glyphicon-star',
-              message: "{{ Auth::user()->email }}! checkout"
+              message: "{{ Auth::user()->email }}! checkouted"
             });
       });
     </script>
