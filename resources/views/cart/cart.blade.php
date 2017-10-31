@@ -45,7 +45,7 @@
                                     	</td>
                         				<td class="subtotal">{{number_format($content->price)}}</td>
                                         <td id="price_pro{{$content->rowId}}" class="grandtotal">{{number_format($content->price*$content->qty)}}</td>
-                                    </tr>           					    
+                                    </tr>
                                     </tr>
                                 @endforeach
                         	</tbody>
