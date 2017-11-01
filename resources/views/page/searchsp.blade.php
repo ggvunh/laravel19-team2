@@ -8,12 +8,22 @@
                     <div class="form-nxp">
                         <h3>Tìm theo giá</h3>
                     </div>
-                    <label class="nxp-111"><b>Từ</b></label>
-                    <input type="text" name="min" value="" placeholder="5.000.000"><br>
-                    <label class="nxp-111"><b>Đến</b></label>
-                    <input type="text" name="max" value="" placeholder="10.000.000"><br>
+                    <label class="nxp-111"><b>Từ(*)</b></label>
+                    <input type="text" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
+                    @if ($errors->has('keymin'))
+                         <span class="help-block">
+                             <strong>{{ $errors->first('keymin') }}</strong>
+                         </span>
+                    @endif
+                        <label class="nxp-111"><b>Đến(*)</b></label>
+                        <input type="text" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
+                    @if ($errors->has('keymax'))
+                         <span class="help-block">
+                             <strong>{{ $errors->first('keymax') }}</strong>
+                         </span>
+                    @endif
                     <div class="center">
-                        <button class="btn-danger" type="submit" name="button">Tìm kiếm</button>
+                        <button class="btn-nxp" type="submit" name="button">Tìm kiếm</button>
                     </div>
                 </form>
             </div>
@@ -55,13 +65,7 @@
                                         <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <button id="{{$product->id}}" class="add-cart-nxp add_to_card glyphicon glyphicon-shopping-cart btn btn-danger"  name="{{$product->name}}" style="font-size:24px">&nbsp;Mua Hàng </button>
-                                        <!-- <div class="box-hover">
-                                            <ul class="add-to-links">
-                                                <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a class="add_to_card link-cart" id="{{$product->id}}">Mua hàng</a></li>
-                                            </ul>
-                                        </div> -->
+                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
                                     </div>
                                     <div class="des-container">
                                         <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$product->name}}</a></h2>

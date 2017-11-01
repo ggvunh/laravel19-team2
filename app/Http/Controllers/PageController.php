@@ -47,12 +47,11 @@ class PageController extends Controller
 
     public function search_is_price(Request $req, SearchIsPrice $request)
     {
-        $total_search = count(Product::where([ ['promotion_price','>',$req->min],['promotion_price','<',$req->max] ])
-            ->orwhere([ ['unit_price','>',$req->min],['unit_price','<',$req->max] ])->get());
-
-        $products = Product::where([ ['promotion_price','>',$req->min],['promotion_price','<',$req->max] ])
-            ->orwhere([ ['unit_price','>',$req->min],['unit_price','<',$req->max] ])->paginate(6);
-        return view('page.searchsp', compact('products', 'total_search'));
+        $keymin = $req->keymin;
+        $keymax = $req->keymax;
+        $products = Product::where([ ['promotion_price','>',$req->keymin],['promotion_price','<',$req->keymax] ])
+            ->orwhere([ ['unit_price','>',$req->keymin],['unit_price','<',$req->keymax] ])->paginate(6);
+        return view('page.searchisprice', compact('products', 'keymin', 'keymax'));
     }
 
     public function xem_chitiet($id,$category_id)

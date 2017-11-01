@@ -24,15 +24,15 @@ class SearchIsPrice extends FormRequest
     public function rules()
     {
         return [
-            'min' => 'required',
-            'max' => 'required'
+            'keymin' => 'required',
+            'keymax' => 'required'
         ];
     }
     public function messages()
     {
         return [
-            'min.required' => 'Vui lòng nhập giá cần tìm',
-            'max.required' => 'Vui lòng nhập giá cần tìm'
+            'keymin.required' => 'Vui lòng nhập giá cần tìm',
+            'keymax.required' => 'Vui lòng nhập giá cần tìm'
 
         ];
     }
