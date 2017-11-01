@@ -86,36 +86,10 @@
                             <div id="cart">
                                 <div class="mini-cart">
                                 <div class="top-cart-title">
-                                    <a href="{{ url('gio-hang') }}" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="{{url('dat-hang/viewcheckout')}}" class="dropdown-toggle" >
                                         Giỏ hàng: <b id="qtyspcart">{{Cart::count()}}</b> sản phẩm
                                         <span id="total_cart" class="price">{{number_format(\Cart::total())}} VNĐ</span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <div class="cart-listing">
-                                            @foreach(\Cart::content() as $content)
-                                            <div class="media">
-
-                                                    <div class="media-left">
-                                                        <a href="{{ url('dat-hang/cart') }}"><img src="{{asset('images/products/'.$content->options->img)}}" alt="" class="img-responsive"></a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <a href="{{url('dat-hang/deletecart/'.$content->rowId)}}"><button type="button" class="remove-cart-item" >&times;</button></a>
-                                                        <h4>{{$content->name}}</h4>
-                                                        <div class="mini-cart-qty">số lượng: {{$content->qty}}</div>
-                                                        <div class="mini-cart-price">{{number_format($content->price*$content->qty)}} VNĐ</div>
-                                                    </div>
-
-                                            </div>
-                                            @endforeach
-                                        </div><!-- /.cart-listing -->
-                                        <div class="mini-cart-subtotal">Phí ship hàng: <span class="price">0 VNĐ</span></div>
-                                        <div class="mini-cart-subtotal">Tổng cộng: <span class="price">{{number_format(Cart::total())}} VNĐ</span></div>
-                                        <div class="checkout-btn">
-                                            @if(Cart::total() != 0)
-                                                <a href="{{url('dat-hang/viewcheckout')}}" class="btn btn-default btn-md fwb">CHECK OUT</a>
-                                            @endif
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             </div>
