@@ -101,7 +101,7 @@ class OrderController extends Controller
             }else{
                 Toastr::warning('Incorrect search data entry', $title = null, $options = []);
 
-                return view('admin.orders.list-orders');
+                return view('admin.orders.search-orders');
             }
         return view('admin.orders.search-orders')->with(['result_searchs'=>$result_search->appends(Input::except('page')),'count_search'=>$count_search,'search_input2'=>$search_input2,'search_input1'=>$search_input1,'count_money'=>$count_money]);
     }

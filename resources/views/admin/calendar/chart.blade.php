@@ -21,7 +21,7 @@
           <!-- AREA CHART -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Area Chart</h3>
+              <h3 class="box-title">&nbsp&nbsp<button style="background-color: #d2d6de; height: 15px;"></button> Undilevery&nbsp&nbsp&nbsp&nbsp<button style="background-color: #4b94c0; height: 15px;"></button> Delivery</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -72,7 +72,7 @@
       labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','	December'],
       datasets: [
         {
-          label               : 'Electronics',
+          label               : 'Undilevery',
           fillColor           : 'rgba(210, 214, 222, 1)',
           strokeColor         : 'rgba(210, 214, 222, 1)',
           pointColor          : 'rgba(210, 214, 222, 1)',
@@ -90,7 +90,7 @@
           ]
         },
         {
-          label               : 'Digital Goods',
+          label               : 'Dilevery',
           fillColor           : 'rgba(60,141,188,0.9)',
           strokeColor         : 'rgba(60,141,188,0.8)',
           pointColor          : '#3b8bba',
