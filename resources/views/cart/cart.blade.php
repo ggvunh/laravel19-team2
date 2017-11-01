@@ -127,10 +127,10 @@
                     data: {"id":$rowid, "qty":$qty},
                     success:function(data){
                        $('#price_pro'+$rowid).text(data[0]);
-                       $('#total').text(data[1]);
-                       $('#total1').text(data[1]);
-                       $('#total_cart').text(data[1]);
-                       $('#qtyspcart').text(data[2]);
+                       $('#total').text(data[2]);
+                       $('#total1').text(data[2]);
+                       $('#total_cart').text(data[2]);
+                       $('#qtyspcart').text(data[1]);
                     }
                 });
             });

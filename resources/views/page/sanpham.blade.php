@@ -62,14 +62,15 @@
                                         <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <div class="box-hover">
-                                            <ul class="">
-                                                <!-- <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" class="link-quickview">Xem chi tiết</a></li> -->
-                                                <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}"><button type="button" class="glyphicon glyphicon-zoom-in btn btn-danger"> Xem chi tiết</button></a></li>
-                                                <li><button type="button" id="{{$product->id}}" class="add_to_card glyphicon glyphicon-shopping-cart btn btn-danger"  name="{{$product->name}}"> Mua Hàng</button></li>
-                                                <!-- <li><a ><button class="add_to_card link-cart" id="{{$product->id}}" name="{{$product->name}}" >Mua hàng</button></a></li> -->
-                                            </ul>
-                                        </div>
+                                        <button id="{{$product->id}}" class="add-cart-nxp add_to_card glyphicon glyphicon-shopping-cart btn btn-danger"  name="{{$product->name}}" style="font-size:24px">&nbsp;Mua Hàng </button>
+                                        <!-- <div class="box-hover"> -->
+
+                                            <!-- <ul>
+                                                <!-- <li></li> -->
+                                                <!-- <li><a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}"><button type="button" class="glyphicon glyphicon-zoom-in btn btn-danger"> Xem chi tiết</button></a></li>
+                                                <li><button type="button" id="{{$product->id}}" class="add_to_card glyphicon glyphicon-shopping-cart btn btn-danger"  name="{{$product->name}}"> Mua Hàng</button></li> -->
+                                            <!-- </ul> -->
+                                        <!-- </div> -->
                                     </div>
                                     <div class="des-container">
                                         <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$product->name}}</a></h2>
@@ -102,23 +103,5 @@
         </div>
     </div>
 </div><!-- /.main -->
-<script>
-    $(document).ready(function(){
-        $(".add_to_card").click(function(){
-            //$qty = $(this).find(".qty1").val();
-            $rowid = $(this).attr('id');
-            $name = 'add_product';
-            $.ajax({
-                type: "GET",
-                url: 'dat-hang/add-cartproduct/'+$rowid+'/'+$name,
-                data: {"id":$rowid, "name":$name},
-                success:function(data){
-                    $("#cart").load("views.partials.cart");
-                   $('#qtyspcart').text(data[0]);
-                   $('#total_cart').text(data[1]);
-                }
-            });
-        });
-    });
-</script>
+
 @stop
