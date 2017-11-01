@@ -21,7 +21,7 @@ class CartController extends Controller
         if($rq->ajax()){
             $id = $rq->id;
             $product_buy = Product::find($id);
-            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image, 'quantity' => $product_buy->quantity]]);
         }
         return Response([Cart::count(),number_format(Cart::total())]);
     }
@@ -68,7 +68,7 @@ class CartController extends Controller
             $bill->user_id = Auth::id();
             $bill->save();
 
-            foreach(\Cart::content() as $content)
+            foreach(Cart::content() as $content)
             {
                 $billdetail = new BillDetail();
                 $billdetail->quantity = $content->qty;
@@ -76,6 +76,10 @@ class CartController extends Controller
                 $billdetail->product_id = $content->id;
                 $billdetail->unit_price = $content->price;
                 $billdetail->save();
+                //auto down quantity when checkout
+                $product = Product::find($content->id);
+                $product->quantity = $product->quantity - $content->qty;
+                $product->update();
             }
             $carts = Cart::content();
             $code = $bill->id;
@@ -84,6 +88,7 @@ class CartController extends Controller
             $phone_send = '+84'.$phonetrim;
             // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
             //Mail::to(Auth::user()->email)->send(new OrderShipped());
+
             $options = array(
             'cluster' => 'ap1',
             'encrypted' => true

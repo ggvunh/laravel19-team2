@@ -30,7 +30,7 @@
                                 <label class="ngp-grup">Số lượng:</label>
                             </div>
                             <div class="input-group qty">
-                                <input type="number" name="qty" value="1" style="text-align:center;">
+                                <input type="number" name="qty" value="1" min="1" max="{{$product->quantity}}" style="text-align:center;">
                             </div><!-- /input-group -->
                             <div class="">
                                 <input type="submit" class="btn btn-danger btn-cart" name="add-product-view" value="Mua hàng">
