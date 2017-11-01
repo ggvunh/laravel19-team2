@@ -1,15 +1,5 @@
 @extends('master')
 @section('content')
-
-  <div class="breadcrumbs">
-      <div class="container">
-          <ul class="breadcrumb">
-              <li><a href="{{ url('/') }}">Trang chủ</a></li>
-              <li class="active">Sản phẩm</li>
-          </ul>
-      </div>
-  </div>
-  <div class="main">
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-left">
@@ -39,14 +29,17 @@
             </div>
             <div class="col-sm-9 col-right">
                 <div class="page-title">
-                    <h1>SẢN PHẨM</h1>
+                    <h1>TÌM KIẾM SẢN PHẨM</h1>
+                    <h4>Từ khóa tìm kiếm: <b></b></h4>
+                    <h4>Tìm thấy: <b>{{ $products->total() }}</b> sản phẩm</h4>
                 </div>
                 <div class="toolbar">
                     <div class="pager">
                         <div class="sort-by hidden-xs">
-                            <label>Lọc theo:</label>
+                            <label>sắp xếp theo:</label>
                             <select class="form-control input-sm">
-                                <option selected="selected">Tên Sản Phẩm</option>
+                                <option selected="selected">Mặc Định</option>
+                                <option>Tên Sản Phẩm</option>
                                 <option>Giá Sản Phẩm</option>
                             </select>
                             <a title="Set Descending Direction" href="#"><span class="fa fa-sort-amount-desc"></span></a>
@@ -98,12 +91,23 @@
                         </div>
                     @endforeach
                 </div><!-- /.product -->
-                <div class="nxpcenter">
-                    {{$products->links()}}
-                </div>
+                <div class="clearfix"></div>
+                {{$products->appends(['key' > $keymin, 'key' < $keymax])->links()}}
+                <div class="toolbar">
+                    <div class="pager">
+                        <div class="sort-by hidden-xs">
+                            <label>Sort By:</label>
+                            <select class="form-control input-sm">
+                                <option selected="selected">Position</option>
+                                <option>Name</option>
+                                <option>Price</option>
+                            </select>
+                            <a title="Set Descending Direction" href="#"><span class="fa fa-sort-amount-desc"></span></a>
+                        </div>
+                    </div><!-- /.pager -->
+                </div><!-- /.toolbar -->
             </div><!-- /.col-right -->
+
         </div>
     </div>
-</div><!-- /.main -->
-
 @stop

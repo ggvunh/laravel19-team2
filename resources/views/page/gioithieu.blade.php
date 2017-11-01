@@ -17,14 +17,24 @@
                   <div class="form-nxp">
                       <h3>Tìm theo giá</h3>
                   </div>
-                  <label class="nxp-111"><b>Từ</b></label>
-                  <input type="text" name="min" value="" placeholder="5.000.000"><br>
-                  <label class="nxp-111"><b>Đến</b></label>
-                  <input type="text" name="max" value="" placeholder="10.000.000"><br>
+                  <label class="nxp-111"><b>Từ(*)</b></label>
+                  <input type="text" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
+                  @if ($errors->has('keymin'))
+                       <span class="help-block">
+                           <strong>{{ $errors->first('keymin') }}</strong>
+                       </span>
+                  @endif
+                      <label class="nxp-111"><b>Đến(*)</b></label>
+                      <input type="text" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
+                  @if ($errors->has('keymax'))
+                       <span class="help-block">
+                           <strong>{{ $errors->first('keymax') }}</strong>
+                       </span>
+                  @endif
                   <div class="center">
-                      <button class="btn-danger" type="submit" name="button">Tìm kiếm</button>
+                      <button class="btn-nxp" type="submit" name="button">Tìm kiếm</button>
                   </div>
-              </form><br>
+              </form>
               <div class="banner-left"><a href="#"><img src="images/products/0.png" alt="hinh anh"></a>
                   <div class="banner-content">
                       <h1>Khuyến mãi</h1>
