@@ -16,20 +16,6 @@ use App\Mail\OrderShipped;
 use Pusher;
 class CartController extends Controller
 {
-    public function addCart($id)
-    {
-        $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        return redirect()->route('home');
-    }
-
-    public function addCartSearch($id)
-    {
-        $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
-        return redirect()->route('homesearch');
-    }
-
     public function addCartProduct(Request $rq)
     {
         if($rq->ajax()){
@@ -38,13 +24,14 @@ class CartController extends Controller
             Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
         }
         return Response([Cart::count(),number_format(Cart::total())]);
-        //return redirect()->route('homeproduct');
     }
-    public function addCartviewdetail1($id)
+
+    public function addCart_view(Request $rq)
     {
-        $qtyup = 0;
+        $id = $rq->id;
+        $qty = $rq->qty;
         $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => 1, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => $qty, 'price' => $product_buy->promotion_price, 'options' => ['img' => $product_buy->image]]);
         return redirect()->route('cart');
     }
 
@@ -57,13 +44,14 @@ class CartController extends Controller
     public function delete($rowId)
     {
         Cart::remove($rowId);
-        return redirect()->route('home');
+        return redirect()->route('cart');
     }
 
     public function getcheckout()
     {
         return view('cart.cart');
     }
+    //function begin checkout
     public function checkout( Request $req)
     {
         if(Cart::total() > 0)
@@ -113,8 +101,8 @@ class CartController extends Controller
         } else{
             return redirect('/');
         }
-
     }
+    //end function checkout
 
     public function xemdonhang()
     {
@@ -131,6 +119,6 @@ class CartController extends Controller
             $cart = Cart::get($rowId);
             $price = $cart->price * $cart->qty;
         }
-       return Response([number_format($price),number_format(Cart::total())]);
+       return Response([number_format($price),Cart::count(),number_format(Cart::total())]);
     }
 }
