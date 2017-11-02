@@ -64,7 +64,7 @@
                          @if($bill ->status==0)
                             <td class="myth"></span><a href="{{ url('account/orderlists/'.$bill->id.'/cancel') }}" style="color:red" class="click"> Cancel</a></td>
                          @elseif($bill ->status==1)
-                            <td class="myth"><span class="glyphicon glyphicon-ok"></span></td>
+                            <td class="myth"><span style="color: green;" class="glyphicon glyphicon-ok"></span></td>
                          @else
                             <td class="myth"><span class="glyphicon glyphicon-remove"></span></td>
                          @endif

@@ -31,7 +31,7 @@ class AccountController extends Controller
         public function cancelBills($id)
         {
             $data = Bill::find($id);
-            if($data ->status ==0 or $data->status ==1)
+            if($data ->status ==0)
             {
                 $data ->status = '2';
             }
