@@ -44,8 +44,9 @@ class userController extends Controller
     public function deleteUsers($id)
     {
         $data = User::find($id);
-        $data->delete();
+        $data->bill_detail()->delete();
         $data->bill()->delete();
+        $data->delete();
         Toastr::success('Delete successful user', $title = null, $options = []);
         return redirect('admin/user/listusers');
     }

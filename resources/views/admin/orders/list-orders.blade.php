@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
 @section('content')
-     <div class="content-wrapper nxp-admin"> 
+     <div class="content-wrapper nxp-admin">
     <!-- Content Header (Page header) -->
        <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
@@ -26,7 +26,7 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS</p></a>
                                     </div>
-                                    <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get"> 
+                                    <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get">
                                       <div class="form-group">
                                            <span style="color: black;font-weight: bold">Status</span><select name="status" class="form-control" style=" width:100px">
                                               <option value="0">Both</option>
@@ -40,7 +40,7 @@
                                                value="{{$search_input2}}"
                                            @endif>
                                       </div>
-                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>              
+                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>
                                     </form></a>
                               </div>
                          </nav>
@@ -88,12 +88,19 @@
                                         <td class="bamtd" style=" color:darkblue;font-weight: bold;">
                                         	@if(($bill->status) == 0)
                                                  Undelivered
-                                            @else
+                                            @elseif(($bill->status) == 1)
                                                  Delivery
+                                            @else
+                                                 Cancelled
                                         	@endif
                                         </td>
                                         <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$bill->id}}" style="color:red" class="click">Detail</a></td>
-                                        <td class="myth change"><a href="{{url('admin/order/check')}}/{{$bill->id}}"><button class="btn btn-info">Change</button></a></td>
+                                        <td class="myth change">
+                                            @if(($bill->status) ==2 )
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            @else
+                                            <a href="{{url('admin/order/check')}}/{{$bill->id}}"><button class="btn btn-info">Change</button></a></td>
+                                            @endif
                                     </tr>
                                     @endforeach
                                     @endif
@@ -109,4 +116,3 @@
        </section>
     </div>
 @stop
-

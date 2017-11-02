@@ -31,8 +31,11 @@ class AccountController extends Controller
         public function cancelBills($id)
         {
             $data = Bill::find($id);
-            $data ->bill_detail()->delete();
-            $data->delete();
+            if($data ->status ==0 or $data->status ==1)
+            {
+                $data ->status = '2';
+            }
+            $data->save();
             return redirect('account/orderlists');
         }
 

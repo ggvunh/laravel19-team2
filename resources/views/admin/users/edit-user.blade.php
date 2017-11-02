@@ -61,8 +61,8 @@
                         <div class="form-group">
                             <label for="Roles">Roles</label>
                             <select name="roles" id="roles" class="form-control">
-                               <option  @if(($user->roles)==0) selected @endif>User</option>
-                               <option  @if(($user->roles)==1) selected @endif>Admin</option>
+                               <option value="0" @if(($user->roles)==0) selected @endif>User</option>
+                               <option  value="1" @if(($user->roles)==1) selected @endif>Admin</option>
                             </select>
                         </div>
 

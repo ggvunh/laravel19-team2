@@ -55,14 +55,18 @@
                         <td>{{ $bill ->order_address }}</td>
                         <td> @if($bill ->status==0)
                             chưa giao hàng
-                            @else
+                            @elseif($bill ->status==1)
                             đã giao hàng
+                            @else
+                            đã hủy đơn hàng
                             @endif
                          </td>
                          @if($bill ->status==0)
-                            <td class="myth"><span class="glyphicon glyphicon-trash"></span><a href="{{ url('account/orderlists/'.$bill->id.'/delete') }}" style="color:red" class="click"> Cancel</a></td>
+                            <td class="myth"></span><a href="{{ url('account/orderlists/'.$bill->id.'/cancel') }}" style="color:red" class="click"> Cancel</a></td>
+                         @elseif($bill ->status==1)
+                            <td class="myth"><span class="glyphicon glyphicon-ok"></span></td>
                          @else
-                            <td class="myth"><span class="glyphicon glyphicon-lock"></span> not cancel</td>
+                            <td class="myth"><span class="glyphicon glyphicon-remove"></span></td>
                          @endif
                     </tr>
                     @endforeach
