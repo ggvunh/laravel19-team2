@@ -12,6 +12,7 @@ use Session;
 use Auth;
 use Mail;
 use Twilio;
+use Toastr;
 use App\Mail\OrderShipped;
 use Pusher;
 class CartController extends Controller
@@ -67,6 +68,7 @@ class CartController extends Controller
             $bill->status = '0';
             $bill->user_id = Auth::id();
             $bill->save();
+            Toastr::success('Checkout successful', $title = null, $options = []);
 
             foreach(Cart::content() as $content)
             {
@@ -87,8 +89,9 @@ class CartController extends Controller
             $phonetrim = substr(trim($phone),1,strlen($phone)-1);
             $phone_send = '+84'.$phonetrim;
             // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: #'.$code);
-            //Mail::to(Auth::user()->email)->send(new OrderShipped());
-
+            //send mail
+            $billtomail = Bill::find($bill->id);
+            // Mail::to(Auth::user()->email)->send(new OrderShipped($billtomail));
             $options = array(
             'cluster' => 'ap1',
             'encrypted' => true
@@ -99,7 +102,8 @@ class CartController extends Controller
             '421424',
             $options
             );
-            $data['message'] = 'Guitarshop checkout';
+            $data['message'] = 'Guitarshop checkouted';
+            $data['id'] = $bill->id;
             $pusher->trigger('GuitarShop', 'chekout', $data);
             Session::forget('cart');
             return view('cart.hoadon', compact('bill', 'carts'));

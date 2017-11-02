@@ -19,10 +19,10 @@
                     <th class="myth">Địa chỉ giao hàng</th>
                 </tr>
                 <tr>
-                    <td>#1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>{{$bill_id}}</td>
+                    <td>{{$date_order}}</td>
+                    <td>{{$total}}</td>
+                    <td>{{$address}}</td>
                 </tr>
             </table>
             <p>Cám ơn bạn đã mua hàng tại Guitar shop, nhân viên sẽ liên hệ với bạn sớm nhất.</p>
