@@ -79,7 +79,7 @@
                                       <br><br>
                                       <label class="lb" for=""><b>Giới tính</b></label><span class="sp">*</span><br>
                                       <input class="rd" type="radio" name="gender" value="male" @if(($info ->gender) == 'Male') checked @endif> nam
-                                      <input class="rd" type="radio" name="gender" value="female" @if(($info ->gender) == 'Female') checked @endif nữ<br><br>
+                                      <input class="rd" type="radio" name="gender" value="female" @if(($info ->gender) == 'Female') checked @endif> nữ<br><br>
 
                                       <input class="btn bton" type="submit" value="Lưu" name="submit">
                                   </form>
