@@ -30,13 +30,13 @@
                     </div>
                     <div class="footer-content">
                         <div class="email add">
-                            <p>pkh@gmail.com</p>
+                            <p>guitarshoppkh@gmail.com</p>
                         </div>
                         <div class="phone add">
                             <p> 016789 08 679</p>
                         </div>
                         <div class="address add">Địa chỉ:
-                            <p>số 92 - Quang Trung - Đà Nẵng - Việt Nam</p>
+                            <p>Đà Nẵng - Việt Nam</p>
                         </div>
                         <div class="contact-link"><a href="#" class="btn btn-default">Mở trong Google Maps</a></div>
                     </div>

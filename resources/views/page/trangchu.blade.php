@@ -10,17 +10,17 @@
                         <h3>Tìm theo giá</h3>
                     </div>
                     <label class="nxp-111"><b>Từ(*)</b></label>
-                    <input type="text" name="min" value="{{ old('min') }}" placeholder="5.000.000"><br>
-                    @if ($errors->has('min'))
+                    <input type="text" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
+                    @if ($errors->has('keymin'))
                          <span class="help-block">
-                             <strong>{{ $errors->first('min') }}</strong>
+                             <strong>{{ $errors->first('keymin') }}</strong>
                          </span>
                     @endif
                         <label class="nxp-111"><b>Đến(*)</b></label>
-                        <input type="text" name="max" value="{{ old('max') }}" placeholder="10.000.000"><br>
-                    @if ($errors->has('max'))
+                        <input type="text" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
+                    @if ($errors->has('keymax'))
                          <span class="help-block">
-                             <strong>{{ $errors->first('max') }}</strong>
+                             <strong>{{ $errors->first('keymax') }}</strong>
                          </span>
                     @endif
                     <div class="center">
@@ -113,40 +113,35 @@
                     <div class="title-group1"><h2>Nổi Bật</h2></div>
                     <div id="featured-products" class="owl-container">
                         <div class="owl">
-                          @foreach($hot_products as $hot)
+                          @foreach($hot_products as $product)
                             <div class='productslider-item item'>
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            @if(($hot->new)==1)
+                                            @if(($product->new)==1)
                                                 <div class='new-icon'><span>new</span></div>
                                             @endif
                                         </div>
                                         <div class="product_icon">
-                                            @if(($hot->deals)==1)
+                                            @if(($product->deals)==1)
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('xem_chitiet/'.$hot->id.'&'.$hot->category_id) }}" title="Nunc facilisis" class="product-image">
-                                            <img src="images/products/{{ $hot->image }}" alt="Nunc facilisis" />
+                                        <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id) }}" title="Nunc facilisis" class="product-image">
+                                            <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <div class="box-hover">
-                                            <ul class="add-to-links">
-                                                <li><a href="{{url('xem_chitiet/'.$hot->id.'&'.$hot->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a class="add_to_card link-cart" id="{{$hot->id}}">Mua hàng</a></li>
-                                            </ul>
-                                        </div>
+                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
                                     </div>
                                     <div class="des-container">
-                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{ $hot->name }}</a></h2>
+                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{ $product->name }}</a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
                                                 <span class="price-label">Special Price</span>
-                                                <span class="price">{{ number_format($hot->promotion_price) }}đ</span>
+                                                <span class="price">{{ number_format($product->promotion_price) }}đ</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">Regular Price: </span>
-                                                <span class="price">{{ number_format($hot->unit_price) }}đ</span>
+                                                <span class="price">{{ number_format($product->unit_price) }}đ</span>
                                             </p>
                                         </div>
                                         <div class="ratings">
@@ -167,40 +162,35 @@
                     <div class="title-group1"><h2>Mới nhất</h2></div>
                     <div id="new-products" class="owl-container">
                         <div class="owl">
-                          @foreach($new_products as $new)
+                          @foreach($new_products as $product)
                             <div class='productslider-item item'>
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            @if(($new->new)==1)
+                                            @if(($product->new)==1)
                                                 <div class='new-icon'><span>new</span></div>
                                             @endif
                                         </div>
                                         <div class="product_icon">
-                                            @if(($new->deals)==1)
+                                            @if(($product->deals)==1)
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" title="Nunc facilisis" class="product-image">
-                                            <img src="images/products/{{ $new->image }}" alt="Nunc facilisis" />
+                                        <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" title="Nunc facilisis" class="product-image">
+                                            <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <div class="box-hover">
-                                            <ul class="add-to-links">
-                                                <li><a href="{{url('xem_chitiet/'.$new->id.'&'.$new->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a class="add_to_card link-cart" id="{{$new->id}}">Mua hàng</a></li>
-                                            </ul>
-                                        </div>
+                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
                                     </div>
                                     <div class="des-container">
-                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{ $new->name }}</a></h2>
+                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{ $product->name }}</a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
                                                 <span class="price-label">Special Price</span>
-                                                <span class="price">{{ number_format($new->promotion_price) }}đ</span>
+                                                <span class="price">{{ number_format($product->promotion_price) }}đ</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">Regular Price: </span>
-                                                <span class="price">{{ number_format($new->unit_price) }}đ</span>
+                                                <span class="price">{{ number_format($product->unit_price) }}đ</span>
                                             </p>
                                         </div>
                                         <div class="ratings">
@@ -220,40 +210,35 @@
                     <div class="title-group1"><h2>Ưu đãi</h2></div>
                     <div id="new-products" class="owl-container">
                         <div class="owl">
-                          @foreach($deal_products as $deal)
+                          @foreach($deal_products as $product)
                             <div class='productslider-item item'>
                                 <div class="item-inner">
                                     <div class="images-container">
                                         <div class="product_icon">
-                                            @if(($deal->new)==1)
+                                            @if(($product->new)==1)
                                                 <div class='new-icon'><span>new</span></div>
                                             @endif
                                         </div>
                                         <div class="product_icon">
-                                            @if(($deal->deals)==1)
+                                            @if(($product->deals)==1)
                                                 <div class='sale-icon'><span>sale</span></div>
                                             @endif
                                         </div>
-                                        <a href="{{ url('dat-hang/add-cart/'.$deal->id.'/'.$deal->name)}}" title="Nunc facilisis" class="product-image">
-                                            <img src="images/products/{{ $deal->image }}" alt="Nunc facilisis" />
+                                        <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id) }}" title="Nunc facilisis" class="product-image">
+                                            <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <div class="box-hover">
-                                            <ul class="add-to-links">
-                                                <li><a href="{{url('xem_chitiet/'.$deal->id.'&'.$deal->category_id)}}" class="link-quickview">Xem chi tiết</a></li>
-                                                <li><a class="add_to_card link-cart" id="{{$deal->id}}">Mua hàng</a></li>
-                                            </ul>
-                                        </div>
+                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
                                     </div>
                                     <div class="des-container">
-                                        <h2 class="product-name"><a href="#" title="{{ $deal->name }}">{{ $deal->name }}</a></h2>
+                                        <h2 class="product-name"><a href="#" title="{{ $product->name }}">{{ $product->name }}</a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
                                                 <span class="price-label">Special Price</span>
-                                                <span class="price">{{ number_format($deal->promotion_price) }}</span>
+                                                <span class="price">{{ number_format($product->promotion_price) }}</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">Regular Price: </span>
-                                                <span class="price">{{ number_format($deal->unit_price) }}</span>
+                                                <span class="price">{{ number_format($product->unit_price) }}</span>
                                             </p>
                                         </div>
                                         <div class="ratings">
@@ -274,22 +259,4 @@
         </div>
     </div>
 </div><!-- /.main -->
-<script>
-    $(document).ready(function(){
-        $(".add_to_card").click(function(){
-            //$qty = $(this).find(".qty1").val();
-            $rowid = $(this).attr('id');
-            $name = 'add_product';
-            $.ajax({
-                type: "GET",
-                url: 'dat-hang/add-cart/'+$rowid+'/'+$name,
-                data: {"id":$rowid, "name":$name},
-                success:function(data){
-                   $('#total_cart').text(data[0]);
-                   $('#qtyspcart').text(data[1]);
-                }
-            });
-        });
-    });
-</script>
 @stop

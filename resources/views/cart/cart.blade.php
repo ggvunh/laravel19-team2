@@ -41,7 +41,7 @@
                                             Color: Red</div>
                                         </td>
                                 		<td class="qty" id="{{$content->rowId}}">
-                                       		<input type="number" min="1" max= "20" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
+                                       		<input type="number" min="1" max= "{{$content->options->quantity}}" class="qty1" name="qty1" value="{{$content->qty}}" style="text-align:center">
                                     	</td>
                         				<td class="subtotal">{{number_format($content->price)}}</td>
                                         <td id="price_pro{{$content->rowId}}" class="grandtotal">{{number_format($content->price*$content->qty)}}</td>
@@ -127,10 +127,10 @@
                     data: {"id":$rowid, "qty":$qty},
                     success:function(data){
                        $('#price_pro'+$rowid).text(data[0]);
-                       $('#total').text(data[1]);
-                       $('#total1').text(data[1]);
-                       $('#total_cart').text(data[1]);
-                       $('#qtyspcart').text(data[2]);
+                       $('#total').text(data[2]);
+                       $('#total1').text(data[2]);
+                       $('#total_cart').text(data[2]);
+                       $('#qtyspcart').text(data[1]);
                     }
                 });
             });

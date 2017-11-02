@@ -24,16 +24,19 @@
                     </p>
                     <p>Tình trạng: còn hàng</p>
                     <div class="form-group">
-                        <div class="">
-                            <label class="ngp-grup">Số lượng:</label>
-                        </div>
-
-                        <div class="input-group qty">
-                            <input type="number" name="qty" value="1" style="text-align:center;">
-                        </div><!-- /input-group -->
-                        <div class="">
-                            <a href="{{url('dat-hang/add-cartviewdetail/'.$product->id.'/'.$product->name)}}"><button class="btn btn-danger btn-cart">Add to cart</button></a>
-                        </div>
+                        <form class="" action="dat-hang/add-product_view" method="GET">
+                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <div class="">
+                                <label class="ngp-grup">Số lượng:</label>
+                            </div>
+                            <div class="input-group qty">
+                                <input type="number" name="qty" value="1" min="1" max="{{$product->quantity}}" style="text-align:center;">
+                            </div><!-- /input-group -->
+                            <div class="">
+                                <input type="submit" class="btn btn-danger btn-cart" name="add-product-view" value="Mua hàng">
+                                <!-- <a href="{{url('dat-hang/add-cartviewdetail/'.$product->id.'/'.$product->name)}}"><button class="btn btn-danger btn-cart">Mua Hàng</button></a> -->
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="clearfix">
