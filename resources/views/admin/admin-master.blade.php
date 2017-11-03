@@ -473,11 +473,21 @@ desired effect
 
       var channel = pusher.subscribe('GuitarShop');
       channel.bind('chekout', function(data) {
-          $.notify({
-              icon: 'glyphicon glyphicon-star',
-              message: "{{ Auth::user()->email }}! checkouted"
+        //   $.notify({
+        //       icon: 'glyphicon glyphicon-star',
+        //       message: "{{ Auth::user()->email }}! checkouted order code",
+        //       target: "_blank"
+        //     });
+            $.notifyDefaults({
+            	url_target: "_self"
             });
-      });
+            $.notify({
+
+            	message: data.message + 'order code: '+data.id,
+            	url: "account/orderdetail/"+data.id,
+            	target: "_blank"
+            });
+        });
     </script>
     <!-- //end pusher -->
   @yield('script')
