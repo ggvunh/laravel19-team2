@@ -30,7 +30,7 @@
             <div class="col-sm-9 col-right">
                 <div class="page-title">
                     <h1>TÌM KIẾM SẢN PHẨM</h1>
-                    <h4>Từ khóa tìm kiếm: <b></b></h4>
+                    <h4>Từ khóa tìm kiếm: <b>{{$key}}</b></h4>
                     <h4>Tìm thấy: <b>{{ $products->total() }}</b> sản phẩm</h4>
                 </div>
                 <div class="toolbar">
