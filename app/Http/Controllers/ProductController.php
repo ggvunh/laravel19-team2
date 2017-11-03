@@ -23,8 +23,8 @@ class ProductController extends Controller
     public function listProduct ()
     {
         $product = Product::orderBy('id','desc')->paginate(25);
-        return view('admin.product.list-all-products')->with(['product'=>$product]);
-
+        // dd($product);
+        return view('admin.product.list-all-products', compact('product'));
     }
 
     public function getaddProduct ()
