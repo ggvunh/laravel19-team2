@@ -45,14 +45,32 @@ class PageController extends Controller
         return view('page.searchsp', compact('products','key'));
     }
 
-    public function search_is_price(Request $req, SearchIsPrice $request)
+    // public function search_is_price(Request $req, SearchIsPrice $request)
+    // {
+    //     $keymin = $req->keymin;
+    //     $keymax = $req->keymax;
+    //     $products = Product::where([ ['promotion_price','>',$req->keymin],['promotion_price','<',$req->keymax] ])
+    //         ->orwhere([ ['unit_price','>',$req->keymin],['unit_price','<',$req->keymax] ])->paginate(6);
+    //     return view('page.searchisprice', compact('products', 'keymin', 'keymax'));
+    // }
+
+ public function search_is_price(Request $req, SearchIsPrice $request)
     {
         $keymin = $req->keymin;
         $keymax = $req->keymax;
-        $products = Product::where([ ['promotion_price','>',$req->keymin],['promotion_price','<',$req->keymax] ])
-            ->orwhere([ ['unit_price','>',$req->keymin],['unit_price','<',$req->keymax] ])->paginate(6);
-        return view('page.searchisprice', compact('products', 'keymin', 'keymax'));
+        $products = Product::whereBetween('promotion_price',[$keymin,$keymax])
+            ->whereBetween('unit_price',[$keymin,$keymax])->paginate(6);
+        return view('page.searchisprice')->with(['products'=>$products->appends(Input::except('page')),'keymax'=>$keymax,'keymin'=>$keymin]);
     }
+
+
+
+
+
+
+
+
+
 
     public function xem_chitiet($id,$category_id)
     {

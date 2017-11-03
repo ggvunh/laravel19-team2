@@ -53,7 +53,7 @@
                                          @endif
                                         <div class="form-group">
                                              <label for="product-cate">Product Category</label>
-                                             <select class="form-control" name="product-cate">
+                                             <select class="form-control" name="product-cate" style ="color: red">
                                                @foreach($category as $ct)
                                                 <option value="{{$ct->id}}">{{$ct->name}}</option>
                                                 @endforeach
@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="form-group">
                                              <label for="product-brand">Product Brand</label>
-                                             <select class="form-control" name="product-brand">
+                                             <select class="form-control" name="product-brand" style ="color: red">
                                                @foreach($brand as $br)
                                                 <option value="{{$br->id}}">{{$br->name}}</option>
                                                 @endforeach
