@@ -50,6 +50,21 @@
                                  <strong>{{ $errors->first('category-name') }}</strong>
                              </span>
                         @endif
+
+                        <div class="form-group">
+                          <label for="menu">Menu</label>
+                          <select class="form-control" name="menu">
+                              <option value="">select menu</option>
+                              @foreach($menus as $menu)
+                                <option value="{{$menu->id}}">{{ $menu->name }}</option>
+                              @endforeach
+                          </select>
+                        </div>
+                        @if ($errors->has('menu'))
+                             <span class="help-block">
+                                 <strong>{{ $errors->first('menu') }}</strong>
+                             </span>
+                        @endif
                        <div class="box-footer">
                            <button type="submit" name="add" class="btn btn-primary click">EDIT</button>
                        </div>
