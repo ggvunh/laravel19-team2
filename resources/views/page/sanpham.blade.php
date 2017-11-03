@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-
   <div class="breadcrumbs">
       <div class="container">
           <ul class="breadcrumb">

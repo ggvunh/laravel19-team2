@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-  <div class="main">
+    <div class="main">
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-left">

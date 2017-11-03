@@ -349,6 +349,7 @@
             });
         </script>
         <script>
+
             $(document).ready(function(){
                 $(".add_to_card").click(function(){
                     //$qty = $(this).find(".qty1").val();

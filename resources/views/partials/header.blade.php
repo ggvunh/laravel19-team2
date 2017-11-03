@@ -100,7 +100,7 @@
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
                                 <li><a href="{{url('/')}}">Trang chủ</a></li>
-                                <li><a href="{{url('gioithieu')}}">giới thiệu</a></li>
+                                <li id="page_product"><a href="{{url('gioithieu')}}">giới thiệu</a></li>
                                 <li><a href="{{ url('san-pham') }}">Sản Phẩm</a></li>
                                 <li><a href="#">Chia sẻ</a></li>
                                 <li><a href="#">Blog</a></li>
