@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\addCategoryRequest;
@@ -19,13 +20,15 @@ class categoryController extends Controller
 
     public function getAddCategories()
     {
-        return view('admin.categories.add-categoryProduct');
+        $menus = Menu::All();
+        return view('admin.categories.add-categoryProduct', compact('menus'));
     }
 
     public function postAddCategories(Request $rq, addCategoryRequest $request)
     {
         $data = new Category;
-        $data->name=$rq->input('cateproduct-name');
+        $data->name = $rq->input('cateproduct-name');
+        $data->menu_id = $rq->input('menu');
         $data->save();
         Toastr::success('Add successful category', $title = null, $options = []);
         return redirect('admin/category/listcategories');
@@ -34,7 +37,8 @@ class categoryController extends Controller
     public function getEditCategories($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit-category', compact('category'));
+        $menus = Menu::All();
+        return view('admin.categories.edit-category', compact('category', 'menus'));
     }
 
     public function postEditCategories($id ,Request $rq)

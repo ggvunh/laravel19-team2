@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
+    
     public function Category()
         {
         	return $this->belongsTo('App\Category','category_id','id');
@@ -21,7 +22,7 @@ class Product extends Model
         {
         	return $this->belongsTo('App\Brand','brand_id','id');
         }
-    
+
     public function Bill()
         {
             return $this->belongstoMany('App\Bill');

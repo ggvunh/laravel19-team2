@@ -255,7 +255,7 @@ desired effect
           </li>
           <li class="treeview">
             <a href="{{url('admin')}}">
-            <i class="fa fa-dashboard"></i> <span>Admin</span>
+            <i class="fa fa-dashboard"></i> <span>General</span>
             <span class="pull-right-container">
             </span>
             </a>
