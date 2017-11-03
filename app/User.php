@@ -15,10 +15,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = ['name', 'email', 'password', 'address', 'phone_number', 'gender'];
-    
+
     public function bill()
         {
         	return $this->hasMany('App\Bill','user_id','id');
+        }
+
+    public function bill_detail()
+        {
+            return $this->hasManyThrough('App\BillDetail', 'App\Bill', 'user_id', 'bill_id', 'id' );
         }
     /**
      * The attributes that should be hidden for arrays.

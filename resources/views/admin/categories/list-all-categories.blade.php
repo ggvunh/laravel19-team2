@@ -36,6 +36,7 @@
                                     <tr class="mytr" >
                                       <th class="myth">Category code</th>
                                       <th class="myth">Category name</th>
+                                      <th class="myth">Menu</th>
                                       <th class="myth">Edit</th>
                                       <th class="myth">Delete</th>
                                     </tr>
@@ -43,6 +44,7 @@
                                     <tr>
                                         <td >{{$category->id}}</td>
                                         <td >{{$category->name}}</td>
+                                        <td >{{$category->menu->name}}</td>
                                         <td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/category/editcategories')}}/{{$category->id}}" style="color:red" class="click">Edit</a></td>
                                         <td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/category/deletecategories')}}/{{$category->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                                     </tr>

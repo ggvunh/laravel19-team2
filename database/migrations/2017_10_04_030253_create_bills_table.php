@@ -19,7 +19,7 @@ class CreateBillsTable extends Migration
             $table->float('total',30);
             $table->string('order_address');
             $table->string('note');
-            $table->enum('status',['0','1']);// trạng thái đã giao hàng chưa
+            $table->enum('status',['0', '1', '2']);// trạng thái đã giao hàng chưa, 2: cancel đơn hàng
             $table->timestamps();
             $table->integer('user_id')->unsigned()->nullable(); //unsigned:Không âm; nullable:ko rỗng;
             $table->foreign('user_id')->references('id')->on('users');

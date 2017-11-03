@@ -47,9 +47,8 @@ class menuController extends Controller
         $menu = Menu::find($id);
         $menu->product()->delete();
         $menu->categories()->delete();
-        Toastr::success('Delete successful Menu', $title = null, $options = []);
         $menu->delete();
+        Toastr::success('Delete successful Menu', $title = null, $options = []);
         return redirect()->route('listmenu');
     }
-
 }

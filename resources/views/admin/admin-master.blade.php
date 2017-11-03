@@ -255,7 +255,7 @@ desired effect
           </li>
           <li class="treeview">
             <a href="{{url('admin')}}">
-            <i class="fa fa-dashboard"></i> <span>Admin</span>
+            <i class="fa fa-dashboard"></i> <span>General</span>
             <span class="pull-right-container">
             </span>
             </a>
@@ -473,11 +473,21 @@ desired effect
 
       var channel = pusher.subscribe('GuitarShop');
       channel.bind('chekout', function(data) {
-          $.notify({
-              icon: 'glyphicon glyphicon-star',
-              message: "{{ Auth::user()->email }}! checkouted"
+        //   $.notify({
+        //       icon: 'glyphicon glyphicon-star',
+        //       message: "{{ Auth::user()->email }}! checkouted order code",
+        //       target: "_blank"
+        //     });
+            $.notifyDefaults({
+            	url_target: "_self"
             });
-      });
+            $.notify({
+
+            	message: data.message + 'order code: '+data.id,
+            	url: "account/orderdetail/"+data.id,
+            	target: "_blank"
+            });
+        });
     </script>
     <!-- //end pusher -->
   @yield('script')
