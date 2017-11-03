@@ -100,7 +100,7 @@
                             {{$products->links()}}
                         </div>
                         <div class="tab-pane" id="product-review">
-                            {{$product->description}}
+                            {!!$product->description!!}
                         </div>
                     </div>
                 </div><!-- /.product-tab -->

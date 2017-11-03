@@ -53,7 +53,8 @@
                          @endif
                         <div class="form-group">
                                <label for="product-cate">Product Category</label>
-                               <select class="form-control" name="product-cate">
+                               <select class="form-control" name="product-cate" style ="color: red">
+                                <option value="0">Choose Category</option>
                                   @foreach($category as $ct)
                                   <option value="{{$ct->id}}">{{$ct->name}}</option>
                                   @endforeach
@@ -61,7 +62,8 @@
                         </div>
                         <div class="form-group">
                                <label for="product-brand">Product Brand</label>
-                               <select class="form-control" name="product-brand">
+                               <select class="form-control" name="product-brand" style ="color: red">
+                                <option value="0">Choose Brand</option>
                                  @foreach($brand as $br)
                                   <option value="{{$br->id}}">{{$br->name}}</option>
                                   @endforeach
@@ -70,6 +72,7 @@
                         <div class="form-group">
                                <label for="description">Product description</label>
                                <textarea name="description" id="description"  class="form-control" cols="30" rows="5">{{$product->description}}</textarea>
+                               <script>CKEDITOR.replace('description');</script>
                         </div>
                          @if ($errors->has('description'))
                               <span class="help-block">
@@ -143,7 +146,7 @@
                               </span>
                          @endif
                         <div class="box-footer">
-                            <button type="submit" name="add" class="btn btn-primary click">EDIT</button>
+                            <button type="submit" name="add" class="btn btn-primary click">SAVE</button>
                         </div>
                     </form>
                 </div>

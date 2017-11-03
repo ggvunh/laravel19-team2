@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
  @section('content')
-   <div class="content-wrapper nxp-admin"> 
+   <div class="content-wrapper nxp-admin">
     <!-- Content Header (Page header) -->
        <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
        <section class="content-header">
@@ -45,6 +45,7 @@
                                         <th class="myth">Product image</th>
                                         <th class="myth">Product name</th>
                                         <th class="myth">Product category</th>
+                                        <th class="myth">Product brand</th>
                                         <th class="myth">Description</th>
                                         <th class="myth">Quantity</th>
                                         <th class="myth">Unit</th>
@@ -59,7 +60,8 @@
                                         <td ><img src="{{asset('images/products/'.$dt->image)}}" alt="" style="width: 50px; height: 50px;"> </td>
                                         <td >{{$dt->name}}</td>
                                         <td >{{$dt->Category->name}}</td>
-                                        <td >{{$dt->description}}</td>
+                                        <td >{{$dt->Brand->name}}</td>
+                                        <td >{!!$dt->description!!}</td>
                                         <td >{{$dt->quantity}}</td>
                                         <td >{{$dt->unit}}</td>
                                         <td >{{number_format($dt->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
@@ -72,7 +74,7 @@
                           </div>
                       </div>
                       {{$product->links()}}
-                 </div>     
+                 </div>
             </div>
           </div>
         </section>

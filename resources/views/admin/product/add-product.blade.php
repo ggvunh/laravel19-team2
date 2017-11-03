@@ -53,16 +53,14 @@
                                          @endif
                                         <div class="form-group">
                                              <label for="product-cate">Product Category</label>
-                                             <select class="form-control" name="product-cate">
-                                               @foreach($category as $ct)
+                                             <select class="form-control" name="product-cate" style ="color: red">                                               @foreach($category as $ct)
                                                 <option value="{{$ct->id}}">{{$ct->name}}</option>
                                                 @endforeach
                                              </select>
                                         </div>
                                         <div class="form-group">
                                              <label for="product-brand">Product Brand</label>
-                                             <select class="form-control" name="product-brand">
-                                               @foreach($brand as $br)
+                                             <select class="form-control" name="product-brand" style ="color: red">                                               @foreach($brand as $br)
                                                 <option value="{{$br->id}}">{{$br->name}}</option>
                                                 @endforeach
                                              </select>
@@ -70,6 +68,7 @@
                                         <div class="form-group">
                                                <label for="description">Product description</label>
                                                <textarea name="description" id="description"  class="form-control" cols="30" rows="5">{{old('description')}}</textarea>
+                                               <script>CKEDITOR.replace('description');</script>
                                         </div>
                                          @if ($errors->has('description'))
                                               <span class="help-block">
@@ -143,7 +142,7 @@
                                               </span>
                                          @endif
                                   <div class="box-footer">
-                                      <button type="submit" name="add" class="btn btn-primary click">ADD</button>
+                                      <button type="submit" name="add" class="btn btn-primary click">SAVE</button>
                                   </div>
                             </form>
                         </div>

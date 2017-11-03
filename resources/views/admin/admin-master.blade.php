@@ -19,6 +19,7 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -255,7 +256,7 @@ desired effect
           </li>
           <li class="treeview">
             <a href="{{url('admin')}}">
-            <i class="fa fa-dashboard"></i> <span>Admin</span>
+            <i class="fa fa-dashboard"></i> <span>General</span>
             <span class="pull-right-container">
             </span>
             </a>

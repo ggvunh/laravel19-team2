@@ -26,44 +26,11 @@
                                     <div class="navbar-header">
                                       <a class="navbar-brand" class="mytile"><p class="myp">LIST OF ORDERS</p></a>
                                     </div>
-                                    <a><form class="navbar-form navbar-left form1" action="{{url('admin/order/search')}}" method="get">
-                                      <div class="form-group">
-                                           <span style="color: black;font-weight: bold">Status</span><select name="status" class="form-control" style=" width:100px">
-                                              <option value="0">Both</option>
-                                              <option value="1">Undilevery</option>
-                                              <option value="2">Dilevery</option>
-                                           </select>
-                                            <span style="color: black; font-weight: bold">Start</span><input type="date" class="form-control " style="width:155px" name="search1" @if(isset($search_input1))
-                                               value="{{$search_input1}}"
-                                           @endif>
-                                            <span style="color: black;font-weight: bold">Finish</span><input type="date" class="form-control " style="width:155px" name="search2" @if(isset($search_input2))
-                                               value="{{$search_input2}}"
-                                           @endif>
-                                      </div>
-                                      <button type="submit" class="btn btn-info click"  id="search" style="margin-left: 30px">Search</button>
-                                    </form></a>
                               </div>
                          </nav>
                       </div>
                       <div class="box">
                           <div class="box-body">
-                              <div>
-                                 <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
-                                      @if(isset($count_search))
-                                        {{$count_search}}
-                                      @else
-                                          0
-                                      @endif
-                                    </span><span style="color: red;font-size:20px">Orders in table</span>
-                                    <span style="font-size: 20px">&nbsp&nbsp/&nbsp&nbsp</span><span style="color: blue;font-size:20px">Total money:</span>
-                                    <span style="color: black;font-size: 25px" >
-                                       @if(isset($count_money))
-                                        {{number_format($count_money)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span>
-                                      @else
-                                          0<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span>
-                                      @endif
-                                    </span>
-                              </div>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>
@@ -76,7 +43,6 @@
                                         <th class="myth">Detail</th>
                                         <th class="myth">Change status</th>
                                     </tr>
-                                    @if(isset($result_searchs))
                                     @foreach($orderlists as $orderlist)
                                     <tr>
                                         <td class="myth">{{$orderlist->id}}</td>
@@ -103,7 +69,6 @@
                                             @endif
                                     </tr>
                                     @endforeach
-                                    @endif
                                 </table>
                           </div>
                         @if(isset($orderlists))

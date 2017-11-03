@@ -29,9 +29,9 @@
                                     </div>
                                     <form class="navbar-form navbar-left" action="{{url('admin/product/searchproduct')}}" method="GET">
                                           <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Search" id="search" name="search">
+                                              <input type="text" class="form-control"  value="{{$search}}" placeholder="Search" id="search" name="search">
                                           </div>
-                                           <button type="submit" class="btn btn-info"  id="search">Search</button>
+                                           <button type="submit" class="btn btn-info" id="search">Search</button>
                                           <a href="{{url('admin/product/addproduct')}}" class="click"><button type="button" class="btn btn-info mybtn">Add Product</button></a>
                                     </form>
                               </div>

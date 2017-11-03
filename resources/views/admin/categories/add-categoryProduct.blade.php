@@ -41,6 +41,16 @@
                          <strong>{{ $errors->first('cateproduct-name') }}</strong>
                      </span>
                 @endif
+
+                <div class="form-group">
+                  <label for="menu">Menu</label>
+                  <select class="form-control" name="menu">
+                      <option value="">Select Menu</option>
+                      @foreach($menus as $menu)
+                        <option value="{{$menu->id}}">{{ $menu->name }}</option>
+                      @endforeach
+                  </select>
+                </div>
               <div class="box-footer">
                 <button type="submit" name="add" class="btn btn-primary click">ADD</button>
               </div>
