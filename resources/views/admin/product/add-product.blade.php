@@ -53,18 +53,14 @@
                                          @endif
                                         <div class="form-group">
                                              <label for="product-cate">Product Category</label>
-                                             <select class="form-control" name="product-cate">
-                                                 <option value="">Select Category</option>
-                                               @foreach($category as $ct)
+                                             <select class="form-control" name="product-cate" style ="color: red">                                               @foreach($category as $ct)
                                                 <option value="{{$ct->id}}">{{$ct->name}}</option>
                                                 @endforeach
                                              </select>
                                         </div>
                                         <div class="form-group">
                                              <label for="product-brand">Product Brand</label>
-                                             <select class="form-control" name="product-brand">
-                                                <option value="">Select Brand</option>
-                                               @foreach($brand as $br)
+                                             <select class="form-control" name="product-brand" style ="color: red">                                               @foreach($brand as $br)
                                                 <option value="{{$br->id}}">{{$br->name}}</option>
                                                 @endforeach
                                              </select>
@@ -145,7 +141,7 @@
                                               </span>
                                          @endif
                                   <div class="box-footer">
-                                      <button type="submit" name="add" class="btn btn-primary click">ADD</button>
+                                      <button type="submit" name="add" class="btn btn-primary click">SAVE</button>
                                   </div>
                             </form>
                         </div>

@@ -76,8 +76,8 @@
                                         <th class="myth">Detail</th>
                                         <th class="myth">Change status</th>
                                     </tr>
-                                    @if(isset($result_searchs))
-                                    @foreach($result_searchs as $bill)
+                                    @if(isset($orders))
+                                    @foreach($orders as $bill)
                                     <tr>
                                         <td class="myth">{{$bill->id}}</td>
                                         <td class="myth">{{number_format($bill->total)}}</td>
@@ -106,8 +106,8 @@
                                     @endif
                                 </table>
                           </div>
-                        @if(isset($result_searchs))
-                        {{$result_searchs->links()}}
+                        @if(isset($orders))
+                        {{$orders->links()}}
                         @endif
                       </div>
                  </div>
