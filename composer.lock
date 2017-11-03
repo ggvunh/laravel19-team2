@@ -695,12 +695,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "0497f50ba6830b659a0d4eef29b5a0f53a01198f"
+                "reference": "a82f6c5725cb31348eae0b4414e8992b1400ba30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/0497f50ba6830b659a0d4eef29b5a0f53a01198f",
-                "reference": "0497f50ba6830b659a0d4eef29b5a0f53a01198f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a82f6c5725cb31348eae0b4414e8992b1400ba30",
+                "reference": "a82f6c5725cb31348eae0b4414e8992b1400ba30",
                 "shasum": ""
             },
             "require": {
@@ -767,7 +767,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-10-26T07:49:48+00:00"
+            "time": "2017-10-31T19:46:02+00:00"
         },
         {
             "name": "dompdf/dompdf",
@@ -1746,7 +1746,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",

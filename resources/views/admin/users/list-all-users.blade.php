@@ -52,18 +52,20 @@
                 					  <th class="myth">Email</th>
                 					  <th class="myth">Address</th>
                 					  <th class="myth">Phone Number</th>
+                					  <th class="myth">Order List</th>
                 					  <th class="myth">Edit</th>
                 					  <th class="myth">Delete</th>
                 					</tr>
                 					@foreach($users as $user)
                 					<tr>
                 						<td >{{$user->id}}</td>
-                						<td ><a href="{{ url('admin/user/orderlists/'.$user->id) }}">{{$user->name}}</a></td>
+                						<td ><b>{{$user->name}}</b></td>
                 						<td >{{$user->gender}}</td>
                 						<td >@if(($user->roles)==1) Admin @else User @endif</td>
                 						<td >{{$user->email}}</td>
                 						<td >{{$user->address}}</td>
                 						<td >{{$user->phone_number}}</td>
+                						<td ><a href="{{ url('admin/user/orderlists/'.$user->id) }}">Order list</a></td>
                 						<td ><span class="glyphicon glyphicon-pencil"></span><a href="{{url('admin/user/editusers')}}/{{$user->id}}" style="color:red" class="click">Edit</a></td>
                 						<td ><span class="glyphicon glyphicon-trash"></span><a href="{{url('admin/user/deleteusers')}}/{{$user->id}}" style="color:red" class="simpleConfirm">Delete</a></td>
                 					</tr>
