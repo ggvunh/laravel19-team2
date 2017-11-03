@@ -21,10 +21,10 @@ use Illuminate\Support\Collection;
 class ProductController extends Controller
 {
     public function listProduct ()
-    {   
+    {
         $product = Product::orderBy('id','desc')->paginate(25);
         return view('admin.product.list-all-products')->with(['product'=>$product]);
-        
+
     }
 
     public function getaddProduct ()
@@ -51,12 +51,12 @@ class ProductController extends Controller
         if ($rq->hasFile('product-image') )
         {
             $file = $rq->file('product-image');
-            $filename = $file->getClientOriginalName(); 
+            $filename = $file->getClientOriginalName();
             $images = time(). "_" . $filename;
             $destinationPath = public_path('images/products');
             $file->move($destinationPath, $images);
             $addProduct->image = $images;
-        } 
+        }
         $addProduct->save();
         Toastr::success('Add successful product', $title = null, $options = []);
         return redirect('admin/product/listproduct');
@@ -89,14 +89,14 @@ class ProductController extends Controller
         if ($rq->hasFile('product-image') )
         {
             $file = $rq->file('product-image');
-            $filename = $file->getClientOriginalName(); 
+            $filename = $file->getClientOriginalName();
             $images = time(). "_" . $filename;
             $destinationPath = public_path('images/products');
             $file->move($destinationPath, $images);
             $oldfile = $editProduct->image;
             Storage::delete($oldfile);
             $editProduct->image = $images;
-        }        
+        }
         $editProduct->new = $rq->input('version');
         $editProduct->hot = $rq->input('status');
         $editProduct->deals = $rq->input('deals');
@@ -123,14 +123,14 @@ class ProductController extends Controller
     }
 
     public function searchProduct(Request $rq)
-    {   
+    {
         $search = $rq->input('search');
         if($rq->input('search') != null)
         {
             $products = Product::where('name','like','%'.$rq->input('search').'%')
                 ->orwhere('unit_price',$rq->input('search'))
-                ->orwhere('promotion_price',$rq->input('search'))->get();           
-        }       
+                ->orwhere('promotion_price',$rq->input('search'))->get();
+        }
         else {
             $products = [];
         }
