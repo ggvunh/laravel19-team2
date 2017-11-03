@@ -51,11 +51,6 @@
                       @endforeach
                   </select>
                 </div>
-                @if ($errors->has('menu'))
-                     <span class="help-block">
-                         <strong>{{ $errors->first('menu') }}</strong>
-                     </span>
-                @endif
               <div class="box-footer">
                 <button type="submit" name="add" class="btn btn-primary click">ADD</button>
               </div>

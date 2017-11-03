@@ -87,7 +87,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
     });
 });
 //Cart
-Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
+Route::group(['prefix'=>'dat-hang', 'middleware'=>'login'],function(){
     Route::GET('add-cartproduct/{id}/{name}','CartController@addCartProduct');
     Route::GET('add-product_view','CartController@addCart_view');
     Route::GET('cart','CartController@cart');
@@ -96,7 +96,7 @@ Route::group(['prefix'=>'dat-hang', 'middleware'=>'order'],function(){
     Route::GET('checkout', 'CartController@checkout');
     Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
     });
-Route::group(['prefix'=>'account'], function(){
+Route::group(['prefix'=>'account', 'middleware'=>'login'], function(){
     Route::get('orderlists', 'AccountController@getBills');
     Route::get('orderdetail/{id}', 'AccountController@getBillDetail');
     Route::get('orderlists/{id}/cancel', 'AccountController@cancelBills');

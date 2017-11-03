@@ -44,9 +44,9 @@ class categoryController extends Controller
     public function postEditCategories($id ,Request $rq)
     {
         $data = Category::find($id);
-        $name = $rq->input('category-name');
-            if ($name != null) $data ->name=$name;
-        $data->save();
+        $data ->name = $rq->input('category-name');
+        $data ->menu_id = $rq->input('menu');
+        $data->update();
         Toastr::success('Edit successful category', $title = null, $options = []);
         return redirect('admin/category/listcategories');
     }
