@@ -17,9 +17,9 @@ class PageController extends Controller
 {
     public function getIndex()
     {
-        $hot_products = Product::where('hot', 1)->get();
-        $new_products = Product::where('new', 1)->get();
-        $deal_products = Product::where('deals', 1)->get();
+        $hot_products = Product::where([['hot', 1],['quantity', '>', 0]])->get();
+        $new_products = Product::where([['new', 1],['quantity', '>', 0]])->get();
+        $deal_products = Product::where([['deals', 1], ['quantity', '>', 0]])->get();
         return view('page.trangchu', compact('hot_products', 'new_products', 'deal_products'));
     }
 
