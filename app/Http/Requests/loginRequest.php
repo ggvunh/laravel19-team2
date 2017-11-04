@@ -31,7 +31,6 @@ class loginRequest extends FormRequest
     public function messages()
     {
         return [
-
                 'email.required' => 'Vui lòng nhập email',
                 'email.email' => 'Không đúng định dạng email',
                 'email.unique' => 'Email đã có người sử dụng',
