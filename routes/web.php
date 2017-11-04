@@ -22,7 +22,7 @@ Route::get('xemdonhang','CartController@xemdonhang');
 Route::get('gioithieu', 'PageController@gioithieu');
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin', 'PageController@getAdmin')->name('admin')->middleware('adminLogin');
+Route::get('admin', 'AdminController@getAdmin')->name('admin')->middleware('adminLogin');
 // Nhom Route cho trang admin/product- by Duong Dong Hung
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
     Route::group(['prefix'=>'product'],function(){
@@ -85,6 +85,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'],function(){
         Route::get('calendar_detail/{date}','OrderController@Calendar_detal');
         Route::get('export-orderdetail/{id}', 'PDFController@getPDF');
     });
+    Route::get('search-general', 'AdminController@searchGeneral');
 });
 //Cart
 Route::group(['prefix'=>'dat-hang', 'middleware'=>'login'],function(){
@@ -106,5 +107,5 @@ Route::group(['prefix'=>'account', 'middleware'=>'login'], function(){
     Route::post('change-password', 'AccountController@postPass');
     });
     Route::GET('sendmail','CartController@sendmail');
-Route::GET('pusher','PageController@pusher');
+Route::GET('pusher','AdminController@pusher');
 Route::GET('test_pusher','CartController@testpusher');

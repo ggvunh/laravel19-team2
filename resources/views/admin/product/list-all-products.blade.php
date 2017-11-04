@@ -46,7 +46,6 @@
                                         <th class="myth">Product name</th>
                                         <th class="myth">Product category</th>
                                         <th class="myth">Product brand</th>
-                                        <th class="myth">Description</th>
                                         <th class="myth">Quantity</th>
                                         <th class="myth">Unit</th>
                                         <th class="myth">Unit-Price</th>
@@ -61,7 +60,6 @@
                                         <td >{{$dt->name}}</td>
                                         <td >{{$dt->Category->name}}</td>
                                         <td >{{$dt->Brand->name}}</td>
-                                        <td >{!!$dt->description!!}</td>
                                         <td >{{$dt->quantity}}</td>
                                         <td >{{$dt->unit}}</td>
                                         <td >{{number_format($dt->unit_price)}}<span>&nbsp&nbsp&nbsp</span><span style="color: red">VNĐ</span></td>
