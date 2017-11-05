@@ -72,6 +72,7 @@
                         <div class="form-group">
                                <label for="description">Product description</label>
                                <textarea name="description" id="description"  class="form-control" cols="30" rows="5">{{$product->description}}</textarea>
+                               <script>CKEDITOR.replace('description');</script>
                         </div>
                          @if ($errors->has('description'))
                               <span class="help-block">

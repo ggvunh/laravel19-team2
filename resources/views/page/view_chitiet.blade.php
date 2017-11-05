@@ -6,35 +6,35 @@
             </div>
             <div class="col-sm-9 col-right">
                 <h2>Chi tiết sản phẩm</h2>
-                @foreach($product as $product)
+                @foreach($product as $pr)
                 <div class="col-sm-7">
-                    <img class="nxpimg" src="images/products/{{ $product->image }}" alt="">
+                    <img class="nxpimg" src="images/products/{{ $pr->image }}" alt="">
                 </div>
                 <div class="col-sm-5">
                     <p class="product-name">
-                        <span class="nxp_namesp">{{ $product->name }}</span>
+                        <span class="nxp_namesp">{{ $pr->name }}</span>
                     </p>
                     <p class="nxp_promotion_price">
                         Giá Ưu đãi:
-                        <span class="price">{{number_format($product->promotion_price)}}</span>
+                        <span class="price">{{number_format($pr->promotion_price)}}</span>
                     </p>
                     <p class="old-price">
                         Giá Gốc:
-                        <span class="price">{{number_format($product->unit_price)}}</span>
+                        <span class="price">{{number_format($pr->unit_price)}}</span>
                     </p>
                     <p>Tình trạng: còn hàng</p>
                     <div class="form-group">
                         <form class="" action="dat-hang/add-product_view" method="GET">
-                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <input type="hidden" name="id" value="{{$pr->id}}">
                             <div class="">
                                 <label class="ngp-grup">Số lượng:</label>
                             </div>
                             <div class="input-group qty">
-                                <input type="number" name="qty" value="1" min="1" max="{{$product->quantity}}" style="text-align:center;">
+                                <input type="number" name="qty" value="1" min="1" max="{{$pr->quantity}}" style="text-align:center;">
                             </div><!-- /input-group -->
                             <div class="">
                                 <input type="submit" class="btn btn-danger btn-cart" name="add-product-view" value="Mua hàng">
-                                <!-- <a href="{{url('dat-hang/add-cartviewdetail/'.$product->id.'/'.$product->name)}}"><button class="btn btn-danger btn-cart">Mua Hàng</button></a> -->
+                            
                             </div>
                         </form>
                     </div>
@@ -100,7 +100,7 @@
                             {{$products->links()}}
                         </div>
                         <div class="tab-pane" id="product-review">
-                            {{$product->description}}
+                            {!! $pr->description !!}
                         </div>
                     </div>
                 </div><!-- /.product-tab -->

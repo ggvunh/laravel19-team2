@@ -43,29 +43,29 @@
                                         <th class="myth">Detail</th>
                                         <th class="myth">Change status</th>
                                     </tr>
-                                    @foreach($orderlists as $orderlist)
+                                    @foreach($searchs as $search)
                                     <tr>
-                                        <td class="myth">{{$orderlist->id}}</td>
-                                        <td class="myth">{{number_format($orderlist->total)}}</td>
-                                        <td class="myth">{{$orderlist->user->email}}</td>
-                                        <td class="myth">{{$orderlist->order_address}}</td>
-                                        <td class="myth">{{$orderlist->note}}</td>
-                                        <td class="myth">{{date('d-m-Y',strtotime($orderlist->date_order))}}</td>
+                                        <td class="myth">{{$search->id}}</td>
+                                        <td class="myth">{{number_format($search->total)}}</td>
+                                        <td class="myth">{{$search->user->email}}</td>
+                                        <td class="myth">{{$search->order_address}}</td>
+                                        <td class="myth">{{$search->note}}</td>
+                                        <td class="myth">{{date('d-m-Y',strtotime($search->date_order))}}</td>
                                         <td class="bamtd" style=" color:darkblue;font-weight: bold;">
-                                        	@if(($orderlist->status) == 0)
+                                        	@if(($search->status) == 0)
                                                  Undelivered
-                                            @elseif(($orderlist->status) == 1)
+                                            @elseif(($search->status) == 1)
                                                  Delivery
                                             @else
                                                  Cancelled
                                         	@endif
                                         </td>
-                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$orderlist->id}}" style="color:red" class="click">Detail</a></td>
+                                        <td class="myth"><span class="glyphicon glyphicon-list-alt"></span><a href="{{url('admin/order/detailorder')}}/{{$search->id}}" style="color:red" class="click">Detail</a></td>
                                         <td class="myth change">
-                                            @if(($orderlist->status) ==2 )
+                                            @if(($search->status) ==2 )
                                             <span class="glyphicon glyphicon-remove"></span>
                                             @else
-                                            <a href="{{url('admin/order/check')}}/{{$orderlist->id}}"><button class="btn btn-info">Change</button></a></td>
+                                            <a href="{{url('admin/order/check')}}/{{$search->id}}"><button class="btn btn-info">Change</button></a></td>
                                             @endif
                                     </tr>
                                     @endforeach

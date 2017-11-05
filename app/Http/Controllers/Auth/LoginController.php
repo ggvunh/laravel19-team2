@@ -63,7 +63,4 @@ class LoginController extends Controller
             Toastr::success('Bạn đã đăng nhập thành công', $title = null, $options = []);
             return redirect('/');
     }
-
-
-
 }

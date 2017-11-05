@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="{{url('admin/user/listusers')}}"">User</a></li>
+          <li><a href="{{url('admin/user/listusers')}}">User</a></li>
           <li><a href="">Search Users<a></li>
         </ol>
        </section>
@@ -44,15 +44,15 @@
                           <div class="box-body">
                           <table class="table table-bordered" id="mytable" border="0">
                     <tr class="mytr" >
-                      <th class="myth">User code</th>
-                      <th class="myth">User name</th>
-                      <th class="myth">Gender</th>
-                      <th class="myth">Roles</th>
-                      <th class="myth">Email</th>
-                      <th class="myth">Address</th>
-                      <th class="myth">Phone Number</th>
-                      <th class="myth">Edit</th>
-                      <th class="myth">Delete</th>
+                        <th class="myth">User code</th>
+                        <th class="myth">User name</th>
+                        <th class="myth">Gender</th>
+                        <th class="myth">Roles</th>
+                        <th class="myth">Email</th>
+                        <th class="myth">Address</th>
+                        <th class="myth">Phone Number</th>
+                        <th class="myth">Edit</th>
+                        <th class="myth">Delete</th>
                     </tr>
                     @foreach($search_users as $search_user)
                     <tr>

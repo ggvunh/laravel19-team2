@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\addBrandRequest;
 use App\Http\Requests\editBrandRequest;
 use Toastr;
@@ -53,9 +54,8 @@ class brandController extends Controller
      public function postEditBrands($id ,Request $rq, editBrandRequest $request )
      {
          $data = Brand::find($id);
-         $name = $rq->input('brand-name');
-            if($name != null) $data->name = $name;
-         $logo=$rq->input('brand-image');
+         $data ->name = $rq->input('brand-name');
+         $data ->logo = $rq->input('brand-image');
          if($request->hasFile('brand-image'))
          {
              $file = $request->file('brand-image');
@@ -64,6 +64,9 @@ class brandController extends Controller
              $destinationPath = public_path('/images/brand');
              $file->move($destinationPath, $images);
              $data['logo'] = $images;
+             $oldfile = $data->logo;
+             Storage::delete($oldfile);
+             $data->logo = $images;
          }
          else
          {

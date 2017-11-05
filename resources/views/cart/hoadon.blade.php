@@ -91,7 +91,7 @@
                  </table><br>
             </div><!-- /.col-right -->
             <h3>Cám ơn quý khách đã mua hàng tại guitarshoppkh.vn</h3>
-            <p>Nhân viên sẽ liên hệ với quý khách qua số điện thoại hoạng email.</p>
+            <p>Nhân viên sẽ liên hệ với quý khách qua số điện thoại hoặc email.</p>
             <p>Trân Trọng!!!</p>
         </div>
     </div>
