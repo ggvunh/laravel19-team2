@@ -169,7 +169,6 @@ class OrderController extends Controller
 
     public function Chart ()
     {
-        $result1 =[0];
         $result2 =[0];
         for($i=1;$i<=12;$i++){
             $curent_date = getdate(strtotime(date('Y-m-d')));
@@ -177,16 +176,12 @@ class OrderController extends Controller
             $time2 = $curent_date['year'].'-'.$i.'-'.'31';
             $time_up =$time2.' '.'23'.':'.'59'.':'.'59';
             $time_down =$time1.' '.'00'.':'.'00'.':'.'00';
-            $chart1 = Bill::whereBetween('created_at',[$time_down, $time_up])
-                  ->where('status','0')->get();
             $chart2 = Bill::whereBetween('created_at',[$time_down, $time_up])
                       ->where('status','1')->get();
-            $slg1 =count($chart1);
             $slg2 =count($chart2);
-            array_push( $result1, $slg1);
             array_push( $result2, $slg2);
 
         }
-        return view('admin.calendar.chart')->with(['result1'=>$result1,'result2'=>$result2]);
+        return view('admin.calendar.chart')->with(['result2'=>$result2]);
     }
 }
