@@ -18,14 +18,14 @@
                       <h3>Tìm theo giá</h3>
                   </div>
                   <label class="nxp-111"><b>Từ(*)</b></label>
-                  <input type="text" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
+                  <input type="number" min="0" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
                   @if ($errors->has('keymin'))
                        <span class="help-block">
                            <strong>{{ $errors->first('keymin') }}</strong>
                        </span>
                   @endif
                       <label class="nxp-111"><b>Đến(*)</b></label>
-                      <input type="text" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
+                      <input type="number" min="0" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
                   @if ($errors->has('keymax'))
                        <span class="help-block">
                            <strong>{{ $errors->first('keymax') }}</strong>

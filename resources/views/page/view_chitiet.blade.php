@@ -63,7 +63,7 @@
                                                     <div class='sale-icon'><span>sale</span></div>
                                                 @endif
                                             </div>
-                                            <a href="#" title="Nunc facilisis" class="product-image">
+                                            <a  title="Nunc facilisis" class="product-image">
                                                 <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                             </a>
                                             <div class="box-hover">

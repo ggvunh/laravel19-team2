@@ -18,14 +18,14 @@
                         <h3>Tìm theo giá</h3>
                     </div>
                     <label class="nxp-111"><b>Từ(*)</b></label>
-                    <input type="text" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
+                    <input type="number" min="0" name="keymin" value="{{ isset($_GET['keymin']) ? $_GET['keymin'] : ''}}" placeholder="giá từ..."><br>
                     @if ($errors->has('keymin'))
                          <span class="help-block">
                              <strong>{{ $errors->first('keymin') }}</strong>
                          </span>
                     @endif
                         <label class="nxp-111"><b>Đến(*)</b></label>
-                        <input type="text" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
+                        <input type="number" min="0" name="keymax" value="{{ isset($_GET['keymax']) ? $_GET['keymax'] : ''}}" placeholder="đến..."><br>
                     @if ($errors->has('keymax'))
                          <span class="help-block">
                              <strong>{{ $errors->first('keymax') }}</strong>
@@ -74,7 +74,7 @@
                                         <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
                                     </div>
                                     <div class="des-container">
-                                        <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$product->name}}</a></h2>
+                                        <h2 class="product-name"><a title="Nunc facilisis">{{$product->name}}</a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
                                                 <span class="price-label">gia khuyenmai</span>
