@@ -1,6 +1,6 @@
  @extends('admin.admin-master')
  @section('content')         	
-     <div class="content-wrapper">
+     <div class="content-wrapper nxp-admin">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
