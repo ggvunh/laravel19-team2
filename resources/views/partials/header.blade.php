@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row nxp_fixed_header">
                         @include('page.menu')
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
@@ -169,10 +169,12 @@
         $(document).ready(function () {
             $(window).bind("scroll", function(e) {
                 var top = $(window).scrollTop();
-              if (top> 270) { //Khoảng cách đã đo được
-                $(".header-bottom").addClass("fix-box-nxp");
+              if (top> 150) { //Khoảng cách đã đo được
+                $(".nxp_fixed_header").addClass("fix-box-nxp");
+                $(".mini-cart").addClass("fix-cart-nxp");
               } else {
-                $(".header-bottom").removeClass("fix-box-nxp");
+                $(".nxp_fixed_header").removeClass("fix-box-nxp");
+                $(".mini-cart").removeClass("fix-cart-nxp");
               }
             });
         });
