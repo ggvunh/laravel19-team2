@@ -56,6 +56,7 @@
         <script src="{{('js/jquery-ui.min.js')}}"></script>
         <script src="{{('js/jquery.bxslider.min.js')}}"></script>
         <script src="{{('js/cloud-zoom.js')}}"></script>
+        <script src="{{asset('js/adminjs/jquery.confirm.min.js')}}"></script>
         <script type="text/javascript">
             /* Main Slideshow */
             $(window).load(function() {

@@ -53,7 +53,7 @@
 .ajax-load-qa {
 	background: url("http://i.imgur.com/Tn4nzow.gif") no-repeat center center black;
 	position: fixed;
-	z-index: 100;
+	z-index: 90055500 !important;
 	opacity: 0.7;
 	left: 0;
 	top: 0;
