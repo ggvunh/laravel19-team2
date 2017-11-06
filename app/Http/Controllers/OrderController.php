@@ -41,7 +41,6 @@ class OrderController extends Controller
                 $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
                                       ->where('status','0')
                                       ->orderBy('id','desc')->paginate(25);
-
                 $result_search = $result_search_date ;
                 $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
                                       ->where('status','0')
@@ -52,7 +51,7 @@ class OrderController extends Controller
                     $count_money=($count_money+($x[$i]->total));
                 }
 
-            }else{
+            }elseif($status ==2){
                 $Search_up = date('Y-m-d',(strtotime($search_input2))).' '.'23'.':'.'59'.':'.'59';
                 $Search_down = date('Y-m-d',(strtotime($search_input1))).' '.'00'.':'.'00'.':'.'00';
                 $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
@@ -62,6 +61,22 @@ class OrderController extends Controller
                 $result_search = $result_search_date ;
                 $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
                                       ->where('status','1')
+                                      ->orderBy('id','desc')->get();
+                $count_search = count($x);
+                $count_money = 0;
+                for($i=0;$i< $count_search;$i=$i+1){
+                    $count_money=($count_money+($x[$i]->total));
+                }
+            }else{
+                $Search_up = date('Y-m-d',(strtotime($search_input2))).' '.'23'.':'.'59'.':'.'59';
+                $Search_down = date('Y-m-d',(strtotime($search_input1))).' '.'00'.':'.'00'.':'.'00';
+                $result_search_date = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','2')
+                                      ->orderBy('id','desc')->paginate(25);
+
+                $result_search = $result_search_date ;
+                $x = Bill::whereBetween('created_at',[ $Search_down, $Search_up])
+                                      ->where('status','2')
                                       ->orderBy('id','desc')->get();
                 $count_search = count($x);
                 $count_money = 0;
@@ -88,10 +103,18 @@ class OrderController extends Controller
                     for($i=0;$i< $count_search;$i=$i+1){
                              $count_money=($count_money+($x[$i]->total));
                     }
-                }else
+                }elseif($status==2)
                 {
                     $result_search = Bill::where('status','1')->paginate(25);
                     $x = Bill::where('status','1')->get();
+                    $count_search = count($x);
+                    $count_money = 0;
+                    for($i=0;$i< $count_search;$i=$i+1){
+                             $count_money=($count_money+($x[$i]->total));
+                    }
+                }else{
+                    $result_search = Bill::where('status','2')->paginate(25);
+                    $x = Bill::where('status','2')->get();
                     $count_search = count($x);
                     $count_money = 0;
                     for($i=0;$i< $count_search;$i=$i+1){
@@ -169,6 +192,7 @@ class OrderController extends Controller
 
     public function Chart ()
     {
+        $result1 =[0];
         $result2 =[0];
         for($i=1;$i<=12;$i++){
             $curent_date = getdate(strtotime(date('Y-m-d')));
@@ -176,12 +200,15 @@ class OrderController extends Controller
             $time2 = $curent_date['year'].'-'.$i.'-'.'31';
             $time_up =$time2.' '.'23'.':'.'59'.':'.'59';
             $time_down =$time1.' '.'00'.':'.'00'.':'.'00';
-            $chart2 = Bill::whereBetween('created_at',[$time_down, $time_up])
+            $chart1 = Bill::whereBetween('created_at',[$time_down, $time_up])
                       ->where('status','1')->get();
+            $chart2 = Bill::whereBetween('created_at',[$time_down, $time_up])
+                      ->where('status','0')->get();
+            $slg1 =count($chart1);
             $slg2 =count($chart2);
+            array_push( $result1, $slg1);
             array_push( $result2, $slg2);
-
         }
-        return view('admin.calendar.chart')->with(['result2'=>$result2]);
+        return view('admin.calendar.chart')->with(['result2'=>$result2,'result1'=>$result1]);
     }
 }
