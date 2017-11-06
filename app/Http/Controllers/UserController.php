@@ -62,7 +62,7 @@ class userController extends Controller
     public function getOrderlists($id)
     {
         $users = User::find($id);
-        $orderlists = $users->bill()->paginate(10);
+        $orderlists = $users->bill()->orderBy('id', 'desc')->paginate(10);
         return view('admin.users.list-order', compact('orderlists'));
     }
 }
