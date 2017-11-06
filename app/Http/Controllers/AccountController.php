@@ -18,12 +18,13 @@ class AccountController extends Controller
         public function getBills()
         {
             $user = User::find(Auth::user()->id);
-            $bills = $user ->bill() ->paginate(10);
+            $bills = $user ->bill()->orderBy('id', 'desc') ->paginate(10);
             return view('account.list-bills', compact('bills'));
         }
 
         public function getBillDetail($id)
         {
+
             $billdetails = BillDetail::where('bill_id', $id)->get();
             return view('account.list-billdetail', compact('billdetails', 'id'));
         }
@@ -36,6 +37,7 @@ class AccountController extends Controller
                 $data ->status = '2';
             }
             $data->save();
+            Toastr::success('Hủy đơn hàng thành công', $title = null, $options = []);
             return redirect('account/orderlists');
         }
 
