@@ -54,11 +54,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green-nxp"><i class="ion ion-android-textsms"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="ion ion-nuclear"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Comment</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Brands</span>
+              <span class="info-box-number">{{$brand}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -83,7 +83,7 @@
             <span class="info-box-icon bg-yellow"><i class="ion ion-load-a"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Ordering</span>
-              <span class="info-box-number">{{$order - $ordered}}</span>
+              <span class="info-box-number">{{$order - $ordered - $ordercancel}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -105,11 +105,10 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-nuclear"></i></span>
-
+            <span class="info-box-icon bg-green-nxp"><i class="ion ion-android-textsms"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Brands</span>
-              <span class="info-box-number">{{$brand}}</span>
+              <span class="info-box-text">Order cancel</span>
+              <span class="info-box-number">{{$ordercancel}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
