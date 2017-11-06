@@ -3404,6 +3404,17 @@ p {
     position: fixed;
     width: 100%;
     top: 0px;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid red;
+}
+.fix-cart-nxp{
+    position: fixed;
+    width: 25%;
+    right: 0px;
+    top: 40px;
+    z-index: 10001;
+    background-color: #a5a5a5;
 }
 
 .header-bottom{
