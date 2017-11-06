@@ -59,15 +59,15 @@
                             <div class='testimonial-list'>
                                 <div class="testimonial-sidebar-content">
                                     <div class="content">
-                                        <a href="#">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros...</a>
+                                        <a href="#">Shop uy tín, nhanh gọn. Chủ shop cực nhiệt tình và thoải mái ♡...</a>
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
                                             <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
-                                            <span class="testimonial-author">Mr rooney</span>
-                                            <span class="testimonial-date">March 24, 2015</span>
+                                            <span class="testimonial-author">Phan Anh Khoa</span>
+                                            <span class="testimonial-date">November 6, 2017</span>
                                         </div>
                                     </div>
                                 </div>
@@ -75,15 +75,15 @@
                             <div class='testimonial-list'>
                                 <div class="testimonial-sidebar-content">
                                     <div class="content">
-                                        <a href="#">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et...</a>
+                                        <a href="#">Shop nhiệt tình.đàn ngon,giá vừa túi tiền.nói chung là ok...</a>
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
                                             <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
-                                            <span class="testimonial-author">Robert Carlo</span>
-                                            <span class="testimonial-date">January 30, 2015</span>
+                                            <span class="testimonial-author">Dương Đông Hưng</span>
+                                            <span class="testimonial-date">November 6 2017</span>
                                         </div>
                                     </div>
                                 </div>
@@ -91,15 +91,15 @@
                             <div class='testimonial-list'>
                                 <div class="testimonial-sidebar-content">
                                     <div class="content">
-                                        <a href="#">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et... </a>
+                                        <a href="#">Chất lượng tốt , ok 😄😄. Nhân viên lại thân thiện... </a>
                                     </div>
                                     <div class="post-by">
                                         <div class="testimonial-content-avatar">
                                             <img src="" alt="image" />
                                         </div>
                                         <div class="box-author">
-                                            <span class="testimonial-author">mr Lee</span>
-                                            <span class="testimonial-date">January 30, 2015</span>
+                                            <span class="testimonial-author">Nguyễn Xuân Phương</span>
+                                            <span class="testimonial-date">November 6, 2017</span>
                                         </div>
                                     </div>
                                 </div>
