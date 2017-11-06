@@ -16,7 +16,7 @@ class PDFController extends Controller
         $bill = Bill::find($id);
         $user = User::where('id',$bill->user_id)->first();
         $pdf = PDF::loadView('admin.pdf.order', compact('exportdetails', 'id', 'bill', 'user'));
-        $filename = time(). "_orderdetail.pdf";
+        $filename = "$user->name". '_orderdetail.pdf';
         return $pdf ->stream("$filename");
     }
 }
