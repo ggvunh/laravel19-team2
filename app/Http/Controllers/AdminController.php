@@ -17,7 +17,8 @@ class AdminController extends Controller
         $order = count(Bill::all());
         $ordered = count(Bill::where('status','1')->get());
         $brand = count(Brand::all());
-        return view('admin.admin-home', compact('user','product','order','ordered','brand'));
+        $ordercancel = count(Bill::where('status','2')->get());
+        return view('admin.admin-home', compact('user','product','order','ordered','brand','ordercancel'));
     }
 
     public function pusher()
