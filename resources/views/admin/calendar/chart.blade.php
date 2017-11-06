@@ -21,7 +21,7 @@
           <!-- AREA CHART -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">&nbsp&nbsp<button style="background-color: #4b94c0; height: 15px;"></button> Delivery</h3>
+              <h3 class="box-title">&nbsp&nbsp<button style="background-color: #4b94c0; height: 15px;"></button> Delivery&nbsp&nbsp<button style="background-color: #d8e8f2; height: 15px;"></button> Undelivery</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -73,10 +73,10 @@
       datasets: [
         
         {
-          label               : 'Dilevery',
-          fillColor           : 'rgba(60,141,188,0.9)',
-          strokeColor         : 'rgba(60,141,188,0.8)',
-          pointColor          : '#3b8bba',
+          label               : 'Undilevery',
+          fillColor           : 'rgba(60,141,188,0.2)',
+          strokeColor         : 'rgba(60,141,188,0.4)',
+          pointColor          : '#c1c7d1',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
@@ -86,6 +86,24 @@
              	for($i=1;$i<count($result2);$i=$i+1){
              	  echo($result2[$i].',');
              	}
+             }
+          ?>  
+          ]
+        },
+         {
+          label               : 'Dilevery',
+          fillColor           : 'rgba(60,141,188,1)',
+          strokeColor         : 'rgba(60,141,188,1)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [
+          <?php
+            if(count($result1)>0){
+              for($i=1;$i<count($result1);$i=$i+1){
+                echo($result1[$i].',');
+              }
              }
           ?>  
           ]

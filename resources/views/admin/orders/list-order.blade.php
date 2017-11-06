@@ -32,6 +32,7 @@
                                               <option value="0">Both</option>
                                               <option value="1">Undilevery</option>
                                               <option value="2">Dilevery</option>
+                                              <option value="3">Canceled</option>
                                            </select>
                                             <span style="color: black; font-weight: bold">Start</span><input type="date" class="form-control " style="width:155px" name="search1" @if(isset($search_input1))
                                                value="{{$search_input1}}"
