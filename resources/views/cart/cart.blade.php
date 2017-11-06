@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
     <div class="container">
+        <div id="ajax_loader" class="ajax-load-qa"><h2 class="loading">Loading...</h2></div>
         <div class="row">
             <form  action="{{url('dat-hang/checkout')}}" method="GET">
                 <input type="hidden" name="token" value="{{ csrf_token() }}">
@@ -105,7 +106,7 @@
                                         </tr>
                                     </table>
         							<div class="text-right">
-                                    	   <p><button type="submit" class="btn btn-default btn-md fwb" >THANH TOÁN</button></p>
+                                    	   <p><button type="submit" class="click btn btn-default btn-md fwb" >THANH TOÁN</button></p>
                                     </div>
                                 </div>
 
@@ -135,5 +136,16 @@
                 });
             });
         });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.click').click(function(){
+              $('#ajax_loader').css( 'display', 'block' );
+              setTimeout(function(){
+                  $('#ajax_loader').css( 'display', 'none' );
+              }, 8000);
+            });
+        });
+
     </script>
 @stop
