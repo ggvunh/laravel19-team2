@@ -55,7 +55,6 @@ class brandController extends Controller
      {
          $data = Brand::find($id);
          $data ->name = $rq->input('brand-name');
-         $data ->logo = $rq->input('brand-image');
          if($request->hasFile('brand-image'))
          {
              $file = $request->file('brand-image');
@@ -67,10 +66,6 @@ class brandController extends Controller
              $oldfile = $data->logo;
              Storage::delete($oldfile);
              $data->logo = $images;
-         }
-         else
-         {
-          $data['logo'] = '';
          }
          $data->save();
          Toastr::success('Add successful brand', $title = null, $options = []);

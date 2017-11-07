@@ -49,7 +49,7 @@
                       <div class="box">
                           <div class="box-body">
                               <div>
-                                 <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
+                                  <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
                                       @if(isset($count_search))
                                         {{$count_search}}
                                       @else
@@ -65,6 +65,7 @@
                                       @endif
                                     </span>
                               </div>
+                              <p>Export orders: <a href="{{ route('export-order') }}"><span class="glyphicon glyphicon-export"></span></a></p>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>
