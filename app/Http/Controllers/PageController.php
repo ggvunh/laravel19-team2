@@ -38,7 +38,13 @@ class PageController extends Controller
     public function searchsp(Request $req)
     {
         $key=$req->key;
+        // $brand = Brand::where('name','like','%'.$req->key.'%')->get();
+        // $brand_id = $brand->id;
         $products = Product::where([['name','like','%'.$req->key.'%'],['quantity', '>', 0]])
+            // foreach($brand as $brand)
+            // {
+            //     ->orwhere([['brand_id',$brand->id],['quantity', '>', 0]])
+            // }
             ->orwhere('unit_price',$req->key)
             ->orwhere('promotion_price',$req->key)
             ->paginate(6);
