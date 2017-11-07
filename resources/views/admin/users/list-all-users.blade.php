@@ -42,7 +42,7 @@
 						@endif
 						<div class="box">
 						    <div class="box-body">
-                                <p>Export user: <a href="{{ route('export-user') }}"><span class="glyphicon glyphicon-export"></span></a> </p>
+                                <p>Export users: <a href="{{ route('export-user') }}"><span class="glyphicon glyphicon-export"></span></a> </p>
     		                    <table class="table table-bordered" id="mytable" border="0">
                 					<tr class="mytr" >
                 					  <th class="myth">User code</th>

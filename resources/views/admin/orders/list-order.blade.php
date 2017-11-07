@@ -45,7 +45,7 @@
                                     </form></a>
                               </div>
                          </nav>
-                      </div>
+                     </div>
                       <div class="box">
                           <div class="box-body">
                               <div>
@@ -65,6 +65,7 @@
                                       @endif
                                     </span>
                               </div>
+                              <p>Export orders: <a href="{{ route('export-order') }}"><span class="glyphicon glyphicon-export"></span></a></p>
                                 <table class="table table-bordered" id="mytable" border="0">
                                     <tr class="mytr" >
                                         <th class="myth">Order code</th>

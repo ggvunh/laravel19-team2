@@ -7,8 +7,8 @@
     <body>
         <div style="float: left;"><img src="images/logo.png" ></div>
         <div style="float: right;">
-            <h3>TRUNG TAM MUA SAM NHAC CU PKH</h3>
-            <H4 style="text-align: left;">Dia chi: Tp Da Nang</h4>
+            <h3>PKH MUSICAL INSTRUMENTS STORE</h3>
+            <H4 style="text-align: left;">Address: Da Nang City</h4>
             <H4 style="text-align: left;">Hotline: 0934.83.83.81</h4>
             <H4 style="text-align: left;">Email: guitarshoppkh@gmail.com</h4>
         </div>
@@ -16,13 +16,32 @@
 
         </div>
         <div>
-            <h2 style="text-align: center;">DON HANG NHAN DUOC</h2>
+            <h2 style="text-align: center;">INVOICE</h2>
+            <table class="table table-bordered" id="mytable" border="0" style="width: 90%; margin: auto;">
+                <tr>
+                    <th>Name:</th>
+                    <td>{{$user->name}}</td>
+                </tr>
+                <tr>
+                    <th>phone number:</th>
+                    <td>{{$user->phone_number}}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{$user->email}}</td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td>{{$user->address}}</td>
+                </tr>
+            </table><br>
+
             <table class="table table-bordered" id="mytable" border="1" style="width: 90%; margin: auto;">
                 <tr>
-                    <th class="myth" style="text-align: center; width: 15%;">Ma don hang</th>
-                    <th class="myth" style="text-align: center; width: 25%;">Ngay</th>
-                    <th class="myth" style="text-align: center; width: 25%;">Tong</th>
-                    <th class="myth" style="text-align: center; width: 25%;">Dia chi giao hang</th>
+                    <th class="myth" style="text-align: center; width: 15%;">Order code</th>
+                    <th class="myth" style="text-align: center; width: 25%;">Date</th>
+                    <th class="myth" style="text-align: center; width: 25%;">Total</th>
+                    <th class="myth" style="text-align: center; width: 25%;">Shipping address</th>
                 </tr>
                 <tr>
                     <td style="text-align: center; width: 15%;">#{{$bill ->id}}</td>
@@ -32,13 +51,13 @@
                 </tr>
             </table>
 
-            <h3 style="text-align: center;">CHI TIET DON HANG #{{$id}}</h3>
+            <h3 style="text-align: center;">Details</h3>
 
              <table class="table table-bordered" id="mytable" border="1" style="width: 90%; margin: auto;">
                  <tr>
-                     <th class="myth" style="text-align: center; width: 50%;">San pham</th>
-                     <th class="myth" style="text-align: center; width: 15%;">So luong</th>
-                     <th class="myth" style="text-align: center; width: 25%;">Thanh tien</th>
+                     <th class="myth" style="text-align: center; width: 50%;">Products</th>
+                     <th class="myth" style="text-align: center; width: 15%;">Quantity</th>
+                     <th class="myth" style="text-align: center; width: 25%;">Price</th>
                  </tr>
                  @foreach($exportdetails as $billdetail)
                  <tr>
@@ -47,26 +66,6 @@
                      <td style="text-align: center; width: 30%;">{{ number_format($billdetail->unit_price) }}vnd</td>
                  </tr>
                  @endforeach
-             </table><br>
-
-             <h3 style="text-align: center; margin: auto;">Chi tiet khach hang</h3><br><br>
-             <table class="table table-bordered" id="mytable" border="1" style="width: 60%; margin: auto;">
-                 <tr>
-                     <th>Ten</th>
-                     <td>{{$user->name}}</td>
-                 </tr>
-                 <tr>
-                     <th>So dien thoai</th>
-                     <td>{{$user->phone_number}}</td>
-                 </tr>
-                 <tr>
-                     <th>Email</th>
-                     <td>{{$user->email}}</td>
-                 </tr>
-                 <tr>
-                     <th>Dia chi</th>
-                     <td>{{$user->address}}</td>
-                 </tr>
              </table><br>
         </div>
     </body>
