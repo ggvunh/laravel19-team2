@@ -217,3 +217,13 @@ class OrderController extends Controller
         return view('admin.calendar.chart')->with(['result2'=>$result2,'result1'=>$result1,'result3'=>$result3]);
     }
 }
+
+// use Illuminate\Support\Collection;
+// use Illuminate\Pagination\LengthAwarePaginator;
+// //2cai tren bo tren name space
+// $currentPage = LengthAwarePaginator::resolveCurrentPage();
+// $col = new Collection($products);
+// $perPage = 5; // so san pham o moi trang
+// $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+// $bien_truyenquaview = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,[‘path’ => LengthAwarePaginator::resolveCurrentPath()] );
+// // dem bien $bien_truyenquaview truyen qua view binh thuong,phan trang nhu paginate, neu khong giu duoc link khi chuyen trang thi dung cai nhu bua truoc tui noi ong do...
