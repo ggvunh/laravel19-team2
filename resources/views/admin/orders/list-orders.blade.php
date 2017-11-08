@@ -45,11 +45,11 @@
                                     </form></a>
                               </div>
                          </nav>
-                     </div>
+                      </div>
                       <div class="box">
                           <div class="box-body">
                               <div>
-                                 <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
+                                  <span style="color: red;font-size:20px">Have </span><span style="color: black;font-size: 25px" >
                                       @if(isset($count_search))
                                         {{$count_search}}
                                       @else
@@ -78,8 +78,8 @@
                                         <th class="myth">Detail</th>
                                         <th class="myth">Change status</th>
                                     </tr>
-                                    @if(isset($orders))
-                                    @foreach($orders as $bill)
+                                    @if(isset($result_searchs))
+                                    @foreach($result_searchs as $bill)
                                     <tr>
                                         <td class="myth">{{$bill->id}}</td>
                                         <td class="myth">{{number_format($bill->total)}}</td>
@@ -108,8 +108,8 @@
                                     @endif
                                 </table>
                           </div>
-                        @if(isset($orders))
-                        {{$orders->links()}}
+                        @if(isset($result_searchs))
+                        {{$result_searchs->links()}}
                         @endif
                       </div>
                  </div>

@@ -45,7 +45,10 @@ class categoryController extends Controller
     {
         $data = Category::find($id);
         $data ->name = $rq->input('category-name');
-        $data ->menu_id = $rq->input('menu');
+        if($rq->input('menu')!= 0)
+        {
+            $data ->menu_id = $rq->input('menu');
+        }
         $data->update();
         Toastr::success('Edit successful category', $title = null, $options = []);
         return redirect('admin/category/listcategories');

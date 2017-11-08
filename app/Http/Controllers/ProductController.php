@@ -140,7 +140,7 @@ class ProductController extends Controller
         $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
         $result_search = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
 
-        return view('admin.product.search')->with(['result_search'=>$result_search->appends(Input::except('page')),'products'=>$products,'search'=>$search]);
+        return view('admin.product.search')->with(['result_search'=>$result_search->appends(Input::except('page')),'search'=>$search]);
     }
 
 }
