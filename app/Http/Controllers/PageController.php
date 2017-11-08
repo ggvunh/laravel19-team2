@@ -13,6 +13,8 @@ use App\Http\Requests\addCategoryRequest;
 use App\Http\Requests\editProductRequest;
 use App\Http\Requests\SearchIsPrice;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 class PageController extends Controller
 {
     public function getIndex()
@@ -38,18 +40,36 @@ class PageController extends Controller
     public function searchsp(Request $req)
     {
         $key=$req->key;
-        // $brand = Brand::where('name','like','%'.$req->key.'%')->get();
-        // $brand_id = $brand->id;
-        $products = Product::where([['name','like','%'.$req->key.'%'],['quantity', '>', 0]])
-            // foreach($brand as $brand)
-            // {
-            //     ->orwhere([['brand_id',$brand->id],['quantity', '>', 0]])
-            // }
-            ->orwhere('unit_price',$req->key)
-            ->orwhere('promotion_price',$req->key)
-            ->paginate(6);
-        return view('page.searchsp', compact('products','key'));
+        $products = array();
+        $product_is_name = Product::where([['name','like','%'.$req->key.'%'],['quantity', '>', 0]])->get();
+        foreach ($product_is_name as $product_is_name ) {
+            $products[] = $product_is_name;
+        }
+        $brand = Brand::where('name','like','%'.$req->key.'%')->get();
+        foreach ($brand as $brand) {
+            $brand_id = $brand->id;
+            $product_is_brand = Product::where([['brand_id',$brand_id],['quantity', '>', 0]])->get();
+            foreach ($product_is_brand as $product_is_brand) {
+                $products[] = $product_is_brand;
+            }
+        }
+        $categories = Category::where('name','like','%'.$req->key.'%')->get();
+        foreach ($categories as $category) {
+            $category_id = $category->id;
+            $product_is_category = Product::where([['category_id',$category_id],['quantity', '>', 0]])->get();
+            foreach ($product_is_category as $product_is_category) {
+                $products[] = $product_is_category;
+            }
+        }
+        $products = array_unique($products);
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $col = new Collection($products);
+        $perPage = 6;
+        $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $result_search = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage,['path' => LengthAwarePaginator::resolveCurrentPath()] );
+        return view('page.searchsp')->with(['result_search'=>$result_search->appends(Input::except('page')),'products'=>$products,'key'=>$key]);
     }
+
     public function search_is_price(Request $req, SearchIsPrice $request)
     {
         $keymin = $req->keymin;

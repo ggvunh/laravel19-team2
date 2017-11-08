@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{$bill_id}}</td>
                     <td>{{$date_order}}</td>
-                    <td>{{$total}}</td>
+                    <td>{{number_format($total)}}</td>
                     <td>{{$address}}</td>
                 </tr>
             </table>

@@ -31,7 +31,7 @@
                 <div class="page-title">
                     <h1>TÌM KIẾM SẢN PHẨM</h1>
                     <h4>Từ khóa tìm kiếm: <b>{{$key}}</b></h4>
-                    <h4>Tìm thấy: <b>{{ $products->total() }}</b> sản phẩm</h4>
+                    <h4>Tìm thấy: <b>{{ count($products) }}</b> sản phẩm</h4>
                 </div>
                 <div class="toolbar">
                     <div class="pager">
@@ -47,7 +47,7 @@
                     </div><!--- /.pager -->
                 </div><!-- /.toolbar -->
                 <div class="row products">
-                    @foreach($products as $product)
+                    @foreach($result_search as $product)
                         <div class="col-md-4 col-sm-6">
                             <div class='productslider-item item'>
                                 <div class="item-inner">
@@ -92,7 +92,7 @@
                     @endforeach
                 </div><!-- /.product -->
                 <div class="clearfix"></div>
-                {{$products->appends(['key' => $key])->links()}}
+                {{$result_search->links()}}
                 <div class="toolbar">
                     <div class="pager">
                         <div class="sort-by hidden-xs">
@@ -107,7 +107,6 @@
                     </div><!-- /.pager -->
                 </div><!-- /.toolbar -->
             </div><!-- /.col-right -->
-
         </div>
     </div>
 @stop
