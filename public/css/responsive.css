@@ -114,9 +114,12 @@
     .topbar-right {
         float: none;
     }
-    .topbar-nav {
-        display: inline-block;
+    .topbar{
+        display: none;
         background-color: #fff;
+    }
+    .nxp-111 {
+        width: 256px;
     }
     .topbar-nav > li {
         float: none;
@@ -130,9 +133,11 @@
     .logo {
         padding: 25px 0;
         border: 0;
+        display: none;
     }
     .support-client {
         margin-top: 0;
+        display: none;
     }
     .header-bottom {
         border-bottom: 0;
@@ -204,9 +209,14 @@
         display: inline-block;
         margin-bottom: 10px;
     }
+    .topbar{
+        display: none;
+    }
+    .search_price {
+        width: 300px;
+    }
     .form-search,
     .mini-cart {
-        float: none;
         display: inline-block;
     }
     .ads img,
@@ -286,5 +296,11 @@
     }
     .form-search .dropdown {
         display: none;
+    }
+    .topbar {
+        display: none;
+    }
+    .top-cart-title {
+        width: 100px;
     }
 }
