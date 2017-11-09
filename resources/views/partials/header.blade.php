@@ -101,7 +101,7 @@
                             <ul class="menu clearfix visible-lg visible-md">
                                 <li><a href="{{url('/')}}">Trang chủ</a></li>
                                 <li id="page_product"><a href="{{url('gioithieu')}}">giới thiệu</a></li>
-                                <li><a href="{{ url('san-pham') }}">Sản Phẩm</a></li>
+                                <li><a href="{{ url('san-pham')}}">Sản Phẩm</a></li>
                                 <li><a href="#">Chia sẻ</a></li>
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">Liên Hệ</a></li>
@@ -122,43 +122,12 @@
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computer <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Desktop PC</a></li>
-                                        <li><a href="#">Notebook</a></li>
-                                        <li><a href="#">Gaming</a></li>
-                                        <li><a href="#">Mouse &amp; Keyboard</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Camera <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Walkera</a></li>
-                                        <li><a href="#">Fpv System &amp; Parts</a></li>
-                                        <li><a href="#">RC Cars &amp; Parts</a></li>
-                                        <li><a href="#">Helicopters &amp; Part</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Smart Phone <span class="fa fa-angle-down"></span></a>                                   <ul class="dropdown-menu">
-                                        <li><a href="#">Accessories for iPhone</a></li>
-                                        <li><a href="#">Accessories for iPad</a></li>
-                                        <li><a href="#">Accessories for Tablet PC</a></li>
-                                        <li><a href="#">Tablet PC</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Electtronic <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Batteries &amp; Chargers</a></li>
-                                        <li><a href="#">Headphone, Headset</a></li>
-                                        <li><a href="#">Home Audio</a></li>
-                                        <li><a href="#">Mp3 Player Accessories</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="{{url('/')}}">Trang chủ</a></li>
+                                <li><a href="{{url('gioithieu')}}">Giới thiệu</a></li>
+                                <li><a href="{{ url('san-pham')}}">Sản phẩm</a></li>
+                                <li><a href="#">Chia sẻ</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Liên hệ</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container -->
