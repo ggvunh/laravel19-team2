@@ -1424,6 +1424,7 @@ a:focus {
 .product-image {
     background: #fff;
     display: block;
+    min-height: 270px;
 }
 .product-image img {
     width: 100%;

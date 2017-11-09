@@ -130,7 +130,13 @@
                                         <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id) }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @if(Auth::user())
+                                            <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @else
+                                            <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}">
+                                                <button class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  style="font-size:24px">xem chi tiết </button>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="des-container">
                                         <h2 class="product-name"><a title="Nunc facilisis">{{ $product->name }}</a></h2>
@@ -179,7 +185,13 @@
                                         <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @if(Auth::user())
+                                            <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @else
+                                            <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}">
+                                                <button class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  style="font-size:24px">xem chi tiết </button>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="des-container">
                                         <h2 class="product-name"><a title="Nunc facilisis">{{ $product->name }}</a></h2>
@@ -227,7 +239,13 @@
                                         <a href="{{ url('xem_chitiet/'.$product->id.'&'.$product->category_id) }}" title="Nunc facilisis" class="product-image">
                                             <img src="images/products/{{ $product->image }}" alt="Nunc facilisis" />
                                         </a>
-                                        <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @if(Auth::user())
+                                            <button id="{{$product->id}}" class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  name="{{$product->name}}" style="font-size:24px"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Mua Hàng </button>
+                                        @else
+                                            <a href="{{url('xem_chitiet/'.$product->id.'&'.$product->category_id)}}">
+                                                <button class="btn btn-default btn-sm add-cart-nxp add_to_card btn btn-danger"  style="font-size:24px">xem chi tiết </button>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="des-container">
                                         <h2 class="product-name"><a title="{{ $product->name }}">{{ $product->name }}</a></h2>
