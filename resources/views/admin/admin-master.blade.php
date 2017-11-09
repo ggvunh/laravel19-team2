@@ -485,7 +485,7 @@ desired effect
             $.notify({
 
             	message: data.message + 'order code: '+data.id,
-            	url: "account/orderdetail/"+data.id,
+            	url: "admin/order/detailorder/"+data.id,
             	target: "_blank"
             });
         });
