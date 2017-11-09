@@ -93,7 +93,7 @@ class CartController extends Controller
             // Twilio::message($phone_send, 'Guitarshop: bạn đã checkout thành công! mã order: '.$code);
             //send mail
             $billtomail = Bill::find($bill->id);
-            Mail::to(Auth::user()->email)->send(new OrderShipped($billtomail));
+            // Mail::to(Auth::user()->email)->send(new OrderShipped($billtomail));
             $options = array(
             'cluster' => 'ap1',
             'encrypted' => true
